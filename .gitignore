@@ -3,8 +3,12 @@
 *.user
 *.suo
 
-# Ignore build directories
+# Ignore build files
+build/
 Debug/
 Release/
-x64/
-x86/
+
+# Ignore logs and temporary files
+*.log
+
+*.user
