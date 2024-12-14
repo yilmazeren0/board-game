@@ -13,8 +13,8 @@ private:
 	sf::RenderWindow* window;
 	sf::RectangleShape edge;
 
-	static std::array<sf::Vector2f, 54> centerPoints;
-	static std::array<float, 54> rotations;
+	static std::array<sf::Vector2f, 72> centerPoints;
+	static std::array<float, 72> rotations;
 	static const float center;
 	static const float radius;
 };
