@@ -16,11 +16,12 @@ public:
 private:
 
 	void initBoard();
-
+	void updateMousePosition();
 
 private:
 	sf::RenderWindow* window;
 	std::vector<Hex> hexes;
 	std::vector<Edge> edges;
+	sf::Vector2f mousePosition;
 };
 

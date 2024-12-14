@@ -12,11 +12,19 @@ Board::~Board()
 
 void Board::update()
 {
+	updateMousePosition();
+
 	for (auto hexIterator = hexes.begin(); hexIterator != hexes.end();) {
 
 		(*hexIterator).update();
 		++hexIterator;
 	}
+	for (auto edgeIterator = edges.begin(); edgeIterator != edges.end();) {
+
+		(*edgeIterator).update(mousePosition);
+		++edgeIterator;
+	}
+
 }
 
 void Board::draw()
@@ -42,4 +50,9 @@ void Board::initBoard()
 		edges.emplace_back(window, i);
 	}
 	
+}
+
+void Board::updateMousePosition() {
+	sf::Vector2i pixelPos = sf::Mouse::getPosition(*window);
+	mousePosition = window->mapPixelToCoords(pixelPos);
 }
