@@ -38,7 +38,7 @@ void Board::initBoard()
 	for (int i = 0; i < 19; i++) {
 		hexes.emplace_back(window, i);
 	}
-	for (int i = 0; i < 11; i++) {
+	for (int i = 0; i < 72; i++) {
 		edges.emplace_back(window, i);
 	}
 	
