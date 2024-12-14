@@ -53,7 +53,7 @@ std::array<sf::Vector2f, 72> Edge::centerPoints = {
     sf::Vector2f(center - 2.0f * radius, center - 1.0f * std::sqrt(3.0f) * radius),//19 hex4 hex5
     sf::Vector2f(center - 2.5f * radius, center - 0.5f * std::sqrt(3.0f) * radius),//20 hex4 hex9
     sf::Vector2f(center - 3.5f * radius, center - 0.5f * std::sqrt(3.0f) * radius),//21 hex4 hex8
-    sf::Vector2f(center, center - 1.0f * std::sqrt(3.0f) * radius),//22                 hex5 hex6
+    sf::Vector2f(center, center - 1.0f * std::sqrt(3.0f) * radius),                //22 hex5 hex6
     sf::Vector2f(center - 0.5f * radius, center - 0.5f * std::sqrt(3.0f) * radius),//23 hex5 hex10
     sf::Vector2f(center - 1.5f * radius, center - 0.5f * std::sqrt(3.0f) * radius),//24 hex5 hex9
     sf::Vector2f(center + 2.0f * radius, center - 1.0f * std::sqrt(3.0f) * radius),//25 hex6 hex7
@@ -63,29 +63,29 @@ std::array<sf::Vector2f, 72> Edge::centerPoints = {
     sf::Vector2f(center + 4.0f * radius, center - 1.0f * std::sqrt(3.0f) * radius),//29 hex7
     sf::Vector2f(center + 3.5f * radius, center - 0.5f * std::sqrt(3.0f) * radius),//30 hex7 hex12
     sf::Vector2f(center + 2.5f * radius, center - 0.5f * std::sqrt(3.0f) * radius),//31 hex7 hex11
-    sf::Vector2f(center - 5.0f * radius, center),//32                                   hex8
+    sf::Vector2f(center - 5.0f * radius, center),                                  //32 hex8
     sf::Vector2f(center - 4.5f * radius, center - 0.5f * std::sqrt(3.0f) * radius),//33 hex8
-    sf::Vector2f(center - 3.0f * radius, center),//34                                   hex8 hex9
+    sf::Vector2f(center - 3.0f * radius, center),                                  //34 hex8 hex9
     sf::Vector2f(center - 3.5f * radius, center + 0.5f * std::sqrt(3.0f) * radius),//35 hex8 hex13
     sf::Vector2f(center - 4.5f * radius, center + 0.5f * std::sqrt(3.0f) * radius),//36 hex8
-    sf::Vector2f(center - 1.0f * radius, center * std::sqrt(3.0f) * radius),//37        hex9 hex10
+    sf::Vector2f(center - 1.0f * radius, center * std::sqrt(3.0f) * radius),       //37 hex9 hex10
     sf::Vector2f(center - 1.5f * radius, center + 0.5f * std::sqrt(3.0f) * radius),//38 hex9 hex14
     sf::Vector2f(center - 2.5f * radius, center + 0.5f * std::sqrt(3.0f) * radius),//39 hex9 hex13
-    sf::Vector2f(center + 1.0f * radius, center * std::sqrt(3.0f) * radius),//40        hex10 hex11
+    sf::Vector2f(center + 1.0f * radius, center * std::sqrt(3.0f) * radius),       //40 hex10 hex11
     sf::Vector2f(center + 0.5f * radius, center + 0.5f * std::sqrt(3.0f) * radius),//41 hex10 hex15
     sf::Vector2f(center - 0.5f * radius, center + 0.5f * std::sqrt(3.0f) * radius),//42 hex10 hex14
-    sf::Vector2f(center + 3.0f * radius, center * std::sqrt(3.0f) * radius),//43        hex11 hex12
+    sf::Vector2f(center + 3.0f * radius, center * std::sqrt(3.0f) * radius),       //43 hex11 hex12
     sf::Vector2f(center + 2.5f * radius, center + 0.5f * std::sqrt(3.0f) * radius),//44 hex11 hex16
     sf::Vector2f(center + 1.5f * radius, center + 0.5f * std::sqrt(3.0f) * radius),//45 hex11 hex15
     sf::Vector2f(center + 4.5f * radius, center - 0.5f * std::sqrt(3.0f) * radius),//46 hex12
-    sf::Vector2f(center + 5.0f * radius, center * std::sqrt(3.0f) * radius),//47        hex12
+    sf::Vector2f(center + 5.0f * radius, center * std::sqrt(3.0f) * radius),       //47 hex12
     sf::Vector2f(center + 4.5f * radius, center + 0.5f * std::sqrt(3.0f) * radius),//48 hex12
     sf::Vector2f(center + 3.5f * radius, center + 0.5f * std::sqrt(3.0f) * radius),//49 hex12 hex16
     sf::Vector2f(center - 4.0f * radius, center + 1.0f * std::sqrt(3.0f) * radius),//50 hex13
     sf::Vector2f(center - 2.0f * radius, center + 1.0f * std::sqrt(3.0f) * radius),//51 hex13 hex14
     sf::Vector2f(center - 2.5f * radius, center + 1.5f * std::sqrt(3.0f) * radius),//52 hex13 hex17
     sf::Vector2f(center - 3.5f * radius, center + 1.5f * std::sqrt(3.0f) * radius),//53 hex13
-    sf::Vector2f(center, center + 1.0f * std::sqrt(3.0f) * radius),//54                 hex14 hex15
+    sf::Vector2f(center, center + 1.0f * std::sqrt(3.0f) * radius),                //54 hex14 hex15
     sf::Vector2f(center - 0.5f * radius, center + 1.5f * std::sqrt(3.0f) * radius),//55 hex14 hex18
     sf::Vector2f(center - 1.5f * radius, center + 1.5f * std::sqrt(3.0f) * radius),//56 hex14 hex17
     sf::Vector2f(center + 2.0f * radius, center + 1.0f * std::sqrt(3.0f) * radius),//57 hex15 hex16
@@ -107,78 +107,78 @@ std::array<sf::Vector2f, 72> Edge::centerPoints = {
 };
 
 std::array<float, 72> Edge::rotations = {
-    90.0f,//1
-    150.0f,//2
-    30.0f,//3
-    90.0f,//4
-    150.0f,//5
-    30.0f,//6
-    150.0f,//7
-    30.0f,//8
-    90.0f,//9
-    150.0f,//10
-    30.0f,//11
-    150.0f,//12
-    30.0f,//13
-    90.0f,//14
-    150.0f,//15
-    30.0f,//16
-    90.0f,//17
-    150.0f,//18
-    90.0f,//19
-    150.0f,//20
-    30.0f,//21
-    90.0f,//22
-    150.0f,//23
-    30.0f,//24
-    90.0f,//25
-    150.0f,//26
-    30.0f,//27
-    30.0f,//28
-    90.0f,//29
-    150.0f,//30
-    30.0f,//31
-    90.0f,//32
-    150.0f,//33
-    90.0f,//34
-    150.0f,//35
-    30.0f,//36
-    90.0f,//37
-    150.0f,//38
-    30.0f,//39
-    90.0f,//40
-    150.0f,//41
-    30.0f,//42
-    90.0f,//43
-    150.0f,//44
-    30.0f,//45
-    30.0f,//46
-    90.0f,//47
-    150.0f,//48
-    30.0f,//49
-    90.0f,//50
-    90.0f,//51
-    150.0f,//52
-    30.0f,//53
-    90.0f,//54
-    150.0f,//55
-    30.0f,//56
-    90.0f,//57
-    150.0f,//58
-    30.0f,//59
-    90.0f,//60
-    150.0f,//61
-    30.0f,//62
-    90.0f,//63
-    90.0f,//64
-    150.0f,//65
-    30.0f,//66
-    90.0f,//67
-    150.0f,//68
-    30.0f,//69
-    90.0f,//70
-    150.0f,//71
-    30.0f,//72
+    90.0f,  //1
+    150.0f, //2
+    30.0f,  //3
+    90.0f,  //4
+    150.0f, //5
+    30.0f,  //6
+    150.0f, //7
+    30.0f,  //8
+    90.0f,  //9
+    150.0f, //10
+    30.0f,  //11
+    150.0f, //12
+    30.0f,  //13
+    90.0f,  //14
+    150.0f, //15
+    30.0f,  //16
+    90.0f,  //17
+    150.0f, //18
+    90.0f,  //19
+    150.0f, //20
+    30.0f,  //21
+    90.0f,  //22
+    150.0f, //23
+    30.0f,  //24
+    90.0f,  //25
+    150.0f, //26
+    30.0f,  //27
+    30.0f,  //28
+    90.0f,  //29
+    150.0f, //30
+    30.0f,  //31
+    90.0f,  //32
+    150.0f, //33
+    90.0f,  //34
+    150.0f, //35
+    30.0f,  //36
+    90.0f,  //37
+    150.0f, //38
+    30.0f,  //39
+    90.0f,  //40
+    150.0f, //41
+    30.0f,  //42
+    90.0f,  //43
+    150.0f, //44
+    30.0f,  //45
+    30.0f,  //46
+    90.0f,  //47
+    150.0f, //48
+    30.0f,  //49
+    90.0f,  //50
+    90.0f,  //51
+    150.0f, //52
+    30.0f,  //53
+    90.0f,  //54
+    150.0f, //55
+    30.0f,  //56
+    90.0f,  //57
+    150.0f, //58
+    30.0f,  //59
+    90.0f,  //60
+    150.0f, //61
+    30.0f,  //62
+    90.0f,  //63
+    90.0f,  //64
+    150.0f, //65
+    30.0f,  //66
+    90.0f,  //67
+    150.0f, //68
+    30.0f,  //69
+    90.0f,  //70
+    150.0f, //71
+    30.0f,  //72
 };
 
 const float Edge::center = 0.0f;

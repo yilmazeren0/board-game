@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Hex.h"
 #include "Edge.h"
+#include "Vertex.h"
 #include <vector>
 class Board
 {
@@ -22,6 +23,7 @@ private:
 	sf::RenderWindow* window;
 	std::vector<Hex> hexes;
 	std::vector<Edge> edges;
+	std::vector<Vertex> vertices;
 	sf::Vector2f mousePosition;
 };
 
