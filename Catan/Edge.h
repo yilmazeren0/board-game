@@ -6,7 +6,7 @@ public:
 	Edge(sf::RenderWindow* window, int number);
 	~Edge();
 
-	void update();
+	void update(const sf::Vector2f& mousePosition);
 	void draw();
 
 private:

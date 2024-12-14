@@ -5,7 +5,7 @@ Edge::Edge(sf::RenderWindow* window, int number) {
 
 	edge.setSize(sf::Vector2f(radius, 10.0f));
 	edge.setOrigin(radius / 2, 10.0f / 2);
-	edge.setFillColor(sf::Color::Blue);
+	edge.setFillColor(sf::Color::White);
 
 	edge.setPosition(centerPoints[number]);
 	edge.setRotation(rotations[number]);
@@ -15,9 +15,14 @@ Edge::~Edge()
 {
 }
 
-void Edge::update()
+void Edge::update(const sf::Vector2f& mousePosition)
 {
-
+    if (edge.getGlobalBounds().contains(mousePosition)) {
+        edge.setFillColor(sf::Color::Yellow);
+    }
+    else {
+        edge.setFillColor(sf::Color::White);
+    }
 }
 
 void Edge::draw()
@@ -86,6 +91,19 @@ std::array<sf::Vector2f, 72> Edge::centerPoints = {
     sf::Vector2f(center + 2.0f * radius, center + 1.0f * std::sqrt(3.0f) * radius),//57 hex15 hex16
     sf::Vector2f(center + 1.5f * radius, center + 1.5f * std::sqrt(3.0f) * radius),//58 hex15 hex19
     sf::Vector2f(center + 0.5f * radius, center + 1.5f * std::sqrt(3.0f) * radius),//59 hex15 hex18
+    sf::Vector2f(center + 4.0f * radius, center + 1.0f * std::sqrt(3.0f) * radius),//60 hex16
+    sf::Vector2f(center + 3.5f * radius, center + 1.5f * std::sqrt(3.0f) * radius),//61 hex16
+    sf::Vector2f(center + 2.5f * radius, center + 1.5f * std::sqrt(3.0f) * radius),//62 hex16 hex19
+    sf::Vector2f(center - 3.0f * radius, center + 2.0f * std::sqrt(3.0f) * radius),//63 hex17
+    sf::Vector2f(center - 1.0f * radius, center + 2.0f * std::sqrt(3.0f) * radius),//64 hex17 hex18
+    sf::Vector2f(center - 1.5f * radius, center + 2.5f * std::sqrt(3.0f) * radius),//65 hex17 
+    sf::Vector2f(center - 2.5f * radius, center + 2.5f * std::sqrt(3.0f) * radius),//66 hex17
+    sf::Vector2f(center + 1.0f * radius, center + 2.0f * std::sqrt(3.0f) * radius),//67 hex18 hex19
+    sf::Vector2f(center + 0.5f * radius, center + 2.5f * std::sqrt(3.0f) * radius),//68 hex18 
+    sf::Vector2f(center - 0.5f * radius, center + 2.5f * std::sqrt(3.0f) * radius),//69 hex18 
+    sf::Vector2f(center + 3.0f * radius, center + 2.0f * std::sqrt(3.0f) * radius),//70 hex19
+    sf::Vector2f(center + 2.5f * radius, center + 2.5f * std::sqrt(3.0f) * radius),//71 hex19
+    sf::Vector2f(center + 1.5f * radius, center + 2.5f * std::sqrt(3.0f) * radius),//72 hex19
 };
 
 std::array<float, 72> Edge::rotations = {
@@ -148,6 +166,19 @@ std::array<float, 72> Edge::rotations = {
     90.0f,//57
     150.0f,//58
     30.0f,//59
+    90.0f,//60
+    150.0f,//61
+    30.0f,//62
+    90.0f,//63
+    90.0f,//64
+    150.0f,//65
+    30.0f,//66
+    90.0f,//67
+    150.0f,//68
+    30.0f,//69
+    90.0f,//70
+    150.0f,//71
+    30.0f,//72
 };
 
 const float Edge::center = 0.0f;
