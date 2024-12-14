@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "ResourceType.h"
 #include "TerrainType.h"
+#include "Vertex.h"
 #include <array> 
 class Hex
 {
@@ -19,6 +20,7 @@ private:
 private:
 	sf::RenderWindow* window;
 	sf::ConvexShape hex;
+	std::vector<Vertex>* vertices;
 	ResourceType resourceType;
 	TerrainType terrainType;
 	int diceNumber;

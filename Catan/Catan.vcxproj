@@ -24,6 +24,7 @@
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Hex.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
@@ -32,6 +33,7 @@
     <ClInclude Include="Hex.h" />
     <ClInclude Include="ResourceType.h" />
     <ClInclude Include="TerrainType.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

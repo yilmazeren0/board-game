@@ -24,6 +24,11 @@ void Board::update()
 		(*edgeIterator).update(mousePosition);
 		++edgeIterator;
 	}
+	for (auto vertexIterator = vertices.begin(); vertexIterator != vertices.end();) {
+
+		(*vertexIterator).update(mousePosition);
+		++vertexIterator;
+	}
 
 }
 
@@ -39,6 +44,11 @@ void Board::draw()
 		(*edgeIterator).draw();
 		++edgeIterator;
 	}
+	for (auto vertexIterator = vertices.begin(); vertexIterator != vertices.end();) {
+
+		(*vertexIterator).draw();
+		++vertexIterator;
+	}
 }
 
 void Board::initBoard()
@@ -48,6 +58,9 @@ void Board::initBoard()
 	}
 	for (int i = 0; i < 72; i++) {
 		edges.emplace_back(window, i);
+	}
+	for (int i = 0; i < 54; i++) {
+		vertices.emplace_back(window, i);
 	}
 	
 }
