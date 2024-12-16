@@ -2,6 +2,7 @@
 Vertex::Vertex(sf::RenderWindow* window, int number)
 {
 	this->window = window;
+    this->availability = true;
 
 	vertex.setRadius(circleRadius);
     vertex.setOrigin(circleRadius, circleRadius);

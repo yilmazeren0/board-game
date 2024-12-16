@@ -8,11 +8,13 @@ class Hex
 {
 public:
 
-	Hex(sf::RenderWindow* window, int number);
+	Hex(sf::RenderWindow* window, const std::array<int, 6>& vertexIndices, int number);
 	~Hex();
 
 	void update();
 	void draw();
+
+	const std::array<int, 6>& getOwnedVertices() const;
 
 private:
 
@@ -20,7 +22,8 @@ private:
 private:
 	sf::RenderWindow* window;
 	sf::ConvexShape hex;
-	std::vector<Vertex>* vertices;
+	std::array<int, 6> ownedVertices;
+
 	ResourceType resourceType;
 	TerrainType terrainType;
 	int diceNumber;

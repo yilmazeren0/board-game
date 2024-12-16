@@ -1,9 +1,7 @@
 #include "Hex.h"
 
-Hex::Hex(sf::RenderWindow* window, int number)
+Hex::Hex(sf::RenderWindow* window, const std::array<int, 6>& vertexIndices, int number) : window(window), hasRobber(false)
 {
-	this->window = window;
-
     hex.setPointCount(6);
 
     for (int i = 0; i < 6; ++i)
@@ -22,6 +20,11 @@ Hex::Hex(sf::RenderWindow* window, int number)
 
 Hex::~Hex()
 {
+}
+
+const std::array<int, 6>& Hex::getOwnedVertices() const
+{
+    return ownedVertices;
 }
 
 void Hex::update()
