@@ -25,5 +25,10 @@ private:
 	std::vector<Edge> edges;
 	std::vector<Vertex> vertices;
 	sf::Vector2f mousePosition;
+
+	const static std::array<std::array<int, 6>, 19> hexAndOwnedVertices;
+	const static std::array<std::array<int, 2>, 72> edgeAndOwnedVertices;
+	const static std::array<std::vector<int>, 54> vertexNeighbours;
+	const static std::array<std::vector<int>, 72> edgeNeighbours;
 };
 

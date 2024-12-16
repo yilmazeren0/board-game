@@ -1,7 +1,9 @@
 #include "Edge.h"
-#include <array>
-Edge::Edge(sf::RenderWindow* window, int number) {
+
+Edge::Edge(sf::RenderWindow* window, const std::array<int, 2>& vertexIndices, int number) {
 	this->window = window;
+    this->ownedVertices = vertexIndices;
+    this->availability = true;
 
 	edge.setSize(sf::Vector2f(radius, 10.0f));
 	edge.setOrigin(radius / 2, 10.0f / 2);
@@ -13,6 +15,11 @@ Edge::Edge(sf::RenderWindow* window, int number) {
 
 Edge::~Edge()
 {
+}
+
+const std::array<int, 2>& Edge::getOwnedVertices() const
+{
+    return ownedVertices;
 }
 
 void Edge::update(const sf::Vector2f& mousePosition)

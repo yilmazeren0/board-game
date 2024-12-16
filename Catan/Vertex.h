@@ -17,6 +17,7 @@ private:
 private:
 	sf::RenderWindow* window;
 	sf::CircleShape vertex;
+	bool availability;
 
 
 	static std::array<sf::Vector2f, 54> centerPoints;
