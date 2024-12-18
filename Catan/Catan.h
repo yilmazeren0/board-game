@@ -19,6 +19,7 @@ private:
 	void renderGame();
 	void renderMenu();
 	void initPlayers();
+	void initTextures();
 	void handleSetupPhase();
 	void handleGamePhase();
 	bool placeRoad(sf::Vector2f clickPosition);
@@ -34,10 +35,13 @@ private:
 	sf::RenderWindow* window;
 	sf::View* view;
 	sf::Event event;
+	sf::Font font;
 	Board* gameBoard;
+	std::unordered_map<std::string, sf::Texture> textures;
 	std::vector<Player> players;
 	Player* currentPlayer;
 	sf::Vector2f clickPosition;
+	sf::Color backgroundColor;
 	int playerNumber = 4;
 	int currentPlayerIndex;
 

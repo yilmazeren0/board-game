@@ -1,6 +1,9 @@
 #include "Board.h"
 #include <iostream>
-Board::Board(sf::RenderWindow* window) : window{window}, currentPlayerID{0}
+#include <algorithm>
+#include <random>
+Board::Board(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>* textures) : window{window}, currentPlayerID{0},
+	textures{textures}
 {
 	initBoard();
 }
@@ -32,6 +35,8 @@ void Board::update(int currentPlayerID)
 
 			if (setupPhase) {
 
+				//if neighbour of unavailable make it false
+				//else true
 				edges[i].setHighlight(true);
 			}
 			else{
@@ -139,6 +144,7 @@ void Board::setplacingSettlement(bool placingSettlement)
 
 void Board::initBoard()
 {
+	initTerrains();
 	setupPhase = false;
 	placingRoad = false;
 	placingSettlement = false;
@@ -148,13 +154,32 @@ void Board::initBoard()
 	}
 	hexes.reserve(19);
 	for (int i = 0; i < 19; i++) {
-		hexes.emplace_back(window, hexAndOwnedVertices[i], i);
+		if (i == 9) {
+			hexes.emplace_back(window, textures, TerrainType::DESERT, hexAndOwnedVertices[i], i, diceNumbers[i]);
+		}
+		else {
+			TerrainType type = (i < 9) ? terrains[i] : terrains[i - 1];
+			hexes.emplace_back(window, textures, type, hexAndOwnedVertices[i], i, diceNumbers[i]);
+		}
+		
 	}
 	edges.reserve(72);
 	for (int i = 0; i < 72; i++) {
 		edges.emplace_back(window, edgeAndOwnedVertices[i], i);
 	}
 	
+}
+
+void Board::initTerrains()
+{
+	terrains = {
+		TerrainType::FOREST,   TerrainType::FOREST,   TerrainType::FOREST,   TerrainType::FOREST,
+		TerrainType::HILLS,    TerrainType::HILLS,    TerrainType::HILLS,
+		TerrainType::MOUNTAINS, TerrainType::MOUNTAINS, TerrainType::MOUNTAINS,
+		TerrainType::FIELDS,   TerrainType::FIELDS,   TerrainType::FIELDS,   TerrainType::FIELDS,
+		TerrainType::PASTURE,  TerrainType::PASTURE,  TerrainType::PASTURE,  TerrainType::PASTURE,
+	};
+	shuffleTerrains(terrains);
 }
 
 void Board::updateMousePosition() {
@@ -197,7 +222,12 @@ void Board::updateVertexHighlights(int currentPlayerID)
 	}
 }
 
+void Board::shuffleTerrains(std::array<TerrainType, 18>& terrains) {
+	std::shuffle(terrains.begin(), terrains.end(), std::mt19937{ std::random_device{}() });
+}
 
+const std::array<int, 19> Board::diceNumbers = {
+	5, 2, 6, 4, 8, 10, 9, 6, 5, 7, 9, 4, 12, 11, 3, 3, 11, 8, 10 };
 
 const std::array<std::array<int, 6>, 19> Board::hexAndOwnedVertices = {{
 	{1, 2, 3, 9, 10, 11},		//hex1

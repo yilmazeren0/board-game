@@ -4,6 +4,7 @@ enum class ResourceType {
     BRICK,
     ORE,
     GRAIN,
-    WOOL
+    WOOL,
+    NONE,
 };
 

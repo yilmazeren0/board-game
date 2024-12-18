@@ -4,10 +4,13 @@ Catan::Catan()
 {
 	window = new sf::RenderWindow(sf::VideoMode{ 1280,720 }, "Enes", sf::Style::Resize | sf::Style::Close);
 	view = new sf::View(sf::Vector2f{ 0.0f,0.0f }, sf::Vector2{ 1280.0f, 720.0f });
-	
-	gameBoard = new Board(window);
+	initTextures();
+	gameBoard = new Board(window, &textures);
 	window->setFramerateLimit(60);
 	initPlayers();
+	backgroundColor = sf::Color(169, 169, 169);
+
+	font.loadFromFile("font/emmasophia.ttf");
 
 	setupPhase = true;
 	gameBoard->setSetupPhase(true);
@@ -105,7 +108,7 @@ void Catan::renderGame()
 		}
 		
 		// Clear window
-		window->clear();
+		window->clear(backgroundColor);
 
 		// Draw elements
 		draw();
@@ -132,6 +135,32 @@ void Catan::initPlayers()
 	currentPlayer = &players[0];
 	currentPlayerIndex = 0;
 }
+
+void Catan::initTextures() {
+	textures.clear();
+
+	sf::Texture texture;
+	texture.loadFromFile("textures/hills.png");
+	textures["hills"] = texture;
+
+	texture.loadFromFile("textures/forest.png");
+	textures["forest"] = texture;
+
+	texture.loadFromFile("textures/mountains.png");
+	textures["mountains"] = texture;
+
+	texture.loadFromFile("textures/fields.png");
+	textures["fields"] = texture;
+
+	texture.loadFromFile("textures/pasture.png");
+	textures["pasture"] = texture;
+
+	texture.loadFromFile("textures/desert.png");
+	textures["desert"] = texture;
+
+}
+
+
 
 void Catan::handleSetupPhase()
 {
