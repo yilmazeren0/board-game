@@ -1,12 +1,15 @@
 #include "Vertex.h"
+#include "Player.h"
+
 Vertex::Vertex(sf::RenderWindow* window, int number)
 {
 	this->window = window;
     this->availability = true;
-
+    this->highlighted = false;
+    this->color = sf::Color::Transparent;
 	vertex.setRadius(circleRadius);
     vertex.setOrigin(circleRadius, circleRadius);
-    vertex.setFillColor(sf::Color::Transparent);
+    vertex.setFillColor(color);
 
     vertex.setPosition(centerPoints[number]);
 }
@@ -17,17 +20,58 @@ Vertex::~Vertex()
 
 void Vertex::update(const sf::Vector2f& mousePosition)
 {
-    if (vertex.getGlobalBounds().contains(mousePosition)) {
+    if (vertex.getGlobalBounds().contains(mousePosition) && highlighted) {
         vertex.setFillColor(sf::Color::Cyan);
     }
     else {
-        vertex.setFillColor(sf::Color::Transparent);
+        vertex.setFillColor(color);
     }
 }
 
 void Vertex::draw()
 {
     window->draw(vertex);
+}
+
+void Vertex::placeSettlement(Settlement* settlement)
+{
+    this->settlement = settlement;
+    availability = false;
+    highlighted = false;
+    color = settlement->getColor();
+}
+
+sf::FloatRect Vertex::getBox() const
+{
+    return vertex.getGlobalBounds();
+}
+
+bool Vertex::getAvailability() const
+{
+    return availability;
+}
+
+bool Vertex::isHightlighted() const
+{
+    return highlighted;
+}
+
+void Vertex::setHighlight(bool highlight)
+{
+    this->highlighted = highlight;
+}
+
+void Vertex::setAvailability(bool availability)
+{
+    this->availability = availability;
+}
+
+bool Vertex::isOwnedByPlayer(int playerID) const
+{
+    if (settlement->getOwner()) {
+        return settlement->getOwner()->getID() == playerID;
+    }
+    return false;
 }
 
 std::array<sf::Vector2f, 54> Vertex::centerPoints = {

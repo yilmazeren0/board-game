@@ -7,6 +7,16 @@ Catan::Catan()
 	
 	gameBoard = new Board(window);
 	window->setFramerateLimit(60);
+	initPlayers();
+
+	setupPhase = true;
+	gameBoard->setSetupPhase(true);
+	placingSettlement = false;
+	gameBoard->setplacingSettlement(false);
+	placingRoad = true;
+	gameBoard->setplacingRoad(true);
+	placementStart = false;
+	placementDone = false;
 }
 
 Catan::~Catan()
@@ -29,11 +39,6 @@ void Catan::run() {
 	}
 }
 
-void Catan::initBoard()
-{
-
-}
-
 void Catan::pollEvent()
 {
 	while (window->pollEvent(event)) {
@@ -43,6 +48,26 @@ void Catan::pollEvent()
 			break;
 		case sf::Event::Resized:
 			resizeView();
+			break;
+		case sf::Event::KeyPressed:
+			if (!setupPhase && event.key.code == sf::Keyboard::O) {
+				// settlement
+				placementStart = true;
+				placingSettlement = true;
+				gameBoard->setplacingSettlement(true);
+				placingRoad = false;
+				gameBoard->setplacingRoad(false);
+				placementDone = false;
+			}
+			if (!setupPhase && event.key.code == sf::Keyboard::P) {
+				// road
+				placementStart = true;
+				placingSettlement = false;
+				gameBoard->setplacingSettlement(false);
+				placingRoad = true;
+				gameBoard->setplacingRoad(true);
+				placementDone = false;
+			}
 			break;
 		}
 	}
@@ -59,12 +84,20 @@ void Catan::renderGame()
 	if (is_game) {
 		view->setCenter(0.0f, 0.0f);
 		window->setView(*view);
-		//update
-		gameBoard->update();
 
-		//clear
+		gameBoard->update(currentPlayer->getID());
+
+		if (setupPhase) {
+			handleSetupPhase();
+		}
+		else {
+			handleGamePhase();
+		}
+		
+		// Clear window
 		window->clear();
-		// DRAW
+
+		// Draw elements
 		draw();
 	}
 }
@@ -76,7 +109,136 @@ void Catan::renderMenu()
 	}
 }
 
+void Catan::initPlayers()
+{
+	players.clear();
+
+	for (int i = 0; i < playerNumber; i++) {
+		players.emplace_back(i, colors[i]);
+	}
+
+	checkingSetupPhase.resize(playerNumber, 0);
+
+	currentPlayer = &players[0];
+	currentPlayerIndex = 0;
+}
+
+void Catan::handleSetupPhase()
+{
+	std::cout << "Called.\n";
+	if (placingRoad) {
+		if (placeRoad()) {
+			placingRoad = false;
+			placingSettlement = true;
+			gameBoard->setplacingSettlement(true);
+			gameBoard->setSetupPhase(false);
+		}
+	}
+	else if (placingSettlement) {
+		if (placeSettlement()) {
+			checkingSetupPhase[currentPlayerIndex]++;
+
+			bool done = true;
+			for (int i = 0; i < playerNumber; i++) {
+				if (checkingSetupPhase[i] < 2) {
+					done = false;
+					break;
+				}
+			}
+
+			if (done) {
+				setupPhase = false;
+				placingRoad = false;
+				gameBoard->setplacingRoad(false);
+				placingSettlement = false;
+				gameBoard->setplacingSettlement(false);
+				gameBoard->setSetupPhase(false);
+			}
+			else {
+				if (checkingSetupPhase[currentPlayerIndex] < 2) {
+					nextTurn();
+					placingRoad = true;
+					gameBoard->setplacingRoad(true);
+					placingSettlement = false;
+					gameBoard->setplacingSettlement(false);
+					gameBoard->setSetupPhase(true);
+				}
+				else {
+					nextTurn();
+					placingRoad = true;
+					gameBoard->setplacingRoad(true);
+					placingSettlement = false;
+					gameBoard->setplacingSettlement(false);
+					gameBoard->setSetupPhase(true);
+				}
+			}
+		}
+	}
+}
+
+void Catan::handleGamePhase()
+{
+
+	if (placementStart && !placementDone) {
+		if (placingSettlement) {
+			if (placeSettlement()) {
+				placingSettlement = false;
+				gameBoard->setplacingSettlement(false);
+				placementStart = false;
+				placementDone = true;
+			}
+		}
+		else if (placingRoad) {
+			if (placeRoad()) {
+				placingRoad = false;
+				gameBoard->setplacingRoad(false);
+				placementStart = false;
+				placementDone = true;
+				
+			}
+		}
+	}
+}
+
+bool Catan::placeRoad()
+{
+	return gameBoard->placeRoad(&(players[currentPlayerIndex]));
+}
+
+bool Catan::placeSettlement()
+{
+	return gameBoard->placeSettlement(&(players[currentPlayerIndex]));
+}
+
+
+void Catan::nextTurn()
+{
+	int startIndex = currentPlayerIndex;
+	do {
+		currentPlayerIndex = (currentPlayerIndex + 1) % playerNumber;
+		if (checkingSetupPhase[currentPlayerIndex] < 2) {
+			break;
+		}
+	} while (currentPlayerIndex != startIndex);
+
+	currentPlayer = &players[currentPlayerIndex];
+}
+
+
 void Catan::draw()
 {
 	gameBoard->draw();
 }
+
+void Catan::save()
+{
+
+}
+
+
+const std::array<sf::Color, 4> Catan::colors = { 
+	sf::Color::Red,
+	sf::Color::Blue,
+	sf::Color::Green,
+	sf::Color::Yellow
+};

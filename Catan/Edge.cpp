@@ -1,13 +1,16 @@
 #include "Edge.h"
-
+#include "Player.h"
+#include <iostream>
 Edge::Edge(sf::RenderWindow* window, const std::array<int, 2>& vertexIndices, int number) {
 	this->window = window;
     this->ownedVertices = vertexIndices;
     this->availability = true;
+    this->highlighted = false;
+    this->color = sf::Color::White;
 
 	edge.setSize(sf::Vector2f(radius, 10.0f));
 	edge.setOrigin(radius / 2, 10.0f / 2);
-	edge.setFillColor(sf::Color::White);
+	edge.setFillColor(color);
 
 	edge.setPosition(centerPoints[number]);
 	edge.setRotation(rotations[number]);
@@ -17,18 +20,59 @@ Edge::~Edge()
 {
 }
 
+void Edge::placeRoad(Road* road)
+{
+    this->road = road;
+    availability = false;
+    highlighted = false;
+    color = road->getColor();
+}
+
 const std::array<int, 2>& Edge::getOwnedVertices() const
 {
     return ownedVertices;
 }
 
+sf::FloatRect Edge::getBox() const
+{
+    return edge.getGlobalBounds();
+}
+
+bool Edge::getAvailability() const
+{
+    return availability;
+}
+
+bool Edge::isHightlighted() const
+{
+    return highlighted;
+}
+
+void Edge::setHighlight(bool highlight)
+{
+    this->highlighted = highlight;
+}
+
+void Edge::setAvailability(bool availability)
+{
+    this->availability = availability;
+}
+
+bool Edge::isOwnedByPlayer(int playerID) const {
+    if (road == nullptr) {
+        return false;
+    }
+    
+    return road->getOwner()->getID() == playerID;
+}
+
 void Edge::update(const sf::Vector2f& mousePosition)
 {
-    if (edge.getGlobalBounds().contains(mousePosition)) {
+    if (edge.getGlobalBounds().contains(mousePosition) && highlighted) {
         edge.setFillColor(sf::Color::Yellow);
     }
     else {
-        edge.setFillColor(sf::Color::White);
+        edge.setFillColor(color);
     }
 }
 

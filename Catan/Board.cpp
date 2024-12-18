@@ -1,8 +1,7 @@
 #include "Board.h"
-
-Board::Board(sf::RenderWindow* window)
+#include <iostream>
+Board::Board(sf::RenderWindow* window) : window{window}, currentPlayerID{0}
 {
-	this->window = window;
 	initBoard();
 }
 
@@ -10,49 +9,140 @@ Board::~Board()
 {
 }
 
-void Board::update()
+void Board::update(int currentPlayerID)
 {
+	
+	if (currentPlayerID != this->currentPlayerID) {
+		
+		updateEdgeHighlights(currentPlayerID);
+		updateVertexHighlights(currentPlayerID);
+		this->currentPlayerID = currentPlayerID;
+	}
+
+
 	updateMousePosition();
 
-	for (auto hexIterator = hexes.begin(); hexIterator != hexes.end();) {
-
-		(*hexIterator).update();
-		++hexIterator;
+	for (auto& hex : hexes) {
+		hex.update();
 	}
-	for (auto edgeIterator = edges.begin(); edgeIterator != edges.end();) {
+	
+	for (std::size_t i = 0; i < edges.size(); i++) {
 
-		(*edgeIterator).update(mousePosition);
-		++edgeIterator;
+		if(edges[i].getAvailability() && placingRoad){
+
+			if (setupPhase) {
+
+				edges[i].setHighlight(true);
+			}
+			else{
+				if (highlightedEdges.count(static_cast<int>(i)) > 0) {
+					edges[i].setHighlight(true);
+				}
+				else {
+					edges[i].setHighlight(false);
+				}
+			}
+		}
+		edges[i].update(mousePosition);
 	}
-	for (auto vertexIterator = vertices.begin(); vertexIterator != vertices.end();) {
+	
+	for (std::size_t i = 0; i < vertices.size(); i++) {
 
-		(*vertexIterator).update(mousePosition);
-		++vertexIterator;
+		if (vertices[i].getAvailability() && placingSettlement) {
+		
+			if (highlightedVertices.count(static_cast<int>(i)) > 0) {
+				vertices[i].setHighlight(true);
+			}
+			else {
+				vertices[i].setHighlight(false);
+			}
+			
+		}
+		else {
+			vertices[i].setHighlight(false);
+		}
+		
+		vertices[i].update(mousePosition);
 	}
-
 }
 
 void Board::draw()
 {
-	for (auto hexIterator = hexes.begin(); hexIterator != hexes.end();) {
-
-		(*hexIterator).draw();
-		++hexIterator;
+	for (auto& hex : hexes) {
+		hex.draw();
 	}
-	for (auto edgeIterator = edges.begin(); edgeIterator != edges.end();) {
-
-		(*edgeIterator).draw();
-		++edgeIterator;
+	for (auto& edge : edges) {
+		edge.draw();
 	}
-	for (auto vertexIterator = vertices.begin(); vertexIterator != vertices.end();) {
-
-		(*vertexIterator).draw();
-		++vertexIterator;
+	for (auto& vertex : vertices) {
+		vertex.draw();
 	}
+}
+
+bool Board::placeRoad(Player* player)
+{
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		sf::Vector2i position = sf::Mouse::getPosition(*window);
+		sf::Vector2f mousePos = window->mapPixelToCoords(position);
+		for (auto& edge : edges) {
+			if (edge.getAvailability() && edge.isHightlighted() && edge.getBox().contains(mousePos)) {
+				roads.emplace_back(player, player->getColor());
+				edge.placeRoad(&(roads.back()));
+				updateEdgeHighlights(currentPlayerID);
+				updateVertexHighlights(currentPlayerID);
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+bool Board::placeSettlement(Player* player)
+{
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		sf::Vector2i position = sf::Mouse::getPosition(*window);
+		sf::Vector2f mousePos = window->mapPixelToCoords(position);
+		for (std::size_t i = 0; i < vertices.size(); i++) {
+			if (vertices[i].getAvailability() && vertices[i].isHightlighted() && vertices[i].getBox().contains(mousePos)) {
+				settlements.emplace_back(player, player->getColor());
+				vertices[i].placeSettlement(&(settlements.back()));
+
+				for (int neighbor : vertexNeighbours[i]) {
+					int neighborIndex = neighbor - 1;
+					if (neighborIndex >= 0 && neighborIndex < vertices.size()) {
+						vertices[neighborIndex].setAvailability(false);
+					}
+				}
+
+				updateEdgeHighlights(currentPlayerID);
+				updateVertexHighlights(currentPlayerID);
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+void Board::setSetupPhase(bool setupPhase)
+{
+	this->setupPhase = setupPhase;
+}
+
+void Board::setplacingRoad(bool placingRoad)
+{
+	this->placingRoad = placingRoad;
+}
+
+void Board::setplacingSettlement(bool placingSettlement)
+{
+	this->placingSettlement = placingSettlement;
 }
 
 void Board::initBoard()
 {
+	setupPhase = false;
+	placingRoad = false;
+	placingSettlement = false;
 	vertices.reserve(54);
 	for (int i = 0; i < 54; i++) {
 		vertices.emplace_back(window, i);
@@ -72,6 +162,42 @@ void Board::updateMousePosition() {
 	sf::Vector2i pixelPos = sf::Mouse::getPosition(*window);
 	mousePosition = window->mapPixelToCoords(pixelPos);
 }
+
+void Board::updateEdgeHighlights(int currentPlayerID)
+{
+	highlightedEdges.clear();
+
+	for (std::size_t i = 0; i < edges.size(); i++) {
+		if (edges[i].isOwnedByPlayer(currentPlayerID)) 
+		{
+			const std::vector<int>& neighbors = edgeNeighbours[i];
+			
+			for (int neighborIndex : neighbors) {
+				if (edges[neighborIndex - 1].getAvailability()) {
+					highlightedEdges.insert(neighborIndex);
+				}
+			}
+		}
+	}
+}
+
+void Board::updateVertexHighlights(int currentPlayerID)
+{	
+	highlightedVertices.clear();
+	for (std::size_t i = 0; i < edges.size(); i++) {
+		if (edges[i].isOwnedByPlayer(currentPlayerID)) {
+			const std::array<int, 2>& ownedVertices = edges[i].getOwnedVertices();
+
+			for (int ownedVertex : ownedVertices) {
+				if (vertices[ownedVertex - 1].getAvailability()) {
+					highlightedVertices.insert(ownedVertex - 1);
+				}
+			}
+		}
+	}
+}
+
+
 
 const std::array<std::array<int, 6>, 19> Board::hexAndOwnedVertices = {{
 	{1, 2, 3, 9, 10, 11},		//hex1
