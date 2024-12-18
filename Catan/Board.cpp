@@ -43,6 +43,9 @@ void Board::update(int currentPlayerID)
 				}
 			}
 		}
+		else {
+			edges[i].setHighlight(false);
+		}
 		edges[i].update(mousePosition);
 	}
 	
@@ -79,45 +82,41 @@ void Board::draw()
 	}
 }
 
-bool Board::placeRoad(Player* player)
+bool Board::placeRoad(Player* player, sf::Vector2f clickPosition)
 {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-		sf::Vector2i position = sf::Mouse::getPosition(*window);
-		sf::Vector2f mousePos = window->mapPixelToCoords(position);
-		for (auto& edge : edges) {
-			if (edge.getAvailability() && edge.isHightlighted() && edge.getBox().contains(mousePos)) {
-				roads.emplace_back(player, player->getColor());
-				edge.placeRoad(&(roads.back()));
-				updateEdgeHighlights(currentPlayerID);
-				updateVertexHighlights(currentPlayerID);
-				return true;
-			}
+
+	for (auto& edge : edges) {
+		if (edge.getAvailability() && edge.isHightlighted() && edge.getBox().contains(clickPosition)) {
+			roads.emplace_back(player, player->getColor());
+			edge.placeRoad(&(roads.back()));
+			updateEdgeHighlights(currentPlayerID);
+			updateVertexHighlights(currentPlayerID);
+			return true;
 		}
 	}
+	
 	return false;
 }
 
-bool Board::placeSettlement(Player* player)
+bool Board::placeSettlement(Player* player, sf::Vector2f clickPosition)
 {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-		sf::Vector2i position = sf::Mouse::getPosition(*window);
-		sf::Vector2f mousePos = window->mapPixelToCoords(position);
-		for (std::size_t i = 0; i < vertices.size(); i++) {
-			if (vertices[i].getAvailability() && vertices[i].isHightlighted() && vertices[i].getBox().contains(mousePos)) {
-				settlements.emplace_back(player, player->getColor());
-				vertices[i].placeSettlement(&(settlements.back()));
 
-				for (int neighbor : vertexNeighbours[i]) {
-					int neighborIndex = neighbor - 1;
-					if (neighborIndex >= 0 && neighborIndex < vertices.size()) {
-						vertices[neighborIndex].setAvailability(false);
-					}
+	for (std::size_t i = 0; i < vertices.size(); i++) {
+		if (vertices[i].getAvailability() && vertices[i].isHightlighted() && vertices[i].getBox().contains(clickPosition)) {
+			settlements.emplace_back(player, player->getColor());
+			vertices[i].placeSettlement(&(settlements.back()));
+
+			for (int neighbor : vertexNeighbours[i]) {
+				int neighborIndex = neighbor - 1;
+				if (neighborIndex >= 0 && neighborIndex < vertices.size()) {
+					vertices[neighborIndex].setAvailability(false);
 				}
-
-				updateEdgeHighlights(currentPlayerID);
-				updateVertexHighlights(currentPlayerID);
-				return true;
 			}
+
+			updateEdgeHighlights(currentPlayerID);
+			updateVertexHighlights(currentPlayerID);
+
+			return true;
 		}
 	}
 	return false;
@@ -174,11 +173,12 @@ void Board::updateEdgeHighlights(int currentPlayerID)
 			
 			for (int neighborIndex : neighbors) {
 				if (edges[neighborIndex - 1].getAvailability()) {
-					highlightedEdges.insert(neighborIndex);
+					highlightedEdges.insert(neighborIndex - 1);
 				}
 			}
 		}
 	}
+	
 }
 
 void Board::updateVertexHighlights(int currentPlayerID)
