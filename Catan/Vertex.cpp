@@ -21,7 +21,7 @@ Vertex::~Vertex()
 void Vertex::update(const sf::Vector2f& mousePosition)
 {
     if (vertex.getGlobalBounds().contains(mousePosition) && highlighted) {
-        vertex.setFillColor(sf::Color::Cyan);
+        vertex.setFillColor(sf::Color::Yellow);
     }
     else {
         vertex.setFillColor(color);

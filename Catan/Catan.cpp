@@ -68,6 +68,16 @@ void Catan::pollEvent()
 				gameBoard->setplacingRoad(true);
 				placementDone = false;
 			}
+			if (!setupPhase && event.key.code == sf::Keyboard::N) {
+				// road
+				nextTurn();
+			}
+			break;
+		case sf::Event::MouseButtonReleased:
+			if (event.mouseButton.button == sf::Mouse::Left) {
+				sf::Vector2i position = sf::Mouse::getPosition(*window);
+				clickPosition = window->mapPixelToCoords(position);
+			}
 			break;
 		}
 	}
@@ -82,7 +92,7 @@ void Catan::resizeView()
 void Catan::renderGame()
 {
 	if (is_game) {
-		view->setCenter(0.0f, 0.0f);
+		view->setCenter(250.0f, 0.0f);
 		window->setView(*view);
 
 		gameBoard->update(currentPlayer->getID());
@@ -125,17 +135,19 @@ void Catan::initPlayers()
 
 void Catan::handleSetupPhase()
 {
-	std::cout << "Called.\n";
 	if (placingRoad) {
-		if (placeRoad()) {
+		if (placeRoad(clickPosition)) {
 			placingRoad = false;
+			gameBoard->setplacingRoad(false);
 			placingSettlement = true;
 			gameBoard->setplacingSettlement(true);
-			gameBoard->setSetupPhase(false);
+			clickPosition = { 0.0f, 0.0f };
+			//gameBoard->setSetupPhase(false);
 		}
 	}
 	else if (placingSettlement) {
-		if (placeSettlement()) {
+		if (placeSettlement(clickPosition)) {
+			clickPosition = { 0.0f, 0.0f };
 			checkingSetupPhase[currentPlayerIndex]++;
 
 			bool done = true;
@@ -181,7 +193,7 @@ void Catan::handleGamePhase()
 
 	if (placementStart && !placementDone) {
 		if (placingSettlement) {
-			if (placeSettlement()) {
+			if (placeSettlement(clickPosition)) {
 				placingSettlement = false;
 				gameBoard->setplacingSettlement(false);
 				placementStart = false;
@@ -189,7 +201,7 @@ void Catan::handleGamePhase()
 			}
 		}
 		else if (placingRoad) {
-			if (placeRoad()) {
+			if (placeRoad(clickPosition)) {
 				placingRoad = false;
 				gameBoard->setplacingRoad(false);
 				placementStart = false;
@@ -200,18 +212,18 @@ void Catan::handleGamePhase()
 	}
 }
 
-bool Catan::placeRoad()
+bool Catan::placeRoad(sf::Vector2f clickPosition)
 {
-	return gameBoard->placeRoad(&(players[currentPlayerIndex]));
+	return gameBoard->placeRoad(&(players[currentPlayerIndex]), clickPosition);
 }
 
-bool Catan::placeSettlement()
+bool Catan::placeSettlement(sf::Vector2f clickPosition)
 {
-	return gameBoard->placeSettlement(&(players[currentPlayerIndex]));
+	return gameBoard->placeSettlement(&(players[currentPlayerIndex]), clickPosition);
 }
 
 
-void Catan::nextTurn()
+void Catan::nextTurnSetupPhase()
 {
 	int startIndex = currentPlayerIndex;
 	do {
@@ -222,6 +234,13 @@ void Catan::nextTurn()
 	} while (currentPlayerIndex != startIndex);
 
 	currentPlayer = &players[currentPlayerIndex];
+}
+
+void Catan::nextTurn()
+{
+	currentPlayerIndex = (currentPlayerIndex + 1) % playerNumber;
+	currentPlayer = &players[currentPlayerIndex];
+	std::cout << "Switched to player " << currentPlayerIndex << "." << std::endl;
 }
 
 
@@ -240,5 +259,5 @@ const std::array<sf::Color, 4> Catan::colors = {
 	sf::Color::Red,
 	sf::Color::Blue,
 	sf::Color::Green,
-	sf::Color::Yellow
+	sf::Color::Magenta
 };

@@ -21,9 +21,10 @@ private:
 	void initPlayers();
 	void handleSetupPhase();
 	void handleGamePhase();
-	bool placeRoad();
-	bool placeSettlement();
+	bool placeRoad(sf::Vector2f clickPosition);
+	bool placeSettlement(sf::Vector2f clickPosition);
 	void nextTurn();
+	void nextTurnSetupPhase();
 	void draw();
 	void save();
 	
@@ -36,6 +37,7 @@ private:
 	Board* gameBoard;
 	std::vector<Player> players;
 	Player* currentPlayer;
+	sf::Vector2f clickPosition;
 	int playerNumber = 4;
 	int currentPlayerIndex;
 

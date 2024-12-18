@@ -17,12 +17,13 @@ public:
 	void update(int currentPlayerID);
 	void draw();
 	
-	bool placeRoad(Player* player);
-	bool placeSettlement(Player* player);
+	bool placeRoad(Player* player, sf::Vector2f clickPosition);
+	bool placeSettlement(Player* player, sf::Vector2f clickPosition);
 	void setSetupPhase(bool setupPhase);
 	void setplacingRoad(bool placingRoad);
 	void setplacingSettlement(bool placingSettlement);
-
+	
+	
 private:
 
 	void initBoard();
