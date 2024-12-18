@@ -20,18 +20,28 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Building.cpp" />
     <ClCompile Include="Catan.cpp" />
+    <ClCompile Include="City.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Hex.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Road.cpp" />
+    <ClCompile Include="Settlement.cpp" />
     <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Building.h" />
     <ClInclude Include="Catan.h" />
+    <ClInclude Include="City.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="Hex.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="ResourceType.h" />
+    <ClInclude Include="Road.h" />
+    <ClInclude Include="Settlement.h" />
     <ClInclude Include="TerrainType.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
