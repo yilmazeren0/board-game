@@ -29,6 +29,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Road.cpp" />
     <ClCompile Include="Settlement.cpp" />
+    <ClCompile Include="StartMenu.cpp" />
     <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +43,7 @@
     <ClInclude Include="ResourceType.h" />
     <ClInclude Include="Road.h" />
     <ClInclude Include="Settlement.h" />
+    <ClInclude Include="StartMenu.h" />
     <ClInclude Include="TerrainType.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>

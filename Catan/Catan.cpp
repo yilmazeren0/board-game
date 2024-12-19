@@ -6,14 +6,15 @@ Catan::Catan()
 	view = new sf::View(sf::Vector2f{ 0.0f,0.0f }, sf::Vector2{ 1280.0f, 720.0f });
 	initTextures();
 	gameBoard = new Board(window, &textures);
+	startMenu = new StartMenu(window, view, this);
 	window->setFramerateLimit(60);
 	initPlayers();
 	backgroundColor = sf::Color(169, 169, 169);
 
 	font.loadFromFile("font/emmasophia.ttf");
 
-	setupPhase = true;
-	gameBoard->setSetupPhase(true);
+	setupPhase = false;
+	gameBoard->setSetupPhase(false);
 	placingSettlement = false;
 	gameBoard->setplacingSettlement(false);
 	placingRoad = true;
@@ -27,6 +28,7 @@ Catan::~Catan()
 	delete window;
 	delete view;
 	delete gameBoard;
+	delete startMenu;
 }
 
 void Catan::run() {
@@ -37,6 +39,10 @@ void Catan::run() {
 		renderGame();
 
 		renderMenu();
+
+		window->clear(backgroundColor);
+
+		draw();
 
 		window->display();
 	}
@@ -105,20 +111,14 @@ void Catan::renderGame()
 		}
 		else {
 			handleGamePhase();
-		}
-		
-		// Clear window
-		window->clear(backgroundColor);
-
-		// Draw elements
-		draw();
+		}		
 	}
 }
 
 void Catan::renderMenu()
 {
 	if (is_menu) {
-
+		startMenu->update(clickPosition);
 	}
 }
 
@@ -158,6 +158,48 @@ void Catan::initTextures() {
 	texture.loadFromFile("textures/desert.png");
 	textures["desert"] = texture;
 
+	texture.loadFromFile("textures/robber.png");
+	textures["robber"] = texture;
+
+}
+
+void Catan::restartBoard()
+{
+	initPlayers();
+	delete gameBoard;
+	gameBoard = new Board(window, &textures);
+
+	checkingSetupPhase.clear();
+	checkingSetupPhase.resize(playerNumber, 0);
+	setupPhase = true;
+	gameBoard->setSetupPhase(true);
+	placingSettlement = false;
+	gameBoard->setplacingSettlement(false);
+	placingRoad = true;
+	gameBoard->setplacingRoad(true);
+	placementStart = false;
+	placementDone = false;
+}
+
+void Catan::incrementPlayerCount()
+{
+	if (playerNumber < 4) {
+		playerNumber++;
+		initPlayers();
+	}
+}
+
+void Catan::decrementPlayerCount()
+{
+	if (playerNumber > 2) {
+		playerNumber--;
+		initPlayers();
+	}
+}
+
+int Catan::getPlayerCount() const
+{
+	return playerNumber;
 }
 
 
@@ -170,13 +212,13 @@ void Catan::handleSetupPhase()
 			gameBoard->setplacingRoad(false);
 			placingSettlement = true;
 			gameBoard->setplacingSettlement(true);
-			clickPosition = { 0.0f, 0.0f };
+			resetClickPosition();
 			//gameBoard->setSetupPhase(false);
 		}
 	}
 	else if (placingSettlement) {
 		if (placeSettlement(clickPosition)) {
-			clickPosition = { 0.0f, 0.0f };
+			resetClickPosition();
 			checkingSetupPhase[currentPlayerIndex]++;
 
 			bool done = true;
@@ -265,6 +307,19 @@ void Catan::nextTurnSetupPhase()
 	currentPlayer = &players[currentPlayerIndex];
 }
 
+void Catan::resetClickPosition()
+{
+	clickPosition = { 0.0f, 0.0f };
+}
+
+void Catan::setMenu(bool menu)
+{
+	is_menu = menu;
+	setupPhase = !menu;
+	gameBoard->setSetupPhase(!menu);
+
+}
+
 void Catan::nextTurn()
 {
 	currentPlayerIndex = (currentPlayerIndex + 1) % playerNumber;
@@ -276,6 +331,11 @@ void Catan::nextTurn()
 void Catan::draw()
 {
 	gameBoard->draw();
+
+	if (is_menu) {
+		startMenu->draw();
+	}
+	
 }
 
 void Catan::save()
@@ -283,10 +343,9 @@ void Catan::save()
 
 }
 
-
 const std::array<sf::Color, 4> Catan::colors = { 
 	sf::Color::Red,
 	sf::Color::Blue,
 	sf::Color::Green,
-	sf::Color::Magenta
+	sf::Color(106, 13, 173),//purple
 };

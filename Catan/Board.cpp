@@ -185,6 +185,7 @@ void Board::initTerrains()
 void Board::updateMousePosition() {
 	sf::Vector2i pixelPos = sf::Mouse::getPosition(*window);
 	mousePosition = window->mapPixelToCoords(pixelPos);
+	
 }
 
 void Board::updateEdgeHighlights(int currentPlayerID)

@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Board.h"
 #include "Player.h"
+#include "StartMenu.h"
 
 class Catan
 {
@@ -11,6 +12,12 @@ public:
 	~Catan();
 
 	void run();
+	void restartBoard();
+	void resetClickPosition();
+	void setMenu(bool menu);
+	void incrementPlayerCount();
+	void decrementPlayerCount();
+	int getPlayerCount() const;
 
 private:
 	
@@ -26,6 +33,7 @@ private:
 	bool placeSettlement(sf::Vector2f clickPosition);
 	void nextTurn();
 	void nextTurnSetupPhase();
+	
 	void draw();
 	void save();
 	
@@ -37,6 +45,7 @@ private:
 	sf::Event event;
 	sf::Font font;
 	Board* gameBoard;
+	StartMenu* startMenu;
 	std::unordered_map<std::string, sf::Texture> textures;
 	std::vector<Player> players;
 	Player* currentPlayer;

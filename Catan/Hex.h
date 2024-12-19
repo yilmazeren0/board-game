@@ -20,6 +20,8 @@ public:
 
 private:
 	ResourceType getResourceType(TerrainType terrainType);
+	void setRobber();
+	void removeRobber();
 
 private:
 	sf::RenderWindow* window;
@@ -28,6 +30,7 @@ private:
 	sf::Text text;
 	sf::Font font;
 	sf::CircleShape circle;
+	sf::Sprite robberSprite;
 	std::array<int, 6> ownedVertices;
 	std::unordered_map<std::string, sf::Texture>* textures;
 

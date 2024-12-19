@@ -48,6 +48,9 @@
     <ClCompile Include="Road.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StartMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Catan.h">
@@ -84,6 +87,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Road.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StartMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
