@@ -4,6 +4,9 @@ Hex::Hex(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>*
     int number, int diceNumber)
     : window{ window }, terrainType{ terrainType }, ownedVertices{ vertexIndices }, diceNumber{ diceNumber }, hasRobber{ false }, textures{ textures }
 {
+    font.loadFromFile("font/emmasophia.ttf");
+    resourceType = getResourceType(terrainType);
+
     hex.setPointCount(6);
     for (int i = 0; i < 6; ++i) {
         float angle_deg = 60.0f * i - 30.0f;
@@ -12,11 +15,9 @@ Hex::Hex(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>*
         float y = radius * std::sin(angle_rad);
         hex.setPoint(i, sf::Vector2f(x, y));
     }
-    
-    font.loadFromFile("font/emmasophia.ttf");
-
     hex.setPosition(centerPoints[number]);
-    resourceType = getResourceType(terrainType);
+    
+    robberSprite.setTexture((*textures)["robber"]);
     switch (terrainType) {
         case TerrainType::HILLS:
             sprite.setTexture((*textures)["hills"]); break;
@@ -29,7 +30,7 @@ Hex::Hex(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>*
         case TerrainType::PASTURE:
             sprite.setTexture((*textures)["pasture"]); break;
         case TerrainType::DESERT:
-            sprite.setTexture((*textures)["desert"]); break;
+            sprite.setTexture((*textures)["desert"]); hasRobber=true; break;
     }
 
     sf::Vector2u texSize = sprite.getTexture()->getSize();
@@ -39,11 +40,25 @@ Hex::Hex(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>*
     float desiredWidth = 2.0f * radius;
     float scaleX = desiredWidth / static_cast<float>(texSize.x);
     float scaleY = desiredWidth / static_cast<float>(texSize.y);
-
     float scale = std::min(scaleX, scaleY);
     sprite.setScale(scale, scale);
     sprite.setRotation(270.0f);
    
+    sf::Vector2u robberSize = robberSprite.getTexture()->getSize();
+    robberSprite.setOrigin(robberSize.x / 2.0f, robberSize.y / 2.0f);
+    robberSprite.setPosition(centerPoints[number]);
+    scaleX = desiredWidth / static_cast<float>(robberSize.x);
+    scaleY = desiredWidth / static_cast<float>(robberSize.y);
+    scale = std::min(scaleX, scaleY);
+    robberSprite.setScale(scale, scale);
+    
+    if (hasRobber) {
+        robberSprite.setColor(sf::Color(0, 0, 0, 210));
+    }
+    else {
+        robberSprite.setColor(sf::Color(0, 0, 0, 0));
+    }
+
     circle.setRadius(radius / 3.5f);
     circle.setFillColor(sf::Color(255, 253, 208));
     circle.setOrigin(circle.getRadius(), circle.getRadius());
@@ -52,6 +67,8 @@ Hex::Hex(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>*
     text.setFont(font);
     text.setString(std::to_string(diceNumber));
     text.setCharacterSize(10);
+
+    
     text.setFillColor(sf::Color::Black);
 
     sf::FloatRect textBounds = text.getLocalBounds();
@@ -85,6 +102,16 @@ ResourceType Hex::getResourceType(TerrainType terrainType) {
         return ResourceType::NONE;
     }
 }
+void Hex::setRobber()
+{
+    hasRobber = true;
+    robberSprite.setColor(sf::Color(0, 0, 0, 210));
+}
+void Hex::removeRobber()
+{
+    hasRobber = false;
+    robberSprite.setColor(sf::Color(0, 0, 0, 0));
+}
 void Hex::update()
 {
 }
@@ -98,6 +125,8 @@ void Hex::draw()
     window->draw(circle);
 
     window->draw(text);
+
+    window->draw(robberSprite);
 }
 
 std::array<sf::Vector2f, 19> Hex::centerPoints = {
