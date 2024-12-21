@@ -4,11 +4,13 @@ Catan::Catan()
 {
 	window = new sf::RenderWindow(sf::VideoMode{ 1280,720 }, "Enes", sf::Style::Resize | sf::Style::Close);
 	view = new sf::View(sf::Vector2f{ 0.0f,0.0f }, sf::Vector2{ 1280.0f, 720.0f });
+	initPlayers();
 	initTextures();
 	gameBoard = new Board(window, &textures);
 	startMenu = new StartMenu(window, view, this);
+	dice = new Dice(window, &textures, this);
 	window->setFramerateLimit(60);
-	initPlayers();
+	
 	backgroundColor = sf::Color(169, 169, 169);
 
 	font.loadFromFile("font/emmasophia.ttf");
@@ -29,6 +31,7 @@ Catan::~Catan()
 	delete view;
 	delete gameBoard;
 	delete startMenu;
+	delete dice;
 }
 
 void Catan::run() {
@@ -81,6 +84,10 @@ void Catan::pollEvent()
 				// road
 				nextTurn();
 			}
+			if (event.key.code == sf::Keyboard::D) {
+				// road
+				dice->rollDice();
+			}
 			break;
 		case sf::Event::MouseButtonReleased:
 			if (event.mouseButton.button == sf::Mouse::Left) {
@@ -100,19 +107,23 @@ void Catan::resizeView()
 
 void Catan::renderGame()
 {
-	if (is_game) {
-		view->setCenter(250.0f, 0.0f);
-		window->setView(*view);
 
-		gameBoard->update(currentPlayer->getID());
+	view->setCenter(250.0f, 0.0f);
+	window->setView(*view);
 
-		if (setupPhase) {
-			handleSetupPhase();
-		}
-		else {
-			handleGamePhase();
-		}		
+	gameBoard->update(currentPlayer->getID());
+	dice->update();
+
+	currentPlayer->update();
+	if (setupPhase) {
+		handleSetupPhase();
 	}
+	else {
+		handleGamePhase();
+	}		
+	
+	
+
 }
 
 void Catan::renderMenu()
@@ -127,7 +138,7 @@ void Catan::initPlayers()
 	players.clear();
 
 	for (int i = 0; i < playerNumber; i++) {
-		players.emplace_back(i, colors[i]);
+		players.emplace_back(window, view, &textures, i, colors[i]);
 	}
 
 	checkingSetupPhase.resize(playerNumber, 0);
@@ -161,6 +172,38 @@ void Catan::initTextures() {
 	texture.loadFromFile("textures/robber.png");
 	textures["robber"] = texture;
 
+	texture.loadFromFile("textures/dice1.png");
+	textures["dice1"] = texture;
+
+	texture.loadFromFile("textures/dice2.png");
+	textures["dice2"] = texture;
+
+	texture.loadFromFile("textures/dice3.png");
+	textures["dice3"] = texture;
+
+	texture.loadFromFile("textures/dice4.png");
+	textures["dice4"] = texture;
+
+	texture.loadFromFile("textures/dice5.png");
+	textures["dice5"] = texture;
+
+	texture.loadFromFile("textures/dice6.png");
+	textures["dice6"] = texture;
+
+	texture.loadFromFile("textures/lumber.png");
+	textures["lumber"] = texture;
+
+	texture.loadFromFile("textures/brick.png");
+	textures["brick"] = texture;
+
+	texture.loadFromFile("textures/ore.png");
+	textures["ore"] = texture;
+
+	texture.loadFromFile("textures/grain.png");
+	textures["grain"] = texture;
+
+	texture.loadFromFile("textures/wool.png");
+	textures["wool"] = texture;
 }
 
 void Catan::restartBoard()
@@ -171,8 +214,8 @@ void Catan::restartBoard()
 
 	checkingSetupPhase.clear();
 	checkingSetupPhase.resize(playerNumber, 0);
-	setupPhase = true;
-	gameBoard->setSetupPhase(true);
+	setupPhase = false;
+	gameBoard->setSetupPhase(false);
 	placingSettlement = false;
 	gameBoard->setplacingSettlement(false);
 	placingRoad = true;
@@ -200,6 +243,11 @@ void Catan::decrementPlayerCount()
 int Catan::getPlayerCount() const
 {
 	return playerNumber;
+}
+
+bool Catan::isMenu() const
+{
+	return is_menu;
 }
 
 
@@ -314,6 +362,7 @@ void Catan::resetClickPosition()
 
 void Catan::setMenu(bool menu)
 {
+	initPlayers();
 	is_menu = menu;
 	setupPhase = !menu;
 	gameBoard->setSetupPhase(!menu);
@@ -334,6 +383,10 @@ void Catan::draw()
 
 	if (is_menu) {
 		startMenu->draw();
+	}
+	else {
+		dice->draw();
+		currentPlayer->draw();
 	}
 	
 }

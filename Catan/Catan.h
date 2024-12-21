@@ -3,6 +3,7 @@
 #include "Board.h"
 #include "Player.h"
 #include "StartMenu.h"
+#include "Dice.h"
 
 class Catan
 {
@@ -18,6 +19,7 @@ public:
 	void incrementPlayerCount();
 	void decrementPlayerCount();
 	int getPlayerCount() const;
+	bool isMenu() const;
 
 private:
 	
@@ -46,6 +48,7 @@ private:
 	sf::Font font;
 	Board* gameBoard;
 	StartMenu* startMenu;
+	Dice* dice;
 	std::unordered_map<std::string, sf::Texture> textures;
 	std::vector<Player> players;
 	Player* currentPlayer;
@@ -55,8 +58,9 @@ private:
 	int currentPlayerIndex;
 
 	const float view_height = 720.0f;
-	bool is_game = true;
 	bool is_menu = true;
+	bool is_diceTurn = true;
+	bool is_builldingTurn = false;
 
 	bool setupPhase = true;
 	bool placingRoad = false;
