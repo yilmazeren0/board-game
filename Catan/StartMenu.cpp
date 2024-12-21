@@ -84,12 +84,6 @@ void StartMenu::startGameText()
 	startGame.setCharacterSize(25);
 	startGame.setOrigin(startGame.getLocalBounds().width / 2.0f, startGame.getLocalBounds().height / 2.0f);
 	startGame.setPosition(view->getCenter().x + 14 * xPart, view->getCenter().y - 3 * yPart);
-
-	//startGameContainer.setSize(sf::Vector2f(startGame.getGlobalBounds().width + 20.0f, startGame.getGlobalBounds().height + 20.0f));
-	//startGameContainer.setOrigin(startGameContainer.getSize().x / 2.0f, startGameContainer.getSize().y / 2.0f);
-	//startGameContainer.setPosition(view->getCenter().x + 14 * xPart, view->getCenter().y - 3 * yPart);
-	
-	//startGame.setPosition(startGameContainer.getPosition());
 }
 
 void StartMenu::leftSymbolText()
