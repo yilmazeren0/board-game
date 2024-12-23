@@ -142,6 +142,19 @@ void Board::setplacingSettlement(bool placingSettlement)
 	this->placingSettlement = placingSettlement;
 }
 
+void Board::produceResource(int diceNumber)
+{
+	for (int i = 0; i < 19; i++) {
+		if (!(hexes[i].isRobbed()) && hexes[i].getDiceNumber() == diceNumber) {
+			std::array<int, 6> ownedVertices = hexes[i].getOwnedVertices();
+			for (int j = 0; j < 6; j++) {
+				vertices[ownedVertices[j] - 1].addResource(hexes[i].getResourceType());
+
+			}
+		}
+	}
+}
+
 void Board::initBoard()
 {
 	initTerrains();
@@ -227,8 +240,7 @@ void Board::shuffleTerrains(std::array<TerrainType, 18>& terrains) {
 	std::shuffle(terrains.begin(), terrains.end(), std::mt19937{ std::random_device{}() });
 }
 
-const std::array<int, 19> Board::diceNumbers = {
-	5, 2, 6, 4, 8, 10, 9, 6, 5, 7, 9, 4, 12, 11, 3, 3, 11, 8, 10 };
+const std::array<int, 19> Board::diceNumbers = { 5, 2, 6, 4, 8, 10, 9, 6, 5, 7, 9, 4, 12, 11, 3, 3, 11, 8, 10 };
 
 const std::array<std::array<int, 6>, 19> Board::hexAndOwnedVertices = {{
 	{1, 2, 3, 9, 10, 11},		//hex1

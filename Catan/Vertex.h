@@ -20,6 +20,7 @@ public:
 	void setHighlight(bool highlight);
 	void setAvailability(bool availability);
 	bool isOwnedByPlayer(int playerID)const;
+	void addResource(ResourceType resourceType);
 
 private:
 

@@ -41,6 +41,7 @@ public:
     void draw();
     void update();
     
+    void takeResources(ResourceType resourceType, int amount);
     int getID() const;
     sf::Color getColor()const;
 
@@ -48,4 +49,6 @@ private:
     void initResources();
     void initTexts();
     void initTextures();
+
+    void updateText();
 };

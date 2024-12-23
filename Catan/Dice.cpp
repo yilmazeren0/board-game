@@ -3,12 +3,15 @@
 #include <cstdlib>
 #include <ctime> 
 
-Dice::Dice(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>* textures, Catan* game) : window{ window },
-    textures { textures }, game{game}
+Dice::Dice(sf::RenderWindow* window, sf::View* view, std::unordered_map<std::string, sf::Texture>* textures, Catan* game) : window{ window },
+    view{view}, textures { textures }, game{game}
 {
     std::srand(static_cast<unsigned int>(std::time(0)));
     dice1 = 6;
     dice2 = 6;
+
+    xPart = window->getSize().x / 30.0f;
+    yPart = window->getSize().y / 30.0f;
 
     dice1Texture.setTexture((*textures)["dice6"]);
     dice2Texture.setTexture((*textures)["dice6"]);;
@@ -18,18 +21,16 @@ Dice::Dice(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture
 
     dice1Texture.setOrigin(texSize1.x / 2.0f, texSize1.y / 2.0f);
     dice2Texture.setOrigin(texSize2.x / 2.0f, texSize2.y / 2.0f);
-    dice1Texture.setPosition(760.0f, -70.0f);
-    dice2Texture.setPosition(760.0f, -20.0f);
+    dice1Texture.setPosition(view->getCenter().x + 15.8f * xPart, view->getCenter().y - 3.8f * yPart);
+    dice2Texture.setPosition(view->getCenter().x + 17.0f * xPart, view->getCenter().y - 3.8f * yPart);
     dice1Texture.setScale(0.5f, 0.5f);
     dice2Texture.setScale(0.5f, 0.5f);
 }
-#include <iostream>
 int Dice::rollDice()
 {
     dice1 = (std::rand() % 6) + 1;
     
     dice2 = (std::rand() % 6) + 1;
-    std::cout << dice1 << ' ' << dice2;
     return dice1 + dice2;
 }
 
@@ -70,8 +71,6 @@ void Dice::update()
 
 void Dice::draw()
 {
-    if (!(game->isMenu())) {
-        window->draw(dice1Texture);
-        window->draw(dice2Texture);
-    }
+    window->draw(dice1Texture);
+    window->draw(dice2Texture);
 }

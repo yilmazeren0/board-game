@@ -5,7 +5,7 @@ Hex::Hex(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>*
     : window{ window }, terrainType{ terrainType }, ownedVertices{ vertexIndices }, diceNumber{ diceNumber }, hasRobber{ false }, textures{ textures }
 {
     font.loadFromFile("font/emmasophia.ttf");
-    resourceType = getResourceType(terrainType);
+    resourceType = initResourceType(terrainType);
 
     hex.setPointCount(6);
     for (int i = 0; i < 6; ++i) {
@@ -80,24 +80,41 @@ Hex::~Hex()
 {
 }
 
+
 const std::array<int, 6>& Hex::getOwnedVertices() const
 {
     return ownedVertices;
 }
 
-ResourceType Hex::getResourceType(TerrainType terrainType) {
+bool Hex::isRobbed() const
+{
+    return hasRobber;
+}
+
+int Hex::getDiceNumber() const
+{
+    return diceNumber;
+}
+
+ResourceType Hex::getResourceType() const
+{
+    return resourceType;
+}
+
+ResourceType Hex::initResourceType(TerrainType terrainType) {
     switch (terrainType) {
     case TerrainType::HILLS:
-        return ResourceType::BRICK;
+        return ResourceType::BRICK; break;
     case TerrainType::FOREST:
-        return ResourceType::LUMBER;
+        return ResourceType::LUMBER; break;
     case TerrainType::MOUNTAINS:
-        return ResourceType::ORE;
+        return ResourceType::ORE; break;
     case TerrainType::FIELDS:
-        return ResourceType::GRAIN;
+        return ResourceType::GRAIN; break;
     case TerrainType::PASTURE:
-        return ResourceType::WOOL;
+        return ResourceType::WOOL; break;
     case TerrainType::DESERT:
+        return ResourceType::NONE; break;
     default:
         return ResourceType::NONE;
     }

@@ -3,6 +3,7 @@
 #include "Board.h"
 #include "Player.h"
 #include "StartMenu.h"
+#include "GameMenu.h"
 #include "Dice.h"
 
 class Catan
@@ -20,20 +21,21 @@ public:
 	void decrementPlayerCount();
 	int getPlayerCount() const;
 	bool isMenu() const;
+	void rollDice();
+	void nextTurn();
 
 private:
 	
 	void pollEvent();
 	void resizeView();
-	void renderGame();
-	void renderMenu();
+	void updateGameState();
 	void initPlayers();
 	void initTextures();
 	void handleSetupPhase();
 	void handleGamePhase();
 	bool placeRoad(sf::Vector2f clickPosition);
 	bool placeSettlement(sf::Vector2f clickPosition);
-	void nextTurn();
+	
 	void nextTurnSetupPhase();
 	
 	void draw();
@@ -48,6 +50,7 @@ private:
 	sf::Font font;
 	Board* gameBoard;
 	StartMenu* startMenu;
+	GameMenu* gameMenu;
 	Dice* dice;
 	std::unordered_map<std::string, sf::Texture> textures;
 	std::vector<Player> players;

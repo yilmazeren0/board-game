@@ -15,11 +15,14 @@ public:
 
 	void update();
 	void draw();
-
+	
 	const std::array<int, 6>& getOwnedVertices() const;
+	bool isRobbed() const;
+	int getDiceNumber() const;
+	ResourceType getResourceType() const;
 
 private:
-	ResourceType getResourceType(TerrainType terrainType);
+	ResourceType initResourceType(TerrainType terrainType);
 	void setRobber();
 	void removeRobber();
 
