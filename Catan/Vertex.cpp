@@ -68,10 +68,23 @@ void Vertex::setAvailability(bool availability)
 
 bool Vertex::isOwnedByPlayer(int playerID) const
 {
-    if (settlement->getOwner()) {
+    if (settlement->getOwner()) 
+    {
         return settlement->getOwner()->getID() == playerID;
     }
     return false;
+}
+#include <iostream>
+void Vertex::addResource(ResourceType resourceType)
+{
+    if (settlement) {
+        if (dynamic_cast<City*>(settlement)) {
+            settlement->getOwner()->takeResources(resourceType, 2);
+        }
+        else if (dynamic_cast<Settlement*>(settlement)) {
+            settlement->getOwner()->takeResources(resourceType, 1);
+        }
+    }
 }
 
 std::array<sf::Vector2f, 54> Vertex::centerPoints = {

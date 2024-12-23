@@ -25,7 +25,7 @@ public:
 	void setSetupPhase(bool setupPhase);
 	void setplacingRoad(bool placingRoad);
 	void setplacingSettlement(bool placingSettlement);
-	
+	void produceResource(int diceNumber);
 	
 private:
 

@@ -34,6 +34,12 @@ void Player::draw()
 
 void Player::update()
 {
+    updateText();
+}
+
+void Player::takeResources(ResourceType resourceType, int amount)
+{
+    resources[resourceType] += amount;
 }
 
 int Player::getID() const
@@ -95,7 +101,7 @@ void Player::initTexts()
     ore.setCharacterSize(15);
     ore.setOrigin(ore.getGlobalBounds().width / 2.0f, ore.getGlobalBounds().height / 2.0f);
     ore.setPosition(view->getCenter().x + 13.0f * xPart, view->getCenter().y + 0.4f * yPart);
-    //LUMBER
+    //GRAIN
     temp.str("");
     temp.clear();
     temp << resources[ResourceType::GRAIN] << 'x';
@@ -104,7 +110,7 @@ void Player::initTexts()
     grain.setCharacterSize(15);
     grain.setOrigin(grain.getGlobalBounds().width / 2.0f, grain.getGlobalBounds().height / 2.0f);
     grain.setPosition(view->getCenter().x + 13.0f * xPart, view->getCenter().y + 3.4f * yPart);
-    //LUMBER
+    //WOOL
     temp.str("");
     temp.clear();
     temp << resources[ResourceType::WOOL] << 'x';
@@ -151,6 +157,45 @@ void Player::initTextures()
     woolTexture.setOrigin(texSize1.x / 2.0f, texSize1.y / 2.0f);
     woolTexture.setPosition(view->getCenter().x + 14.3f * xPart, view->getCenter().y + 6.0f * yPart);
     woolTexture.setScale(0.25f, 0.25f);
+
+}
+
+void Player::updateText()
+{
+    std::stringstream temp;
+    temp << "Player " << playerID + 1 << "'s Turn";
+    player.setString(temp.str());
+
+    //LUMBER
+    temp.str("");
+    temp.clear();
+    temp << resources[ResourceType::LUMBER] << 'x';
+    lumber.setString(temp.str());
+
+    //BRICK
+    temp.str("");
+    temp.clear();
+    temp << resources[ResourceType::BRICK] << 'x';
+    brick.setString(temp.str());
+
+
+    //ORE
+    temp.str("");
+    temp.clear();
+    temp << resources[ResourceType::ORE] << 'x';
+    ore.setString(temp.str());
+
+    //LUMBER
+    temp.str("");
+    temp.clear();
+    temp << resources[ResourceType::GRAIN] << 'x';
+    grain.setString(temp.str());
+
+    //LUMBER
+    temp.str("");
+    temp.clear();
+    temp << resources[ResourceType::WOOL] << 'x';
+    wool.setString(temp.str());
 
 }
 

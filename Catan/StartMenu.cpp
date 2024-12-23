@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+
 StartMenu::StartMenu(sf::RenderWindow* window, sf::View* view, Catan* game) : window{window}, view{view}, game{game}
 {
 	xPart = window->getSize().x / 30.0f;

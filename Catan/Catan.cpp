@@ -8,7 +8,8 @@ Catan::Catan()
 	initTextures();
 	gameBoard = new Board(window, &textures);
 	startMenu = new StartMenu(window, view, this);
-	dice = new Dice(window, &textures, this);
+	gameMenu = new GameMenu(window, view, this);
+	dice = new Dice(window, view, &textures, this);
 	window->setFramerateLimit(60);
 	
 	backgroundColor = sf::Color(169, 169, 169);
@@ -39,9 +40,7 @@ void Catan::run() {
 		
 		pollEvent();
 
-		renderGame();
-
-		renderMenu();
+		updateGameState();
 
 		window->clear(backgroundColor);
 
@@ -105,14 +104,14 @@ void Catan::resizeView()
 	view->setSize(view_height * aspectRatio, view_height);
 }
 
-void Catan::renderGame()
+void Catan::updateGameState()
 {
 
 	view->setCenter(250.0f, 0.0f);
 	window->setView(*view);
 
 	gameBoard->update(currentPlayer->getID());
-	dice->update();
+	
 
 	currentPlayer->update();
 	if (setupPhase) {
@@ -120,18 +119,21 @@ void Catan::renderGame()
 	}
 	else {
 		handleGamePhase();
+		
 	}		
 	
-	
-
-}
-
-void Catan::renderMenu()
-{
 	if (is_menu) {
 		startMenu->update(clickPosition);
 	}
+	else {
+		gameMenu->update(clickPosition);
+		dice->update();
+	}
+	
+	
+
 }
+
 
 void Catan::initPlayers()
 {
@@ -248,6 +250,12 @@ int Catan::getPlayerCount() const
 bool Catan::isMenu() const
 {
 	return is_menu;
+}
+
+void Catan::rollDice()
+{
+	int diceNumber = dice->rollDice();
+	gameBoard->produceResource(diceNumber);
 }
 
 
@@ -385,8 +393,14 @@ void Catan::draw()
 		startMenu->draw();
 	}
 	else {
-		dice->draw();
+
 		currentPlayer->draw();
+		if (!setupPhase) {
+			gameMenu->draw();
+			dice->draw();
+		}
+		
+		
 	}
 	
 }
