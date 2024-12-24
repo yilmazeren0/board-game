@@ -66,6 +66,7 @@ private:
 	int playerNumber = 4;
 	int currentPlayerIndex;
 
+
 	bool placingRobber = false;
 	bool selectingResource = false;
 	bool placingFreeRoad = false;
