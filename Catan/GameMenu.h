@@ -23,12 +23,16 @@ private:
 	sf::Text deck;
 	sf::Text trade;
 	sf::Text nextTurn;
+	sf::Text back;
+	sf::Text buildingBuyRoad;
+	sf::Text buildingBuySettlement;
 	sf::Font font;
 
 	float xPart;
 	float yPart;
 
 	bool is_rollDice;
+	bool is_buildingMenu;
 
 private:
 	void updateMousePosition();
@@ -39,6 +43,11 @@ private:
 	void deckText();
 	void tradeText();
 	void nextTurnText();
+	void backText();
+
+	void buildingBuyRoadText();
+	void buildingBuySettlementText();
+	
 
 	void rollDiceHighlight();
 	void buildingHighlight();
@@ -46,6 +55,11 @@ private:
 	void deckHighlight();
 	void tradeHighlight();
 	void nextTurnHighlight();
+	void backHighlight();
+
+	void buildingBuyRoadHighlight();
+	void buildingBuySettlementHighlight();
+
 
 };
 

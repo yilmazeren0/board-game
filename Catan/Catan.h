@@ -23,6 +23,10 @@ public:
 	bool isMenu() const;
 	void rollDice();
 	void nextTurn();
+	void buySettlement();
+	void buyRoad();
+	bool canBuildRoad() const;
+	bool canBuildSettlement() const;
 
 private:
 	

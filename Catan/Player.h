@@ -41,6 +41,10 @@ public:
     void draw();
     void update();
     
+    bool canBuildRoad() const;
+    void buildRoad();
+    bool canBuildSettlement() const;
+    void buildSettlement();
     void takeResources(ResourceType resourceType, int amount);
     int getID() const;
     sf::Color getColor()const;

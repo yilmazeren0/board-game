@@ -10,6 +10,7 @@ GameMenu::GameMenu(sf::RenderWindow* window, sf::View* view, Catan* game) : wind
 	yPart = window->getSize().y / 30.0f;
 
 	is_rollDice = false;
+	is_buildingMenu = false;
 
 	font.loadFromFile("font/emmasophia.ttf");
 
@@ -19,16 +20,28 @@ GameMenu::GameMenu(sf::RenderWindow* window, sf::View* view, Catan* game) : wind
 	deckText();
 	tradeText();
 	nextTurnText();
+
+	backText();
+
+	buildingBuyRoadText();
+	buildingBuySettlementText();
 }
 
 void GameMenu::draw()
 {
-	window->draw(rollDice);
-	window->draw(building);
-	window->draw(bank);
-	window->draw(deck);
-	window->draw(trade);
-	window->draw(nextTurn);
+	if (is_buildingMenu) {
+		window->draw(back);
+		window->draw(buildingBuyRoad);
+		window->draw(buildingBuySettlement);
+	}
+	else {
+		window->draw(rollDice);
+		window->draw(building);
+		window->draw(bank);
+		window->draw(deck);
+		window->draw(trade);
+		window->draw(nextTurn);
+	}
 
 }
 
@@ -36,48 +49,95 @@ void GameMenu::update(sf::Vector2f mousePosition)
 {
 	updateMousePosition();
 	
-	rollDiceHighlight();
-	buildingHighlight();
-	bankHighlight();
-	deckHighlight();
-	tradeHighlight();
-	nextTurnHighlight();
+	if (!is_rollDice) {
+		rollDiceHighlight();
+	}
+	else {
+		buildingHighlight();
+		bankHighlight();
+		deckHighlight();
+		tradeHighlight();
+		nextTurnHighlight();
 
-	if (rollDice.getGlobalBounds().contains(mousePosition) && !is_rollDice) {
-
-		game->rollDice();
-		game->resetClickPosition();
-		is_rollDice = true;
-		std::cout << "rollDice\n";
-	}
-	else if (building.getGlobalBounds().contains(mousePosition)) {
-
-		game->resetClickPosition();
-		std::cout << "building\n";
-	}
-	else if (bank.getGlobalBounds().contains(mousePosition)) {
-		
-		game->resetClickPosition();
-		std::cout << "bank\n";
-	}
-	else if (deck.getGlobalBounds().contains(mousePosition)) {
-		
-		game->resetClickPosition();
-		std::cout << "deck\n";
-	}
-	else if (trade.getGlobalBounds().contains(mousePosition)) {
-	
-		game->resetClickPosition();
-		std::cout << "trade\n";
-	}
-	else if (nextTurn.getGlobalBounds().contains(mousePosition)) {
-
-		game->nextTurn();
-		game->resetClickPosition();
-		is_rollDice = false;
-		std::cout << "nextTurn\n";
+		backHighlight();
+		buildingBuyRoadHighlight();
+		buildingBuySettlementHighlight();
 	}
 
+	if (is_buildingMenu) {
+
+		if (back.getGlobalBounds().contains(mousePosition)) {
+
+			game->resetClickPosition();
+			is_buildingMenu = false;
+			back.setFillColor(sf::Color::White);
+			std::cout << "back\n";
+		}
+
+		else if (buildingBuyRoad.getGlobalBounds().contains(mousePosition) && game->canBuildRoad()) {
+			
+			game->resetClickPosition();
+			game->buyRoad();
+			buildingBuyRoad.setFillColor(sf::Color::White);
+			std::cout << "buildingBuyRoad\n";
+		}
+
+		else if (buildingBuySettlement.getGlobalBounds().contains(mousePosition) && game->canBuildSettlement()) {
+
+			game->resetClickPosition();
+			game->buySettlement();
+			buildingBuySettlement.setFillColor(sf::Color::White);
+			std::cout << "buildingBuySettlement\n";
+		}
+	}
+	else {
+		if (!is_rollDice) {
+			if (rollDice.getGlobalBounds().contains(mousePosition)) {
+
+				game->rollDice();
+				game->resetClickPosition();
+				is_rollDice = true;
+				rollDice.setFillColor(sf::Color::White);
+				std::cout << "rollDice\n";
+			}
+		}
+		else {
+			if (building.getGlobalBounds().contains(mousePosition)) {
+
+				is_buildingMenu = true;
+				game->resetClickPosition();
+				building.setFillColor(sf::Color::White);
+				std::cout << "building\n";
+			}
+			else if (bank.getGlobalBounds().contains(mousePosition)) {
+
+				game->resetClickPosition();
+				bank.setFillColor(sf::Color::White);
+				std::cout << "bank\n";
+			}
+			else if (deck.getGlobalBounds().contains(mousePosition)) {
+
+				game->resetClickPosition();
+				deck.setFillColor(sf::Color::White);
+				std::cout << "deck\n";
+			}
+			else if (trade.getGlobalBounds().contains(mousePosition)) {
+
+				game->resetClickPosition();
+				trade.setFillColor(sf::Color::White);
+
+				std::cout << "trade\n";
+			}
+			else if (nextTurn.getGlobalBounds().contains(mousePosition)) {
+
+				game->nextTurn();
+				game->resetClickPosition();
+				nextTurn.setFillColor(sf::Color::White);
+				is_rollDice = false;
+				std::cout << "nextTurn\n";
+			}
+		}
+	}
 }
 
 void GameMenu::updateMousePosition()
@@ -140,6 +200,34 @@ void GameMenu::nextTurnText()
 	nextTurn.setPosition(view->getCenter().x + 11.5f * xPart, view->getCenter().y + 12 * yPart);
 }
 
+void GameMenu::backText()
+{
+	back.setFont(font);
+	back.setString("Back");
+	back.setCharacterSize(25);
+	back.setOrigin(back.getLocalBounds().width / 2.0f, back.getLocalBounds().height / 2.0f);
+	back.setPosition(view->getCenter().x + 10.2f * xPart, view->getCenter().y + 0 * yPart);
+}
+
+void GameMenu::buildingBuyRoadText()
+{
+	buildingBuyRoad.setFont(font);
+	buildingBuyRoad.setString("Buy Road");
+	buildingBuyRoad.setCharacterSize(25);
+	buildingBuyRoad.setOrigin(buildingBuyRoad.getLocalBounds().width / 2.0f, buildingBuyRoad.getLocalBounds().height / 2.0f);
+	buildingBuyRoad.setPosition(view->getCenter().x + 11.3f * xPart, view->getCenter().y + 3 * yPart);
+}
+
+void GameMenu::buildingBuySettlementText()
+{
+	buildingBuySettlement.setFont(font);
+	buildingBuySettlement.setString("Buy Settlement");
+	buildingBuySettlement.setCharacterSize(25);
+	buildingBuySettlement.setOrigin(buildingBuySettlement.getLocalBounds().width / 2.0f, buildingBuySettlement.getLocalBounds().height / 2.0f);
+	buildingBuySettlement.setPosition(view->getCenter().x + 12.6f * xPart, view->getCenter().y + 6 * yPart);
+}
+
+
 void GameMenu::rollDiceHighlight()
 {
 	if (rollDice.getGlobalBounds().contains(mousePosition) && !is_rollDice) {
@@ -197,5 +285,35 @@ void GameMenu::nextTurnHighlight()
 	}
 	else {
 		nextTurn.setFillColor(sf::Color::White);
+	}
+}
+
+void GameMenu::backHighlight()
+{
+	if (back.getGlobalBounds().contains(mousePosition)) {
+		back.setFillColor(sf::Color::Black);
+	}
+	else {
+		back.setFillColor(sf::Color::White);
+	}
+}
+
+void GameMenu::buildingBuyRoadHighlight()
+{
+	if (buildingBuyRoad.getGlobalBounds().contains(mousePosition) && game->canBuildRoad()) {
+		buildingBuyRoad.setFillColor(sf::Color::Black);
+	}
+	else {
+		buildingBuyRoad.setFillColor(sf::Color::White);
+	}
+}
+
+void GameMenu::buildingBuySettlementHighlight()
+{
+	if (buildingBuySettlement.getGlobalBounds().contains(mousePosition) && game->canBuildSettlement()) {
+		buildingBuySettlement.setFillColor(sf::Color::Black);
+	}
+	else {
+		buildingBuySettlement.setFillColor(sf::Color::White);
 	}
 }

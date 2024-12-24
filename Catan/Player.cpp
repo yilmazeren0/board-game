@@ -37,6 +37,31 @@ void Player::update()
     updateText();
 }
 
+bool Player::canBuildRoad() const
+{
+    return (resources.at(ResourceType::LUMBER) >= 1 && resources.at(ResourceType::BRICK) >= 1);
+}
+
+void Player::buildRoad()
+{
+    resources[ResourceType::LUMBER] -= 1;
+    resources[ResourceType::BRICK] -= 1;
+}
+
+bool Player::canBuildSettlement() const
+{
+    return (resources.at(ResourceType::LUMBER) >= 1 && resources.at(ResourceType::BRICK) >= 1 &&
+        resources.at(ResourceType::GRAIN) >= 1 && resources.at(ResourceType::WOOL) >= 1);
+}
+
+void Player::buildSettlement()
+{
+    resources[ResourceType::LUMBER] -= 1;
+    resources[ResourceType::BRICK] -= 1;
+    resources[ResourceType::GRAIN] -= 1;
+    resources[ResourceType::WOOL] -= 1;
+}
+
 void Player::takeResources(ResourceType resourceType, int amount)
 {
     resources[resourceType] += amount;
