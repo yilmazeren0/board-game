@@ -63,21 +63,11 @@ void Catan::pollEvent()
 		case sf::Event::KeyPressed:
 			if (!setupPhase && event.key.code == sf::Keyboard::O) {
 				// settlement
-				placementStart = true;
-				placingSettlement = true;
-				gameBoard->setplacingSettlement(true);
-				placingRoad = false;
-				gameBoard->setplacingRoad(false);
-				placementDone = false;
+				buySettlement();
 			}
 			if (!setupPhase && event.key.code == sf::Keyboard::P) {
 				// road
-				placementStart = true;
-				placingSettlement = false;
-				gameBoard->setplacingSettlement(false);
-				placingRoad = true;
-				gameBoard->setplacingRoad(true);
-				placementDone = false;
+				buyRoad();
 			}
 			if (!setupPhase && event.key.code == sf::Keyboard::N) {
 				// road
@@ -382,6 +372,38 @@ void Catan::nextTurn()
 	currentPlayerIndex = (currentPlayerIndex + 1) % playerNumber;
 	currentPlayer = &players[currentPlayerIndex];
 	std::cout << "Switched to player " << currentPlayerIndex << "." << std::endl;
+}
+
+void Catan::buySettlement()
+{
+	placementStart = true;
+	placingSettlement = true;
+	gameBoard->setplacingSettlement(true);
+	placingRoad = false;
+	gameBoard->setplacingRoad(false);
+	placementDone = false;
+	currentPlayer->buildSettlement();
+}
+
+void Catan::buyRoad()
+{
+	placementStart = true;
+	placingSettlement = false;
+	gameBoard->setplacingSettlement(false);
+	placingRoad = true;
+	gameBoard->setplacingRoad(true);
+	placementDone = false;
+	currentPlayer->buildRoad();
+}
+
+bool Catan::canBuildRoad() const
+{
+	return currentPlayer->canBuildRoad();
+}
+
+bool Catan::canBuildSettlement() const
+{
+	return currentPlayer->canBuildRoad();
 }
 
 
