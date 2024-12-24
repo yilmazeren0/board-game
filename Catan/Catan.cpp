@@ -384,6 +384,42 @@ void Catan::handleSetupPhase()
 }
 
 void Catan::handleGamePhase() {
+	if (placingRobber) {
+		if (gameBoard->placeRobber(clickPosition)) {
+			Hex* robberHex = gameBoard->getRobberHex();
+			if (robberHex) {
+				std::vector<Player*> victims = gameBoard->getPlayersAtHex(robberHex);
+
+				// Remove current player from potential victims
+				victims.erase(std::remove_if(victims.begin(), victims.end(),
+					[this](Player* p) { return p->getID() == currentPlayer->getID(); }),
+					victims.end());
+
+				if (!victims.empty()) {
+					int victimIndex = rand() % victims.size();
+					Player* victim = victims[victimIndex];
+
+					// Collect all resources the victim has
+					std::vector<ResourceType> availableResources;
+					for (const auto& [type, count] : victim->getResources()) {
+						if (count > 0) {
+							availableResources.push_back(type);
+						}
+					}
+
+					if (!availableResources.empty()) {
+						int resourceIndex = rand() % availableResources.size();
+						ResourceType stolenResource = availableResources[resourceIndex];
+
+						victim->removeResource(stolenResource, 1);
+						currentPlayer->addResource(stolenResource, 1);
+					}
+				}
+			}
+			placingRobber = false;
+			currentPlayer->incrementKnightsPlayed();
+		}
+	}
 	if (placingFreeRoad && freeRoadsRemaining > 0) {
 		if (placeRoad(clickPosition)) {
 			freeRoadsRemaining--;

@@ -9,22 +9,26 @@ class Hex
 {
 public:
 
-	Hex(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>* textures, TerrainType terrainType, const std::array<int, 6>& vertexIndices, 
+	Hex(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>* textures, TerrainType terrainType, const std::array<int, 6>& vertexIndices,
 		int number, int diceNumber);
 	~Hex();
 
 	void update();
 	void draw();
-	
+
 	const std::array<int, 6>& getOwnedVertices() const;
-	bool isRobbed() const;
-	int getDiceNumber() const;
+
+	int getDiceNumber() const { return diceNumber; }
 	ResourceType getResourceType() const;
+
+	void setRobber();
+	void removeRobber();
+	bool isRobbed() const { return hasRobber; }
+	sf::FloatRect getBox() const { return hex.getGlobalBounds(); }
 
 private:
 	ResourceType initResourceType(TerrainType terrainType);
-	void setRobber();
-	void removeRobber();
+	int diceNumber;
 
 private:
 	sf::RenderWindow* window;
@@ -39,12 +43,10 @@ private:
 
 	ResourceType resourceType;
 	TerrainType terrainType;
-	int diceNumber;
-	bool hasRobber;
-	
+	bool hasRobber = false;
+
 
 	static std::array<sf::Vector2f, 19> centerPoints;
 	static const float center;
 	static const float radius;
 };
-

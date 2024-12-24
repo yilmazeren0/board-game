@@ -61,6 +61,8 @@ public:
     bool canBuildSettlement() const;
     void buildSettlement();
     void takeResources(ResourceType resourceType, int amount);
+    const std::map<ResourceType, int>& getResources() const { return resources; }
+
     int getID() const;
     sf::Color getColor()const;
     bool useKnightCard();
@@ -74,6 +76,8 @@ public:
     void addResource(ResourceType type, int amount = 1);
     void removeResource(ResourceType type, int amount = 1);
     int getResourceCount(ResourceType type) const;
+    void incrementKnightsPlayed() { knightsPlayed++; }
+    int getKnightsPlayed() const { return knightsPlayed; }
 private:
 
     void initResources();

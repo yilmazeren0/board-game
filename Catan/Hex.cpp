@@ -1,8 +1,13 @@
 #include "Hex.h"
 #include <iostream>
-Hex::Hex(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>* textures, TerrainType terrainType, const std::array<int, 6>& vertexIndices, 
+Hex::Hex(sf::RenderWindow* window, std::unordered_map<std::string, sf::Texture>* textures,
+    TerrainType terrainType, const std::array<int, 6>& vertexIndices,
     int number, int diceNumber)
-    : window{ window }, terrainType{ terrainType }, ownedVertices{ vertexIndices }, diceNumber{ diceNumber }, hasRobber{ false }, textures{ textures }
+    : window(window),
+    textures(textures),
+    terrainType(terrainType),
+    ownedVertices(vertexIndices),
+    diceNumber(diceNumber)  // Initialize the dice number here
 {
     font.loadFromFile("font/emmasophia.ttf");
     resourceType = initResourceType(terrainType);
@@ -86,15 +91,8 @@ const std::array<int, 6>& Hex::getOwnedVertices() const
     return ownedVertices;
 }
 
-bool Hex::isRobbed() const
-{
-    return hasRobber;
-}
 
-int Hex::getDiceNumber() const
-{
-    return diceNumber;
-}
+
 
 ResourceType Hex::getResourceType() const
 {
