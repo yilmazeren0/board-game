@@ -4,7 +4,7 @@
 #include <string>
 
 Player::Player(sf::RenderWindow* window, sf::View* view, std::unordered_map<std::string, sf::Texture>* textures, int id, sf::Color color)
-    : window{window}, view{view}, textures{textures}, playerID{id}, color{color} {
+    : window{ window }, view{ view }, textures{ textures }, playerID{ id }, color{ color } {
     initResources();
 
     xPart = window->getSize().x / 30.0f;
@@ -14,11 +14,10 @@ Player::Player(sf::RenderWindow* window, sf::View* view, std::unordered_map<std:
 
     initTexts();
     initTextures();
-
+    initCardSprites(textures); // Add this line
 }
 
-void Player::draw()
-{
+void Player::draw() {
     window->draw(player);
     window->draw(lumber);
     window->draw(brick);
@@ -30,16 +29,141 @@ void Player::draw()
     window->draw(oreTexture);
     window->draw(grainTexture);
     window->draw(woolTexture);
-}
 
+   
+}
 void Player::update()
 {
     updateText();
 }
 
+void Player::initCardSprites(std::unordered_map<std::string, sf::Texture>* textures) {
+    sf::Sprite sprite;
+
+    // Initialize each card sprite
+    sprite.setTexture((*textures)["knight"]);
+    cardSprites[Card::Knight] = sprite;
+
+    sprite.setTexture((*textures)["year_of_plenty"]);
+    cardSprites[Card::YearOfPlenty] = sprite;
+
+    sprite.setTexture((*textures)["road_building"]);
+    cardSprites[Card::RoadBuilding] = sprite;
+
+    sprite.setTexture((*textures)["monopoly"]);
+    cardSprites[Card::Monopoly] = sprite;
+
+    sprite.setTexture((*textures)["victory_point"]);
+    cardSprites[Card::VictoryPoint] = sprite;
+
+    // Set scale for all card sprites
+    for (auto& pair : cardSprites) {
+        pair.second.setScale(0.60f, 0.60f);  // Adjust scale as needed
+
+        // Set origin to center of sprite
+        sf::Vector2u texSize = pair.second.getTexture()->getSize();
+        pair.second.setOrigin(texSize.x / 2.0f, texSize.y / 2.0f);
+    }
+}
+
+void Player::drawCardUI() {
+    float startX = view->getCenter().x - (13.0f * xPart);
+    float y = view->getCenter().y + (13.0f * yPart);
+    float spacing = 6.0f * xPart;
+
+    int i = 0;
+    for (const Card& card : cards) {
+        sf::Sprite& sprite = cardSprites[card];
+        sprite.setPosition(startX + (spacing * i), y);
+        window->draw(sprite);
+
+        // Store card position for click detection
+        cardPositions[i] = sprite.getGlobalBounds();
+        i++;
+    }
+}
+void Player::addResource(ResourceType type, int amount) {
+    resources[type] += amount;
+}
+
+void Player::removeResource(ResourceType type, int amount) {
+    resources[type] = std::max(0, resources[type] - amount);
+}
+
+int Player::getResourceCount(ResourceType type) const {
+    return resources.at(type);
+}
+// Add this function to handle card clicks
+Card Player::handleCardClick(sf::Vector2f clickPos) {
+    int i = 0;
+    for (const Card& card : cards) {
+        if (cardPositions[i].contains(clickPos)) {
+            return card;
+        }
+        i++;
+    }
+    return Card::None; // Add None to your Card enum
+}
+
+void Player::addCard(Card card) {
+    cards.push_back(card);
+}
 bool Player::canBuildRoad() const
 {
     return (resources.at(ResourceType::LUMBER) >= 1 && resources.at(ResourceType::BRICK) >= 1);
+}
+
+bool Player::hasCard(Card cardType) const {
+    return std::find(cards.begin(), cards.end(), cardType) != cards.end();
+}
+
+void Player::removeCard(Card cardType) {
+    auto it = std::find(cards.begin(), cards.end(), cardType);
+    if (it != cards.end()) {
+        cards.erase(it);
+    }
+}
+
+bool Player::useKnightCard() {
+    if (!hasCard(Card::Knight)) return false;
+
+    removeCard(Card::Knight);
+    knightsPlayed++;
+    // The actual moving of robber will be handled by Catan class
+    return true;
+}
+
+bool Player::useYearOfPlentyCard(ResourceType first, ResourceType second) {
+    if (!hasCard(Card::YearOfPlenty)) return false;
+
+    removeCard(Card::YearOfPlenty);
+    resources[first]++;
+    resources[second]++;
+    return true;
+}
+
+bool Player::useRoadBuildingCard() {
+    if (!hasCard(Card::RoadBuilding)) return false;
+
+    removeCard(Card::RoadBuilding);
+    // The actual road placement will be handled by Catan class
+    return true;
+}
+
+bool Player::useMonopolyCard(ResourceType resource) {
+    if (!hasCard(Card::Monopoly)) return false;
+
+    removeCard(Card::Monopoly);
+    // The resource collection will be handled by Catan class
+    return true;
+}
+
+bool Player::useVictoryPointCard() {
+    if (!hasCard(Card::VictoryPoint)) return false;
+
+    removeCard(Card::VictoryPoint);
+    // Add victory point
+    return true;
 }
 
 void Player::buildRoad()

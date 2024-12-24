@@ -27,6 +27,8 @@ public:
 	void buyRoad();
 	bool canBuildRoad() const;
 	bool canBuildSettlement() const;
+	void giveRandomCard();
+
 
 private:
 	
@@ -63,6 +65,13 @@ private:
 	sf::Color backgroundColor;
 	int playerNumber = 4;
 	int currentPlayerIndex;
+
+	bool placingRobber = false;
+	bool selectingResource = false;
+	bool placingFreeRoad = false;
+	int freeRoadsRemaining = 0;
+	ResourceType selectedResource;
+	void handleCardUse(Card card);
 
 	const float view_height = 720.0f;
 	bool is_menu = true;

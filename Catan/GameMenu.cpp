@@ -117,9 +117,8 @@ void GameMenu::update(sf::Vector2f mousePosition)
 			}
 			else if (deck.getGlobalBounds().contains(mousePosition)) {
 
+				game->giveRandomCard();
 				game->resetClickPosition();
-				deck.setFillColor(sf::Color::White);
-				std::cout << "deck\n";
 			}
 			else if (trade.getGlobalBounds().contains(mousePosition)) {
 
