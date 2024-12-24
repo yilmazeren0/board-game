@@ -8,10 +8,21 @@
 #include "Road.h"
 #include "Settlement.h"
 #include "City.h"
-
+enum class Card {
+    None,
+    Knight,
+    YearOfPlenty,
+    RoadBuilding,
+    Monopoly,
+    VictoryPoint
+};
 
 class Player {
 private:
+    std::vector<Card> cards;
+    std::map<Card, sf::Sprite> cardSprites;
+    void initCardSprites(std::unordered_map<std::string, sf::Texture>* textures);
+    void drawCards();
     sf::RenderWindow* window;
     sf::View* view;
     std::unordered_map<std::string, sf::Texture>* textures;
@@ -31,8 +42,10 @@ private:
     sf::Sprite grainTexture;
     sf::Sprite woolTexture;
 
+    std::map<int, sf::FloatRect> cardPositions;
     float xPart;
     float yPart;
+    int knightsPlayed = 0;
 
 
 public:
@@ -40,7 +53,9 @@ public:
 
     void draw();
     void update();
-    
+    void addCard(Card card);
+    const std::vector<Card>& getCards() const { return cards; }
+    void drawCardUI();
     bool canBuildRoad() const;
     void buildRoad();
     bool canBuildSettlement() const;
@@ -48,8 +63,19 @@ public:
     void takeResources(ResourceType resourceType, int amount);
     int getID() const;
     sf::Color getColor()const;
-
+    bool useKnightCard();
+    bool useYearOfPlentyCard(ResourceType first, ResourceType second);
+    bool useRoadBuildingCard();
+    bool useMonopolyCard(ResourceType resource);
+    bool useVictoryPointCard();
+    bool hasCard(Card cardType) const;
+    void removeCard(Card cardType);
+    Card handleCardClick(sf::Vector2f clickPosition);
+    void addResource(ResourceType type, int amount = 1);
+    void removeResource(ResourceType type, int amount = 1);
+    int getResourceCount(ResourceType type) const;
 private:
+
     void initResources();
     void initTexts();
     void initTextures();

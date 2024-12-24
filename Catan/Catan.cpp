@@ -82,6 +82,12 @@ void Catan::pollEvent()
 			if (event.mouseButton.button == sf::Mouse::Left) {
 				sf::Vector2i position = sf::Mouse::getPosition(*window);
 				clickPosition = window->mapPixelToCoords(position);
+
+				// Handle card clicks
+				Card clickedCard = currentPlayer->handleCardClick(clickPosition);
+				if (clickedCard != Card::None) {
+					handleCardUse(clickedCard);
+				}
 			}
 			break;
 		}
@@ -196,8 +202,37 @@ void Catan::initTextures() {
 
 	texture.loadFromFile("textures/wool.png");
 	textures["wool"] = texture;
-}
 
+	texture.loadFromFile("textures/knight.png");
+	textures["knight"] = texture;
+
+	texture.loadFromFile("textures/year_of_plenty.png");
+	textures["year_of_plenty"] = texture;
+
+	texture.loadFromFile("textures/road_building.png");
+	textures["road_building"] = texture;
+
+	texture.loadFromFile("textures/monopoly.png");
+	textures["monopoly"] = texture;
+
+	texture.loadFromFile("textures/victory_point.png");
+	textures["victory_point"] = texture;
+}
+void Catan::giveRandomCard() {
+	// Random card selection
+	int cardType = rand() % 5;
+	Card card;
+
+	switch (cardType) {
+	case 0: card = Card::Knight; break;
+	case 1: card = Card::YearOfPlenty; break;
+	case 2: card = Card::RoadBuilding; break;
+	case 3: card = Card::Monopoly; break;
+	case 4: card = Card::VictoryPoint; break;
+	}
+
+	currentPlayer->addCard(card);
+}
 void Catan::restartBoard()
 {
 	initPlayers();
@@ -248,7 +283,47 @@ void Catan::rollDice()
 	gameBoard->produceResource(diceNumber);
 }
 
+void Catan::handleCardUse(Card card) {
+	switch (card) {
+	case Card::Knight:
+		if (currentPlayer->useKnightCard()) {
+			placingRobber = true;
+			// Enable robber placement mode
+		}
+		break;
 
+	case Card::YearOfPlenty:
+		if (currentPlayer->useYearOfPlentyCard(ResourceType::LUMBER, ResourceType::BRICK)) {
+			// Show resource selection UI
+			selectingResource = true;
+		}
+		break;
+
+	case Card::RoadBuilding:
+		if (currentPlayer->useRoadBuildingCard()) {
+			placingFreeRoad = true;
+			freeRoadsRemaining = 2;
+		}
+		break;
+
+	case Card::Monopoly:
+		if (currentPlayer->useMonopolyCard(selectedResource)) {
+			// Collect all of one resource type from other players
+			for (auto& player : players) {
+				if (&player != currentPlayer) {
+					int amount = player.getResourceCount(selectedResource);
+					player.removeResource(selectedResource, amount);
+					currentPlayer->addResource(selectedResource, amount);
+				}
+			}
+		}
+		break;
+
+	case Card::VictoryPoint:
+		currentPlayer->useVictoryPointCard();
+		break;
+	}
+}
 
 void Catan::handleSetupPhase()
 {
@@ -415,14 +490,12 @@ void Catan::draw()
 		startMenu->draw();
 	}
 	else {
-
 		currentPlayer->draw();
+		currentPlayer->drawCardUI();  // Add this line to draw cards
 		if (!setupPhase) {
 			gameMenu->draw();
 			dice->draw();
 		}
-		
-		
 	}
 	
 }
