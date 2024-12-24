@@ -303,6 +303,9 @@ void Catan::handleCardUse(Card card) {
 		if (currentPlayer->useRoadBuildingCard()) {
 			placingFreeRoad = true;
 			freeRoadsRemaining = 2;
+			placingRoad = true;
+			gameBoard->setplacingRoad(true);
+			// Don't deduct resources since these roads are free
 		}
 		break;
 
@@ -380,10 +383,16 @@ void Catan::handleSetupPhase()
 	}
 }
 
-void Catan::handleGamePhase()
-{
-
-	if (placementStart && !placementDone) {
+void Catan::handleGamePhase() {
+	if (placingFreeRoad && freeRoadsRemaining > 0) {
+		if (placeRoad(clickPosition)) {
+			freeRoadsRemaining--;
+			if (freeRoadsRemaining == 0) {
+				placingFreeRoad = false;
+			}
+		}
+	}
+	else if (placementStart && !placementDone) {
 		if (placingSettlement) {
 			if (placeSettlement(clickPosition)) {
 				placingSettlement = false;
@@ -398,7 +407,6 @@ void Catan::handleGamePhase()
 				gameBoard->setplacingRoad(false);
 				placementStart = false;
 				placementDone = true;
-				
 			}
 		}
 	}
@@ -460,15 +468,16 @@ void Catan::buySettlement()
 	currentPlayer->buildSettlement();
 }
 
-void Catan::buyRoad()
-{
-	placementStart = true;
-	placingSettlement = false;
-	gameBoard->setplacingSettlement(false);
-	placingRoad = true;
-	gameBoard->setplacingRoad(true);
-	placementDone = false;
-	currentPlayer->buildRoad();
+void Catan::buyRoad() {
+    if (!placingFreeRoad) {  // Only deduct resources if not placing free roads
+        currentPlayer->buildRoad();
+    }
+    placementStart = true;
+    placingSettlement = false;
+    gameBoard->setplacingSettlement(false);
+    placingRoad = true;
+    gameBoard->setplacingRoad(true);
+    placementDone = false;
 }
 
 bool Catan::canBuildRoad() const
