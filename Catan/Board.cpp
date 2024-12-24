@@ -86,6 +86,27 @@ void Board::draw()
 		vertex.draw();
 	}
 }
+bool Board::placeRobber(sf::Vector2f clickPosition) {
+	for (auto& hex : hexes) {
+		if (hex.getBox().contains(clickPosition)) {
+			// Don't allow placing on the same hex where robber currently is
+			if (&hex == currentRobberHex) {
+				return false;
+			}
+
+			// Remove robber from current hex if it exists
+			if (currentRobberHex) {
+				currentRobberHex->removeRobber();
+			}
+
+			// Place robber on new hex
+			hex.setRobber();
+			currentRobberHex = &hex;
+			return true;
+		}
+	}
+	return false;
+}
 
 bool Board::placeRoad(Player* player, sf::Vector2f clickPosition)
 {
@@ -167,14 +188,16 @@ void Board::initBoard()
 	}
 	hexes.reserve(19);
 	for (int i = 0; i < 19; i++) {
-		if (i == 9) {
+		if (i == 9) { // Desert hex
 			hexes.emplace_back(window, textures, TerrainType::DESERT, hexAndOwnedVertices[i], i, diceNumbers[i]);
+			// Set initial robber position
+			hexes[i].setRobber();
+			currentRobberHex = &hexes[i];
 		}
 		else {
 			TerrainType type = (i < 9) ? terrains[i] : terrains[i - 1];
 			hexes.emplace_back(window, textures, type, hexAndOwnedVertices[i], i, diceNumbers[i]);
 		}
-		
 	}
 	edges.reserve(72);
 	for (int i = 0; i < 72; i++) {
@@ -238,6 +261,23 @@ void Board::updateVertexHighlights(int currentPlayerID)
 
 void Board::shuffleTerrains(std::array<TerrainType, 18>& terrains) {
 	std::shuffle(terrains.begin(), terrains.end(), std::mt19937{ std::random_device{}() });
+}
+std::vector<Player*> Board::getPlayersAtHex(Hex* hex) {
+	std::vector<Player*> players;
+	if (!hex) return players;
+
+	std::array<int, 6> vertices = hex->getOwnedVertices();
+	for (int vertexIndex : vertices) {
+		if (vertexIndex > 0 && vertexIndex <= this->vertices.size()) {
+			if (Player* owner = this->vertices[vertexIndex - 1].getOwner()) {
+				// Add player if not already in vector
+				if (std::find(players.begin(), players.end(), owner) == players.end()) {
+					players.push_back(owner);
+				}
+			}
+		}
+	}
+	return players;
 }
 
 const std::array<int, 19> Board::diceNumbers = { 5, 2, 6, 4, 8, 10, 9, 6, 5, 7, 9, 4, 12, 11, 3, 3, 11, 8, 10 };

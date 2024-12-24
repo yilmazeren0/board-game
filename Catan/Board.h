@@ -26,9 +26,12 @@ public:
 	void setplacingRoad(bool placingRoad);
 	void setplacingSettlement(bool placingSettlement);
 	void produceResource(int diceNumber);
-	
+	bool placeRobber(sf::Vector2f position);
+	std::vector<Player*> getPlayersAtHex(Hex* hex);
+	void moveRobber(sf::Vector2f position);
+	Hex* getRobberHex() const { return currentRobberHex; }
 private:
-
+	
 	void initBoard();
 	void initTerrains();
 	void updateMousePosition();
@@ -53,6 +56,8 @@ private:
 	bool placingSettlement;
 	int currentPlayerID;
 	std::array<TerrainType, 18> terrains;
+
+	Hex* currentRobberHex = nullptr;
 
 	const static std::array<std::array<int, 6>, 19> hexAndOwnedVertices;
 	const static std::array<std::array<int, 2>, 72> edgeAndOwnedVertices;
