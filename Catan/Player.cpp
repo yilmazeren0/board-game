@@ -57,7 +57,7 @@ ResourceType Player::getRandomResource() const {
         }
     }
     if (!available.empty()) {
-        return available[rand() % available.empty()];
+        return available[rand() % available.size()];
     }
     return ResourceType::NONE;
 }
