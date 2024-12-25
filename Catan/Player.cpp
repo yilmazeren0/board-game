@@ -37,6 +37,50 @@ void Player::update()
     updateText();
 }
 
+bool Player::hasResources() const {
+    return getTotalResources() > 0;
+}
+
+int Player::getTotalResources() const {
+    int total = 0;
+    for (const auto& [type, count] : resources) {
+        total += count;
+    }
+    return total;
+}
+
+ResourceType Player::getRandomResource() const {
+    std::vector<ResourceType> available;
+    for (const auto& [type, count] : resources) {
+        if (count > 0) {
+            available.push_back(type);
+        }
+    }
+    if (!available.empty()) {
+        return available[rand() % available.empty()];
+    }
+    return ResourceType::NONE;
+}
+
+void Player::discardResources(int count) {
+    // Implement logic to discard half of resources when count > 7
+    while (count > 0 && getTotalResources() > 0) {
+        ResourceType resource = getRandomResource();
+        if (resource != ResourceType::NONE) {
+            removeResource(resource, 1);
+            count--;
+        }
+    }
+}
+
+void Player::setMustMoveRobber(bool must) {
+    mustPlaceRobber = must;
+}
+
+bool Player::mustMoveRobber() const {
+    return mustPlaceRobber;
+}
+
 void Player::initCardSprites(std::unordered_map<std::string, sf::Texture>* textures) {
     sf::Sprite sprite;
 

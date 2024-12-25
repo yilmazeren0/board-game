@@ -279,10 +279,28 @@ bool Catan::isMenu() const
 	return is_menu;
 }
 
-void Catan::rollDice()
-{
+void Catan::rollDice() {
 	int diceNumber = dice->rollDice();
-	gameBoard->produceResource(diceNumber);
+
+	if (diceNumber == 7) {
+		// Enable robber placement mode
+		placingRobber = true;
+		// Set the current state to handle robber placement
+		currentPlayer->setMustMoveRobber(true);
+
+		// Handle resource discarding for players with more than 7 cards
+		for (auto& player : players) {
+			int totalResources = player.getTotalResources();
+			if (totalResources > 7) {
+				int discard = totalResources / 2;
+				player.discardResources(discard);
+			}
+		}
+	}
+	else {
+		// Normal resource production
+		gameBoard->produceResource(diceNumber);
+	}
 }
 
 void Catan::handleCardUse(Card card) {
@@ -381,8 +399,10 @@ void Catan::handleSetupPhase()
 void Catan::handleGamePhase() {
 	if (placingRobber) {
 		if (gameBoard->placeRobber(clickPosition)) {
+			// Get the hex where robber was placed
 			Hex* robberHex = gameBoard->getRobberHex();
 			if (robberHex) {
+				// Get all players who have settlements/cities adjacent to this hex
 				std::vector<Player*> victims = gameBoard->getPlayersAtHex(robberHex);
 
 				// Remove current player from potential victims
@@ -390,29 +410,23 @@ void Catan::handleGamePhase() {
 					[this](Player* p) { return p->getID() == currentPlayer->getID(); }),
 					victims.end());
 
+				// If there are victims, steal from one at random
 				if (!victims.empty()) {
 					int victimIndex = rand() % victims.size();
 					Player* victim = victims[victimIndex];
 
-					// Collect all resources the victim has
-					std::vector<ResourceType> availableResources;
-					for (const auto& [type, count] : victim->getResources()) {
-						if (count > 0) {
-							availableResources.push_back(type);
-						}
-					}
-
-					if (!availableResources.empty()) {
-						int resourceIndex = rand() % availableResources.size();
-						ResourceType stolenResource = availableResources[resourceIndex];
-
+					// Steal a random resource
+					if (victim->hasResources()) {
+						ResourceType stolenResource = victim->getRandomResource();
 						victim->removeResource(stolenResource, 1);
 						currentPlayer->addResource(stolenResource, 1);
 					}
 				}
 			}
+
+			// Reset robber placement state
 			placingRobber = false;
-			currentPlayer->incrementKnightsPlayed();
+			currentPlayer->setMustMoveRobber(false);
 		}
 	}
 	if (placingFreeRoad && freeRoadsRemaining > 0) {

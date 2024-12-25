@@ -46,6 +46,7 @@ private:
     float yPart;
     int knightsPlayed = 0;
 
+    bool mustPlaceRobber = false;
 
 public:
     Player(sf::RenderWindow* window, sf::View* view, std::unordered_map<std::string, sf::Texture>* textures, int id, sf::Color color);
@@ -77,6 +78,13 @@ public:
     int getResourceCount(ResourceType type) const;
     void incrementKnightsPlayed();
     int getKnightsPlayed() const;
+
+    bool hasResources() const;
+    int getTotalResources() const;
+    ResourceType getRandomResource() const;
+    void discardResources(int count);
+    void setMustMoveRobber(bool must);
+    bool mustMoveRobber() const;
 
 private:
 
