@@ -47,21 +47,26 @@ void GameMenu::draw()
 
 void GameMenu::update(sf::Vector2f mousePosition)
 {
-	updateMousePosition();
+	try {
+		updateMousePosition();
 	
-	if (!is_rollDice) {
-		rollDiceHighlight();
-	}
-	else {
-		buildingHighlight();
-		bankHighlight();
-		deckHighlight();
-		tradeHighlight();
-		nextTurnHighlight();
+		if (!is_rollDice) {
+			rollDiceHighlight();
+		}
+		else {
+			buildingHighlight();
+			bankHighlight();
+			deckHighlight();
+			tradeHighlight();
+			nextTurnHighlight();
 
-		backHighlight();
-		buildingBuyRoadHighlight();
-		buildingBuySettlementHighlight();
+			backHighlight();
+			buildingBuyRoadHighlight();
+			buildingBuySettlementHighlight();
+		}
+	}
+	catch (const std::exception& e) {
+		std::cerr << "Error in GameMenu::update: " << e.what() << std::endl;
 	}
 
 	if (is_buildingMenu) {
@@ -139,12 +144,13 @@ void GameMenu::update(sf::Vector2f mousePosition)
 	}
 }
 
-void GameMenu::updateMousePosition()
-{
+void GameMenu::updateMousePosition() {
+	if (!window) {
+		return;
+	}
 	sf::Vector2i pixelPos = sf::Mouse::getPosition(*window);
 	mousePosition = window->mapPixelToCoords(pixelPos);
 }
-
 void GameMenu::rollDiceText()
 {
 	rollDice.setFont(font);
