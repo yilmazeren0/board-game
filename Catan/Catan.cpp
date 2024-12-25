@@ -139,15 +139,12 @@ void Catan::drawVictoryPoints() {
 
 		std::string pointsStr = "Player " + std::to_string(i + 1) +
 			": " + std::to_string(players[i].getVictoryPoints()) + " VP";
-		if (players[i].hasLongestRoadCard()) {
-			pointsStr += " (Longest Road)";
-		}
-
+		
 		pointsText.setString(pointsStr);
 		pointsText.setCharacterSize(20);
 		pointsText.setFillColor(colors[i]);
-		pointsText.setPosition(view->getCenter().x - 600.0f,
-			view->getCenter().y - 300.0f + (i * 30.0f));
+		pointsText.setPosition(view->getCenter().x + 390.0f,
+			view->getCenter().y - 340.0f + (i * 30.0f));
 		window->draw(pointsText);
 
 		// Check for winner
@@ -272,6 +269,9 @@ void Catan::initTextures() {
 
 	texture.loadFromFile("textures/longest_road.png");
 	textures["longest_road"] = texture;
+
+	texture.loadFromFile("textures/largest_army.png");
+	textures["largest_army"] = texture;
 }
 void Catan::giveRandomCard() {
 	// Random card selection
@@ -361,7 +361,7 @@ void Catan::handleCardUse(Card card) {
 	case Card::Knight:
 		if (currentPlayer->useKnightCard()) {
 			placingRobber = true;
-			// Enable robber placement mode
+			updateLargestArmy();  // Add this line
 		}
 		break;
 
@@ -534,6 +534,32 @@ void Catan::updateLongestRoad() {
 		}
 	}
 }
+
+void Catan::updateLargestArmy() {
+	int maxKnights = 2;  // Minimum requirement is 3 knights, so start at 2
+	Player* newHolder = nullptr;
+
+	// Check each player's knight count
+	for (auto& player : players) {
+		int knightCount = player.getKnightsPlayed();
+		if (knightCount > maxKnights) {
+			maxKnights = knightCount;
+			newHolder = &player;
+		}
+	}
+
+	// Update largest army holder if necessary
+	if (newHolder != largestArmyHolder) {
+		if (largestArmyHolder) {
+			largestArmyHolder->setLargestArmy(false);
+		}
+		if (newHolder && maxKnights >= 3) {
+			newHolder->setLargestArmy(true);
+			largestArmyHolder = newHolder;
+		}
+	}
+}
+
 bool Catan::placeRoad(sf::Vector2f clickPosition) {
 	if (gameBoard->placeRoad(&(players[currentPlayerIndex]), clickPosition)) {
 		currentPlayer->incrementRoadCount();

@@ -234,5 +234,8 @@ private:
     Player* longestRoadHolder = nullptr;
     void updateLongestRoad();
 
+    Player* largestArmyHolder = nullptr;
+    void updateLargestArmy();
+
     const static std::array<sf::Color, 4> colors; ///< Array of player colors.
 };

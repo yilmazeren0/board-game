@@ -14,7 +14,9 @@ enum class Card {
     YearOfPlenty,
     RoadBuilding,
     Monopoly,
-    VictoryPoint
+    VictoryPoint,
+	LongestRoad,
+	LargestArmy
 };
 
 class Player {
@@ -51,6 +53,7 @@ private:
     int victoryPoints = 0;
 
     bool hasLongestRoad = false;
+    bool hasLargestArmy = false;
     int roadCount = 0;
 
 public:
@@ -70,6 +73,10 @@ public:
 
     int getVictoryPoints() const;
     bool hasWon() const;
+
+    void setLargestArmy(bool has);
+    bool hasLargestArmyCard() const { return hasLargestArmy; }
+    
 
     int getID() const;
     sf::Color getColor()const;
