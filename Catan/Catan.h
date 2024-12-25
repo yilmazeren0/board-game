@@ -237,5 +237,12 @@ private:
     Player* largestArmyHolder = nullptr;
     void updateLargestArmy();
 
+
+    std::vector<Card> developmentCards;
+    void initDevelopmentCards();
+
+
+
+
     const static std::array<sf::Color, 4> colors; ///< Array of player colors.
 };

@@ -76,6 +76,9 @@ public:
 
     void setLargestArmy(bool has);
     bool hasLargestArmyCard() const { return hasLargestArmy; }
+
+    bool canBuyDevelopmentCard() const;
+    void buyDevelopmentCard();
     
 
     int getID() const;

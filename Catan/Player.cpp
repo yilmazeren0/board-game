@@ -52,6 +52,19 @@ int Player::getVictoryPoints() const {
     return total;
 }
 
+bool Player::canBuyDevelopmentCard() const {
+    return (resources.at(ResourceType::ORE) >= 1 &&
+        resources.at(ResourceType::WOOL) >= 1 &&
+        resources.at(ResourceType::GRAIN) >= 1);
+}
+
+void Player::buyDevelopmentCard() {
+    // Deduct resources
+    resources[ResourceType::ORE] -= 1;
+    resources[ResourceType::WOOL] -= 1;
+    resources[ResourceType::GRAIN] -= 1;
+}
+
 void Player::setLongestRoad(bool has) {
     if (has && !hasLongestRoad) {
         victoryPoints += 2;  // Add 2 points when gaining longest road
