@@ -1,5 +1,6 @@
 #include "Catan.h"
 #include <iostream>
+
 Catan::Catan()
 {
 	window = new sf::RenderWindow(sf::VideoMode{ 1280,720 }, "Enes", sf::Style::Resize | sf::Style::Close);
@@ -102,22 +103,25 @@ void Catan::resizeView()
 
 void Catan::updateGameState()
 {
-
 	view->setCenter(250.0f, 0.0f);
 	window->setView(*view);
 
 	gameBoard->update(currentPlayer->getID());
-	
-
 	currentPlayer->update();
+
+	if (gameOver) {
+		// Optionally handle game over state
+		// For example, disable further actions
+		return;
+	}
+
 	if (setupPhase) {
 		handleSetupPhase();
 	}
 	else {
 		handleGamePhase();
-		
-	}		
-	
+	}
+
 	if (is_menu) {
 		startMenu->update(clickPosition);
 	}
@@ -125,10 +129,53 @@ void Catan::updateGameState()
 		gameMenu->update(clickPosition);
 		dice->update();
 	}
-	
-	
-
 }
+
+void Catan::drawVictoryPoints() {
+	// Create text for each player's victory points
+	for (int i = 0; i < playerNumber; i++) {
+		sf::Text pointsText;
+		pointsText.setFont(font);
+
+		std::string pointsStr = "Player " + std::to_string(i + 1) +
+			": " + std::to_string(players[i].getVictoryPoints()) + " VP";
+		
+		pointsText.setString(pointsStr);
+		pointsText.setCharacterSize(20);
+		pointsText.setFillColor(colors[i]);
+		pointsText.setPosition(view->getCenter().x + 390.0f,
+			view->getCenter().y - 340.0f + (i * 30.0f));
+		window->draw(pointsText);
+
+		// Check for winner
+		if (players[i].getVictoryPoints() >= 10 && !gameOver) {
+			gameOver = true;
+			winningPlayer = i;
+		}
+	}
+
+	// Display winner message if game is over
+	if (gameOver) {
+		sf::Text winText;
+		winText.setFont(font);
+
+		// Create winner message
+		std::string winStr = "Player " + std::to_string(winningPlayer + 1) +
+			" Wins!\n" + std::to_string(players[winningPlayer].getVictoryPoints()) +
+			" Victory Points";
+		winText.setString(winStr);
+		winText.setCharacterSize(50);
+		winText.setFillColor(colors[winningPlayer]);
+
+		// Center the text
+		winText.setOrigin(winText.getGlobalBounds().width / 2.0f,
+			winText.getGlobalBounds().height / 2.0f);
+		winText.setPosition(view->getCenter().x, view->getCenter().y);
+
+		window->draw(winText);
+	}
+}
+
 
 
 void Catan::initPlayers()
@@ -219,6 +266,12 @@ void Catan::initTextures() {
 
 	texture.loadFromFile("textures/victory_point.png");
 	textures["victory_point"] = texture;
+
+	texture.loadFromFile("textures/longest_road.png");
+	textures["longest_road"] = texture;
+
+	texture.loadFromFile("textures/largest_army.png");
+	textures["largest_army"] = texture;
 }
 void Catan::giveRandomCard() {
 	// Random card selection
@@ -308,7 +361,7 @@ void Catan::handleCardUse(Card card) {
 	case Card::Knight:
 		if (currentPlayer->useKnightCard()) {
 			placingRobber = true;
-			// Enable robber placement mode
+			updateLargestArmy();  // Add this line
 		}
 		break;
 
@@ -457,10 +510,65 @@ void Catan::handleGamePhase() {
 	}
 }
 
-bool Catan::placeRoad(sf::Vector2f clickPosition)
-{
-	return gameBoard->placeRoad(&(players[currentPlayerIndex]), clickPosition);
+void Catan::updateLongestRoad() {
+	int maxRoadLength = 4;  // Minimum requirement is 5, so start at 4
+	Player* newHolder = nullptr;
+
+	// Check each player's connected road length
+	for (auto& player : players) {
+		int connectedRoadLength = gameBoard->getLongestRoadLength(player.getID());
+		if (connectedRoadLength > maxRoadLength) {
+			maxRoadLength = connectedRoadLength;
+			newHolder = &player;
+		}
+	}
+
+	// Update longest road holder if necessary
+	if (newHolder != longestRoadHolder) {
+		if (longestRoadHolder) {
+			longestRoadHolder->setLongestRoad(false);
+		}
+		if (newHolder && maxRoadLength >= 5) {
+			newHolder->setLongestRoad(true);
+			longestRoadHolder = newHolder;
+		}
+	}
 }
+
+void Catan::updateLargestArmy() {
+	int maxKnights = 2;  // Minimum requirement is 3 knights, so start at 2
+	Player* newHolder = nullptr;
+
+	// Check each player's knight count
+	for (auto& player : players) {
+		int knightCount = player.getKnightsPlayed();
+		if (knightCount > maxKnights) {
+			maxKnights = knightCount;
+			newHolder = &player;
+		}
+	}
+
+	// Update largest army holder if necessary
+	if (newHolder != largestArmyHolder) {
+		if (largestArmyHolder) {
+			largestArmyHolder->setLargestArmy(false);
+		}
+		if (newHolder && maxKnights >= 3) {
+			newHolder->setLargestArmy(true);
+			largestArmyHolder = newHolder;
+		}
+	}
+}
+
+bool Catan::placeRoad(sf::Vector2f clickPosition) {
+	if (gameBoard->placeRoad(&(players[currentPlayerIndex]), clickPosition)) {
+		currentPlayer->incrementRoadCount();
+		updateLongestRoad();  // Check if longest road needs to be updated
+		return true;
+	}
+	return false;
+}
+
 
 bool Catan::placeSettlement(sf::Vector2f clickPosition)
 {
@@ -549,7 +657,6 @@ bool Catan::canBuildSettlement() const
 	return currentPlayer->canBuildSettlement();
 }
 
-
 void Catan::draw()
 {
 	gameBoard->draw();
@@ -559,13 +666,13 @@ void Catan::draw()
 	}
 	else {
 		currentPlayer->draw();
-		currentPlayer->drawCardUI();  // Add this line to draw cards
+		currentPlayer->drawCardUI();
+		drawVictoryPoints(); 
 		if (!setupPhase) {
 			gameMenu->draw();
 			dice->draw();
 		}
 	}
-	
 }
 
 void Catan::save()

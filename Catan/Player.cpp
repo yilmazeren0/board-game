@@ -37,6 +37,32 @@ void Player::update()
     updateText();
 }
 
+int Player::getVictoryPoints() const {
+    // Calculate total victory points:
+    // - Settlements (1 point each)
+    // - Cities (2 points each)
+    // - Victory point cards
+    // - Longest road bonus (2 points)
+    // - Largest army bonus (2 points)
+    int total = victoryPoints;
+
+    // Add points from victory point cards
+    total += std::count(cards.begin(), cards.end(), Card::VictoryPoint);
+
+    return total;
+}
+
+void Player::setLongestRoad(bool has) {
+    if (has && !hasLongestRoad) {
+        victoryPoints += 2;  // Add 2 points when gaining longest road
+    }
+    else if (!has && hasLongestRoad) {
+        victoryPoints -= 2;  // Remove 2 points when losing longest road
+    }
+    hasLongestRoad = has;
+}
+
+
 bool Player::hasResources() const {
     return getTotalResources() > 0;
 }
@@ -48,6 +74,7 @@ int Player::getTotalResources() const {
     }
     return total;
 }
+
 
 ResourceType Player::getRandomResource() const {
     std::vector<ResourceType> available;
@@ -102,7 +129,7 @@ void Player::initCardSprites(std::unordered_map<std::string, sf::Texture>* textu
 
     // Set scale for all card sprites
     for (auto& pair : cardSprites) {
-        pair.second.setScale(0.60f, 0.60f);  // Adjust scale as needed
+        pair.second.setScale(0.40f, 0.40f);  // Adjust scale as needed
 
         // Set origin to center of sprite
         sf::Vector2u texSize = pair.second.getTexture()->getSize();
@@ -110,18 +137,54 @@ void Player::initCardSprites(std::unordered_map<std::string, sf::Texture>* textu
     }
 }
 
+void Player::setLargestArmy(bool has) {
+    if (has && !hasLargestArmy) {
+        victoryPoints += 2;  // Add 2 points when gaining largest army
+    }
+    else if (!has && hasLargestArmy) {
+        victoryPoints -= 2;  // Remove 2 points when losing largest army
+    }
+    hasLargestArmy = has;
+}
+
+
 void Player::drawCardUI() {
-    float startX = view->getCenter().x - (13.0f * xPart);
+    float startX = view->getCenter().x - (-8.0f * xPart);
     float y = view->getCenter().y + (13.0f * yPart);
-    float spacing = 6.0f * xPart;
+    float spacing = 2.0f * xPart;
 
     int i = 0;
+
+    // Draw the longest road card if player has it
+    if (hasLongestRoad) {
+
+        sf::Sprite longestRoadSprite;
+        longestRoadSprite.setTexture((*textures)["longest_road"]);
+        longestRoadSprite.setScale(0.25f, 0.25f);
+        sf::Vector2u texSize = longestRoadSprite.getTexture()->getSize();
+        longestRoadSprite.setOrigin(texSize.x / 2.0f, texSize.y / 2.0f);
+        longestRoadSprite.setPosition(startX + (spacing * i), y);
+        window->draw(longestRoadSprite);
+        i++;
+    }
+
+    // Draw the largest army card if player has it
+    if (hasLargestArmy) {
+        sf::Sprite largestArmySprite;
+        largestArmySprite.setTexture((*textures)["largest_army"]);
+        largestArmySprite.setScale(0.25f, 0.25f);
+        sf::Vector2u texSize = largestArmySprite.getTexture()->getSize();
+        largestArmySprite.setOrigin(texSize.x / 2.0f, texSize.y / 2.0f);
+        largestArmySprite.setPosition(startX + (spacing * i), y);
+        window->draw(largestArmySprite);
+        i++;
+    }
+
+    // Then draw development cards with offset
     for (const Card& card : cards) {
         sf::Sprite& sprite = cardSprites[card];
         sprite.setPosition(startX + (spacing * i), y);
         window->draw(sprite);
-
-        // Store card position for click detection
         cardPositions[i] = sprite.getGlobalBounds();
         i++;
     }
