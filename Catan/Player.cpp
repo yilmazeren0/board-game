@@ -37,6 +37,32 @@ void Player::update()
     updateText();
 }
 
+int Player::getVictoryPoints() const {
+    // Calculate total victory points:
+    // - Settlements (1 point each)
+    // - Cities (2 points each)
+    // - Victory point cards
+    // - Longest road bonus (2 points)
+    // - Largest army bonus (2 points)
+    int total = victoryPoints;
+
+    // Add points from victory point cards
+    total += std::count(cards.begin(), cards.end(), Card::VictoryPoint);
+
+    return total;
+}
+
+void Player::setLongestRoad(bool has) {
+    if (has && !hasLongestRoad) {
+        victoryPoints += 2;  // Add 2 points when gaining longest road
+    }
+    else if (!has && hasLongestRoad) {
+        victoryPoints -= 2;  // Remove 2 points when losing longest road
+    }
+    hasLongestRoad = has;
+}
+
+
 bool Player::hasResources() const {
     return getTotalResources() > 0;
 }
@@ -48,6 +74,7 @@ int Player::getTotalResources() const {
     }
     return total;
 }
+
 
 ResourceType Player::getRandomResource() const {
     std::vector<ResourceType> available;

@@ -2,18 +2,19 @@
 #include "Player.h"
 #include <iostream>
 Edge::Edge(sf::RenderWindow* window, const std::array<int, 2>& vertexIndices, int number) {
-	this->window = window;
-    this->ownedVertices = vertexIndices;
+    this->window = window;
+    this->vertices = vertexIndices;        // Initialize vertices array
+    this->ownedVertices = vertexIndices;   // Initialize ownedVertices array
     this->availability = true;
     this->highlighted = false;
     this->color = sf::Color::White;
 
-	edge.setSize(sf::Vector2f(radius, 10.0f));
-	edge.setOrigin(radius / 2, 10.0f / 2);
-	edge.setFillColor(color);
+    edge.setSize(sf::Vector2f(radius, 10.0f));
+    edge.setOrigin(radius / 2, 10.0f / 2);
+    edge.setFillColor(color);
 
-	edge.setPosition(centerPoints[number]);
-	edge.setRotation(rotations[number]);
+    edge.setPosition(centerPoints[number]);
+    edge.setRotation(rotations[number]);
 }
 
 Edge::~Edge()
@@ -58,7 +59,7 @@ void Edge::setAvailability(bool availability)
     this->availability = availability;
 }
 
-bool Edge::isOwnedByPlayer(int playerID) const {
+bool Edge::isOwnedByPlayer(size_t playerID) const {
     if (road == nullptr) {
         return false;
     }

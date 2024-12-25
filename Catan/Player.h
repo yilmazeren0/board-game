@@ -48,6 +48,11 @@ private:
 
     bool mustPlaceRobber = false;
 
+    int victoryPoints = 0;
+
+    bool hasLongestRoad = false;
+    int roadCount = 0;
+
 public:
     Player(sf::RenderWindow* window, sf::View* view, std::unordered_map<std::string, sf::Texture>* textures, int id, sf::Color color);
 
@@ -62,6 +67,9 @@ public:
     void buildSettlement();
     void takeResources(ResourceType resourceType, int amount);
     const std::map<ResourceType, int>& getResources() const;
+
+    int getVictoryPoints() const;
+    bool hasWon() const;
 
     int getID() const;
     sf::Color getColor()const;
@@ -86,6 +94,10 @@ public:
     void setMustMoveRobber(bool must);
     bool mustMoveRobber() const;
 
+    void setLongestRoad(bool has);
+    bool hasLongestRoadCard() const { return hasLongestRoad; }
+    void incrementRoadCount() { roadCount++; }
+    int getRoadCount() const { return roadCount; }
 private:
 
     void initResources();

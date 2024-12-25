@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <array>
+#include <set>
 #include <unordered_set>
 #include <unordered_map>
 #include "Hex.h"
@@ -30,6 +31,7 @@ public:
 	std::vector<Player*> getPlayersAtHex(Hex* hex);
 	void moveRobber(sf::Vector2f position);
 	Hex* getRobberHex() const;
+	int getLongestRoadLength(int playerID) const;
 private:
 	
 	void initBoard();
@@ -51,6 +53,9 @@ private:
 	std::unordered_set<int> highlightedEdges;
 	std::unordered_set<int> highlightedVertices;
 	sf::Vector2f mousePosition;
+
+	int getConnectedRoadLength(int edgeIndex, int playerID, std::set<int>& visited) const;
+    std::vector<int> getConnectedEdges(int edgeIndex) const;
 	bool setupPhase;
 	bool placingRoad;
 	bool placingSettlement;

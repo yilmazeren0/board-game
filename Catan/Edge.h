@@ -20,7 +20,15 @@ public:
 	bool isHightlighted()const;
 	void setHighlight(bool highlight);
 	void setAvailability(bool availability);
-	bool isOwnedByPlayer(int playerID)const;
+	bool isOwnedByPlayer(size_t playerID) const;
+
+	bool containsVertex(int vertexIndex) const {
+		return vertices[0] == vertexIndex || vertices[1] == vertexIndex;
+	}
+
+	const std::array<int, 2>& getVertices() const {
+		return vertices;
+	}
 
 private:
 	sf::RenderWindow* window;
@@ -35,5 +43,7 @@ private:
 	static std::array<float, 72> rotations;
 	static const float center;
 	static const float radius;
+
+	std::array<int, 2> vertices;
 };
 

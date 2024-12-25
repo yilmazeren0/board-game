@@ -11,6 +11,8 @@
 #include "StartMenu.h"
 #include "GameMenu.h"
 #include "Dice.h"
+#include <sstream>
+#include <string>
 
  /**
   * @class Catan
@@ -187,6 +189,10 @@ private:
      */
     void save();
 
+    void drawVictoryPoints();
+    bool gameOver = false;
+    int winningPlayer = -1;
+
 private:
     sf::RenderWindow* window;                   ///< Pointer to the SFML window.
     sf::View* view;                             ///< Pointer to the SFML view.
@@ -224,6 +230,9 @@ private:
 
     bool placementStart = false;               ///< Indicates if placement has started.
     bool placementDone = false;                ///< Indicates if placement is complete.
+
+    Player* longestRoadHolder = nullptr;
+    void updateLongestRoad();
 
     const static std::array<sf::Color, 4> colors; ///< Array of player colors.
 };

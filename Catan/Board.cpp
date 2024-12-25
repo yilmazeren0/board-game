@@ -278,6 +278,57 @@ void Board::shuffleTerrains(std::array<TerrainType, 18>& terrains) {
 	std::shuffle(terrains.begin(), terrains.end(), std::mt19937{ std::random_device{}() });
 }
 
+int Board::getLongestRoadLength(int playerID) const {
+	int maxLength = 0;
+	std::set<int> visited;
+
+	// Try starting from each edge owned by the player
+	for (int i = 0; i < edges.size(); i++) {
+		if (edges[i].isOwnedByPlayer(playerID)) {
+			visited.clear();
+			int length = getConnectedRoadLength(i, playerID, visited);
+			maxLength = std::max(maxLength, length);
+		}
+	}
+	return maxLength;
+}
+
+int Board::getConnectedRoadLength(int edgeIndex, int playerID, std::set<int>& visited) const {
+	// If we've already visited this edge or it's not owned by the player, return 0
+	if (visited.count(edgeIndex) > 0 || !edges[edgeIndex].isOwnedByPlayer(playerID)) {
+		return 0;
+	}
+
+	// Mark this edge as visited
+	visited.insert(edgeIndex);
+
+	// Get connected edges through shared vertices
+	std::vector<int> connectedEdges;
+	const auto& edgeVertices = edges[edgeIndex].getVertices();
+
+	// For each vertex of this edge
+	for (int vertexIndex : edgeVertices) {
+		// Look through all edges to find ones that share this vertex
+		for (size_t i = 0; i < edges.size(); i++) {
+			if (i != edgeIndex && // Not the same edge
+				edges[i].isOwnedByPlayer(playerID) && // Owned by same player
+				edges[i].containsVertex(vertexIndex)) { // Shares a vertex
+				connectedEdges.push_back(i);
+			}
+		}
+	}
+
+	// Find the longest path through connected edges
+	int maxBranchLength = 0;
+	for (int nextEdge : connectedEdges) {
+		int length = getConnectedRoadLength(nextEdge, playerID, visited);
+		maxBranchLength = std::max(maxBranchLength, length);
+	}
+
+	// Return this edge (1) plus the longest connected path
+	return 1 + maxBranchLength;
+}
+
 std::vector<Player*> Board::getPlayersAtHex(Hex* hex) {
 	std::vector<Player*> players;
 	if (!hex) return players;
@@ -295,6 +346,7 @@ std::vector<Player*> Board::getPlayersAtHex(Hex* hex) {
 	}
 	return players;
 }
+
 
 Hex* Board::getRobberHex() const
 {
