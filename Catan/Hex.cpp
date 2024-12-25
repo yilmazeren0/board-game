@@ -94,6 +94,11 @@ const std::array<int, 6>& Hex::getOwnedVertices() const
 
 
 
+int Hex::getDiceNumber() const
+{
+    return diceNumber;
+}
+
 ResourceType Hex::getResourceType() const
 {
     return resourceType;
@@ -126,6 +131,14 @@ void Hex::removeRobber()
 {
     hasRobber = false;
     robberSprite.setColor(sf::Color(0, 0, 0, 0));
+}
+bool Hex::isRobbed() const
+{
+    return hasRobber;
+}
+sf::FloatRect Hex::getBox() const
+{
+    return hex.getGlobalBounds();
 }
 void Hex::update()
 {

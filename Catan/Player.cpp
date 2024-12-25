@@ -93,6 +93,16 @@ void Player::removeResource(ResourceType type, int amount) {
 int Player::getResourceCount(ResourceType type) const {
     return resources.at(type);
 }
+void Player::incrementKnightsPlayed()
+{
+    knightsPlayed++;
+}
+
+int Player::getKnightsPlayed() const
+{
+    return knightsPlayed;
+}
+
 // Add this function to handle card clicks
 Card Player::handleCardClick(sf::Vector2f clickPos) {
     int i = 0;
@@ -107,6 +117,10 @@ Card Player::handleCardClick(sf::Vector2f clickPos) {
 
 void Player::addCard(Card card) {
     cards.push_back(card);
+}
+const std::vector<Card>& Player::getCards() const
+{
+    return cards;
 }
 bool Player::canBuildRoad() const
 {
@@ -189,6 +203,11 @@ void Player::buildSettlement()
 void Player::takeResources(ResourceType resourceType, int amount)
 {
     resources[resourceType] += amount;
+}
+
+const std::map<ResourceType, int>& Player::getResources() const
+{
+    return resources;
 }
 
 int Player::getID() const

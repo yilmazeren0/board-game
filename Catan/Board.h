@@ -29,7 +29,7 @@ public:
 	bool placeRobber(sf::Vector2f position);
 	std::vector<Player*> getPlayersAtHex(Hex* hex);
 	void moveRobber(sf::Vector2f position);
-	Hex* getRobberHex() const { return currentRobberHex; }
+	Hex* getRobberHex() const;
 private:
 	
 	void initBoard();

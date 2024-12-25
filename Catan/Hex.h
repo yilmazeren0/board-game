@@ -18,13 +18,13 @@ public:
 
 	const std::array<int, 6>& getOwnedVertices() const;
 
-	int getDiceNumber() const { return diceNumber; }
+	int getDiceNumber() const;
 	ResourceType getResourceType() const;
 
 	void setRobber();
 	void removeRobber();
-	bool isRobbed() const { return hasRobber; }
-	sf::FloatRect getBox() const { return hex.getGlobalBounds(); }
+	bool isRobbed() const;
+	sf::FloatRect getBox() const;
 
 private:
 	ResourceType initResourceType(TerrainType terrainType);

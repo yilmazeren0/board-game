@@ -20,10 +20,9 @@ public:
 	void setHighlight(bool highlight);
 	void setAvailability(bool availability);
 	bool isOwnedByPlayer(int playerID)const;
+	bool isOwned()const;
 	void addResource(ResourceType resourceType);
-	Player* getOwner() const {
-		return (settlement) ? settlement->getOwner() : nullptr;
-	}
+	Player* getOwner() const;
 private:
 
 

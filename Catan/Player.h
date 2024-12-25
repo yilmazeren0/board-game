@@ -21,8 +21,7 @@ class Player {
 private:
     std::vector<Card> cards;
     std::map<Card, sf::Sprite> cardSprites;
-    void initCardSprites(std::unordered_map<std::string, sf::Texture>* textures);
-    void drawCards();
+    
     sf::RenderWindow* window;
     sf::View* view;
     std::unordered_map<std::string, sf::Texture>* textures;
@@ -54,14 +53,14 @@ public:
     void draw();
     void update();
     void addCard(Card card);
-    const std::vector<Card>& getCards() const { return cards; }
+    const std::vector<Card>& getCards() const;
     void drawCardUI();
     bool canBuildRoad() const;
     void buildRoad();
     bool canBuildSettlement() const;
     void buildSettlement();
     void takeResources(ResourceType resourceType, int amount);
-    const std::map<ResourceType, int>& getResources() const { return resources; }
+    const std::map<ResourceType, int>& getResources() const;
 
     int getID() const;
     sf::Color getColor()const;
@@ -76,13 +75,15 @@ public:
     void addResource(ResourceType type, int amount = 1);
     void removeResource(ResourceType type, int amount = 1);
     int getResourceCount(ResourceType type) const;
-    void incrementKnightsPlayed() { knightsPlayed++; }
-    int getKnightsPlayed() const { return knightsPlayed; }
+    void incrementKnightsPlayed();
+    int getKnightsPlayed() const;
+
 private:
 
     void initResources();
     void initTexts();
     void initTextures();
-
+    void initCardSprites(std::unordered_map<std::string, sf::Texture>* textures);
+    void drawCards();
     void updateText();
 };

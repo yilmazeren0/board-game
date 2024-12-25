@@ -14,7 +14,8 @@ Board::~Board()
 
 void Board::update(int currentPlayerID)
 {
-	
+	updateEdgeHighlights(currentPlayerID);
+
 	if (currentPlayerID != this->currentPlayerID) {
 		
 		updateEdgeHighlights(currentPlayerID);
@@ -33,19 +34,11 @@ void Board::update(int currentPlayerID)
 
 		if(edges[i].getAvailability() && placingRoad){
 
-			if (setupPhase) {
-
-				//if neighbour of unavailable make it false
-				//else true
+			if (highlightedEdges.count(static_cast<int>(i)) > 0) {
 				edges[i].setHighlight(true);
 			}
-			else{
-				if (highlightedEdges.count(static_cast<int>(i)) > 0) {
-					edges[i].setHighlight(true);
-				}
-				else {
-					edges[i].setHighlight(false);
-				}
+			else {
+				edges[i].setHighlight(false);
 			}
 		}
 		else {
@@ -227,21 +220,43 @@ void Board::updateMousePosition() {
 void Board::updateEdgeHighlights(int currentPlayerID)
 {
 	highlightedEdges.clear();
-
-	for (std::size_t i = 0; i < edges.size(); i++) {
-		if (edges[i].isOwnedByPlayer(currentPlayerID)) 
+	if (setupPhase) {
+		for (std::size_t i = 0; i < edges.size(); i++)
 		{
-			const std::vector<int>& neighbors = edgeNeighbours[i];
+			const auto& edgeVertices = edges[i].getOwnedVertices();
+			bool hasCurrentPlayerSettlement = false;
+
+			for (int vertexIndex : edgeVertices)
+			{
+				if (vertices[vertexIndex - 1].isOwned()) {
+					hasCurrentPlayerSettlement = true;
+					
+					break;
+				}
+			}
+			if (!hasCurrentPlayerSettlement)
+			{
+				highlightedEdges.insert(static_cast<int>(i));
+			}
+		}
+	}
+	else {
+		for (std::size_t i = 0; i < edges.size(); i++) {
+			if (edges[i].isOwnedByPlayer(currentPlayerID)) 
+			{
+				const std::vector<int>& neighbors = edgeNeighbours[i];
 			
-			for (int neighborIndex : neighbors) {
-				if (edges[neighborIndex - 1].getAvailability()) {
-					highlightedEdges.insert(neighborIndex - 1);
+				for (int neighborIndex : neighbors) {
+					if (edges[neighborIndex - 1].getAvailability()) {
+						highlightedEdges.insert(neighborIndex - 1);
+					}
 				}
 			}
 		}
 	}
 	
 }
+
 
 void Board::updateVertexHighlights(int currentPlayerID)
 {	
@@ -262,6 +277,7 @@ void Board::updateVertexHighlights(int currentPlayerID)
 void Board::shuffleTerrains(std::array<TerrainType, 18>& terrains) {
 	std::shuffle(terrains.begin(), terrains.end(), std::mt19937{ std::random_device{}() });
 }
+
 std::vector<Player*> Board::getPlayersAtHex(Hex* hex) {
 	std::vector<Player*> players;
 	if (!hex) return players;
@@ -278,6 +294,11 @@ std::vector<Player*> Board::getPlayersAtHex(Hex* hex) {
 		}
 	}
 	return players;
+}
+
+Hex* Board::getRobberHex() const
+{
+	return currentRobberHex;
 }
 
 const std::array<int, 19> Board::diceNumbers = { 5, 2, 6, 4, 8, 10, 9, 6, 5, 7, 9, 4, 12, 11, 3, 3, 11, 8, 10 };

@@ -143,6 +143,8 @@ void Catan::initPlayers()
 
 	currentPlayer = &players[0];
 	currentPlayerIndex = 0;
+
+	initSetupOrder();
 }
 
 void Catan::initTextures() {
@@ -302,9 +304,11 @@ void Catan::handleCardUse(Card card) {
 	case Card::RoadBuilding:
 		if (currentPlayer->useRoadBuildingCard()) {
 			placingFreeRoad = true;
-			freeRoadsRemaining = 2;
+			freeRoadsRemaining = 1;
 			placingRoad = true;
 			gameBoard->setplacingRoad(true);
+			placementStart = true;
+			placementDone = false;
 			// Don't deduct resources since these roads are free
 		}
 		break;
@@ -362,22 +366,13 @@ void Catan::handleSetupPhase()
 				gameBoard->setSetupPhase(false);
 			}
 			else {
-				if (checkingSetupPhase[currentPlayerIndex] < 2) {
-					nextTurn();
-					placingRoad = true;
-					gameBoard->setplacingRoad(true);
-					placingSettlement = false;
-					gameBoard->setplacingSettlement(false);
-					gameBoard->setSetupPhase(true);
-				}
-				else {
-					nextTurn();
-					placingRoad = true;
-					gameBoard->setplacingRoad(true);
-					placingSettlement = false;
-					gameBoard->setplacingSettlement(false);
-					gameBoard->setSetupPhase(true);
-				}
+				nextTurnSetupPhase();
+				placingRoad = true;
+				gameBoard->setplacingRoad(true);
+				placingSettlement = false;
+				gameBoard->setplacingSettlement(false);
+				gameBoard->setSetupPhase(true);
+				
 			}
 		}
 	}
@@ -458,19 +453,33 @@ bool Catan::placeSettlement(sf::Vector2f clickPosition)
 	return gameBoard->placeSettlement(&(players[currentPlayerIndex]), clickPosition);
 }
 
+void Catan::initSetupOrder()
+{
+	setupOrder.clear();
+
+	for (int i = 0; i < playerNumber; i++) {
+		setupOrder.push_back(i);
+	}
+
+	for (int i = playerNumber - 1; i >= 0; i--) {
+		setupOrder.push_back(i);
+	}
+
+	setupIndex = 0;
+}
 
 void Catan::nextTurnSetupPhase()
 {
-	int startIndex = currentPlayerIndex;
-	do {
-		currentPlayerIndex = (currentPlayerIndex + 1) % playerNumber;
-		if (checkingSetupPhase[currentPlayerIndex] < 2) {
-			break;
-		}
-	} while (currentPlayerIndex != startIndex);
+	setupIndex++;
 
+	if (setupIndex >= (int)setupOrder.size()) {
+		return;
+	}
+
+	currentPlayerIndex = setupOrder[setupIndex];
 	currentPlayer = &players[currentPlayerIndex];
 }
+
 
 void Catan::resetClickPosition()
 {
@@ -523,7 +532,7 @@ bool Catan::canBuildRoad() const
 
 bool Catan::canBuildSettlement() const
 {
-	return currentPlayer->canBuildRoad();
+	return currentPlayer->canBuildSettlement();
 }
 
 
