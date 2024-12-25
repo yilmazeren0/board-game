@@ -660,10 +660,11 @@ void Catan::setMenu(bool menu)
 
 }
 
-void Catan::nextTurn()
-{
+void Catan::nextTurn() {
 	currentPlayerIndex = (currentPlayerIndex + 1) % playerNumber;
 	currentPlayer = &players[currentPlayerIndex];
+	// Clear the list of newly purchased cards from previous turn
+	players[currentPlayerIndex].clearNewlyPurchasedCards();
 	std::cout << "Switched to player " << currentPlayerIndex << "." << std::endl;
 }
 

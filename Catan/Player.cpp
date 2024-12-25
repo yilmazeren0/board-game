@@ -193,10 +193,18 @@ void Player::drawCardUI() {
         i++;
     }
 
-    // Then draw development cards with offset
     for (const Card& card : cards) {
         sf::Sprite& sprite = cardSprites[card];
         sprite.setPosition(startX + (spacing * i), y);
+
+        // Make unplayable cards appear darker
+        if (!isCardPlayable(card)) {
+            sprite.setColor(sf::Color(128, 128, 128, 255)); // Darkened color
+        }
+        else {
+            sprite.setColor(sf::Color::White); // Normal color
+        }
+
         window->draw(sprite);
         cardPositions[i] = sprite.getGlobalBounds();
         i++;
@@ -228,16 +236,46 @@ Card Player::handleCardClick(sf::Vector2f clickPos) {
     int i = 0;
     for (const Card& card : cards) {
         if (cardPositions[i].contains(clickPos)) {
-            return card;
+            if (isCardPlayable(card)) {
+                return card;
+            }
+            // If card is not playable, provide feedback
+            if (std::find(newlyPurchasedCards.begin(), newlyPurchasedCards.end(), card)
+                != newlyPurchasedCards.end()) {
+                std::cout << "Cannot play a card in the same turn it was purchased!" << std::endl;
+            }
+            return Card::None;
         }
         i++;
     }
-    return Card::None; // Add None to your Card enum
+    return Card::None;
 }
 
 void Player::addCard(Card card) {
     cards.push_back(card);
+    if (card != Card::VictoryPoint) {  // Victory points are handled separately
+        newlyPurchasedCards.push_back(card);
+    }
+    else {
+        victoryPoints++; // Automatically add victory point
+    }
 }
+
+bool Player::isCardPlayable(Card card) const {
+    // Victory point cards are never playable (they're automatic)
+    if (card == Card::VictoryPoint) {
+        return false;
+    }
+
+    // Can't play cards purchased this turn
+    if (std::find(newlyPurchasedCards.begin(), newlyPurchasedCards.end(), card)
+        != newlyPurchasedCards.end()) {
+        return false;
+    }
+
+    return hasCard(card);
+}
+
 const std::vector<Card>& Player::getCards() const
 {
     return cards;
