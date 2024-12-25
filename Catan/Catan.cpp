@@ -3,10 +3,11 @@
 
 Catan::Catan()
 {
-	window = new sf::RenderWindow(sf::VideoMode{ 1280,720 }, "Enes", sf::Style::Resize | sf::Style::Close);
+	window = new sf::RenderWindow(sf::VideoMode{ 1280,720 }, "Catan Game Ceng201 Group 18 Project", sf::Style::Resize | sf::Style::Close);
 	view = new sf::View(sf::Vector2f{ 0.0f,0.0f }, sf::Vector2{ 1280.0f, 720.0f });
 	initPlayers();
 	initTextures();
+	initDevelopmentCards();
 	gameBoard = new Board(window, &textures);
 	startMenu = new StartMenu(window, view, this);
 	gameMenu = new GameMenu(window, view, this);
@@ -273,21 +274,63 @@ void Catan::initTextures() {
 	texture.loadFromFile("textures/largest_army.png");
 	textures["largest_army"] = texture;
 }
-void Catan::giveRandomCard() {
-	// Random card selection
-	int cardType = rand() % 5;
-	Card card;
 
-	switch (cardType) {
-	case 0: card = Card::Knight; break;
-	case 1: card = Card::YearOfPlenty; break;
-	case 2: card = Card::RoadBuilding; break;
-	case 3: card = Card::Monopoly; break;
-	case 4: card = Card::VictoryPoint; break;
+#include <random>
+#include <algorithm>
+
+// Inside Catan.cpp:
+void Catan::initDevelopmentCards() {
+	developmentCards.clear();
+
+	// Add Knight cards (14)
+	for (int i = 0; i < 14; i++) {
+		developmentCards.push_back(Card::Knight);
 	}
 
-	currentPlayer->addCard(card);
+	// Add Progress cards (2 each)
+	for (int i = 0; i < 2; i++) {
+		developmentCards.push_back(Card::RoadBuilding);
+		developmentCards.push_back(Card::YearOfPlenty);
+		developmentCards.push_back(Card::Monopoly);
+	}
+
+	// Add Victory Point cards (5 total)
+	for (int i = 0; i < 5; i++) {
+		developmentCards.push_back(Card::VictoryPoint);
+	}
+
+	// Create random number generator
+	std::random_device rd;
+	std::mt19937 gen(rd());
+
+	// Shuffle the deck using std::shuffle
+	std::shuffle(developmentCards.begin(), developmentCards.end(), gen);
 }
+
+
+void Catan::giveRandomCard() {
+	if (developmentCards.empty()) {
+		std::cout << "No development cards left in the deck!" << std::endl;
+		return;
+	}
+
+	if (!currentPlayer->canBuyDevelopmentCard()) {
+		std::cout << "Not enough resources to buy a development card!" << std::endl;
+		return;
+	}
+
+	// Take card from the deck
+	Card card = developmentCards.back();
+	developmentCards.pop_back();
+
+	// Deduct resources and give card to player
+	currentPlayer->buyDevelopmentCard();
+	currentPlayer->addCard(card);
+
+	std::cout << "Player " << currentPlayer->getID() + 1 << " bought a development card!" << std::endl;
+}
+
+
 void Catan::restartBoard()
 {
 	initPlayers();
@@ -617,10 +660,11 @@ void Catan::setMenu(bool menu)
 
 }
 
-void Catan::nextTurn()
-{
+void Catan::nextTurn() {
 	currentPlayerIndex = (currentPlayerIndex + 1) % playerNumber;
 	currentPlayer = &players[currentPlayerIndex];
+	// Clear the list of newly purchased cards from previous turn
+	players[currentPlayerIndex].clearNewlyPurchasedCards();
 	std::cout << "Switched to player " << currentPlayerIndex << "." << std::endl;
 }
 

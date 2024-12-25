@@ -22,6 +22,8 @@ enum class Card {
 class Player {
 private:
     std::vector<Card> cards;
+    std::vector<Card> newlyPurchasedCards;
+
     std::map<Card, sf::Sprite> cardSprites;
     
     sf::RenderWindow* window;
@@ -76,6 +78,9 @@ public:
 
     void setLargestArmy(bool has);
     bool hasLargestArmyCard() const { return hasLargestArmy; }
+
+    bool canBuyDevelopmentCard() const;
+    void buyDevelopmentCard();
     
 
     int getID() const;
@@ -105,6 +110,10 @@ public:
     bool hasLongestRoadCard() const { return hasLongestRoad; }
     void incrementRoadCount() { roadCount++; }
     int getRoadCount() const { return roadCount; }
+
+    void clearNewlyPurchasedCards() { newlyPurchasedCards.clear(); }
+    bool isCardPlayable(Card card) const;
+
 private:
 
     void initResources();
