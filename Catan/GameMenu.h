@@ -1,65 +1,52 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <memory>
+#include "Button.h"
+#include "MenuButton.h"
 
 class Catan;
 
-class GameMenu
-{
+class GameMenu {
 public:
-
-	GameMenu(sf::RenderWindow* window, sf::View* view, Catan* game);
-
-	void draw();
-	void update(sf::Vector2f mousePosition);
+    GameMenu(sf::RenderWindow* window, sf::View* view, Catan* game);
+    void draw();
+    void update(sf::Vector2f mousePosition);
 
 private:
-	sf::RenderWindow* window;
-	sf::View* view;
-	Catan* game;
-	sf::Vector2f mousePosition;
-	sf::Text rollDice;
-	sf::Text building;
-	sf::Text bank;
-	sf::Text deck;
-	sf::Text trade;
-	sf::Text nextTurn;
-	sf::Text back;
-	sf::Text buildingBuyRoad;
-	sf::Text buildingBuySettlement;
-	sf::Font font;
+    
 
-	float xPart;
-	float yPart;
+    // Menu Methods
+    void initializeButtons();
+    void handleMainMenu(sf::Vector2f mousePosition);
+    void handleBuildingMenu(sf::Vector2f mousePosition);
+    void updateMousePosition();
+    void updateButtonStates(sf::Vector2f mousePosition);
 
-	bool is_rollDice;
-	bool is_buildingMenu;
+    // Core pointers
+    sf::RenderWindow* window;
+    sf::View* view;
+    Catan* game;
 
-private:
-	void updateMousePosition();
+    // Resources
+    sf::Vector2f mousePosition;
+    sf::Font font;
+    float xPart;
+    float yPart;
 
-	void rollDiceText();
-	void buildingText();
-	void bankText();
-	void deckText();
-	void tradeText();
-	void nextTurnText();
-	void backText();
+    // State flags
+    bool is_rollDice;
+    bool is_buildingMenu;
 
-	void buildingBuyRoadText();
-	void buildingBuySettlementText();
-	
+    // Main menu buttons
+    std::unique_ptr<MenuButton> rollDiceBtn;
+    std::unique_ptr<MenuButton> buildingBtn;
+    std::unique_ptr<MenuButton> bankBtn;
+    std::unique_ptr<MenuButton> deckBtn;
+    std::unique_ptr<MenuButton> tradeBtn;
+    std::unique_ptr<MenuButton> nextTurnBtn;
 
-	void rollDiceHighlight();
-	void buildingHighlight();
-	void bankHighlight();
-	void deckHighlight();
-	void tradeHighlight();
-	void nextTurnHighlight();
-	void backHighlight();
-
-	void buildingBuyRoadHighlight();
-	void buildingBuySettlementHighlight();
-
-
+    // Building menu buttons
+    std::unique_ptr<MenuButton> backBtn;
+    std::unique_ptr<MenuButton> buildingBuyRoadBtn;
+    std::unique_ptr<MenuButton> buildingBuySettlementBtn;
 };
-
