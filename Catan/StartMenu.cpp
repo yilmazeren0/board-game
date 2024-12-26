@@ -11,7 +11,7 @@ StartMenu::StartMenu(sf::RenderWindow* window, sf::View* view, Catan* game)
 void StartMenu::initializeButtons() {
     // Initialize all buttons with their text, position and font
     titleBtn = std::make_unique<Button>("CATAN", font,
-        view->getCenter().x + 14 * xPart,
+        view->getCenter().x + 11.5f * xPart,
         view->getCenter().y - 10 * yPart);
 
     // Set title button to larger size
