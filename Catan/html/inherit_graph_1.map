@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$class_building.html" title="Represents a generic building owned by a player in the game." alt="" coords="5,31,73,57"/>
+<area shape="rect" id="Node000001" href="$class_road.html" title="Represents a road built by a player in the game." alt="" coords="137,5,189,32"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="87,32,136,21,137,27,88,37"/>
+<area shape="rect" id="Node000002" href="$class_settlement.html" title="Represents a settlement built by a player in the game." alt="" coords="121,56,205,83"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="88,51,121,58,120,63,87,56"/>
+<area shape="rect" id="Node000003" href="$class_city.html" title="Represents a city, which is an upgraded version of a settlement. Cities produce more resources than s..." alt="" coords="253,56,298,83"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="220,67,253,67,253,72,220,72"/>
+</map>

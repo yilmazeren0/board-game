@@ -1,0 +1,95 @@
+\doxysection{Board.\+h}
+\hypertarget{_board_8h_source}{}\label{_board_8h_source}\mbox{\hyperlink{_board_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_hex_8h}{Hex.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_edge_8h}{Edge.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vertex_8h}{Vertex.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_road_8h}{Road.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_player_8h}{Player.h}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_board}{Board}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_board_a080d8d1c6c8e858725ecde44401c173c}{Board}}(sf::RenderWindow*\ window,\ std::unordered\_map<std::string,\ sf::Texture>*\ textures);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_board_af73f45730119a1fd8f6670f53f959e68}{\string~Board}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a8344df4f8c022f8f761358f77100f50e}{update}}(\textcolor{keywordtype}{int}\ currentPlayerID);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_af9b7fba8fe453fe0b3a45a91a3336a58}{draw}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_board_a7c5c822d2302e9386bb703212d906828}{placeRoad}}(\mbox{\hyperlink{class_player}{Player}}*\ player,\ sf::Vector2f\ clickPosition);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_board_af7cf30ecbaaf6535dfb4c29d8c274b05}{placeSettlement}}(\mbox{\hyperlink{class_player}{Player}}*\ player,\ sf::Vector2f\ clickPosition);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a4acd5ecf5596a1d9d75d15d0db461c7a}{setSetupPhase}}(\textcolor{keywordtype}{bool}\ setupPhase);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_afb49879342d1f16b61e16dd7a83d5bdd}{setplacingRoad}}(\textcolor{keywordtype}{bool}\ placingRoad);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_ab2b35bfa7c4571955435709c150b328d}{setplacingSettlement}}(\textcolor{keywordtype}{bool}\ placingSettlement);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a00ab0b7505bf4b88eaf0818d3700fb81}{produceResource}}(\textcolor{keywordtype}{int}\ diceNumber);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_board_a02e56f2c2286e510e78732b732a3ce3a}{placeRobber}}(sf::Vector2f\ position);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00101\ \ \ \ \ std::vector<Player*>\ \mbox{\hyperlink{class_board_a6931b7552b8f8d13a4f38366f042da46}{getPlayersAtHex}}(\mbox{\hyperlink{class_hex}{Hex}}*\ hex);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a0fdbfdc028b866923a9e6103507cdc9f}{moveRobber}}(sf::Vector2f\ position);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{class_hex}{Hex}}*\ \mbox{\hyperlink{class_board_a23804088ad7ad1eea9750d97be15f1cd}{getRobberHex}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_board_aa7f1a638c3e99e7da6605ea73537c7aa}{getLongestRoadLength}}(\textcolor{keywordtype}{int}\ playerID)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ initBoard();}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ initTerrains();}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ updateMousePosition();}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{void}\ updateEdgeHighlights(\textcolor{keywordtype}{int}\ currentPlayerID);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ updateVertexHighlights(\textcolor{keywordtype}{int}\ currentPlayerID);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ shuffleTerrains(std::array<TerrainType,\ 18>\&\ terrains);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{int}\ getConnectedRoadLength(\textcolor{keywordtype}{int}\ edgeIndex,\ \textcolor{keywordtype}{int}\ playerID,\ std::set<int>\&\ visited)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00170\ \ \ \ \ std::vector<int>\ getConnectedEdges(\textcolor{keywordtype}{int}\ edgeIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00173\ \ \ \ \ sf::RenderWindow*\ window;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00174\ \ \ \ \ std::vector<Hex>\ hexes;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00175\ \ \ \ \ std::vector<Edge>\ edges;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ \ \ std::vector<Vertex>\ vertices;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00177\ \ \ \ \ std::list<Road>\ roads;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00178\ \ \ \ \ std::list<Settlement>\ settlements;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00179\ \ \ \ \ std::unordered\_map<std::string,\ sf::Texture>*\ textures;\ }
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ std::unordered\_set<int>\ highlightedEdges;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00182\ \ \ \ \ std::unordered\_set<int>\ highlightedVertices;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00183\ \ \ \ \ sf::Vector2f\ mousePosition;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{bool}\ setupPhase;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{bool}\ placingRoad;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{bool}\ placingSettlement;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{int}\ currentPlayerID;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00188\ \ \ \ \ std::array<TerrainType,\ 18>\ terrains;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \mbox{\hyperlink{class_hex}{Hex}}*\ currentRobberHex\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ std::array<std::array<int,\ 6>,\ 19>\ hexAndOwnedVertices;}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ std::array<std::array<int,\ 2>,\ 72>\ edgeAndOwnedVertices;}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ std::array<std::vector<int>,\ 54>\ vertexNeighbours;}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ std::array<std::vector<int>,\ 72>\ edgeNeighbours;}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ std::array<int,\ 19>\ diceNumbers;}
+\DoxyCodeLine{00198\ \};}
+
+\end{DoxyCode}

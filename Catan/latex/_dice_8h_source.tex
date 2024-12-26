@@ -1,0 +1,36 @@
+\doxysection{Dice.\+h}
+\hypertarget{_dice_8h_source}{}\label{_dice_8h_source}\mbox{\hyperlink{_dice_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catan}{Catan}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_dice}{Dice}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_dice_aa9ac9a29105d5f855d68e691a63aff80}{Dice}}(sf::RenderWindow*\ window,\ sf::View*\ view,\ std::unordered\_map<std::string,\ sf::Texture>*\ textures,\ \mbox{\hyperlink{class_catan}{Catan}}*\ game);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_dice_ab3f51784786597db4b02aab158146df1}{rollDice}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dice_a09f82fd15d99823879b6e54ebecf229b}{update}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dice_a4cfadf9068c2b627f2e979fc47f2ccde}{draw}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ sf::RenderWindow*\ window;\ }
+\DoxyCodeLine{00046\ \ \ \ \ sf::View*\ view;\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_catan}{Catan}}*\ game;\ }
+\DoxyCodeLine{00048\ \ \ \ \ std::unordered\_map<std::string,\ sf::Texture>*\ textures;\ }
+\DoxyCodeLine{00049\ \ \ \ \ sf::Sprite\ dice1Texture;\ }
+\DoxyCodeLine{00050\ \ \ \ \ sf::Sprite\ dice2Texture;\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ dice1;\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ dice2;\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{float}\ xPart;\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{float}\ yPart;\ }
+\DoxyCodeLine{00056\ \};}
+
+\end{DoxyCode}

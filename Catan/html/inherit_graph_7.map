@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$class_menu.html" title=" " alt="" coords="5,81,59,108"/>
+<area shape="rect" id="Node000001" href="$class_bank_menu.html" title="Represents the menu for conducting trades with the bank." alt="" coords="109,5,192,32"/>
+<area shape="poly" id="edge5_Node000000_Node000001" title=" " alt="" coords="63,70,105,42,124,30,127,35,108,46,66,74"/>
+<area shape="rect" id="Node000002" href="$class_game_menu.html" title="Manages the in&#45;game menu and its interactions." alt="" coords="107,56,195,83"/>
+<area shape="poly" id="edge6_Node000000_Node000002" title=" " alt="" coords="73,83,106,76,107,81,74,88"/>
+<area shape="rect" id="Node000003" href="$class_start_menu.html" title="Represents the start menu screen for the game." alt="" coords="110,107,192,133"/>
+<area shape="poly" id="edge7_Node000000_Node000003" title=" " alt="" coords="75,101,110,109,109,114,73,106"/>
+<area shape="rect" id="Node000004" href="$class_trade_menu.html" title="Handles the trading interface and logic during a trade between players." alt="" coords="108,157,194,184"/>
+<area shape="poly" id="edge8_Node000000_Node000004" title=" " alt="" coords="66,115,108,143,127,154,124,159,105,148,63,119"/>
+</map>

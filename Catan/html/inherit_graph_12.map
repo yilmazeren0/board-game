@@ -1,0 +1,21 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classsf_1_1_al_resource.html" title="Base class for classes that require an OpenAL context." alt="" coords="5,56,114,83"/>
+<area shape="rect" id="Node000001" href="$classsf_1_1_sound_buffer.html" title="Storage for audio samples defining a sound." alt="" coords="171,5,282,32"/>
+<area shape="poly" id="edge12_Node000000_Node000001" title=" " alt="" coords="120,48,179,30,181,35,122,53"/>
+<area shape="rect" id="Node000002" href="$classsf_1_1_sound_recorder.html" title="Abstract base class for capturing sound data." alt="" coords="162,56,292,83"/>
+<area shape="poly" id="edge13_Node000000_Node000002" title=" " alt="" coords="129,67,161,67,161,72,129,72"/>
+<area shape="rect" id="Node000005" href="$classsf_1_1_sound_source.html" title="Base class defining a sound&#39;s properties." alt="" coords="168,107,286,133"/>
+<area shape="poly" id="edge16_Node000000_Node000005" title=" " alt="" coords="122,85,181,104,179,109,120,90"/>
+<area shape="rect" id="Node000003" href="$class_network_recorder.html" title=" " alt="" coords="360,5,484,32"/>
+<area shape="poly" id="edge14_Node000002_Node000003" title=" " alt="" coords="295,49,367,30,369,35,297,54"/>
+<area shape="rect" id="Node000004" href="$classsf_1_1_sound_buffer_recorder.html" title="Specialized SoundRecorder which stores the captured audio data into a sound buffer." alt="" coords="340,56,504,83"/>
+<area shape="poly" id="edge15_Node000002_Node000004" title=" " alt="" coords="308,67,339,67,339,72,308,72"/>
+<area shape="rect" id="Node000006" href="$classsf_1_1_sound.html" title="Regular sound that can be played in the audio environment." alt="" coords="384,107,461,133"/>
+<area shape="poly" id="edge17_Node000005_Node000006" title=" " alt="" coords="302,117,383,117,383,123,302,123"/>
+<area shape="rect" id="Node000007" href="$classsf_1_1_sound_stream.html" title="Abstract base class for streamed audio sources." alt="" coords="362,157,482,184"/>
+<area shape="poly" id="edge18_Node000005_Node000007" title=" " alt="" coords="297,135,369,154,367,159,295,140"/>
+<area shape="rect" id="Node000008" href="$class_network_audio_stream.html" title=" " alt="" coords="552,132,698,159"/>
+<area shape="poly" id="edge19_Node000007_Node000008" title=" " alt="" coords="497,159,552,152,552,157,498,164"/>
+<area shape="rect" id="Node000009" href="$classsf_1_1_music.html" title="Streamed music played from an audio file." alt="" coords="587,183,663,209"/>
+<area shape="poly" id="edge20_Node000007_Node000009" title=" " alt="" coords="498,177,587,189,587,194,497,183"/>
+</map>

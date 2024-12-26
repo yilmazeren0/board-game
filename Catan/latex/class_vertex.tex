@@ -1,0 +1,245 @@
+\doxysection{Vertex Class Reference}
+\hypertarget{class_vertex}{}\label{class_vertex}\index{Vertex@{Vertex}}
+
+
+Represents a vertex (or settlement location) on the game board.  
+
+
+
+
+{\ttfamily \#include $<$Vertex.\+h$>$}
+
+
+
+Collaboration diagram for Vertex\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_vertex__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vertex_a29a41481971d2eb5f5d400190515069a}{Vertex}} (sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}window, int number)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_vertex}{Vertex} object at the given location. \end{DoxyCompactList}\item 
+\Hypertarget{class_vertex_ad7a0ce588b7f688dc4488a0f567d9155}\label{class_vertex_ad7a0ce588b7f688dc4488a0f567d9155} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Vertex} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{class_vertex}{Vertex} object, releasing any allocated resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vertex_a37bde12ebeacaf0ea6944513795f9fdb}{update}} (const sf\+::\+Vector2f \&mouse\+Position)
+\begin{DoxyCompactList}\small\item\em Updates the state of the vertex, including handling interactions with the mouse. \end{DoxyCompactList}\item 
+\Hypertarget{class_vertex_a1c8a2a54b34562e2b54c63167ff643dc}\label{class_vertex_a1c8a2a54b34562e2b54c63167ff643dc} 
+void {\bfseries draw} ()
+\begin{DoxyCompactList}\small\item\em Draws the vertex to the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vertex_a8f5f0f3f6c8ad54e3c108c7f1815a3d5}{place\+Settlement}} (\mbox{\hyperlink{class_settlement}{Settlement}} \texorpdfstring{$\ast$}{*}settlement)
+\begin{DoxyCompactList}\small\item\em Places a settlement at this vertex. \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_vertex_a72829b94554c2e0b9b207adf3d15e139}{get\+Box}} () const
+\begin{DoxyCompactList}\small\item\em Gets the bounding box of the vertex for collision detection. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_vertex_ad435ac18cff4f567437cabda1292f208}{get\+Availability}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the vertex is available for placing a building. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_vertex_a2037ac2b5a72c3f6b20d6ca8c4526389}{is\+Hightlighted}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the vertex is highlighted. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vertex_a0180a490d2ddfcae5f353e288955f76e}{set\+Highlight}} (bool highlight)
+\begin{DoxyCompactList}\small\item\em Sets whether the vertex should be highlighted. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vertex_a99092bb177d11f57ae087381a67f37ac}{set\+Availability}} (bool availability)
+\begin{DoxyCompactList}\small\item\em Sets the availability of the vertex. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_vertex_a601259bd07ef870eeb134fdf0b4c1db5}{is\+Owned\+By\+Player}} (int player\+ID) const
+\begin{DoxyCompactList}\small\item\em Checks if the vertex is owned by a specific player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_vertex_ad30883c3fc4e246e85db9e11bf2ae80d}{is\+Owned}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the vertex is owned. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vertex_a383edd3029018f1c9fad0d300448629f}{add\+Resource}} (\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} resource\+Type)
+\begin{DoxyCompactList}\small\item\em Adds a resource to this vertex. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_vertex_a4131af00027a926b6c38f54eb74fa5b0}{get\+Owner}} () const
+\begin{DoxyCompactList}\small\item\em Gets the owner of this vertex, if it has one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a vertex (or settlement location) on the game board. 
+
+The {\ttfamily \doxylink{class_vertex}{Vertex}} class is responsible for managing the state and appearance of a vertex on the board, where players can place settlements or cities. It tracks availability, ownership, and whether the vertex is highlighted. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_vertex_a29a41481971d2eb5f5d400190515069a}\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{Vertex()}{Vertex()}}
+{\footnotesize\ttfamily \label{class_vertex_a29a41481971d2eb5f5d400190515069a} 
+Vertex\+::\+Vertex (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{int}]{number}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_vertex}{Vertex} object at the given location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Pointer to the SFML Render\+Window for rendering. \\
+\hline
+{\em number} & The vertex number (or ID). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_vertex_a383edd3029018f1c9fad0d300448629f}\index{Vertex@{Vertex}!addResource@{addResource}}
+\index{addResource@{addResource}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{addResource()}{addResource()}}
+{\footnotesize\ttfamily \label{class_vertex_a383edd3029018f1c9fad0d300448629f} 
+void Vertex\+::add\+Resource (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{resource\+Type}{}\end{DoxyParamCaption})}
+
+
+
+Adds a resource to this vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Type} & The type of resource to add. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vertex_ad435ac18cff4f567437cabda1292f208}\index{Vertex@{Vertex}!getAvailability@{getAvailability}}
+\index{getAvailability@{getAvailability}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{getAvailability()}{getAvailability()}}
+{\footnotesize\ttfamily \label{class_vertex_ad435ac18cff4f567437cabda1292f208} 
+bool Vertex\+::get\+Availability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the vertex is available for placing a building. 
+
+\begin{DoxyReturn}{Returns}
+True if the vertex is available; otherwise, false. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_a72829b94554c2e0b9b207adf3d15e139}\index{Vertex@{Vertex}!getBox@{getBox}}
+\index{getBox@{getBox}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{getBox()}{getBox()}}
+{\footnotesize\ttfamily \label{class_vertex_a72829b94554c2e0b9b207adf3d15e139} 
+sf\+::\+Float\+Rect Vertex\+::get\+Box (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the bounding box of the vertex for collision detection. 
+
+\begin{DoxyReturn}{Returns}
+The bounding box of the vertex. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_a4131af00027a926b6c38f54eb74fa5b0}\index{Vertex@{Vertex}!getOwner@{getOwner}}
+\index{getOwner@{getOwner}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{getOwner()}{getOwner()}}
+{\footnotesize\ttfamily \label{class_vertex_a4131af00027a926b6c38f54eb74fa5b0} 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} Vertex\+::get\+Owner (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the owner of this vertex, if it has one. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the player who owns this vertex; nullptr if no owner. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_a2037ac2b5a72c3f6b20d6ca8c4526389}\index{Vertex@{Vertex}!isHightlighted@{isHightlighted}}
+\index{isHightlighted@{isHightlighted}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{isHightlighted()}{isHightlighted()}}
+{\footnotesize\ttfamily \label{class_vertex_a2037ac2b5a72c3f6b20d6ca8c4526389} 
+bool Vertex\+::is\+Hightlighted (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the vertex is highlighted. 
+
+\begin{DoxyReturn}{Returns}
+True if the vertex is highlighted; otherwise, false. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_ad30883c3fc4e246e85db9e11bf2ae80d}\index{Vertex@{Vertex}!isOwned@{isOwned}}
+\index{isOwned@{isOwned}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{isOwned()}{isOwned()}}
+{\footnotesize\ttfamily \label{class_vertex_ad30883c3fc4e246e85db9e11bf2ae80d} 
+bool Vertex\+::is\+Owned (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the vertex is owned. 
+
+\begin{DoxyReturn}{Returns}
+True if the vertex is owned; otherwise, false. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_a601259bd07ef870eeb134fdf0b4c1db5}\index{Vertex@{Vertex}!isOwnedByPlayer@{isOwnedByPlayer}}
+\index{isOwnedByPlayer@{isOwnedByPlayer}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{isOwnedByPlayer()}{isOwnedByPlayer()}}
+{\footnotesize\ttfamily \label{class_vertex_a601259bd07ef870eeb134fdf0b4c1db5} 
+bool Vertex\+::is\+Owned\+By\+Player (\begin{DoxyParamCaption}\item[{int}]{player\+ID}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the vertex is owned by a specific player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+ID} & The ID of the player to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the vertex is owned by the specified player; otherwise, false. 
+\end{DoxyReturn}
+\Hypertarget{class_vertex_a8f5f0f3f6c8ad54e3c108c7f1815a3d5}\index{Vertex@{Vertex}!placeSettlement@{placeSettlement}}
+\index{placeSettlement@{placeSettlement}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{placeSettlement()}{placeSettlement()}}
+{\footnotesize\ttfamily \label{class_vertex_a8f5f0f3f6c8ad54e3c108c7f1815a3d5} 
+void Vertex\+::place\+Settlement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_settlement}{Settlement}} \texorpdfstring{$\ast$}{*}}]{settlement}{}\end{DoxyParamCaption})}
+
+
+
+Places a settlement at this vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em settlement} & Pointer to the \doxylink{class_settlement}{Settlement} object to place. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vertex_a99092bb177d11f57ae087381a67f37ac}\index{Vertex@{Vertex}!setAvailability@{setAvailability}}
+\index{setAvailability@{setAvailability}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{setAvailability()}{setAvailability()}}
+{\footnotesize\ttfamily \label{class_vertex_a99092bb177d11f57ae087381a67f37ac} 
+void Vertex\+::set\+Availability (\begin{DoxyParamCaption}\item[{bool}]{availability}{}\end{DoxyParamCaption})}
+
+
+
+Sets the availability of the vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em availability} & Whether the vertex is available for placing a building. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vertex_a0180a490d2ddfcae5f353e288955f76e}\index{Vertex@{Vertex}!setHighlight@{setHighlight}}
+\index{setHighlight@{setHighlight}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{setHighlight()}{setHighlight()}}
+{\footnotesize\ttfamily \label{class_vertex_a0180a490d2ddfcae5f353e288955f76e} 
+void Vertex\+::set\+Highlight (\begin{DoxyParamCaption}\item[{bool}]{highlight}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether the vertex should be highlighted. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em highlight} & Whether to highlight the vertex. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vertex_a37bde12ebeacaf0ea6944513795f9fdb}\index{Vertex@{Vertex}!update@{update}}
+\index{update@{update}!Vertex@{Vertex}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_vertex_a37bde12ebeacaf0ea6944513795f9fdb} 
+void Vertex\+::update (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{mouse\+Position}{}\end{DoxyParamCaption})}
+
+
+
+Updates the state of the vertex, including handling interactions with the mouse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+Position} & The current mouse position used for interaction detection. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_vertex_8h}{Vertex.\+h}}\item 
+Vertex.\+cpp\end{DoxyCompactItemize}

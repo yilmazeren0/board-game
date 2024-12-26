@@ -1,0 +1,16 @@
+<map id="StartMenu.h" name="StartMenu.h">
+<area shape="rect" id="Node000001" title="Defines the StartMenu class for the initial menu screen of the game." alt="" coords="136,5,229,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="83,155,221,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,33,160,140,155,139,177,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="250,155,318,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,30,237,50,264,79,277,109,284,139,279,140,272,111,259,81,234,54,205,35"/>
+<area shape="rect" id="Node000004" href="$_menu_8h.html" title="Defines the Menu class, which serves as an abstract base class for creating various menus in the game..." alt="" coords="185,80,250,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,31,207,65,202,67,186,34"/>
+<area shape="rect" id="Node000005" href="$_button_8h.html" title="Defines the Button class for interactive UI elements." alt="" coords="41,80,111,107"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="166,35,109,73,106,69,163,30"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="208,109,175,145,171,141,204,105"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="231,105,264,141,260,145,227,109"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="91,105,130,142,126,146,87,109"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="5,155,59,181"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="71,109,50,143,45,140,66,106"/>
+</map>

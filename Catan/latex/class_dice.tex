@@ -1,0 +1,82 @@
+\doxysection{Dice Class Reference}
+\hypertarget{class_dice}{}\label{class_dice}\index{Dice@{Dice}}
+
+
+Represents a pair of dice for the game, handling rolling, updating, and rendering dice visuals.  
+
+
+
+
+{\ttfamily \#include $<$Dice.\+h$>$}
+
+
+
+Collaboration diagram for Dice\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{class_dice__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dice_aa9ac9a29105d5f855d68e691a63aff80}{Dice}} (sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}window, sf\+::\+View \texorpdfstring{$\ast$}{*}view, std\+::unordered\+\_\+map$<$ std\+::string, sf\+::\+Texture $>$ \texorpdfstring{$\ast$}{*}textures, \mbox{\hyperlink{class_catan}{Catan}} \texorpdfstring{$\ast$}{*}game)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_dice}{Dice} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_dice_ab3f51784786597db4b02aab158146df1}{roll\+Dice}} ()
+\begin{DoxyCompactList}\small\item\em Rolls the dice and generates random values for two dice. \end{DoxyCompactList}\item 
+\Hypertarget{class_dice_a09f82fd15d99823879b6e54ebecf229b}\label{class_dice_a09f82fd15d99823879b6e54ebecf229b} 
+void {\bfseries update} ()
+\begin{DoxyCompactList}\small\item\em Updates the state of the dice, including any animations or transitions. \end{DoxyCompactList}\item 
+\Hypertarget{class_dice_a4cfadf9068c2b627f2e979fc47f2ccde}\label{class_dice_a4cfadf9068c2b627f2e979fc47f2ccde} 
+void {\bfseries draw} ()
+\begin{DoxyCompactList}\small\item\em Draws the dice visuals to the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a pair of dice for the game, handling rolling, updating, and rendering dice visuals. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_dice_aa9ac9a29105d5f855d68e691a63aff80}\index{Dice@{Dice}!Dice@{Dice}}
+\index{Dice@{Dice}!Dice@{Dice}}
+\doxysubsubsection{\texorpdfstring{Dice()}{Dice()}}
+{\footnotesize\ttfamily \label{class_dice_aa9ac9a29105d5f855d68e691a63aff80} 
+Dice\+::\+Dice (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{sf\+::\+View \texorpdfstring{$\ast$}{*}}]{view}{, }\item[{std\+::unordered\+\_\+map$<$ std\+::string, sf\+::\+Texture $>$ \texorpdfstring{$\ast$}{*}}]{textures}{, }\item[{\mbox{\hyperlink{class_catan}{Catan}} \texorpdfstring{$\ast$}{*}}]{game}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_dice}{Dice} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Pointer to the SFML Render\+Window for rendering dice visuals. \\
+\hline
+{\em view} & Pointer to the SFML View for adjusting rendering context. \\
+\hline
+{\em textures} & Pointer to a map of textures used for dice visuals. \\
+\hline
+{\em game} & Pointer to the \doxylink{class_catan}{Catan} game object to interact with game state. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dice_ab3f51784786597db4b02aab158146df1}\index{Dice@{Dice}!rollDice@{rollDice}}
+\index{rollDice@{rollDice}!Dice@{Dice}}
+\doxysubsubsection{\texorpdfstring{rollDice()}{rollDice()}}
+{\footnotesize\ttfamily \label{class_dice_ab3f51784786597db4b02aab158146df1} 
+int Dice\+::roll\+Dice (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Rolls the dice and generates random values for two dice. 
+
+\begin{DoxyReturn}{Returns}
+The sum of the two dice values. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_dice_8h}{Dice.\+h}}\item 
+Dice.\+cpp\end{DoxyCompactItemize}

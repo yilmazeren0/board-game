@@ -1,0 +1,284 @@
+\doxysection{Board Class Reference}
+\hypertarget{class_board}{}\label{class_board}\index{Board@{Board}}
+
+
+Represents the game board for the \doxylink{class_catan}{Catan} game, handling terrain, structures, and gameplay mechanics.  
+
+
+
+
+{\ttfamily \#include $<$Board.\+h$>$}
+
+
+
+Collaboration diagram for Board\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_board__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_board_a080d8d1c6c8e858725ecde44401c173c}{Board}} (sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}window, std\+::unordered\+\_\+map$<$ std\+::string, sf\+::\+Texture $>$ \texorpdfstring{$\ast$}{*}textures)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_board}{Board} class. \end{DoxyCompactList}\item 
+\Hypertarget{class_board_af73f45730119a1fd8f6670f53f959e68}\label{class_board_af73f45730119a1fd8f6670f53f959e68} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Board} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_board}{Board} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a8344df4f8c022f8f761358f77100f50e}{update}} (int current\+Player\+ID)
+\begin{DoxyCompactList}\small\item\em Updates the game board state based on the current player. \end{DoxyCompactList}\item 
+\Hypertarget{class_board_af9b7fba8fe453fe0b3a45a91a3336a58}\label{class_board_af9b7fba8fe453fe0b3a45a91a3336a58} 
+void {\bfseries draw} ()
+\begin{DoxyCompactList}\small\item\em Draws the game board and its elements to the screen. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_board_a7c5c822d2302e9386bb703212d906828}{place\+Road}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}player, sf\+::\+Vector2f click\+Position)
+\begin{DoxyCompactList}\small\item\em Places a road on the board. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_board_af7cf30ecbaaf6535dfb4c29d8c274b05}{place\+Settlement}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}player, sf\+::\+Vector2f click\+Position)
+\begin{DoxyCompactList}\small\item\em Places a settlement on the board. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a4acd5ecf5596a1d9d75d15d0db461c7a}{set\+Setup\+Phase}} (bool setup\+Phase)
+\begin{DoxyCompactList}\small\item\em Sets whether the game is in the setup phase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_afb49879342d1f16b61e16dd7a83d5bdd}{setplacing\+Road}} (bool placing\+Road)
+\begin{DoxyCompactList}\small\item\em Sets whether a road is being placed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_ab2b35bfa7c4571955435709c150b328d}{setplacing\+Settlement}} (bool placing\+Settlement)
+\begin{DoxyCompactList}\small\item\em Sets whether a settlement is being placed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a00ab0b7505bf4b88eaf0818d3700fb81}{produce\+Resource}} (int dice\+Number)
+\begin{DoxyCompactList}\small\item\em Produces resources for players based on the rolled dice number. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_board_a02e56f2c2286e510e78732b732a3ce3a}{place\+Robber}} (sf\+::\+Vector2f position)
+\begin{DoxyCompactList}\small\item\em Places the robber on the specified hex position. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_board_a6931b7552b8f8d13a4f38366f042da46}{get\+Players\+At\+Hex}} (\mbox{\hyperlink{class_hex}{Hex}} \texorpdfstring{$\ast$}{*}hex)
+\begin{DoxyCompactList}\small\item\em Gets the players present at a specified hex. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a0fdbfdc028b866923a9e6103507cdc9f}{move\+Robber}} (sf\+::\+Vector2f position)
+\begin{DoxyCompactList}\small\item\em Moves the robber to a new position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_hex}{Hex}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_board_a23804088ad7ad1eea9750d97be15f1cd}{get\+Robber\+Hex}} () const
+\begin{DoxyCompactList}\small\item\em Gets the hex where the robber is currently located. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_board_aa7f1a638c3e99e7da6605ea73537c7aa}{get\+Longest\+Road\+Length}} (int player\+ID) const
+\begin{DoxyCompactList}\small\item\em Calculates the longest road length for a specified player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the game board for the \doxylink{class_catan}{Catan} game, handling terrain, structures, and gameplay mechanics. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_board_a080d8d1c6c8e858725ecde44401c173c}\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}}
+{\footnotesize\ttfamily \label{class_board_a080d8d1c6c8e858725ecde44401c173c} 
+Board\+::\+Board (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{std\+::unordered\+\_\+map$<$ std\+::string, sf\+::\+Texture $>$ \texorpdfstring{$\ast$}{*}}]{textures}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{class_board}{Board} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Pointer to the SFML render window. \\
+\hline
+{\em textures} & Pointer to a map of textures used in the game. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_board_aa7f1a638c3e99e7da6605ea73537c7aa}\index{Board@{Board}!getLongestRoadLength@{getLongestRoadLength}}
+\index{getLongestRoadLength@{getLongestRoadLength}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getLongestRoadLength()}{getLongestRoadLength()}}
+{\footnotesize\ttfamily \label{class_board_aa7f1a638c3e99e7da6605ea73537c7aa} 
+int Board\+::get\+Longest\+Road\+Length (\begin{DoxyParamCaption}\item[{int}]{player\+ID}{}\end{DoxyParamCaption}) const}
+
+
+
+Calculates the longest road length for a specified player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+ID} & The ID of the player. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the longest road. 
+\end{DoxyReturn}
+\Hypertarget{class_board_a6931b7552b8f8d13a4f38366f042da46}\index{Board@{Board}!getPlayersAtHex@{getPlayersAtHex}}
+\index{getPlayersAtHex@{getPlayersAtHex}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getPlayersAtHex()}{getPlayersAtHex()}}
+{\footnotesize\ttfamily \label{class_board_a6931b7552b8f8d13a4f38366f042da46} 
+std\+::vector$<$ \mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} $>$ Board\+::get\+Players\+At\+Hex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_hex}{Hex}} \texorpdfstring{$\ast$}{*}}]{hex}{}\end{DoxyParamCaption})}
+
+
+
+Gets the players present at a specified hex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hex} & Pointer to the hex to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of players at the specified hex. 
+\end{DoxyReturn}
+\Hypertarget{class_board_a23804088ad7ad1eea9750d97be15f1cd}\index{Board@{Board}!getRobberHex@{getRobberHex}}
+\index{getRobberHex@{getRobberHex}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getRobberHex()}{getRobberHex()}}
+{\footnotesize\ttfamily \label{class_board_a23804088ad7ad1eea9750d97be15f1cd} 
+\mbox{\hyperlink{class_hex}{Hex}} \texorpdfstring{$\ast$}{*} Board\+::get\+Robber\+Hex (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the hex where the robber is currently located. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the hex with the robber. 
+\end{DoxyReturn}
+\Hypertarget{class_board_a0fdbfdc028b866923a9e6103507cdc9f}\index{Board@{Board}!moveRobber@{moveRobber}}
+\index{moveRobber@{moveRobber}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{moveRobber()}{moveRobber()}}
+{\footnotesize\ttfamily \label{class_board_a0fdbfdc028b866923a9e6103507cdc9f} 
+void Board\+::move\+Robber (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{position}{}\end{DoxyParamCaption})}
+
+
+
+Moves the robber to a new position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The new position for the robber. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_board_a7c5c822d2302e9386bb703212d906828}\index{Board@{Board}!placeRoad@{placeRoad}}
+\index{placeRoad@{placeRoad}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{placeRoad()}{placeRoad()}}
+{\footnotesize\ttfamily \label{class_board_a7c5c822d2302e9386bb703212d906828} 
+bool Board\+::place\+Road (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{player}{, }\item[{sf\+::\+Vector2f}]{click\+Position}{}\end{DoxyParamCaption})}
+
+
+
+Places a road on the board. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player attempting to place the road. \\
+\hline
+{\em click\+Position} & The position where the road is to be placed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the road is successfully placed, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_board_a02e56f2c2286e510e78732b732a3ce3a}\index{Board@{Board}!placeRobber@{placeRobber}}
+\index{placeRobber@{placeRobber}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{placeRobber()}{placeRobber()}}
+{\footnotesize\ttfamily \label{class_board_a02e56f2c2286e510e78732b732a3ce3a} 
+bool Board\+::place\+Robber (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{position}{}\end{DoxyParamCaption})}
+
+
+
+Places the robber on the specified hex position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position to place the robber. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the robber is successfully placed, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_board_af7cf30ecbaaf6535dfb4c29d8c274b05}\index{Board@{Board}!placeSettlement@{placeSettlement}}
+\index{placeSettlement@{placeSettlement}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{placeSettlement()}{placeSettlement()}}
+{\footnotesize\ttfamily \label{class_board_af7cf30ecbaaf6535dfb4c29d8c274b05} 
+bool Board\+::place\+Settlement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{player}{, }\item[{sf\+::\+Vector2f}]{click\+Position}{}\end{DoxyParamCaption})}
+
+
+
+Places a settlement on the board. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player attempting to place the settlement. \\
+\hline
+{\em click\+Position} & The position where the settlement is to be placed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the settlement is successfully placed, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_board_a00ab0b7505bf4b88eaf0818d3700fb81}\index{Board@{Board}!produceResource@{produceResource}}
+\index{produceResource@{produceResource}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{produceResource()}{produceResource()}}
+{\footnotesize\ttfamily \label{class_board_a00ab0b7505bf4b88eaf0818d3700fb81} 
+void Board\+::produce\+Resource (\begin{DoxyParamCaption}\item[{int}]{dice\+Number}{}\end{DoxyParamCaption})}
+
+
+
+Produces resources for players based on the rolled dice number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dice\+Number} & The number rolled on the dice. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_board_afb49879342d1f16b61e16dd7a83d5bdd}\index{Board@{Board}!setplacingRoad@{setplacingRoad}}
+\index{setplacingRoad@{setplacingRoad}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setplacingRoad()}{setplacingRoad()}}
+{\footnotesize\ttfamily \label{class_board_afb49879342d1f16b61e16dd7a83d5bdd} 
+void Board\+::setplacing\+Road (\begin{DoxyParamCaption}\item[{bool}]{placing\+Road}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether a road is being placed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em placing\+Road} & True to indicate a road is being placed, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_board_ab2b35bfa7c4571955435709c150b328d}\index{Board@{Board}!setplacingSettlement@{setplacingSettlement}}
+\index{setplacingSettlement@{setplacingSettlement}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setplacingSettlement()}{setplacingSettlement()}}
+{\footnotesize\ttfamily \label{class_board_ab2b35bfa7c4571955435709c150b328d} 
+void Board\+::setplacing\+Settlement (\begin{DoxyParamCaption}\item[{bool}]{placing\+Settlement}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether a settlement is being placed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em placing\+Settlement} & True to indicate a settlement is being placed, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_board_a4acd5ecf5596a1d9d75d15d0db461c7a}\index{Board@{Board}!setSetupPhase@{setSetupPhase}}
+\index{setSetupPhase@{setSetupPhase}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setSetupPhase()}{setSetupPhase()}}
+{\footnotesize\ttfamily \label{class_board_a4acd5ecf5596a1d9d75d15d0db461c7a} 
+void Board\+::set\+Setup\+Phase (\begin{DoxyParamCaption}\item[{bool}]{setup\+Phase}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether the game is in the setup phase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em setup\+Phase} & True to enable the setup phase, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_board_a8344df4f8c022f8f761358f77100f50e}\index{Board@{Board}!update@{update}}
+\index{update@{update}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_board_a8344df4f8c022f8f761358f77100f50e} 
+void Board\+::update (\begin{DoxyParamCaption}\item[{int}]{current\+Player\+ID}{}\end{DoxyParamCaption})}
+
+
+
+Updates the game board state based on the current player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Player\+ID} & The ID of the current player. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_board_8h}{Board.\+h}}\item 
+Board.\+cpp\end{DoxyCompactItemize}

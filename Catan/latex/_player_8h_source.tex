@@ -1,0 +1,159 @@
+\doxysection{Player.\+h}
+\hypertarget{_player_8h_source}{}\label{_player_8h_source}\mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_resource_type_8h}{ResourceType.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_road_8h}{Road.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_settlement_8h}{Settlement.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_city_8h}{City.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ std::vector<Card>\ cards;\ }
+\DoxyCodeLine{00029\ \ \ \ \ std::vector<Card>\ newlyPurchasedCards;\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::map<Card,\ sf::Sprite>\ cardSprites;\ }
+\DoxyCodeLine{00032\ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ sf::RenderWindow*\ window;\ }
+\DoxyCodeLine{00034\ \ \ \ \ sf::View*\ view;\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::unordered\_map<std::string,\ sf::Texture>*\ textures;\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ playerID;\ }
+\DoxyCodeLine{00037\ \ \ \ \ std::map<ResourceType,\ int>\ resources;\ }
+\DoxyCodeLine{00038\ \ \ \ \ sf::Color\ color;\ }
+\DoxyCodeLine{00039\ \ \ \ \ sf::Text\ player;\ }
+\DoxyCodeLine{00040\ \ \ \ \ sf::Text\ lumber;\ }
+\DoxyCodeLine{00041\ \ \ \ \ sf::Text\ brick;\ }
+\DoxyCodeLine{00042\ \ \ \ \ sf::Text\ ore;\ }
+\DoxyCodeLine{00043\ \ \ \ \ sf::Text\ grain;\ }
+\DoxyCodeLine{00044\ \ \ \ \ sf::Text\ wool;\ }
+\DoxyCodeLine{00045\ \ \ \ \ sf::Font\ font;\ }
+\DoxyCodeLine{00046\ \ \ \ \ sf::Sprite\ lumberTexture;\ }
+\DoxyCodeLine{00047\ \ \ \ \ sf::Sprite\ brickTexture;\ }
+\DoxyCodeLine{00048\ \ \ \ \ sf::Sprite\ oreTexture;\ }
+\DoxyCodeLine{00049\ \ \ \ \ sf::Sprite\ grainTexture;\ }
+\DoxyCodeLine{00050\ \ \ \ \ sf::Sprite\ woolTexture;\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ std::map<int,\ sf::FloatRect>\ cardPositions;\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{float}\ xPart;\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{float}\ yPart;\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ knightsPlayed\ =\ 0;\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ mustPlaceRobber\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ victoryPoints\ =\ 0;\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasLongestRoad\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasLargestArmy\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ roadCount\ =\ 0;\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_player_ac4552c9345be19dba9c03f9e9fbb09c4}{Player}}(sf::RenderWindow*\ window,\ sf::View*\ view,\ std::unordered\_map<std::string,\ sf::Texture>*\ textures,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ sf::Color\ color);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ac18c9d30d2997765321c62030a4b20b7}{draw}}();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a82c3476f3e65a4e2ac6bcd040771bdd4}{update}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a107ee3ad17a7ec87030db97e903da736}{addCard}}(Card\ card);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Card>\&\ \mbox{\hyperlink{class_player_a5023d87d3d62a7d4b4fe292f950af950}{getCards}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a3c2a0dff52cd531e6080ed01e957279d}{drawCardUI}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a0f57e131b3fc5876b702be7ec9bb4f9b}{canBuildRoad}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a1a8f1d16868eeb4d09211699f965c9e4}{buildRoad}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_ad1e9fb6e1e73c03f4dd0be4f817867a6}{canBuildSettlement}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a859dd1e2a3d88dd0a882c57975169609}{buildSettlement}}();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a9ad6a94d74af31d9d8eb354910b22777}{takeResources}}(\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ resourceType,\ \textcolor{keywordtype}{int}\ amount);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{const}\ std::map<ResourceType,\ int>\&\ \mbox{\hyperlink{class_player_a12dd2d161003ca8c7fc15e43e16bc3c2}{getResources}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_ae1a2df5b4344e2095f2d1f3a596346d4}{getVictoryPoints}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a9c82c496201e02d3e86dca2b77521f1a}{hasWon}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_af55f684c4115269164f3e6aaa64ccd8b}{setLargestArmy}}(\textcolor{keywordtype}{bool}\ has);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a6f8a4c7281a4e8cbcad876b6cf64d60b}{hasLargestArmyCard}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ hasLargestArmy;\ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a13edc7c2af0722c22a0edce2f006d038}{canBuyDevelopmentCard}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a305e1c463a6fae26c48569eae05c1ecb}{buyDevelopmentCard}}();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_ad7a4078a63f36b4db95d45809d20d1c0}{getID}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00183\ \ \ \ \ sf::Color\ \mbox{\hyperlink{class_player_a6af84629a95779c478adcd24efcefb1b}{getColor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_acac6f4420322daec6f44a74b2e2eb77a}{useKnightCard}}();}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a5de77b7ee12ad65733b1239697780d97}{useYearOfPlentyCard}}(\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ first,\ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ second);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_af51da158b085eef8388ceec53fd56058}{useRoadBuildingCard}}();}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a2afd8408cc82ba6db0be6854c5725eba}{useMonopolyCard}}(\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ resource);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_afd7b74be1d55dfa6472cc9e18ecb7daa}{useVictoryPointCard}}();}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a821beb60bcfae846c81e33955529c6fe}{hasCard}}(Card\ cardType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ae6c82cba3ca4bae8733e5e849941c47c}{removeCard}}(Card\ cardType);}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00236\ \ \ \ \ Card\ \mbox{\hyperlink{class_player_a05dc787bb524ad32004abbea1160580b}{handleCardClick}}(sf::Vector2f\ clickPosition);}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a09daf30d21193787aecb6aed8841fa07}{addResource}}(\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ type,\ \textcolor{keywordtype}{int}\ amount\ =\ 1);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ac8f36a790460f64699a762ea783ea220}{removeResource}}(\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ type,\ \textcolor{keywordtype}{int}\ amount\ =\ 1);}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_a36e5539aab2ecbf7951944ddafcf4891}{getResourceCount}}(\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ type)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ac917080d85f249b396682a9cd606ed39}{incrementKnightsPlayed}}();}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_aa374048ec4880797b166f5ba092d1e01}{getKnightsPlayed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_ad6d19b1f06de446e5c22907109136014}{hasResources}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_a06ed3b61a416c93a9026189a10f48dd7}{getTotalResources}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00286\ \ \ \ \ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ \mbox{\hyperlink{class_player_a7f1e2667849c466971c5069daf10fbd3}{getRandomResource}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ad7ac12604a1794cc7bab6b68863d4eb0}{discardResources}}(\textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_adc99b5dbefa641b43e00cef8d25077f0}{setMustMoveRobber}}(\textcolor{keywordtype}{bool}\ must);}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a79b208b292065c21005165ac23a7f1b2}{mustMoveRobber}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a32399fb8be8e86c4d04dcd19eed56a17}{setLongestRoad}}(\textcolor{keywordtype}{bool}\ has);}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_abf3cbc11a4fb6899d0e5afdfbc96684d}{hasLongestRoadCard}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ hasLongestRoad;\ \}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aef7f58eda620210e05fddcef9df0670f}{incrementRoadCount}}();}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_a223419bdce553853640547979f3d076f}{getRoadCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a71de70f94d51e686ca40b3fd8389c285}{clearNewlyPurchasedCards}}();}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a3d9df212fa5ac664233a7f909b86fc4d}{isCardPlayable}}(Card\ card)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keywordtype}{void}\ initResources();}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keywordtype}{void}\ initTexts();}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keywordtype}{void}\ initTextures();}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keywordtype}{void}\ initCardSprites(std::unordered\_map<std::string,\ sf::Texture>*\ textures);}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordtype}{void}\ drawCards();}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keywordtype}{void}\ updateText();}
+\DoxyCodeLine{00372\ \};}
+
+\end{DoxyCode}

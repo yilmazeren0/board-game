@@ -1,0 +1,5 @@
+<map id="TradeMenu.h" name="TradeMenu.h">
+<area shape="rect" id="Node000001" title="Defines the TradeMenu class that handles the user interface and logic for trading resources in the ga..." alt="" coords="5,5,103,32"/>
+<area shape="rect" id="Node000002" href="$_catan_8h.html" title="Defines the Catan class for managing the overall game logic." alt="" coords="20,80,88,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="57,48,57,80,51,80,51,48"/>
+</map>

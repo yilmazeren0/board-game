@@ -1,0 +1,5 @@
+<map id="BankMenu.h" name="BankMenu.h">
+<area shape="rect" id="Node000001" title="Defines the BankMenu class for managing bank trades in the Catan game." alt="" coords="5,5,100,32"/>
+<area shape="rect" id="Node000002" href="$_catan_8h.html" title="Defines the Catan class for managing the overall game logic." alt="" coords="19,80,86,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,48,55,80,50,80,50,48"/>
+</map>

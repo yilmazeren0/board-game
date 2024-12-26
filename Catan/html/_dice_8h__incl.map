@@ -1,0 +1,9 @@
+<map id="Dice.h" name="Dice.h">
+<area shape="rect" id="Node000001" title="Defines the Dice class, used for rolling dice in the game and displaying the results." alt="" coords="192,5,252,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,143,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,35,115,75,112,70,195,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="167,80,277,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,33,225,64,219,64,219,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="301,80,354,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="242,30,298,69,295,73,239,35"/>
+</map>

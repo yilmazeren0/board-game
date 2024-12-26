@@ -1,0 +1,9 @@
+<map id="Road.h" name="Road.h">
+<area shape="rect" id="Node000001" title="Defines the Road class, which represents a road in the game." alt="" coords="102,5,166,32"/>
+<area shape="rect" id="Node000002" href="$_building_8h.html" title="Defines the Building class, representing a generic building in the game." alt="" coords="95,80,173,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,33,137,64,131,64,131,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,143,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="126,109,96,145,92,141,122,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="167,155,221,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="146,106,176,141,172,145,142,109"/>
+</map>

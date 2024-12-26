@@ -1,0 +1,5 @@
+<map id="TradeMenu" name="TradeMenu">
+<area shape="rect" id="Node000001" title="Handles the trading interface and logic during a trade between players." alt="" coords="7,869,208,1029"/>
+<area shape="rect" id="Node000002" href="$class_menu.html" title=" " alt="" coords="5,5,209,821"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,836,110,869,105,869,105,836"/>
+</map>

@@ -1,0 +1,107 @@
+\doxysection{Resource\+Button Class Reference}
+\hypertarget{class_resource_button}{}\label{class_resource_button}\index{ResourceButton@{ResourceButton}}
+
+
+Represents a clickable button for resource selection in the game.  
+
+
+
+
+{\ttfamily \#include $<$Resource\+Button.\+h$>$}
+
+
+
+Collaboration diagram for Resource\+Button\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{class_resource_button__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_resource_button_a5d43e7000cc2607bb454b67052a147f2}{Resource\+Button}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{class_resource_button}{Resource\+Button} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_resource_button_ae36324d23f648716f48707cffd56dc86}{set\+Position}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Sets the position of the button on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_resource_button_a4e051594691005744a486129086284c3}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draws the button to the given window. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_resource_button_acea38096b063f585cda82897dd6c6e70}{is\+Clicked}} (const sf\+::\+Vector2f \&mouse\+Pos)
+\begin{DoxyCompactList}\small\item\em Checks if the button has been clicked by the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a clickable button for resource selection in the game. 
+
+The {\ttfamily \doxylink{class_resource_button}{Resource\+Button}} class provides the functionality needed to display a resource button on the screen, handle user interactions, and trigger actions when clicked. It uses an SFML sprite for visual representation and allows the button\textquotesingle{}s position and appearance to be customized. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_resource_button_a5d43e7000cc2607bb454b67052a147f2}\index{ResourceButton@{ResourceButton}!ResourceButton@{ResourceButton}}
+\index{ResourceButton@{ResourceButton}!ResourceButton@{ResourceButton}}
+\doxysubsubsection{\texorpdfstring{ResourceButton()}{ResourceButton()}}
+{\footnotesize\ttfamily \label{class_resource_button_a5d43e7000cc2607bb454b67052a147f2} 
+Resource\+Button\+::\+Resource\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Default constructor for the \doxylink{class_resource_button}{Resource\+Button} class. 
+
+Initializes the resource button with default values. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_resource_button_a4e051594691005744a486129086284c3}\index{ResourceButton@{ResourceButton}!draw@{draw}}
+\index{draw@{draw}!ResourceButton@{ResourceButton}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \label{class_resource_button_a4e051594691005744a486129086284c3} 
+void Resource\+Button\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+Draws the button to the given window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The SFML window where the button will be drawn. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_resource_button_acea38096b063f585cda82897dd6c6e70}\index{ResourceButton@{ResourceButton}!isClicked@{isClicked}}
+\index{isClicked@{isClicked}!ResourceButton@{ResourceButton}}
+\doxysubsubsection{\texorpdfstring{isClicked()}{isClicked()}}
+{\footnotesize\ttfamily \label{class_resource_button_acea38096b063f585cda82897dd6c6e70} 
+bool Resource\+Button\+::is\+Clicked (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{mouse\+Pos}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the button has been clicked by the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+Pos} & The position of the mouse click. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the button was clicked, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_resource_button_ae36324d23f648716f48707cffd56dc86}\index{ResourceButton@{ResourceButton}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!ResourceButton@{ResourceButton}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily \label{class_resource_button_ae36324d23f648716f48707cffd56dc86} 
+void Resource\+Button\+::set\+Position (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Sets the position of the button on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x-\/coordinate of the button\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate of the button\textquotesingle{}s position. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_resource_button_8h}{Resource\+Button.\+h}}\end{DoxyCompactItemize}

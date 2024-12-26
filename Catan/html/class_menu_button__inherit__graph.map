@@ -1,0 +1,5 @@
+<map id="MenuButton" name="MenuButton">
+<area shape="rect" id="Node000001" title="Represents a button in the menu system." alt="" coords="24,640,176,757"/>
+<area shape="rect" id="Node000002" href="$class_button.html" title="Represents an interactive button for the game&#39;s user interface." alt="" coords="5,5,194,592"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,607,102,640,97,640,97,607"/>
+</map>

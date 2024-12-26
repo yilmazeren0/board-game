@@ -1,0 +1,11 @@
+<map id="City.h" name="City.h">
+<area shape="rect" id="Node000001" title="Defines the City class, representing an upgraded settlement in the game." alt="" coords="106,5,162,32"/>
+<area shape="rect" id="Node000002" href="$_settlement_8h.html" title="Defines the Settlement class, representing a settlement in the game." alt="" coords="86,80,182,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,33,137,64,131,64,131,33"/>
+<area shape="rect" id="Node000003" href="$_building_8h.html" title="Defines the Building class, representing a generic building in the game." alt="" coords="95,155,173,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="137,107,137,139,131,139,131,107"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,229,143,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="126,184,96,219,92,216,122,180"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="167,229,221,256"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="146,180,176,216,172,219,142,184"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Building" name="Building">
+<area shape="rect" id="Node000001" title="Represents a generic building owned by a player in the game." alt="" coords="43,1701,202,1861"/>
+<area shape="rect" id="Node000002" href="$class_player.html" title="Represents a player in the game, managing resources, cards, and actions." alt="" coords="5,5,240,1637"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,1637,126,1684,120,1684,120,1637"/>
+</map>

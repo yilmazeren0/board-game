@@ -1,0 +1,82 @@
+\doxysection{Road Class Reference}
+\hypertarget{class_road}{}\label{class_road}\index{Road@{Road}}
+
+
+Represents a road built by a player in the game.  
+
+
+
+
+{\ttfamily \#include $<$Road.\+h$>$}
+
+
+
+Inheritance diagram for Road\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{class_road__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Road\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_road__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_road_ab22be40861385a9b2ccd9722c4576fde}{Road}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_building_a7cececda1329a421dcb3b2b2928f6fea}{owner}}, sf\+::\+Color \mbox{\hyperlink{class_building_ae2f3706cec6b74290a4a15132cb229ce}{color}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_road}{Road} object for a player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_building}{Building}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_building_a731dd0917c2f13cf1498edbcd3002c12}{Building}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_building_a7cececda1329a421dcb3b2b2928f6fea}{owner}}, sf\+::\+Color \mbox{\hyperlink{class_building_ae2f3706cec6b74290a4a15132cb229ce}{color}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_building}{Building} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_building_a742ba6653ff0f74696915d281cf520a0}{get\+Owner}} () const
+\begin{DoxyCompactList}\small\item\em Gets the owner of the building. \end{DoxyCompactList}\item 
+sf\+::\+Color \mbox{\hyperlink{class_building_a88e4cb6c440fbde426cbf2b1f6297618}{get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Gets the color of the building. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_building}{Building}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries owner}
+\begin{DoxyCompactList}\small\item\em Pointer to the owner of the building. \end{DoxyCompactList}\item 
+sf\+::\+Color {\bfseries color}
+\begin{DoxyCompactList}\small\item\em Color representing the building\textquotesingle{}s owner. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a road built by a player in the game. 
+
+The {\ttfamily \doxylink{class_road}{Road}} class inherits from the {\ttfamily \doxylink{class_building}{Building}} class and represents a road that a player can construct. Each road is associated with a player and has a color representing the player\textquotesingle{}s identity. Roads play a crucial role in the game, connecting settlements and cities, and contributing to the player\textquotesingle{}s potential for achieving the Longest \doxylink{class_road}{Road} victory condition. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_road_ab22be40861385a9b2ccd9722c4576fde}\index{Road@{Road}!Road@{Road}}
+\index{Road@{Road}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{Road()}{Road()}}
+{\footnotesize\ttfamily \label{class_road_ab22be40861385a9b2ccd9722c4576fde} 
+Road\+::\+Road (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{owner}{, }\item[{sf\+::\+Color}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_road}{Road} object for a player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & The player who owns this road. \\
+\hline
+{\em color} & The color associated with the player who owns the road. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_road_8h}{Road.\+h}}\item 
+Road.\+cpp\end{DoxyCompactItemize}

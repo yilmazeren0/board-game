@@ -1,0 +1,65 @@
+\doxysection{Hex.\+h}
+\hypertarget{_hex_8h_source}{}\label{_hex_8h_source}\mbox{\hyperlink{_hex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_resource_type_8h}{ResourceType.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_terrain_type_8h}{TerrainType.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vertex_8h}{Vertex.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_hex}{Hex}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_hex_a3b247ba78b6a08cd6cc718b9e08a043d}{Hex}}(sf::RenderWindow*\ window,\ std::unordered\_map<std::string,\ sf::Texture>*\ textures,\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_terrain_type_8h_af82ff6f1edafee12190434b73fe91127}{TerrainType}}\ terrainType,\ \textcolor{keyword}{const}\ std::array<int,\ 6>\&\ vertexIndices,\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ number,\ \textcolor{keywordtype}{int}\ diceNumber);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_hex_a7ced64c23414f4fdc4ab0a2ea05dfa0e}{\string~Hex}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_hex_a4a57668ae7f5cac03dd6b548c8ff8fad}{update}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_hex_ad5a74d3dbaf6c6f265563e3b5fc83607}{draw}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{const}\ std::array<int,\ 6>\&\ \mbox{\hyperlink{class_hex_aa44865370bd41190592be25a69a6e0d7}{getOwnedVertices}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_hex_ad88a8a9965b8cc4fb17aeea0541665ee}{getDiceNumber}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ \mbox{\hyperlink{class_hex_a1ef89feb927694271880ef1cc558a72c}{getResourceType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_hex_a5321e5919621a3e52034cd5e60a1dfb0}{setRobber}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_hex_a214a06979f505a5b36b51d665e0e5f26}{removeRobber}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_hex_ac5a25d850ebce5782a0027bca61fa8c9}{isRobbed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \ \ \ \ sf::FloatRect\ \mbox{\hyperlink{class_hex_a9dbe6c284e1cec34223921145d5f518d}{getBox}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ initResourceType(\mbox{\hyperlink{_terrain_type_8h_af82ff6f1edafee12190434b73fe91127}{TerrainType}}\ terrainType);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00101\ \ \ \ \ sf::RenderWindow*\ window;\ }
+\DoxyCodeLine{00102\ \ \ \ \ sf::ConvexShape\ hex;\ }
+\DoxyCodeLine{00103\ \ \ \ \ sf::Sprite\ sprite;\ }
+\DoxyCodeLine{00104\ \ \ \ \ sf::Text\ text;\ }
+\DoxyCodeLine{00105\ \ \ \ \ sf::Font\ font;\ }
+\DoxyCodeLine{00106\ \ \ \ \ sf::CircleShape\ circle;\ }
+\DoxyCodeLine{00107\ \ \ \ \ sf::Sprite\ robberSprite;\ }
+\DoxyCodeLine{00108\ \ \ \ \ std::array<int,\ 6>\ ownedVertices;\ }
+\DoxyCodeLine{00109\ \ \ \ \ std::unordered\_map<std::string,\ sf::Texture>*\ textures;\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ resourceType;\ }
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{_terrain_type_8h_af82ff6f1edafee12190434b73fe91127}{TerrainType}}\ terrainType;\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{bool}\ hasRobber\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{int}\ diceNumber;\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ Static\ attributes\ for\ positioning\ and\ geometry}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{static}\ std::array<sf::Vector2f,\ 19>\ centerPoints;\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ center;\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ radius;\ }
+\DoxyCodeLine{00120\ \};}
+
+\end{DoxyCode}

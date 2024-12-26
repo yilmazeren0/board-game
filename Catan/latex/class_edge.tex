@@ -1,0 +1,250 @@
+\doxysection{Edge Class Reference}
+\hypertarget{class_edge}{}\label{class_edge}\index{Edge@{Edge}}
+
+
+Represents an edge between two vertices on the game board.  
+
+
+
+
+{\ttfamily \#include $<$Edge.\+h$>$}
+
+
+
+Collaboration diagram for Edge\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{class_edge__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_edge_a8cc209ff90e3f82fecfb4d4cfe10b6a9}{Edge}} (sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}window, const std\+::array$<$ int, 2 $>$ \&vertex\+Indices, int number)
+\begin{DoxyCompactList}\small\item\em Constructs an \doxylink{class_edge}{Edge} object. \end{DoxyCompactList}\item 
+\Hypertarget{class_edge_a2f37b72f044427961d6730943daf10e0}\label{class_edge_a2f37b72f044427961d6730943daf10e0} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Edge} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{class_edge}{Edge} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_a1e27c12a13585c3d69ad7b952bec99fc}{update}} (const sf\+::\+Vector2f \&mouse\+Position)
+\begin{DoxyCompactList}\small\item\em Updates the state of the edge, including highlighting and interaction. \end{DoxyCompactList}\item 
+\Hypertarget{class_edge_a19c6b8da937b43d87241861c06f00454}\label{class_edge_a19c6b8da937b43d87241861c06f00454} 
+void {\bfseries draw} ()
+\begin{DoxyCompactList}\small\item\em Renders the edge to the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_a1b4792e54aabcba79296aca0cfe39395}{place\+Road}} (\mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*}road)
+\begin{DoxyCompactList}\small\item\em Places a road on this edge. \end{DoxyCompactList}\item 
+const std\+::array$<$ int, 2 $>$ \& \mbox{\hyperlink{class_edge_ae833f4f65ce212a1194001e9389f1756}{get\+Owned\+Vertices}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the indices of the vertices owned by this edge. \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_edge_a8ee217018b0044f61dee7ec6a9211681}{get\+Box}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the bounding box of the edge for collision detection. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_edge_a4505e1e9ea36a59bbe7fb3e741f65db7}{get\+Availability}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the edge is available for placing a road. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_edge_a0f3313e75d6484a4efe24a7ba2fbe3b6}{is\+Hightlighted}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the edge is currently highlighted. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_a74b622629ac6dabef62bb4851c955366}{set\+Highlight}} (bool highlight)
+\begin{DoxyCompactList}\small\item\em Sets the highlight state of the edge. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_ab306a43b3b4681ee54fa6a7ccb352614}{set\+Availability}} (bool availability)
+\begin{DoxyCompactList}\small\item\em Sets the availability of the edge for road placement. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_edge_a0caa4657f7bb3709f62fdc0c021fead1}{is\+Owned\+By\+Player}} (size\+\_\+t player\+ID) const
+\begin{DoxyCompactList}\small\item\em Checks if the edge is owned by a specific player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_edge_a8702eaab8752460e2c9cb7c51c5d478c}{contains\+Vertex}} (int vertex\+Index) const
+\begin{DoxyCompactList}\small\item\em Checks if the edge contains a specific vertex. \end{DoxyCompactList}\item 
+const std\+::array$<$ int, 2 $>$ \& \mbox{\hyperlink{class_edge_a1657c58d6d181c3888eb84e9398ad114}{get\+Vertices}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the indices of the vertices connected by this edge. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an edge between two vertices on the game board. 
+
+Edges can contain roads and are used to connect vertices. They are also involved in determining valid placements and gameplay interactions. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_edge_a8cc209ff90e3f82fecfb4d4cfe10b6a9}\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}}
+{\footnotesize\ttfamily \label{class_edge_a8cc209ff90e3f82fecfb4d4cfe10b6a9} 
+Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{const std\+::array$<$ int, 2 $>$ \&}]{vertex\+Indices}{, }\item[{int}]{number}{}\end{DoxyParamCaption})}
+
+
+
+Constructs an \doxylink{class_edge}{Edge} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Pointer to the SFML Render\+Window for rendering the edge. \\
+\hline
+{\em vertex\+Indices} & Indices of the two vertices connected by this edge. \\
+\hline
+{\em number} & The unique identifier for this edge. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_edge_a8702eaab8752460e2c9cb7c51c5d478c}\index{Edge@{Edge}!containsVertex@{containsVertex}}
+\index{containsVertex@{containsVertex}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{containsVertex()}{containsVertex()}}
+{\footnotesize\ttfamily \label{class_edge_a8702eaab8752460e2c9cb7c51c5d478c} 
+bool Edge\+::contains\+Vertex (\begin{DoxyParamCaption}\item[{int}]{vertex\+Index}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the edge contains a specific vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex\+Index} & The index of the vertex to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the edge contains the vertex, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_edge_a4505e1e9ea36a59bbe7fb3e741f65db7}\index{Edge@{Edge}!getAvailability@{getAvailability}}
+\index{getAvailability@{getAvailability}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getAvailability()}{getAvailability()}}
+{\footnotesize\ttfamily \label{class_edge_a4505e1e9ea36a59bbe7fb3e741f65db7} 
+bool Edge\+::get\+Availability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the edge is available for placing a road. 
+
+\begin{DoxyReturn}{Returns}
+True if available, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_edge_a8ee217018b0044f61dee7ec6a9211681}\index{Edge@{Edge}!getBox@{getBox}}
+\index{getBox@{getBox}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getBox()}{getBox()}}
+{\footnotesize\ttfamily \label{class_edge_a8ee217018b0044f61dee7ec6a9211681} 
+sf\+::\+Float\+Rect Edge\+::get\+Box (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the bounding box of the edge for collision detection. 
+
+\begin{DoxyReturn}{Returns}
+A Float\+Rect representing the bounding box of the edge. 
+\end{DoxyReturn}
+\Hypertarget{class_edge_ae833f4f65ce212a1194001e9389f1756}\index{Edge@{Edge}!getOwnedVertices@{getOwnedVertices}}
+\index{getOwnedVertices@{getOwnedVertices}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getOwnedVertices()}{getOwnedVertices()}}
+{\footnotesize\ttfamily \label{class_edge_ae833f4f65ce212a1194001e9389f1756} 
+const std\+::array$<$ int, 2 $>$ \& Edge\+::get\+Owned\+Vertices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the indices of the vertices owned by this edge. 
+
+\begin{DoxyReturn}{Returns}
+An array containing the indices of the two vertices. 
+\end{DoxyReturn}
+\Hypertarget{class_edge_a1657c58d6d181c3888eb84e9398ad114}\index{Edge@{Edge}!getVertices@{getVertices}}
+\index{getVertices@{getVertices}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getVertices()}{getVertices()}}
+{\footnotesize\ttfamily \label{class_edge_a1657c58d6d181c3888eb84e9398ad114} 
+const std\+::array$<$ int, 2 $>$ \& Edge\+::get\+Vertices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the indices of the vertices connected by this edge. 
+
+\begin{DoxyReturn}{Returns}
+An array containing the indices of the vertices. 
+\end{DoxyReturn}
+\Hypertarget{class_edge_a0f3313e75d6484a4efe24a7ba2fbe3b6}\index{Edge@{Edge}!isHightlighted@{isHightlighted}}
+\index{isHightlighted@{isHightlighted}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{isHightlighted()}{isHightlighted()}}
+{\footnotesize\ttfamily \label{class_edge_a0f3313e75d6484a4efe24a7ba2fbe3b6} 
+bool Edge\+::is\+Hightlighted (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the edge is currently highlighted. 
+
+\begin{DoxyReturn}{Returns}
+True if highlighted, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_edge_a0caa4657f7bb3709f62fdc0c021fead1}\index{Edge@{Edge}!isOwnedByPlayer@{isOwnedByPlayer}}
+\index{isOwnedByPlayer@{isOwnedByPlayer}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{isOwnedByPlayer()}{isOwnedByPlayer()}}
+{\footnotesize\ttfamily \label{class_edge_a0caa4657f7bb3709f62fdc0c021fead1} 
+bool Edge\+::is\+Owned\+By\+Player (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{player\+ID}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the edge is owned by a specific player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+ID} & The ID of the player to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the edge is owned by the player, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_edge_a1b4792e54aabcba79296aca0cfe39395}\index{Edge@{Edge}!placeRoad@{placeRoad}}
+\index{placeRoad@{placeRoad}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{placeRoad()}{placeRoad()}}
+{\footnotesize\ttfamily \label{class_edge_a1b4792e54aabcba79296aca0cfe39395} 
+void Edge\+::place\+Road (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*}}]{road}{}\end{DoxyParamCaption})}
+
+
+
+Places a road on this edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em road} & Pointer to the \doxylink{class_road}{Road} object to place. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_edge_ab306a43b3b4681ee54fa6a7ccb352614}\index{Edge@{Edge}!setAvailability@{setAvailability}}
+\index{setAvailability@{setAvailability}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{setAvailability()}{setAvailability()}}
+{\footnotesize\ttfamily \label{class_edge_ab306a43b3b4681ee54fa6a7ccb352614} 
+void Edge\+::set\+Availability (\begin{DoxyParamCaption}\item[{bool}]{availability}{}\end{DoxyParamCaption})}
+
+
+
+Sets the availability of the edge for road placement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em availability} & True to make the edge available, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_edge_a74b622629ac6dabef62bb4851c955366}\index{Edge@{Edge}!setHighlight@{setHighlight}}
+\index{setHighlight@{setHighlight}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{setHighlight()}{setHighlight()}}
+{\footnotesize\ttfamily \label{class_edge_a74b622629ac6dabef62bb4851c955366} 
+void Edge\+::set\+Highlight (\begin{DoxyParamCaption}\item[{bool}]{highlight}{}\end{DoxyParamCaption})}
+
+
+
+Sets the highlight state of the edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em highlight} & True to highlight the edge, false to remove the highlight. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_edge_a1e27c12a13585c3d69ad7b952bec99fc}\index{Edge@{Edge}!update@{update}}
+\index{update@{update}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_edge_a1e27c12a13585c3d69ad7b952bec99fc} 
+void Edge\+::update (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{mouse\+Position}{}\end{DoxyParamCaption})}
+
+
+
+Updates the state of the edge, including highlighting and interaction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+Position} & The current mouse position in the window. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_edge_8h}{Edge.\+h}}\item 
+Edge.\+cpp\end{DoxyCompactItemize}

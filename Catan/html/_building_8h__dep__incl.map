@@ -1,0 +1,30 @@
+<map id="Building.h" name="Building.h">
+<area shape="rect" id="Node000001" title="Defines the Building class, representing a generic building in the game." alt="" coords="194,5,273,32"/>
+<area shape="rect" id="Node000002" href="$_road_8h.html" title="Defines the Road class, which represents a road in the game." alt="" coords="180,229,244,256"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,48,219,80,213,165,214,229,209,229,207,165,214,80,222,46"/>
+<area shape="rect" id="Node000007" href="$_settlement_8h.html" title="Defines the Settlement class, representing a settlement in the game." alt="" coords="228,80,324,107"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="251,44,271,78,267,81,246,47"/>
+<area shape="rect" id="Node000003" href="$_board_8h.html" title="Defines the Board class and its functionality for the Catan game." alt="" coords="167,379,233,405"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="215,271,212,331,205,379,200,378,207,330,210,271"/>
+<area shape="rect" id="Node000005" href="$_edge_8h.html" title="Defines the Edge class, representing the edges between vertices in the game board." alt="" coords="136,304,198,331"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="198,271,177,305,172,302,194,268"/>
+<area shape="rect" id="Node000006" href="$_player_8h.html" title="Defines the Player class, which represents a player in the game." alt="" coords="272,304,342,331"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="242,264,292,301,289,306,239,268"/>
+<area shape="rect" id="Node000004" href="$_catan_8h.html" title="Defines the Catan class for managing the overall game logic." alt="" coords="201,453,268,480"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="215,418,231,452,226,454,210,421"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="181,344,197,377,192,379,177,346"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="277,342,220,380,217,376,274,337"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="296,346,243,454,239,452,292,344"/>
+<area shape="poly" id="edge17_Node000007_Node000006" title=" " alt="" coords="295,119,309,154,316,197,317,239,311,304,306,303,311,239,311,197,304,155,290,121"/>
+<area shape="rect" id="Node000008" href="$_city_8h.html" title="Defines the City class, representing an upgraded settlement in the game." alt="" coords="239,155,294,181"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="275,122,271,155,266,154,270,122"/>
+<area shape="rect" id="Node000009" href="$_vertex_8h.html" title="Defines the Vertex class, which represents a vertex (settlement location) on the game board." alt="" coords="87,229,156,256"/>
+<area shape="poly" id="edge18_Node000007_Node000009" title=" " alt="" coords="254,119,136,231,133,227,250,116"/>
+<area shape="poly" id="edge11_Node000008_Node000006" title=" " alt="" coords="277,196,306,303,301,304,272,197"/>
+<area shape="poly" id="edge12_Node000008_Node000009" title=" " alt="" coords="229,191,148,231,146,226,227,186"/>
+<area shape="poly" id="edge13_Node000009_Node000003" title=" " alt="" coords="119,272,119,301,127,329,149,357,176,376,173,380,145,360,122,332,114,301,114,272"/>
+<area shape="poly" id="edge14_Node000009_Node000005" title=" " alt="" coords="140,268,161,302,157,305,135,271"/>
+<area shape="rect" id="Node000010" href="$_hex_8h.html" title="Defines the Hex class representing a single hexagonal tile in the game board." alt="" coords="5,304,62,331"/>
+<area shape="poly" id="edge15_Node000009_Node000010" title=" " alt="" coords="96,268,50,306,47,302,93,264"/>
+<area shape="poly" id="edge16_Node000010_Node000003" title=" " alt="" coords="77,335,172,376,170,381,75,339"/>
+</map>

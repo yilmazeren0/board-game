@@ -1,0 +1,5 @@
+<map id="Dice.h" name="Dice.h">
+<area shape="rect" id="Node000001" title="Defines the Dice class, used for rolling dice in the game and displaying the results." alt="" coords="9,5,69,32"/>
+<area shape="rect" id="Node000002" href="$_catan_8h.html" title="Defines the Catan class for managing the overall game logic." alt="" coords="5,80,73,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="42,48,42,80,36,80,36,48"/>
+</map>

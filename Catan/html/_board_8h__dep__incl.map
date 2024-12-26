@@ -1,0 +1,5 @@
+<map id="Board.h" name="Board.h">
+<area shape="rect" id="Node000001" title="Defines the Board class and its functionality for the Catan game." alt="" coords="6,5,72,32"/>
+<area shape="rect" id="Node000002" href="$_catan_8h.html" title="Defines the Catan class for managing the overall game logic." alt="" coords="5,80,73,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="42,48,42,80,36,80,36,48"/>
+</map>

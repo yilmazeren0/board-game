@@ -1,0 +1,45 @@
+\doxysection{Bank\+Menu.\+h}
+\hypertarget{_bank_menu_8h_source}{}\label{_bank_menu_8h_source}\mbox{\hyperlink{_bank_menu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_menu_8h}{Menu.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_button_8h}{Button.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_resource_type_8h}{ResourceType.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_bank_menu}{BankMenu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_menu}{Menu}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_bank_menu_a44e32ec5794bc388fd4f7dba2f7aeca5}{BankMenu}}(sf::RenderWindow*\ \mbox{\hyperlink{class_menu_a0889442f08056ce69d0f9ef3489faa73}{window}},\ sf::View*\ \mbox{\hyperlink{class_menu_aa6f68b10971b2158d0b2300b70f2ca2b}{view}},\ \mbox{\hyperlink{class_catan}{Catan}}*\ \mbox{\hyperlink{class_menu_a929e78fe94f4adcd33fe653c940aa847}{game}});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_bank_menu_a95dd18321e8fefac9ee9ccaf466ab1fa}{draw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_bank_menu_af3ef84b584f2a26340e3a420cdd76dae}{update}}(sf::Vector2f\ \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mousePosition}})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ std::unique\_ptr<Button>\ backBtn;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ std::unique\_ptr<Button>\ offerHeader;\ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ std::unique\_ptr<Button>\ requestHeader;\ }
+\DoxyCodeLine{00043\ \ \ \ \ std::unique\_ptr<Button>\ executeTrade;\ \ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00046\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ giveLabels;\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ giveButtons;\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ getLabels;\ }
+\DoxyCodeLine{00051\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ getButtons;\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ selectedGiveResource\ =\ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1ab50339a10e1de285ac99d4c3990b8693}{ResourceType::NONE}};\ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ selectedGetResource\ =\ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1ab50339a10e1de285ac99d4c3990b8693}{ResourceType::NONE}};\ \ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00061\ \ \ \ \ std::string\ getResourceName(\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ type)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ initializeButtons();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ resetSelection();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{bool}\ isValidTrade()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,9 @@
+<map id="Building" name="Building">
+<area shape="rect" id="Node000001" title="Represents a generic building owned by a player in the game." alt="" coords="87,5,246,187"/>
+<area shape="rect" id="Node000002" href="$class_road.html" title="Represents a road built by a player in the game." alt="" coords="5,253,149,339"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,201,98,255,93,253,118,199"/>
+<area shape="rect" id="Node000003" href="$class_settlement.html" title="Represents a settlement built by a player in the game." alt="" coords="173,235,341,357"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,199,232,234,228,236,211,201"/>
+<area shape="rect" id="Node000004" href="$class_city.html" title="Represents a city, which is an upgraded version of a settlement. Cities produce more resources than s..." alt="" coords="163,405,352,528"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="260,372,260,406,255,406,255,372"/>
+</map>

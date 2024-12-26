@@ -1,0 +1,13 @@
+<map id="Vertex.h" name="Vertex.h">
+<area shape="rect" id="Node000001" title="Defines the Vertex class, which represents a vertex (settlement location) on the game board." alt="" coords="16,5,85,32"/>
+<area shape="rect" id="Node000002" href="$_board_8h.html" title="Defines the Board class and its functionality for the Catan game." alt="" coords="17,155,84,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="30,46,19,62,10,81,9,101,16,120,40,153,35,156,11,123,4,101,5,79,14,60,26,43"/>
+<area shape="rect" id="Node000004" href="$_edge_8h.html" title="Defines the Edge class, representing the edges between vertices in the game board." alt="" coords="19,80,82,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="53,48,53,80,48,80,48,48"/>
+<area shape="rect" id="Node000005" href="$_hex_8h.html" title="Defines the Hex class representing a single hexagonal tile in the game board." alt="" coords="106,80,163,107"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="78,40,122,78,118,82,75,45"/>
+<area shape="rect" id="Node000003" href="$_catan_8h.html" title="Defines the Catan class for managing the overall game logic." alt="" coords="17,229,84,256"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="53,197,53,229,48,229,48,197"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="53,122,53,154,48,154,48,122"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="110,119,67,156,63,152,106,115"/>
+</map>

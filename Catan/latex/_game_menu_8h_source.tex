@@ -1,0 +1,47 @@
+\doxysection{Game\+Menu.\+h}
+\hypertarget{_game_menu_8h_source}{}\label{_game_menu_8h_source}\mbox{\hyperlink{_game_menu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_menu_8h}{Menu.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_button_8h}{Button.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_menu}{GameMenu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_menu}{Menu}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_game_menu_ad5c7e6fc43afe3af7c1e47f04bfdf056}{GameMenu}}(sf::RenderWindow*\ \mbox{\hyperlink{class_menu_a0889442f08056ce69d0f9ef3489faa73}{window}},\ sf::View*\ \mbox{\hyperlink{class_menu_aa6f68b10971b2158d0b2300b70f2ca2b}{view}},\ \mbox{\hyperlink{class_catan}{Catan}}*\ \mbox{\hyperlink{class_menu_a929e78fe94f4adcd33fe653c940aa847}{game}});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_menu_a0dc398ec1596dd048478a9b014317e58}{draw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_menu_a253d2cfbb95bb229a35a3f10864891fd}{update}}(sf::Vector2f\ \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mousePosition}})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ Menu\ state}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_rollDice;\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_buildingMenu;\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Main\ menu\ buttons}}
+\DoxyCodeLine{00046\ \ \ \ \ std::unique\_ptr<Button>\ rollDiceBtn;\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::unique\_ptr<Button>\ buildingBtn;\ }
+\DoxyCodeLine{00048\ \ \ \ \ std::unique\_ptr<Button>\ bankBtn;\ }
+\DoxyCodeLine{00049\ \ \ \ \ std::unique\_ptr<Button>\ deckBtn;\ }
+\DoxyCodeLine{00050\ \ \ \ \ std::unique\_ptr<Button>\ tradeBtn;\ }
+\DoxyCodeLine{00051\ \ \ \ \ std::unique\_ptr<Button>\ nextTurnBtn;\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ Building\ menu\ buttons}}
+\DoxyCodeLine{00054\ \ \ \ \ std::unique\_ptr<Button>\ backBtn;\ }
+\DoxyCodeLine{00055\ \ \ \ \ std::unique\_ptr<Button>\ buildRoadBtn;\ }
+\DoxyCodeLine{00056\ \ \ \ \ std::unique\_ptr<Button>\ buildSettlementBtn;\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ initializeButtons();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ handleBuildingMenu(sf::Vector2f\ \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mousePosition}});}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ handleMainMenu(sf::Vector2f\ \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mousePosition}});}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ updateButtonStates(sf::Vector2f\ \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mousePosition}});}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ updateMousePosition();}
+\DoxyCodeLine{00085\ \};}
+
+\end{DoxyCode}

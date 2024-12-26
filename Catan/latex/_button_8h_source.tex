@@ -1,0 +1,44 @@
+\doxysection{Button.\+h}
+\hypertarget{_button_8h_source}{}\label{_button_8h_source}\mbox{\hyperlink{_button_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_button}{Button}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_button_adf6a97b5db7e333f6734d5b323c16197}{Button}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_button_aadf908b0777f2ae5c28d949fda3384c1}{text}},\ \textcolor{keyword}{const}\ sf::Font\&\ font,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_button_afb6a5e927ef20e4017939af3524eed69}{\string~Button}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_button_adf65892636ea303a84e1391106ea7cb0}{draw}}(sf::RenderWindow\&\ window);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_button_a46107577b845d57b68b58401f076efee}{update}}(sf::Vector2f\ mousePosition);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_button_ab26b54e897bdfd0490b7a24b47a50adc}{isHovered}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_button_ab8b6d00ad0dd29a46bed2e1cb40a8a5f}{isClicked}}(sf::Vector2f\ mousePosition)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_button_a6f9778be0ec943a6fc69961f983e4c24}{animate}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_button_a22cd88eff298dd2a48cd529dd52ee6da}{setCharacterSize}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_button_a5be4fa9dc092c6b7e857aae734c1a9d0}{setString}}(\textcolor{keyword}{const}\ std::string\&\ str);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ sf::Text\&\ \mbox{\hyperlink{class_button_aba461925dd4989abca1262c2295a9902}{getText}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ sf::Text\&\ \mbox{\hyperlink{class_button_a45f8f024949f8442c18d8cad7b45cf53}{getText}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00086\ \ \ \ \ sf::Text\ \mbox{\hyperlink{class_button_aadf908b0777f2ae5c28d949fda3384c1}{text}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_button_a6dcba96cbece035a715f1ec690f26c4b}{originalScale}}\ =\ 1.0f;\ \ \ \ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_button_a3bbf6a874eeb9df2972983edcffba74a}{currentScale}}\ =\ 1.0f;\ \ \ \ \ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_button_a8bc7a53418a6c82dddd5808b2868db26}{isAnimating}}\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_button_ae5ac49ca1095564d2863e2bc5a6a6c60}{animationSpeed}}\ =\ 0.1f;\ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_button_a9f23ea5fc17150e91302601186877ef0}{maxScale}}\ =\ 1.2f;\ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_button_a7b7f96f380c7d63a1ba68c4634ace731}{minScale}}\ =\ 1.0f;\ \ \ }
+\DoxyCodeLine{00093\ \};}
+
+\end{DoxyCode}

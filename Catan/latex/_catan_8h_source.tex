@@ -1,0 +1,189 @@
+\doxysection{Catan.\+h}
+\hypertarget{_catan_8h_source}{}\label{_catan_8h_source}\mbox{\hyperlink{_catan_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_board_8h}{Board.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_player_8h}{Player.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_start_menu_8h}{StartMenu.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_menu_8h}{GameMenu.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_trade_menu_8h}{TradeMenu.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_dice_8h}{Dice.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_resource_type_8h}{ResourceType.h}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_bank_menu_8h}{BankMenu.h}}"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catan}{Catan}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_catan_a9fedca80d904c80da02f8411c180f361}{Catan}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_catan_ae0edf1e90c1b0a0431c1b81675e4e793}{\string~Catan}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_adc2430a46593117799e87688d154b8c3}{run}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ Game\ state\ functions}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_aaa2742d48977c6b0b5343a8326ed5555}{resetClickPosition}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a9ddeca3b835ed1e491712bcdf0b9fb9f}{setMenu}}(\textcolor{keywordtype}{bool}\ menu);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_catan_aa1cac002208ed68ee90ca77f89153676}{isMenu}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_ad0c7fea5b5a9eac191c9327d338a6af4}{nextTurn}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a059311470977dc3dcbc127cbe051afde}{buySettlement}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_aa359260daf31ec2cc6adcf9594953b5a}{buyRoad}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_catan_a8e3c883e7ab52bf97f91d3bb8dcd4468}{canBuildRoad}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_catan_a4b630546d1aef4f3a7dd7aa6fe0eab85}{canBuildSettlement}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_catan_a4f704109bddcf43a59b39e0606eac2fc}{getPlayerCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a175db43bf672b63000e954cfbfdad234}{incrementPlayerCount}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a6ab5c5e7086bf414c89e8cb39e9c7be2}{decrementPlayerCount}}();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a96e6ad6fde0ae120aecd85c2c8663c6d}{rollDice}}();}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ Card\ functions}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a402f8153b0b977157509b9c0bb5421ac}{giveRandomCard}}();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a0e23ffd993abce7c065060fbf5804308}{handleCardUse}}(Card\ card);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ Trade\ functions}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a37dff74082a52016b3791a64d328c7e0}{initiateTrade}}(\textcolor{keywordtype}{int}\ target);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_catan_a584957a3ad2d18b5ab683052f6abda89}{proposeTrade}}(\textcolor{keywordtype}{int}\ targetPlayer,\ \textcolor{keyword}{const}\ std::map<ResourceType,\ int>\&\ offer,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::map<ResourceType,\ int>\&\ request);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a9663845cf92450e5a1d333705f76196e}{acceptTrade}}();}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_aed62c598f8a7542484ad9e750a578f89}{declineTrade}}();}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00155\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}*\ \mbox{\hyperlink{class_catan_aa5b17138d11d54bac15af47af398b196}{getCurrentPlayer}}();}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}*\ \mbox{\hyperlink{class_catan_a993d0cbedac80f48b65dffcf47e92bce}{getPlayer}}(\textcolor{keywordtype}{int}\ playerIndex);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_catan_af08adbc612d2997217c3277fa1c8fe48}{getCurrentPlayerIndex}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a79635bdefe5a57445053bceb4c0a2e3e}{setTrading}}(\textcolor{keywordtype}{bool}\ trading);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_catan_a1c459b89fb69a390af483b1f7f6e1e5b}{getTrading}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{comment}{//\ Bank\ trade}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_catan_a9eeb1aeed1c34b88bbd4a8db0a85a12b}{bankTrade}}(\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ giveResource,\ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ getResource,\ \textcolor{keywordtype}{int}\ giveAmount\ =\ 4);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_catan_a5ee7519beb45156f0a36087748ceb2fe}{isBankTrading}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a26fa81dabfa848934f9898dade0b1424}{setBankTrading}}(\textcolor{keywordtype}{bool}\ trading);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{comment}{//\ Board\ management}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_catan_a423b4523003448e047173bed85ef47fe}{restartBoard}}();}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{comment}{//\ Private\ methods}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{void}\ pollEvent();}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{void}\ updateGameState();}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{void}\ draw();}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{void}\ drawVictoryPoints();}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{void}\ resizeView();}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{void}\ initPlayers();}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{void}\ initTextures();}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordtype}{void}\ initDevelopmentCards();}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{void}\ initSetupOrder();}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordtype}{void}\ handleSetupPhase();}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordtype}{void}\ handleGamePhase();}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordtype}{void}\ nextTurnSetupPhase();}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordtype}{bool}\ placeRoad(sf::Vector2f\ position);}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordtype}{bool}\ placeSettlement(sf::Vector2f\ position);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordtype}{void}\ updateLongestRoad();}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordtype}{void}\ updateLargestArmy();}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{comment}{//\ Private\ members}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ sf::RenderWindow*\ window;\ }
+\DoxyCodeLine{00302\ \ \ \ \ sf::View*\ view;\ }
+\DoxyCodeLine{00303\ \ \ \ \ sf::Event\ event;\ }
+\DoxyCodeLine{00304\ \ \ \ \ sf::Font\ font;\ }
+\DoxyCodeLine{00305\ \ \ \ \ sf::Color\ backgroundColor;\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ view\_height\ =\ 720.0f;\ }
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \ \ \ \ \mbox{\hyperlink{class_board}{Board}}*\ gameBoard;\ }
+\DoxyCodeLine{00309\ \ \ \ \ \mbox{\hyperlink{class_start_menu}{StartMenu}}*\ startMenu;\ }
+\DoxyCodeLine{00310\ \ \ \ \ \mbox{\hyperlink{class_game_menu}{GameMenu}}*\ gameMenu;\ }
+\DoxyCodeLine{00311\ \ \ \ \ \mbox{\hyperlink{class_trade_menu}{TradeMenu}}*\ tradeMenu;\ }
+\DoxyCodeLine{00312\ \ \ \ \ \mbox{\hyperlink{class_dice}{Dice}}*\ dice;\ }
+\DoxyCodeLine{00313\ \ \ \ \ \mbox{\hyperlink{class_bank_menu}{BankMenu}}*\ bankMenu;\ }
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ std::unordered\_map<std::string,\ sf::Texture>\ textures;\ }
+\DoxyCodeLine{00316\ \ \ \ \ std::vector<Card>\ developmentCards;\ }
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ std::vector<Player>\ players;\ }
+\DoxyCodeLine{00319\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}*\ currentPlayer;\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{int}\ playerNumber\ =\ 4;\ }
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordtype}{int}\ currentPlayerIndex;\ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::array<sf::Color,\ 4>\ colors;\ }
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_menu\ =\ \textcolor{keyword}{true};\ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordtype}{bool}\ setupPhase\ =\ \textcolor{keyword}{true};\ }
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordtype}{bool}\ gameOver\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordtype}{int}\ winningPlayer\ =\ -\/1;\ }
+\DoxyCodeLine{00328\ \ \ \ \ sf::Vector2f\ clickPosition;\ }
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ std::vector<int>\ setupOrder;\ }
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordtype}{int}\ setupIndex\ =\ 0;\ }
+\DoxyCodeLine{00332\ \ \ \ \ std::vector<int>\ checkingSetupPhase;\ }
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordtype}{bool}\ placingRoad\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordtype}{bool}\ placingSettlement\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordtype}{bool}\ placementStart\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keywordtype}{bool}\ placementDone\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordtype}{bool}\ placingFreeRoad\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordtype}{int}\ freeRoadsRemaining\ =\ 0;\ }
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keywordtype}{bool}\ placingRobber\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{keywordtype}{bool}\ selectingResource\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00343\ \ \ \ \ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ selectedResource;\ }
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keywordtype}{bool}\ tradeInProgress\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordtype}{bool}\ isTrading\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keywordtype}{int}\ tradingPlayer\ =\ -\/1;\ }
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordtype}{int}\ targetPlayer\ =\ -\/1;\ }
+\DoxyCodeLine{00350\ \ \ \ \ std::map<ResourceType,\ int>\ tradeOffer;\ }
+\DoxyCodeLine{00351\ \ \ \ \ std::map<ResourceType,\ int>\ tradeRequest;\ }
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \textcolor{keywordtype}{bool}\ isBankTrade\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}*\ longestRoadHolder\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00356\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}*\ largestArmyHolder\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00357\ \};}
+
+\end{DoxyCode}

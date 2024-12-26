@@ -1,0 +1,157 @@
+\doxysection{Hex Class Reference}
+\hypertarget{class_hex}{}\label{class_hex}\index{Hex@{Hex}}
+
+
+Represents a hexagonal tile on the game board.  
+
+
+
+
+{\ttfamily \#include $<$Hex.\+h$>$}
+
+
+
+Collaboration diagram for Hex\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{class_hex__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_hex_a3b247ba78b6a08cd6cc718b9e08a043d}{Hex}} (sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}window, std\+::unordered\+\_\+map$<$ std\+::string, sf\+::\+Texture $>$ \texorpdfstring{$\ast$}{*}textures, \mbox{\hyperlink{_terrain_type_8h_af82ff6f1edafee12190434b73fe91127}{Terrain\+Type}} terrain\+Type, const std\+::array$<$ int, 6 $>$ \&vertex\+Indices, int number, int dice\+Number)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_hex}{Hex} object. \end{DoxyCompactList}\item 
+\Hypertarget{class_hex_a7ced64c23414f4fdc4ab0a2ea05dfa0e}\label{class_hex_a7ced64c23414f4fdc4ab0a2ea05dfa0e} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Hex} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_hex}{Hex} class. \end{DoxyCompactList}\item 
+\Hypertarget{class_hex_a4a57668ae7f5cac03dd6b548c8ff8fad}\label{class_hex_a4a57668ae7f5cac03dd6b548c8ff8fad} 
+void {\bfseries update} ()
+\begin{DoxyCompactList}\small\item\em Updates the hex\textquotesingle{}s state (e.\+g., animations or visual effects). \end{DoxyCompactList}\item 
+\Hypertarget{class_hex_ad5a74d3dbaf6c6f265563e3b5fc83607}\label{class_hex_ad5a74d3dbaf6c6f265563e3b5fc83607} 
+void {\bfseries draw} ()
+\begin{DoxyCompactList}\small\item\em Draws the hex to the window. \end{DoxyCompactList}\item 
+const std\+::array$<$ int, 6 $>$ \& \mbox{\hyperlink{class_hex_aa44865370bd41190592be25a69a6e0d7}{get\+Owned\+Vertices}} () const
+\begin{DoxyCompactList}\small\item\em Gets the indices of vertices owned by this hex. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_hex_ad88a8a9965b8cc4fb17aeea0541665ee}{get\+Dice\+Number}} () const
+\begin{DoxyCompactList}\small\item\em Gets the dice number associated with this hex. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} \mbox{\hyperlink{class_hex_a1ef89feb927694271880ef1cc558a72c}{get\+Resource\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Gets the type of resource produced by this hex. \end{DoxyCompactList}\item 
+\Hypertarget{class_hex_a5321e5919621a3e52034cd5e60a1dfb0}\label{class_hex_a5321e5919621a3e52034cd5e60a1dfb0} 
+void {\bfseries set\+Robber} ()
+\begin{DoxyCompactList}\small\item\em Sets the robber on this hex. \end{DoxyCompactList}\item 
+\Hypertarget{class_hex_a214a06979f505a5b36b51d665e0e5f26}\label{class_hex_a214a06979f505a5b36b51d665e0e5f26} 
+void {\bfseries remove\+Robber} ()
+\begin{DoxyCompactList}\small\item\em Removes the robber from this hex. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_hex_ac5a25d850ebce5782a0027bca61fa8c9}{is\+Robbed}} () const
+\begin{DoxyCompactList}\small\item\em Checks if this hex is currently robbed. \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_hex_a9dbe6c284e1cec34223921145d5f518d}{get\+Box}} () const
+\begin{DoxyCompactList}\small\item\em Gets the bounding box of this hex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a hexagonal tile on the game board. 
+
+The \doxylink{class_hex}{Hex} class contains details about its terrain type, resource production, vertices it owns, and whether it is currently robbed. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_hex_a3b247ba78b6a08cd6cc718b9e08a043d}\index{Hex@{Hex}!Hex@{Hex}}
+\index{Hex@{Hex}!Hex@{Hex}}
+\doxysubsubsection{\texorpdfstring{Hex()}{Hex()}}
+{\footnotesize\ttfamily \label{class_hex_a3b247ba78b6a08cd6cc718b9e08a043d} 
+Hex\+::\+Hex (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{std\+::unordered\+\_\+map$<$ std\+::string, sf\+::\+Texture $>$ \texorpdfstring{$\ast$}{*}}]{textures}{, }\item[{\mbox{\hyperlink{_terrain_type_8h_af82ff6f1edafee12190434b73fe91127}{Terrain\+Type}}}]{terrain\+Type}{, }\item[{const std\+::array$<$ int, 6 $>$ \&}]{vertex\+Indices}{, }\item[{int}]{number}{, }\item[{int}]{dice\+Number}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_hex}{Hex} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Pointer to the SFML Render\+Window for rendering. \\
+\hline
+{\em textures} & Pointer to the map of textures used in the game. \\
+\hline
+{\em terrain\+Type} & The type of terrain this hex represents. \\
+\hline
+{\em vertex\+Indices} & Indices of vertices owned by this hex. \\
+\hline
+{\em number} & The index of this hex. \\
+\hline
+{\em dice\+Number} & The dice roll number required to produce resources on this hex. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_hex_a9dbe6c284e1cec34223921145d5f518d}\index{Hex@{Hex}!getBox@{getBox}}
+\index{getBox@{getBox}!Hex@{Hex}}
+\doxysubsubsection{\texorpdfstring{getBox()}{getBox()}}
+{\footnotesize\ttfamily \label{class_hex_a9dbe6c284e1cec34223921145d5f518d} 
+sf\+::\+Float\+Rect Hex\+::get\+Box (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the bounding box of this hex. 
+
+\begin{DoxyReturn}{Returns}
+A Float\+Rect representing the hex\textquotesingle{}s bounding box. 
+\end{DoxyReturn}
+\Hypertarget{class_hex_ad88a8a9965b8cc4fb17aeea0541665ee}\index{Hex@{Hex}!getDiceNumber@{getDiceNumber}}
+\index{getDiceNumber@{getDiceNumber}!Hex@{Hex}}
+\doxysubsubsection{\texorpdfstring{getDiceNumber()}{getDiceNumber()}}
+{\footnotesize\ttfamily \label{class_hex_ad88a8a9965b8cc4fb17aeea0541665ee} 
+int Hex\+::get\+Dice\+Number (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the dice number associated with this hex. 
+
+\begin{DoxyReturn}{Returns}
+The dice number. 
+\end{DoxyReturn}
+\Hypertarget{class_hex_aa44865370bd41190592be25a69a6e0d7}\index{Hex@{Hex}!getOwnedVertices@{getOwnedVertices}}
+\index{getOwnedVertices@{getOwnedVertices}!Hex@{Hex}}
+\doxysubsubsection{\texorpdfstring{getOwnedVertices()}{getOwnedVertices()}}
+{\footnotesize\ttfamily \label{class_hex_aa44865370bd41190592be25a69a6e0d7} 
+const std\+::array$<$ int, 6 $>$ \& Hex\+::get\+Owned\+Vertices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the indices of vertices owned by this hex. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the array of owned vertex indices. 
+\end{DoxyReturn}
+\Hypertarget{class_hex_a1ef89feb927694271880ef1cc558a72c}\index{Hex@{Hex}!getResourceType@{getResourceType}}
+\index{getResourceType@{getResourceType}!Hex@{Hex}}
+\doxysubsubsection{\texorpdfstring{getResourceType()}{getResourceType()}}
+{\footnotesize\ttfamily \label{class_hex_a1ef89feb927694271880ef1cc558a72c} 
+\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} Hex\+::get\+Resource\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the type of resource produced by this hex. 
+
+\begin{DoxyReturn}{Returns}
+The resource type. 
+\end{DoxyReturn}
+\Hypertarget{class_hex_ac5a25d850ebce5782a0027bca61fa8c9}\index{Hex@{Hex}!isRobbed@{isRobbed}}
+\index{isRobbed@{isRobbed}!Hex@{Hex}}
+\doxysubsubsection{\texorpdfstring{isRobbed()}{isRobbed()}}
+{\footnotesize\ttfamily \label{class_hex_ac5a25d850ebce5782a0027bca61fa8c9} 
+bool Hex\+::is\+Robbed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if this hex is currently robbed. 
+
+\begin{DoxyReturn}{Returns}
+True if the hex is robbed, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_hex_8h}{Hex.\+h}}\item 
+Hex.\+cpp\end{DoxyCompactItemize}

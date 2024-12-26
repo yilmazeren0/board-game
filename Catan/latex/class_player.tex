@@ -1,0 +1,673 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+
+
+Represents a player in the game, managing resources, cards, and actions.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+
+
+Collaboration diagram for Player\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_player__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_ac4552c9345be19dba9c03f9e9fbb09c4}{Player}} (sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}window, sf\+::\+View \texorpdfstring{$\ast$}{*}view, std\+::unordered\+\_\+map$<$ std\+::string, sf\+::\+Texture $>$ \texorpdfstring{$\ast$}{*}textures, int id, sf\+::\+Color color)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_player}{Player} object. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_ac18c9d30d2997765321c62030a4b20b7}\label{class_player_ac18c9d30d2997765321c62030a4b20b7} 
+void {\bfseries draw} ()
+\begin{DoxyCompactList}\small\item\em Draws the player\textquotesingle{}s UI elements. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_a82c3476f3e65a4e2ac6bcd040771bdd4}\label{class_player_a82c3476f3e65a4e2ac6bcd040771bdd4} 
+void {\bfseries update} ()
+\begin{DoxyCompactList}\small\item\em Updates the player\textquotesingle{}s state, including the UI and resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a107ee3ad17a7ec87030db97e903da736}{add\+Card}} (Card card)
+\begin{DoxyCompactList}\small\item\em Adds a card to the player\textquotesingle{}s hand. \end{DoxyCompactList}\item 
+const std\+::vector$<$ Card $>$ \& \mbox{\hyperlink{class_player_a5023d87d3d62a7d4b4fe292f950af950}{get\+Cards}} () const
+\begin{DoxyCompactList}\small\item\em Gets the list of cards the player has. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_a3c2a0dff52cd531e6080ed01e957279d}\label{class_player_a3c2a0dff52cd531e6080ed01e957279d} 
+void {\bfseries draw\+Card\+UI} ()
+\begin{DoxyCompactList}\small\item\em Draws the player\textquotesingle{}s card UI. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a0f57e131b3fc5876b702be7ec9bb4f9b}{can\+Build\+Road}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player can build a road. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_a1a8f1d16868eeb4d09211699f965c9e4}\label{class_player_a1a8f1d16868eeb4d09211699f965c9e4} 
+void {\bfseries build\+Road} ()
+\begin{DoxyCompactList}\small\item\em Builds a road for the player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_ad1e9fb6e1e73c03f4dd0be4f817867a6}{can\+Build\+Settlement}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player can build a settlement. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_a859dd1e2a3d88dd0a882c57975169609}\label{class_player_a859dd1e2a3d88dd0a882c57975169609} 
+void {\bfseries build\+Settlement} ()
+\begin{DoxyCompactList}\small\item\em Builds a settlement for the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a9ad6a94d74af31d9d8eb354910b22777}{take\+Resources}} (\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} resource\+Type, int amount)
+\begin{DoxyCompactList}\small\item\em Takes resources from the player. \end{DoxyCompactList}\item 
+const std\+::map$<$ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}, int $>$ \& \mbox{\hyperlink{class_player_a12dd2d161003ca8c7fc15e43e16bc3c2}{get\+Resources}} () const
+\begin{DoxyCompactList}\small\item\em Gets the resources the player has. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_ae1a2df5b4344e2095f2d1f3a596346d4}{get\+Victory\+Points}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of victory points the player has. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a9c82c496201e02d3e86dca2b77521f1a}{has\+Won}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player has won the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_af55f684c4115269164f3e6aaa64ccd8b}{set\+Largest\+Army}} (bool has)
+\begin{DoxyCompactList}\small\item\em Sets whether the player has the Largest Army card. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a6f8a4c7281a4e8cbcad876b6cf64d60b}{has\+Largest\+Army\+Card}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player has the Largest Army card. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a13edc7c2af0722c22a0edce2f006d038}{can\+Buy\+Development\+Card}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player can buy a development card. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_a305e1c463a6fae26c48569eae05c1ecb}\label{class_player_a305e1c463a6fae26c48569eae05c1ecb} 
+void {\bfseries buy\+Development\+Card} ()
+\begin{DoxyCompactList}\small\item\em Buys a development card for the player. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_ad7a4078a63f36b4db95d45809d20d1c0}{get\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Gets the player\textquotesingle{}s unique ID. \end{DoxyCompactList}\item 
+sf\+::\+Color \mbox{\hyperlink{class_player_a6af84629a95779c478adcd24efcefb1b}{get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Gets the color representing the player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_acac6f4420322daec6f44a74b2e2eb77a}{use\+Knight\+Card}} ()
+\begin{DoxyCompactList}\small\item\em Uses a Knight card. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a5de77b7ee12ad65733b1239697780d97}{use\+Year\+Of\+Plenty\+Card}} (\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} first, \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} second)
+\begin{DoxyCompactList}\small\item\em Uses a Year of Plenty card to gain two resources. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_af51da158b085eef8388ceec53fd56058}{use\+Road\+Building\+Card}} ()
+\begin{DoxyCompactList}\small\item\em Uses a \doxylink{class_road}{Road} \doxylink{class_building}{Building} card to build two roads. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a2afd8408cc82ba6db0be6854c5725eba}{use\+Monopoly\+Card}} (\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} resource)
+\begin{DoxyCompactList}\small\item\em Uses a Monopoly card to steal all of one type of resource from other players. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_afd7b74be1d55dfa6472cc9e18ecb7daa}{use\+Victory\+Point\+Card}} ()
+\begin{DoxyCompactList}\small\item\em Uses a Victory Point card. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a821beb60bcfae846c81e33955529c6fe}{has\+Card}} (Card card\+Type) const
+\begin{DoxyCompactList}\small\item\em Checks if the player has a specific card. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ae6c82cba3ca4bae8733e5e849941c47c}{remove\+Card}} (Card card\+Type)
+\begin{DoxyCompactList}\small\item\em Removes a specific card from the player\textquotesingle{}s hand. \end{DoxyCompactList}\item 
+Card \mbox{\hyperlink{class_player_a05dc787bb524ad32004abbea1160580b}{handle\+Card\+Click}} (sf\+::\+Vector2f click\+Position)
+\begin{DoxyCompactList}\small\item\em Handles the card click event and determines which card was clicked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a09daf30d21193787aecb6aed8841fa07}{add\+Resource}} (\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} type, int amount=1)
+\begin{DoxyCompactList}\small\item\em Adds a certain amount of a resource to the player\textquotesingle{}s resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ac8f36a790460f64699a762ea783ea220}{remove\+Resource}} (\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} type, int amount=1)
+\begin{DoxyCompactList}\small\item\em Removes a certain amount of a resource from the player\textquotesingle{}s resources. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_a36e5539aab2ecbf7951944ddafcf4891}{get\+Resource\+Count}} (\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} type) const
+\begin{DoxyCompactList}\small\item\em Gets the number of a specific resource the player has. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_ac917080d85f249b396682a9cd606ed39}\label{class_player_ac917080d85f249b396682a9cd606ed39} 
+void {\bfseries increment\+Knights\+Played} ()
+\begin{DoxyCompactList}\small\item\em Increments the number of knights the player has played. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_aa374048ec4880797b166f5ba092d1e01}{get\+Knights\+Played}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of knights the player has played. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_ad6d19b1f06de446e5c22907109136014}{has\+Resources}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player has any resources. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_a06ed3b61a416c93a9026189a10f48dd7}{get\+Total\+Resources}} () const
+\begin{DoxyCompactList}\small\item\em Gets the total number of resources the player has. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} \mbox{\hyperlink{class_player_a7f1e2667849c466971c5069daf10fbd3}{get\+Random\+Resource}} () const
+\begin{DoxyCompactList}\small\item\em Gets a random resource the player has. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ad7ac12604a1794cc7bab6b68863d4eb0}{discard\+Resources}} (int count)
+\begin{DoxyCompactList}\small\item\em Discards a specified number of resources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_adc99b5dbefa641b43e00cef8d25077f0}{set\+Must\+Move\+Robber}} (bool must)
+\begin{DoxyCompactList}\small\item\em Sets whether the player must move the robber. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a79b208b292065c21005165ac23a7f1b2}{must\+Move\+Robber}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player must move the robber. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a32399fb8be8e86c4d04dcd19eed56a17}{set\+Longest\+Road}} (bool has)
+\begin{DoxyCompactList}\small\item\em Sets whether the player has the Longest \doxylink{class_road}{Road} card. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_abf3cbc11a4fb6899d0e5afdfbc96684d}{has\+Longest\+Road\+Card}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the player has the Longest \doxylink{class_road}{Road} card. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_aef7f58eda620210e05fddcef9df0670f}\label{class_player_aef7f58eda620210e05fddcef9df0670f} 
+void {\bfseries increment\+Road\+Count} ()
+\begin{DoxyCompactList}\small\item\em Increments the player\textquotesingle{}s road count. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_player_a223419bdce553853640547979f3d076f}{get\+Road\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of roads the player has built. \end{DoxyCompactList}\item 
+\Hypertarget{class_player_a71de70f94d51e686ca40b3fd8389c285}\label{class_player_a71de70f94d51e686ca40b3fd8389c285} 
+void {\bfseries clear\+Newly\+Purchased\+Cards} ()
+\begin{DoxyCompactList}\small\item\em Clears the list of newly purchased cards. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a3d9df212fa5ac664233a7f909b86fc4d}{is\+Card\+Playable}} (Card card) const
+\begin{DoxyCompactList}\small\item\em Checks if a specific card is playable by the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a player in the game, managing resources, cards, and actions. 
+
+The {\ttfamily \doxylink{class_player}{Player}} class stores and manages the player\textquotesingle{}s resources, development cards, victory points, and other attributes such as the player\textquotesingle{}s color and ID. It provides methods for performing actions such as building roads and settlements, using development cards, and checking the player\textquotesingle{}s victory status. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_player_ac4552c9345be19dba9c03f9e9fbb09c4}\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily \label{class_player_ac4552c9345be19dba9c03f9e9fbb09c4} 
+Player\+::\+Player (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{sf\+::\+View \texorpdfstring{$\ast$}{*}}]{view}{, }\item[{std\+::unordered\+\_\+map$<$ std\+::string, sf\+::\+Texture $>$ \texorpdfstring{$\ast$}{*}}]{textures}{, }\item[{int}]{id}{, }\item[{sf\+::\+Color}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_player}{Player} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Pointer to the SFML Render\+Window for rendering. \\
+\hline
+{\em view} & Pointer to the SFML View for positioning the camera. \\
+\hline
+{\em textures} & Pointer to the map of textures used in the game. \\
+\hline
+{\em id} & The unique ID of the player. \\
+\hline
+{\em color} & The color representing the player in the game. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a107ee3ad17a7ec87030db97e903da736}\index{Player@{Player}!addCard@{addCard}}
+\index{addCard@{addCard}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{addCard()}{addCard()}}
+{\footnotesize\ttfamily \label{class_player_a107ee3ad17a7ec87030db97e903da736} 
+void Player\+::add\+Card (\begin{DoxyParamCaption}\item[{Card}]{card}{}\end{DoxyParamCaption})}
+
+
+
+Adds a card to the player\textquotesingle{}s hand. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em card} & The card to be added. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a09daf30d21193787aecb6aed8841fa07}\index{Player@{Player}!addResource@{addResource}}
+\index{addResource@{addResource}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{addResource()}{addResource()}}
+{\footnotesize\ttfamily \label{class_player_a09daf30d21193787aecb6aed8841fa07} 
+void Player\+::add\+Resource (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{type}{, }\item[{int}]{amount}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Adds a certain amount of a resource to the player\textquotesingle{}s resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of resource to add. \\
+\hline
+{\em amount} & The amount of the resource to add (default is 1). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a0f57e131b3fc5876b702be7ec9bb4f9b}\index{Player@{Player}!canBuildRoad@{canBuildRoad}}
+\index{canBuildRoad@{canBuildRoad}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{canBuildRoad()}{canBuildRoad()}}
+{\footnotesize\ttfamily \label{class_player_a0f57e131b3fc5876b702be7ec9bb4f9b} 
+bool Player\+::can\+Build\+Road (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the player can build a road. 
+
+\begin{DoxyReturn}{Returns}
+True if the player can build a road, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_ad1e9fb6e1e73c03f4dd0be4f817867a6}\index{Player@{Player}!canBuildSettlement@{canBuildSettlement}}
+\index{canBuildSettlement@{canBuildSettlement}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{canBuildSettlement()}{canBuildSettlement()}}
+{\footnotesize\ttfamily \label{class_player_ad1e9fb6e1e73c03f4dd0be4f817867a6} 
+bool Player\+::can\+Build\+Settlement (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the player can build a settlement. 
+
+\begin{DoxyReturn}{Returns}
+True if the player can build a settlement, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a13edc7c2af0722c22a0edce2f006d038}\index{Player@{Player}!canBuyDevelopmentCard@{canBuyDevelopmentCard}}
+\index{canBuyDevelopmentCard@{canBuyDevelopmentCard}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{canBuyDevelopmentCard()}{canBuyDevelopmentCard()}}
+{\footnotesize\ttfamily \label{class_player_a13edc7c2af0722c22a0edce2f006d038} 
+bool Player\+::can\+Buy\+Development\+Card (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the player can buy a development card. 
+
+\begin{DoxyReturn}{Returns}
+True if the player can buy a development card, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_ad7ac12604a1794cc7bab6b68863d4eb0}\index{Player@{Player}!discardResources@{discardResources}}
+\index{discardResources@{discardResources}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{discardResources()}{discardResources()}}
+{\footnotesize\ttfamily \label{class_player_ad7ac12604a1794cc7bab6b68863d4eb0} 
+void Player\+::discard\+Resources (\begin{DoxyParamCaption}\item[{int}]{count}{}\end{DoxyParamCaption})}
+
+
+
+Discards a specified number of resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & The number of resources to discard. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a5023d87d3d62a7d4b4fe292f950af950}\index{Player@{Player}!getCards@{getCards}}
+\index{getCards@{getCards}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getCards()}{getCards()}}
+{\footnotesize\ttfamily \label{class_player_a5023d87d3d62a7d4b4fe292f950af950} 
+const std\+::vector$<$ Card $>$ \& Player\+::get\+Cards (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the list of cards the player has. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the vector of the player\textquotesingle{}s cards. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a6af84629a95779c478adcd24efcefb1b}\index{Player@{Player}!getColor@{getColor}}
+\index{getColor@{getColor}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
+{\footnotesize\ttfamily \label{class_player_a6af84629a95779c478adcd24efcefb1b} 
+sf\+::\+Color Player\+::get\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the color representing the player. 
+
+\begin{DoxyReturn}{Returns}
+The color of the player. 
+\end{DoxyReturn}
+\Hypertarget{class_player_ad7a4078a63f36b4db95d45809d20d1c0}\index{Player@{Player}!getID@{getID}}
+\index{getID@{getID}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily \label{class_player_ad7a4078a63f36b4db95d45809d20d1c0} 
+int Player\+::get\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the player\textquotesingle{}s unique ID. 
+
+\begin{DoxyReturn}{Returns}
+The player\textquotesingle{}s unique ID. 
+\end{DoxyReturn}
+\Hypertarget{class_player_aa374048ec4880797b166f5ba092d1e01}\index{Player@{Player}!getKnightsPlayed@{getKnightsPlayed}}
+\index{getKnightsPlayed@{getKnightsPlayed}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getKnightsPlayed()}{getKnightsPlayed()}}
+{\footnotesize\ttfamily \label{class_player_aa374048ec4880797b166f5ba092d1e01} 
+int Player\+::get\+Knights\+Played (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of knights the player has played. 
+
+\begin{DoxyReturn}{Returns}
+The number of knights played. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a7f1e2667849c466971c5069daf10fbd3}\index{Player@{Player}!getRandomResource@{getRandomResource}}
+\index{getRandomResource@{getRandomResource}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getRandomResource()}{getRandomResource()}}
+{\footnotesize\ttfamily \label{class_player_a7f1e2667849c466971c5069daf10fbd3} 
+\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} Player\+::get\+Random\+Resource (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets a random resource the player has. 
+
+\begin{DoxyReturn}{Returns}
+A randomly selected resource type. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a36e5539aab2ecbf7951944ddafcf4891}\index{Player@{Player}!getResourceCount@{getResourceCount}}
+\index{getResourceCount@{getResourceCount}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getResourceCount()}{getResourceCount()}}
+{\footnotesize\ttfamily \label{class_player_a36e5539aab2ecbf7951944ddafcf4891} 
+int Player\+::get\+Resource\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{type}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of a specific resource the player has. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of resource to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The amount of the resource. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a12dd2d161003ca8c7fc15e43e16bc3c2}\index{Player@{Player}!getResources@{getResources}}
+\index{getResources@{getResources}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getResources()}{getResources()}}
+{\footnotesize\ttfamily \label{class_player_a12dd2d161003ca8c7fc15e43e16bc3c2} 
+const std\+::map$<$ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}, int $>$ \& Player\+::get\+Resources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the resources the player has. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the map of resources the player has. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a223419bdce553853640547979f3d076f}\index{Player@{Player}!getRoadCount@{getRoadCount}}
+\index{getRoadCount@{getRoadCount}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getRoadCount()}{getRoadCount()}}
+{\footnotesize\ttfamily \label{class_player_a223419bdce553853640547979f3d076f} 
+int Player\+::get\+Road\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of roads the player has built. 
+
+\begin{DoxyReturn}{Returns}
+The number of roads. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a06ed3b61a416c93a9026189a10f48dd7}\index{Player@{Player}!getTotalResources@{getTotalResources}}
+\index{getTotalResources@{getTotalResources}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getTotalResources()}{getTotalResources()}}
+{\footnotesize\ttfamily \label{class_player_a06ed3b61a416c93a9026189a10f48dd7} 
+int Player\+::get\+Total\+Resources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the total number of resources the player has. 
+
+\begin{DoxyReturn}{Returns}
+The total number of resources. 
+\end{DoxyReturn}
+\Hypertarget{class_player_ae1a2df5b4344e2095f2d1f3a596346d4}\index{Player@{Player}!getVictoryPoints@{getVictoryPoints}}
+\index{getVictoryPoints@{getVictoryPoints}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getVictoryPoints()}{getVictoryPoints()}}
+{\footnotesize\ttfamily \label{class_player_ae1a2df5b4344e2095f2d1f3a596346d4} 
+int Player\+::get\+Victory\+Points (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of victory points the player has. 
+
+\begin{DoxyReturn}{Returns}
+The number of victory points. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a05dc787bb524ad32004abbea1160580b}\index{Player@{Player}!handleCardClick@{handleCardClick}}
+\index{handleCardClick@{handleCardClick}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{handleCardClick()}{handleCardClick()}}
+{\footnotesize\ttfamily \label{class_player_a05dc787bb524ad32004abbea1160580b} 
+Card Player\+::handle\+Card\+Click (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{click\+Position}{}\end{DoxyParamCaption})}
+
+
+
+Handles the card click event and determines which card was clicked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em click\+Position} & The position of the mouse click. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The card that was clicked. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a821beb60bcfae846c81e33955529c6fe}\index{Player@{Player}!hasCard@{hasCard}}
+\index{hasCard@{hasCard}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{hasCard()}{hasCard()}}
+{\footnotesize\ttfamily \label{class_player_a821beb60bcfae846c81e33955529c6fe} 
+bool Player\+::has\+Card (\begin{DoxyParamCaption}\item[{Card}]{card\+Type}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the player has a specific card. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em card\+Type} & The type of card to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the player has the card, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a6f8a4c7281a4e8cbcad876b6cf64d60b}\index{Player@{Player}!hasLargestArmyCard@{hasLargestArmyCard}}
+\index{hasLargestArmyCard@{hasLargestArmyCard}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{hasLargestArmyCard()}{hasLargestArmyCard()}}
+{\footnotesize\ttfamily \label{class_player_a6f8a4c7281a4e8cbcad876b6cf64d60b} 
+bool Player\+::has\+Largest\+Army\+Card (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the player has the Largest Army card. 
+
+\begin{DoxyReturn}{Returns}
+True if the player has the Largest Army card, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_abf3cbc11a4fb6899d0e5afdfbc96684d}\index{Player@{Player}!hasLongestRoadCard@{hasLongestRoadCard}}
+\index{hasLongestRoadCard@{hasLongestRoadCard}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{hasLongestRoadCard()}{hasLongestRoadCard()}}
+{\footnotesize\ttfamily \label{class_player_abf3cbc11a4fb6899d0e5afdfbc96684d} 
+bool Player\+::has\+Longest\+Road\+Card (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the player has the Longest \doxylink{class_road}{Road} card. 
+
+\begin{DoxyReturn}{Returns}
+True if the player has the Longest \doxylink{class_road}{Road} card, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_ad6d19b1f06de446e5c22907109136014}\index{Player@{Player}!hasResources@{hasResources}}
+\index{hasResources@{hasResources}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{hasResources()}{hasResources()}}
+{\footnotesize\ttfamily \label{class_player_ad6d19b1f06de446e5c22907109136014} 
+bool Player\+::has\+Resources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the player has any resources. 
+
+\begin{DoxyReturn}{Returns}
+True if the player has resources, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a9c82c496201e02d3e86dca2b77521f1a}\index{Player@{Player}!hasWon@{hasWon}}
+\index{hasWon@{hasWon}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{hasWon()}{hasWon()}}
+{\footnotesize\ttfamily \label{class_player_a9c82c496201e02d3e86dca2b77521f1a} 
+bool Player\+::has\+Won (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the player has won the game. 
+
+\begin{DoxyReturn}{Returns}
+True if the player has won, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a3d9df212fa5ac664233a7f909b86fc4d}\index{Player@{Player}!isCardPlayable@{isCardPlayable}}
+\index{isCardPlayable@{isCardPlayable}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{isCardPlayable()}{isCardPlayable()}}
+{\footnotesize\ttfamily \label{class_player_a3d9df212fa5ac664233a7f909b86fc4d} 
+bool Player\+::is\+Card\+Playable (\begin{DoxyParamCaption}\item[{Card}]{card}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if a specific card is playable by the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em card} & The card to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the card is playable, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a79b208b292065c21005165ac23a7f1b2}\index{Player@{Player}!mustMoveRobber@{mustMoveRobber}}
+\index{mustMoveRobber@{mustMoveRobber}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{mustMoveRobber()}{mustMoveRobber()}}
+{\footnotesize\ttfamily \label{class_player_a79b208b292065c21005165ac23a7f1b2} 
+bool Player\+::must\+Move\+Robber (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the player must move the robber. 
+
+\begin{DoxyReturn}{Returns}
+True if the player must move the robber, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_ae6c82cba3ca4bae8733e5e849941c47c}\index{Player@{Player}!removeCard@{removeCard}}
+\index{removeCard@{removeCard}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{removeCard()}{removeCard()}}
+{\footnotesize\ttfamily \label{class_player_ae6c82cba3ca4bae8733e5e849941c47c} 
+void Player\+::remove\+Card (\begin{DoxyParamCaption}\item[{Card}]{card\+Type}{}\end{DoxyParamCaption})}
+
+
+
+Removes a specific card from the player\textquotesingle{}s hand. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em card\+Type} & The type of card to remove. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_ac8f36a790460f64699a762ea783ea220}\index{Player@{Player}!removeResource@{removeResource}}
+\index{removeResource@{removeResource}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{removeResource()}{removeResource()}}
+{\footnotesize\ttfamily \label{class_player_ac8f36a790460f64699a762ea783ea220} 
+void Player\+::remove\+Resource (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{type}{, }\item[{int}]{amount}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Removes a certain amount of a resource from the player\textquotesingle{}s resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of resource to remove. \\
+\hline
+{\em amount} & The amount of the resource to remove (default is 1). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_af55f684c4115269164f3e6aaa64ccd8b}\index{Player@{Player}!setLargestArmy@{setLargestArmy}}
+\index{setLargestArmy@{setLargestArmy}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setLargestArmy()}{setLargestArmy()}}
+{\footnotesize\ttfamily \label{class_player_af55f684c4115269164f3e6aaa64ccd8b} 
+void Player\+::set\+Largest\+Army (\begin{DoxyParamCaption}\item[{bool}]{has}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether the player has the Largest Army card. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em has} & True if the player has the Largest Army card, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a32399fb8be8e86c4d04dcd19eed56a17}\index{Player@{Player}!setLongestRoad@{setLongestRoad}}
+\index{setLongestRoad@{setLongestRoad}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setLongestRoad()}{setLongestRoad()}}
+{\footnotesize\ttfamily \label{class_player_a32399fb8be8e86c4d04dcd19eed56a17} 
+void Player\+::set\+Longest\+Road (\begin{DoxyParamCaption}\item[{bool}]{has}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether the player has the Longest \doxylink{class_road}{Road} card. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em has} & True if the player has the Longest \doxylink{class_road}{Road} card, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_adc99b5dbefa641b43e00cef8d25077f0}\index{Player@{Player}!setMustMoveRobber@{setMustMoveRobber}}
+\index{setMustMoveRobber@{setMustMoveRobber}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setMustMoveRobber()}{setMustMoveRobber()}}
+{\footnotesize\ttfamily \label{class_player_adc99b5dbefa641b43e00cef8d25077f0} 
+void Player\+::set\+Must\+Move\+Robber (\begin{DoxyParamCaption}\item[{bool}]{must}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether the player must move the robber. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em must} & True if the player must move the robber, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_a9ad6a94d74af31d9d8eb354910b22777}\index{Player@{Player}!takeResources@{takeResources}}
+\index{takeResources@{takeResources}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{takeResources()}{takeResources()}}
+{\footnotesize\ttfamily \label{class_player_a9ad6a94d74af31d9d8eb354910b22777} 
+void Player\+::take\+Resources (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{resource\+Type}{, }\item[{int}]{amount}{}\end{DoxyParamCaption})}
+
+
+
+Takes resources from the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource\+Type} & The type of resource to take. \\
+\hline
+{\em amount} & The amount of the resource to take. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_player_acac6f4420322daec6f44a74b2e2eb77a}\index{Player@{Player}!useKnightCard@{useKnightCard}}
+\index{useKnightCard@{useKnightCard}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{useKnightCard()}{useKnightCard()}}
+{\footnotesize\ttfamily \label{class_player_acac6f4420322daec6f44a74b2e2eb77a} 
+bool Player\+::use\+Knight\+Card (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Uses a Knight card. 
+
+\begin{DoxyReturn}{Returns}
+True if the Knight card was successfully used, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a2afd8408cc82ba6db0be6854c5725eba}\index{Player@{Player}!useMonopolyCard@{useMonopolyCard}}
+\index{useMonopolyCard@{useMonopolyCard}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{useMonopolyCard()}{useMonopolyCard()}}
+{\footnotesize\ttfamily \label{class_player_a2afd8408cc82ba6db0be6854c5725eba} 
+bool Player\+::use\+Monopoly\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{resource}{}\end{DoxyParamCaption})}
+
+
+
+Uses a Monopoly card to steal all of one type of resource from other players. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource} & The resource to steal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the Monopoly card was successfully used, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_af51da158b085eef8388ceec53fd56058}\index{Player@{Player}!useRoadBuildingCard@{useRoadBuildingCard}}
+\index{useRoadBuildingCard@{useRoadBuildingCard}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{useRoadBuildingCard()}{useRoadBuildingCard()}}
+{\footnotesize\ttfamily \label{class_player_af51da158b085eef8388ceec53fd56058} 
+bool Player\+::use\+Road\+Building\+Card (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Uses a \doxylink{class_road}{Road} \doxylink{class_building}{Building} card to build two roads. 
+
+\begin{DoxyReturn}{Returns}
+True if the \doxylink{class_road}{Road} \doxylink{class_building}{Building} card was successfully used, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_afd7b74be1d55dfa6472cc9e18ecb7daa}\index{Player@{Player}!useVictoryPointCard@{useVictoryPointCard}}
+\index{useVictoryPointCard@{useVictoryPointCard}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{useVictoryPointCard()}{useVictoryPointCard()}}
+{\footnotesize\ttfamily \label{class_player_afd7b74be1d55dfa6472cc9e18ecb7daa} 
+bool Player\+::use\+Victory\+Point\+Card (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Uses a Victory Point card. 
+
+\begin{DoxyReturn}{Returns}
+True if the Victory Point card was successfully used, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a5de77b7ee12ad65733b1239697780d97}\index{Player@{Player}!useYearOfPlentyCard@{useYearOfPlentyCard}}
+\index{useYearOfPlentyCard@{useYearOfPlentyCard}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{useYearOfPlentyCard()}{useYearOfPlentyCard()}}
+{\footnotesize\ttfamily \label{class_player_a5de77b7ee12ad65733b1239697780d97} 
+bool Player\+::use\+Year\+Of\+Plenty\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{first}{, }\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{second}{}\end{DoxyParamCaption})}
+
+
+
+Uses a Year of Plenty card to gain two resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & The first resource to gain. \\
+\hline
+{\em second} & The second resource to gain. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the Year of Plenty card was successfully used, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_player_8h}{Player.\+h}}\item 
+Player.\+cpp\end{DoxyCompactItemize}

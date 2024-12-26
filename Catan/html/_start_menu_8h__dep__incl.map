@@ -1,0 +1,5 @@
+<map id="StartMenu.h" name="StartMenu.h">
+<area shape="rect" id="Node000001" title="Defines the StartMenu class for the initial menu screen of the game." alt="" coords="5,5,98,32"/>
+<area shape="rect" id="Node000002" href="$_catan_8h.html" title="Defines the Catan class for managing the overall game logic." alt="" coords="18,80,85,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,48,54,80,49,80,49,48"/>
+</map>

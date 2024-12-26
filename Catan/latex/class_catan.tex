@@ -1,0 +1,350 @@
+\doxysection{Catan Class Reference}
+\hypertarget{class_catan}{}\label{class_catan}\index{Catan@{Catan}}
+
+
+Manages the core game logic, including state transitions, player actions, and game components.  
+
+
+
+
+{\ttfamily \#include $<$Catan.\+h$>$}
+
+
+
+Collaboration diagram for Catan\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_catan__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_catan_a9fedca80d904c80da02f8411c180f361}\label{class_catan_a9fedca80d904c80da02f8411c180f361} 
+{\bfseries Catan} ()
+\begin{DoxyCompactList}\small\item\em Constructs the \doxylink{class_catan}{Catan} game instance. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_ae0edf1e90c1b0a0431c1b81675e4e793}\label{class_catan_ae0edf1e90c1b0a0431c1b81675e4e793} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Catan} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_catan}{Catan} class. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_adc2430a46593117799e87688d154b8c3}\label{class_catan_adc2430a46593117799e87688d154b8c3} 
+void {\bfseries run} ()
+\begin{DoxyCompactList}\small\item\em Main game loop. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_aaa2742d48977c6b0b5343a8326ed5555}\label{class_catan_aaa2742d48977c6b0b5343a8326ed5555} 
+void {\bfseries reset\+Click\+Position} ()
+\begin{DoxyCompactList}\small\item\em Resets the click position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catan_a9ddeca3b835ed1e491712bcdf0b9fb9f}{set\+Menu}} (bool menu)
+\begin{DoxyCompactList}\small\item\em Sets whether the game is in menu mode. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_catan_aa1cac002208ed68ee90ca77f89153676}{is\+Menu}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the game is currently in menu mode. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_ad0c7fea5b5a9eac191c9327d338a6af4}\label{class_catan_ad0c7fea5b5a9eac191c9327d338a6af4} 
+void {\bfseries next\+Turn} ()
+\begin{DoxyCompactList}\small\item\em Advances the game to the next player\textquotesingle{}s turn. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_a059311470977dc3dcbc127cbe051afde}\label{class_catan_a059311470977dc3dcbc127cbe051afde} 
+void {\bfseries buy\+Settlement} ()
+\begin{DoxyCompactList}\small\item\em Allows the current player to buy a settlement. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_aa359260daf31ec2cc6adcf9594953b5a}\label{class_catan_aa359260daf31ec2cc6adcf9594953b5a} 
+void {\bfseries buy\+Road} ()
+\begin{DoxyCompactList}\small\item\em Allows the current player to buy a road. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_catan_a8e3c883e7ab52bf97f91d3bb8dcd4468}{can\+Build\+Road}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the current player can build a road. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_catan_a4b630546d1aef4f3a7dd7aa6fe0eab85}{can\+Build\+Settlement}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the current player can build a settlement. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_catan_a4f704109bddcf43a59b39e0606eac2fc}{get\+Player\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Gets the total number of players. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_a175db43bf672b63000e954cfbfdad234}\label{class_catan_a175db43bf672b63000e954cfbfdad234} 
+void {\bfseries increment\+Player\+Count} ()
+\begin{DoxyCompactList}\small\item\em Increments the total number of players. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_a6ab5c5e7086bf414c89e8cb39e9c7be2}\label{class_catan_a6ab5c5e7086bf414c89e8cb39e9c7be2} 
+void {\bfseries decrement\+Player\+Count} ()
+\begin{DoxyCompactList}\small\item\em Decrements the total number of players. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_a96e6ad6fde0ae120aecd85c2c8663c6d}\label{class_catan_a96e6ad6fde0ae120aecd85c2c8663c6d} 
+void {\bfseries roll\+Dice} ()
+\begin{DoxyCompactList}\small\item\em Rolls the dice to produce resources. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_a402f8153b0b977157509b9c0bb5421ac}\label{class_catan_a402f8153b0b977157509b9c0bb5421ac} 
+void {\bfseries give\+Random\+Card} ()
+\begin{DoxyCompactList}\small\item\em Gives a random card to the current player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catan_a0e23ffd993abce7c065060fbf5804308}{handle\+Card\+Use}} (Card card)
+\begin{DoxyCompactList}\small\item\em Handles the use of a development card by the current player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catan_a37dff74082a52016b3791a64d328c7e0}{initiate\+Trade}} (int target)
+\begin{DoxyCompactList}\small\item\em Initiates a trade with another player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_catan_a584957a3ad2d18b5ab683052f6abda89}{propose\+Trade}} (int target\+Player, const std\+::map$<$ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}, int $>$ \&offer, const std\+::map$<$ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}, int $>$ \&request)
+\begin{DoxyCompactList}\small\item\em Proposes a trade to another player. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_a9663845cf92450e5a1d333705f76196e}\label{class_catan_a9663845cf92450e5a1d333705f76196e} 
+void {\bfseries accept\+Trade} ()
+\begin{DoxyCompactList}\small\item\em Accepts the current trade proposal. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_aed62c598f8a7542484ad9e750a578f89}\label{class_catan_aed62c598f8a7542484ad9e750a578f89} 
+void {\bfseries decline\+Trade} ()
+\begin{DoxyCompactList}\small\item\em Declines the current trade proposal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_catan_aa5b17138d11d54bac15af47af398b196}{get\+Current\+Player}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_catan_a993d0cbedac80f48b65dffcf47e92bce}{get\+Player}} (int player\+Index)
+\begin{DoxyCompactList}\small\item\em Gets a specific player by index. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_catan_af08adbc612d2997217c3277fa1c8fe48}{get\+Current\+Player\+Index}} () const
+\begin{DoxyCompactList}\small\item\em Gets the index of the current player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catan_a79635bdefe5a57445053bceb4c0a2e3e}{set\+Trading}} (bool trading)
+\begin{DoxyCompactList}\small\item\em Sets the trading state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_catan_a1c459b89fb69a390af483b1f7f6e1e5b}{get\+Trading}} () const
+\begin{DoxyCompactList}\small\item\em Checks if trading is currently active. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_catan_a9eeb1aeed1c34b88bbd4a8db0a85a12b}{bank\+Trade}} (\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} give\+Resource, \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} get\+Resource, int give\+Amount=4)
+\begin{DoxyCompactList}\small\item\em Executes a bank trade for the current player. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_catan_a5ee7519beb45156f0a36087748ceb2fe}{is\+Bank\+Trading}} () const
+\begin{DoxyCompactList}\small\item\em Checks if a bank trade is currently in progress. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catan_a26fa81dabfa848934f9898dade0b1424}{set\+Bank\+Trading}} (bool trading)
+\begin{DoxyCompactList}\small\item\em Sets the bank trading state. \end{DoxyCompactList}\item 
+\Hypertarget{class_catan_a423b4523003448e047173bed85ef47fe}\label{class_catan_a423b4523003448e047173bed85ef47fe} 
+void {\bfseries restart\+Board} ()
+\begin{DoxyCompactList}\small\item\em Resets the game board to its initial state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the core game logic, including state transitions, player actions, and game components. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_catan_a9eeb1aeed1c34b88bbd4a8db0a85a12b}\index{Catan@{Catan}!bankTrade@{bankTrade}}
+\index{bankTrade@{bankTrade}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{bankTrade()}{bankTrade()}}
+{\footnotesize\ttfamily \label{class_catan_a9eeb1aeed1c34b88bbd4a8db0a85a12b} 
+bool Catan\+::bank\+Trade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{give\+Resource}{, }\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{get\+Resource}{, }\item[{int}]{give\+Amount}{ = {\ttfamily 4}}\end{DoxyParamCaption})}
+
+
+
+Executes a bank trade for the current player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em give\+Resource} & The resource to give to the bank. \\
+\hline
+{\em get\+Resource} & The resource to receive from the bank. \\
+\hline
+{\em give\+Amount} & The amount of the resource to give (default is 4). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the trade was successful, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_catan_a8e3c883e7ab52bf97f91d3bb8dcd4468}\index{Catan@{Catan}!canBuildRoad@{canBuildRoad}}
+\index{canBuildRoad@{canBuildRoad}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{canBuildRoad()}{canBuildRoad()}}
+{\footnotesize\ttfamily \label{class_catan_a8e3c883e7ab52bf97f91d3bb8dcd4468} 
+bool Catan\+::can\+Build\+Road (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the current player can build a road. 
+
+\begin{DoxyReturn}{Returns}
+True if the player can build a road, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_catan_a4b630546d1aef4f3a7dd7aa6fe0eab85}\index{Catan@{Catan}!canBuildSettlement@{canBuildSettlement}}
+\index{canBuildSettlement@{canBuildSettlement}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{canBuildSettlement()}{canBuildSettlement()}}
+{\footnotesize\ttfamily \label{class_catan_a4b630546d1aef4f3a7dd7aa6fe0eab85} 
+bool Catan\+::can\+Build\+Settlement (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the current player can build a settlement. 
+
+\begin{DoxyReturn}{Returns}
+True if the player can build a settlement, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_catan_aa5b17138d11d54bac15af47af398b196}\index{Catan@{Catan}!getCurrentPlayer@{getCurrentPlayer}}
+\index{getCurrentPlayer@{getCurrentPlayer}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{getCurrentPlayer()}{getCurrentPlayer()}}
+{\footnotesize\ttfamily \label{class_catan_aa5b17138d11d54bac15af47af398b196} 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} Catan\+::get\+Current\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the current player. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the current player. 
+\end{DoxyReturn}
+\Hypertarget{class_catan_af08adbc612d2997217c3277fa1c8fe48}\index{Catan@{Catan}!getCurrentPlayerIndex@{getCurrentPlayerIndex}}
+\index{getCurrentPlayerIndex@{getCurrentPlayerIndex}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{getCurrentPlayerIndex()}{getCurrentPlayerIndex()}}
+{\footnotesize\ttfamily \label{class_catan_af08adbc612d2997217c3277fa1c8fe48} 
+int Catan\+::get\+Current\+Player\+Index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the index of the current player. 
+
+\begin{DoxyReturn}{Returns}
+The current player\textquotesingle{}s index. 
+\end{DoxyReturn}
+\Hypertarget{class_catan_a993d0cbedac80f48b65dffcf47e92bce}\index{Catan@{Catan}!getPlayer@{getPlayer}}
+\index{getPlayer@{getPlayer}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{getPlayer()}{getPlayer()}}
+{\footnotesize\ttfamily \label{class_catan_a993d0cbedac80f48b65dffcf47e92bce} 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} Catan\+::get\+Player (\begin{DoxyParamCaption}\item[{int}]{player\+Index}{}\end{DoxyParamCaption})}
+
+
+
+Gets a specific player by index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player\+Index} & The index of the player. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the specified player. 
+\end{DoxyReturn}
+\Hypertarget{class_catan_a4f704109bddcf43a59b39e0606eac2fc}\index{Catan@{Catan}!getPlayerCount@{getPlayerCount}}
+\index{getPlayerCount@{getPlayerCount}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{getPlayerCount()}{getPlayerCount()}}
+{\footnotesize\ttfamily \label{class_catan_a4f704109bddcf43a59b39e0606eac2fc} 
+int Catan\+::get\+Player\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the total number of players. 
+
+\begin{DoxyReturn}{Returns}
+The number of players. 
+\end{DoxyReturn}
+\Hypertarget{class_catan_a1c459b89fb69a390af483b1f7f6e1e5b}\index{Catan@{Catan}!getTrading@{getTrading}}
+\index{getTrading@{getTrading}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{getTrading()}{getTrading()}}
+{\footnotesize\ttfamily \label{class_catan_a1c459b89fb69a390af483b1f7f6e1e5b} 
+bool Catan\+::get\+Trading (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if trading is currently active. 
+
+\begin{DoxyReturn}{Returns}
+True if trading is active, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_catan_a0e23ffd993abce7c065060fbf5804308}\index{Catan@{Catan}!handleCardUse@{handleCardUse}}
+\index{handleCardUse@{handleCardUse}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{handleCardUse()}{handleCardUse()}}
+{\footnotesize\ttfamily \label{class_catan_a0e23ffd993abce7c065060fbf5804308} 
+void Catan\+::handle\+Card\+Use (\begin{DoxyParamCaption}\item[{Card}]{card}{}\end{DoxyParamCaption})}
+
+
+
+Handles the use of a development card by the current player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em card} & The card being used. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_catan_a37dff74082a52016b3791a64d328c7e0}\index{Catan@{Catan}!initiateTrade@{initiateTrade}}
+\index{initiateTrade@{initiateTrade}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{initiateTrade()}{initiateTrade()}}
+{\footnotesize\ttfamily \label{class_catan_a37dff74082a52016b3791a64d328c7e0} 
+void Catan\+::initiate\+Trade (\begin{DoxyParamCaption}\item[{int}]{target}{}\end{DoxyParamCaption})}
+
+
+
+Initiates a trade with another player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & The ID of the target player. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_catan_a5ee7519beb45156f0a36087748ceb2fe}\index{Catan@{Catan}!isBankTrading@{isBankTrading}}
+\index{isBankTrading@{isBankTrading}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{isBankTrading()}{isBankTrading()}}
+{\footnotesize\ttfamily \label{class_catan_a5ee7519beb45156f0a36087748ceb2fe} 
+bool Catan\+::is\+Bank\+Trading (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if a bank trade is currently in progress. 
+
+\begin{DoxyReturn}{Returns}
+True if a bank trade is active, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_catan_aa1cac002208ed68ee90ca77f89153676}\index{Catan@{Catan}!isMenu@{isMenu}}
+\index{isMenu@{isMenu}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{isMenu()}{isMenu()}}
+{\footnotesize\ttfamily \label{class_catan_aa1cac002208ed68ee90ca77f89153676} 
+bool Catan\+::is\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the game is currently in menu mode. 
+
+\begin{DoxyReturn}{Returns}
+True if the game is in menu mode, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_catan_a584957a3ad2d18b5ab683052f6abda89}\index{Catan@{Catan}!proposeTrade@{proposeTrade}}
+\index{proposeTrade@{proposeTrade}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{proposeTrade()}{proposeTrade()}}
+{\footnotesize\ttfamily \label{class_catan_a584957a3ad2d18b5ab683052f6abda89} 
+bool Catan\+::propose\+Trade (\begin{DoxyParamCaption}\item[{int}]{target\+Player}{, }\item[{const std\+::map$<$ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}, int $>$ \&}]{offer}{, }\item[{const std\+::map$<$ \mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}, int $>$ \&}]{request}{}\end{DoxyParamCaption})}
+
+
+
+Proposes a trade to another player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Player} & The ID of the target player. \\
+\hline
+{\em offer} & The resources being offered. \\
+\hline
+{\em request} & The resources being requested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the trade proposal is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_catan_a26fa81dabfa848934f9898dade0b1424}\index{Catan@{Catan}!setBankTrading@{setBankTrading}}
+\index{setBankTrading@{setBankTrading}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{setBankTrading()}{setBankTrading()}}
+{\footnotesize\ttfamily \label{class_catan_a26fa81dabfa848934f9898dade0b1424} 
+void Catan\+::set\+Bank\+Trading (\begin{DoxyParamCaption}\item[{bool}]{trading}{}\end{DoxyParamCaption})}
+
+
+
+Sets the bank trading state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trading} & True if bank trading is active, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_catan_a9ddeca3b835ed1e491712bcdf0b9fb9f}\index{Catan@{Catan}!setMenu@{setMenu}}
+\index{setMenu@{setMenu}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{setMenu()}{setMenu()}}
+{\footnotesize\ttfamily \label{class_catan_a9ddeca3b835ed1e491712bcdf0b9fb9f} 
+void Catan\+::set\+Menu (\begin{DoxyParamCaption}\item[{bool}]{menu}{}\end{DoxyParamCaption})}
+
+
+
+Sets whether the game is in menu mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu} & True if the game is in menu mode, false otherwise. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_catan_a79635bdefe5a57445053bceb4c0a2e3e}\index{Catan@{Catan}!setTrading@{setTrading}}
+\index{setTrading@{setTrading}!Catan@{Catan}}
+\doxysubsubsection{\texorpdfstring{setTrading()}{setTrading()}}
+{\footnotesize\ttfamily \label{class_catan_a79635bdefe5a57445053bceb4c0a2e3e} 
+void Catan\+::set\+Trading (\begin{DoxyParamCaption}\item[{bool}]{trading}{}\end{DoxyParamCaption})}
+
+
+
+Sets the trading state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trading} & True if trading is active, false otherwise. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_catan_8h}{Catan.\+h}}\item 
+Catan.\+cpp\end{DoxyCompactItemize}

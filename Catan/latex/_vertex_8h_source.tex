@@ -1,0 +1,55 @@
+\doxysection{Vertex.\+h}
+\hypertarget{_vertex_8h_source}{}\label{_vertex_8h_source}\mbox{\hyperlink{_vertex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_settlement_8h}{Settlement.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_city_8h}{City.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vertex}{Vertex}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_vertex_a29a41481971d2eb5f5d400190515069a}{Vertex}}(sf::RenderWindow*\ window,\ \textcolor{keywordtype}{int}\ number);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_vertex_ad7a0ce588b7f688dc4488a0f567d9155}{\string~Vertex}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vertex_a37bde12ebeacaf0ea6944513795f9fdb}{update}}(\textcolor{keyword}{const}\ sf::Vector2f\&\ mousePosition);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vertex_a1c8a2a54b34562e2b54c63167ff643dc}{draw}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vertex_a8f5f0f3f6c8ad54e3c108c7f1815a3d5}{placeSettlement}}(\mbox{\hyperlink{class_settlement}{Settlement}}*\ settlement);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \ \ \ \ sf::FloatRect\ \mbox{\hyperlink{class_vertex_a72829b94554c2e0b9b207adf3d15e139}{getBox}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vertex_ad435ac18cff4f567437cabda1292f208}{getAvailability}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vertex_a2037ac2b5a72c3f6b20d6ca8c4526389}{isHightlighted}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vertex_a0180a490d2ddfcae5f353e288955f76e}{setHighlight}}(\textcolor{keywordtype}{bool}\ highlight);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vertex_a99092bb177d11f57ae087381a67f37ac}{setAvailability}}(\textcolor{keywordtype}{bool}\ availability);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vertex_a601259bd07ef870eeb134fdf0b4c1db5}{isOwnedByPlayer}}(\textcolor{keywordtype}{int}\ playerID)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_vertex_ad30883c3fc4e246e85db9e11bf2ae80d}{isOwned}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_vertex_a383edd3029018f1c9fad0d300448629f}{addResource}}(\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ resourceType);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}*\ \mbox{\hyperlink{class_vertex_a4131af00027a926b6c38f54eb74fa5b0}{getOwner}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00107\ \ \ \ \ sf::RenderWindow*\ window;\ }
+\DoxyCodeLine{00108\ \ \ \ \ sf::CircleShape\ vertex;\ }
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{class_settlement}{Settlement}}*\ settlement\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00110\ \ \ \ \ sf::Color\ color;\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{bool}\ availability;\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{bool}\ highlighted;\ }
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{static}\ std::array<sf::Vector2f,\ 54>\ centerPoints;\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ center;\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ radius;\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ circleRadius;\ }
+\DoxyCodeLine{00118\ \};}
+
+\end{DoxyCode}

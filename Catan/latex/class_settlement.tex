@@ -1,0 +1,108 @@
+\doxysection{Settlement Class Reference}
+\hypertarget{class_settlement}{}\label{class_settlement}\index{Settlement@{Settlement}}
+
+
+Represents a settlement built by a player in the game.  
+
+
+
+
+{\ttfamily \#include $<$Settlement.\+h$>$}
+
+
+
+Inheritance diagram for Settlement\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_settlement__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Settlement\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_settlement__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_settlement_aa08dd760d695b730bce6b04afd408020}{Settlement}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_building_a7cececda1329a421dcb3b2b2928f6fea}{owner}}, sf\+::\+Color \mbox{\hyperlink{class_building_ae2f3706cec6b74290a4a15132cb229ce}{color}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_settlement}{Settlement} object for a player. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_settlement_a23b2782e2e560bc72a204c7c14f6e498}{add\+Resource}} (\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Adds a resource to the player\textquotesingle{}s inventory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_building}{Building}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_building_a731dd0917c2f13cf1498edbcd3002c12}{Building}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_building_a7cececda1329a421dcb3b2b2928f6fea}{owner}}, sf\+::\+Color \mbox{\hyperlink{class_building_ae2f3706cec6b74290a4a15132cb229ce}{color}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_building}{Building} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_building_a742ba6653ff0f74696915d281cf520a0}{get\+Owner}} () const
+\begin{DoxyCompactList}\small\item\em Gets the owner of the building. \end{DoxyCompactList}\item 
+sf\+::\+Color \mbox{\hyperlink{class_building_a88e4cb6c440fbde426cbf2b1f6297618}{get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Gets the color of the building. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_building}{Building}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries owner}
+\begin{DoxyCompactList}\small\item\em Pointer to the owner of the building. \end{DoxyCompactList}\item 
+sf\+::\+Color {\bfseries color}
+\begin{DoxyCompactList}\small\item\em Color representing the building\textquotesingle{}s owner. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a settlement built by a player in the game. 
+
+The {\ttfamily \doxylink{class_settlement}{Settlement}} class inherits from the {\ttfamily \doxylink{class_building}{Building}} class and represents a settlement that a player can build on the game board. Each settlement is owned by a player and is associated with a specific color representing the player. Settlements can generate resources based on the surrounding hex tiles, and they play a critical role in the development and expansion of the player. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_settlement_aa08dd760d695b730bce6b04afd408020}\index{Settlement@{Settlement}!Settlement@{Settlement}}
+\index{Settlement@{Settlement}!Settlement@{Settlement}}
+\doxysubsubsection{\texorpdfstring{Settlement()}{Settlement()}}
+{\footnotesize\ttfamily \label{class_settlement_aa08dd760d695b730bce6b04afd408020} 
+Settlement\+::\+Settlement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{owner}{, }\item[{sf\+::\+Color}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_settlement}{Settlement} object for a player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & The player who owns this settlement. \\
+\hline
+{\em color} & The color associated with the player who owns the settlement. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_settlement_a23b2782e2e560bc72a204c7c14f6e498}\index{Settlement@{Settlement}!addResource@{addResource}}
+\index{addResource@{addResource}!Settlement@{Settlement}}
+\doxysubsubsection{\texorpdfstring{addResource()}{addResource()}}
+{\footnotesize\ttfamily \label{class_settlement_a23b2782e2e560bc72a204c7c14f6e498} 
+void Settlement\+::add\+Resource (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Adds a resource to the player\textquotesingle{}s inventory. 
+
+This method is responsible for adding a resource to the player\textquotesingle{}s inventory, based on the type of resource generated by the terrain surrounding the settlement.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of resource to be added to the player\textquotesingle{}s inventory. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_city_af5a837c4be1573a5f601172fc8512980}{City}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_settlement_8h}{Settlement.\+h}}\item 
+Settlement.\+cpp\end{DoxyCompactItemize}

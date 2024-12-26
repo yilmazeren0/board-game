@@ -1,0 +1,88 @@
+\doxysection{Trade\+Menu.\+h}
+\hypertarget{_trade_menu_8h_source}{}\label{_trade_menu_8h_source}\mbox{\hyperlink{_trade_menu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_menu_8h}{Menu.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_button_8h}{Button.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_resource_type_8h}{ResourceType.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catan}{Catan}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_trade_menu}{TradeMenu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_menu}{Menu}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_trade_menu_a191295033047220782fee707ba7a82eb}{TradeMenu}}(sf::RenderWindow*\ \mbox{\hyperlink{class_menu_a0889442f08056ce69d0f9ef3489faa73}{window}},\ sf::View*\ \mbox{\hyperlink{class_menu_aa6f68b10971b2158d0b2300b70f2ca2b}{view}},\ \mbox{\hyperlink{class_catan}{Catan}}*\ \mbox{\hyperlink{class_menu_a929e78fe94f4adcd33fe653c940aa847}{game}});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trade_menu_a34666d8d6d516c1e2e32f3491ea4843d}{draw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trade_menu_abbd18dabbf321d7b64805b7e14b44074}{update}}(sf::Vector2f\ \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mousePosition}})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ selectingPlayer\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ offeringResources\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ waitingResponse\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ selectedPlayer\ =\ -\/1;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \ \ \ \ std::map<ResourceType,\ int>\ offerResources\{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1a398faa7dcab3ffc5d4b0278580da5268}{ResourceType::LUMBER}},\ 0\},}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1a5b621439f5b571c30b65857180764d0a}{ResourceType::BRICK}},\ 0\},}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1a8c1f545403fd0b2fa35fe053657cf0ca}{ResourceType::WOOL}},\ 0\},}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1a3f8d55f591780bf42ba5164870552d67}{ResourceType::GRAIN}},\ 0\},}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1ac58a68644efd40aba0c480fdcc278504}{ResourceType::ORE}},\ 0\}}
+\DoxyCodeLine{00074\ \ \ \ \ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \ \ std::map<ResourceType,\ int>\ requestResources\{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1a398faa7dcab3ffc5d4b0278580da5268}{ResourceType::LUMBER}},\ 0\},}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1a5b621439f5b571c30b65857180764d0a}{ResourceType::BRICK}},\ 0\},}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1a8c1f545403fd0b2fa35fe053657cf0ca}{ResourceType::WOOL}},\ 0\},}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1a3f8d55f591780bf42ba5164870552d67}{ResourceType::GRAIN}},\ 0\},}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1ac58a68644efd40aba0c480fdcc278504}{ResourceType::ORE}},\ 0\}}
+\DoxyCodeLine{00085\ \ \ \ \ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \ \ \ \ std::string\ getResourceName(\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{ResourceType}}\ type)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ Menu\ buttons\ and\ UI\ elements}}
+\DoxyCodeLine{00095\ \ \ \ \ std::unique\_ptr<Button>\ offerHeader;\ }
+\DoxyCodeLine{00096\ \ \ \ \ std::unique\_ptr<Button>\ requestHeader;\ }
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ Labels\ for\ resource\ display}}
+\DoxyCodeLine{00099\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ offerLabels;\ }
+\DoxyCodeLine{00100\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ requestLabels;\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ Back\ button\ and\ player\ selection\ buttons}}
+\DoxyCodeLine{00103\ \ \ \ \ std::unique\_ptr<Button>\ backBtn;\ }
+\DoxyCodeLine{00104\ \ \ \ \ std::vector<std::unique\_ptr<Button>>\ playerButtons;\ }
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ Resource\ offering\ and\ requesting\ buttons}}
+\DoxyCodeLine{00107\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ offerPlusButtons;\ }
+\DoxyCodeLine{00108\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ offerMinusButtons;\ }
+\DoxyCodeLine{00109\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ offerCountText;\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ requestPlusButtons;\ }
+\DoxyCodeLine{00112\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ requestMinusButtons;\ }
+\DoxyCodeLine{00113\ \ \ \ \ std::map<ResourceType,\ std::unique\_ptr<Button>>\ requestCountText;\ }
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ Action\ buttons\ for\ trade\ proposals\ and\ responses}}
+\DoxyCodeLine{00116\ \ \ \ \ std::unique\_ptr<Button>\ proposeTradeBtn;\ }
+\DoxyCodeLine{00117\ \ \ \ \ std::unique\_ptr<Button>\ acceptTradeBtn;\ }
+\DoxyCodeLine{00118\ \ \ \ \ std::unique\_ptr<Button>\ declineTradeBtn;\ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ Helper\ methods}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ initializeButtons();\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ drawPlayerSelection();\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ drawTradeInterface();\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ drawTradeProposal();\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ handlePlayerSelection(sf::Vector2f\ \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mousePosition}});\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ handleResourceSelection(sf::Vector2f\ \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mousePosition}});\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ handleTradeResponse(sf::Vector2f\ \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mousePosition}});\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ updateResourceDisplay();\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ resetTrade();\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{bool}\ isValidTrade()\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00131\ \};}
+
+\end{DoxyCode}

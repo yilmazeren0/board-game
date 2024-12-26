@@ -1,0 +1,94 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classsf_1_1_drawable.html" title="Abstract base class for objects that can be drawn to a render target." alt="" coords="19,208,115,235"/>
+<area shape="rect" id="Node000001" href="$class_effect.html" title=" " alt="" coords="235,233,290,260"/>
+<area shape="poly" id="edge21_Node000000_Node000001" title=" " alt="" coords="130,227,235,241,234,246,130,232"/>
+<area shape="rect" id="Node000007" href="$classsf_1_1_shape.html" title="Base class for textured shapes with outline." alt="" coords="224,81,301,108"/>
+<area shape="poly" id="edge27_Node000000_Node000007" title=" " alt="" coords="96,196,127,169,149,142,159,130,175,118,198,107,222,99,224,104,200,111,178,122,163,134,153,145,131,173,99,200"/>
+<area shape="rect" id="Node000012" href="$classsf_1_1_sprite.html" title="Drawable representation of a texture, with its own transformations, color, etc." alt="" coords="225,132,300,159"/>
+<area shape="poly" id="edge31_Node000000_Node000012" title=" " alt="" coords="108,198,176,168,224,152,226,157,178,173,110,203"/>
+<area shape="rect" id="Node000013" href="$classsf_1_1_text.html" title="Graphical text that can be drawn to a render target." alt="" coords="230,183,295,209"/>
+<area shape="poly" id="edge32_Node000000_Node000013" title=" " alt="" coords="130,211,229,198,230,203,130,216"/>
+<area shape="rect" id="Node000014" href="$classsf_1_1_vertex_array.html" title="Define a set of one or more 2D primitives." alt="" coords="208,284,316,311"/>
+<area shape="poly" id="edge33_Node000000_Node000014" title=" " alt="" coords="110,240,178,270,211,281,209,286,176,274,108,244"/>
+<area shape="rect" id="Node000015" href="$classsf_1_1_vertex_buffer.html" title="Vertex buffer storage for one or more 2D primitives." alt="" coords="207,335,318,361"/>
+<area shape="poly" id="edge34_Node000000_Node000015" title=" " alt="" coords="91,245,129,284,178,320,207,333,205,338,175,325,126,288,87,249"/>
+<area shape="rect" id="Node000002" href="$class_edge.html" title="Represents an edge between two vertices on the game board." alt="" coords="450,259,501,285"/>
+<area shape="poly" id="edge22_Node000001_Node000002" title=" " alt="" coords="305,249,450,266,450,272,305,254"/>
+<area shape="rect" id="Node000003" href="$class_geometry.html" title=" " alt="" coords="436,309,515,336"/>
+<area shape="poly" id="edge23_Node000001_Node000003" title=" " alt="" coords="306,255,349,270,397,295,437,309,435,314,395,300,347,274,304,260"/>
+<area shape="rect" id="Node000004" href="$class_pixelate.html" title=" " alt="" coords="442,360,510,387"/>
+<area shape="poly" id="edge24_Node000001_Node000004" title=" " alt="" coords="306,250,329,258,350,270,367,289,375,309,382,328,398,346,419,358,442,365,440,370,417,363,394,350,377,331,370,311,362,292,346,274,326,263,304,255"/>
+<area shape="rect" id="Node000005" href="$class_storm_blink.html" title=" " alt="" coords="433,157,518,184"/>
+<area shape="poly" id="edge25_Node000001_Node000005" title=" " alt="" coords="304,234,347,219,395,194,431,180,433,185,397,198,349,224,306,239"/>
+<area shape="rect" id="Node000006" href="$class_wave_blur.html" title=" " alt="" coords="437,208,514,235"/>
+<area shape="poly" id="edge26_Node000001_Node000006" title=" " alt="" coords="305,239,436,223,437,229,306,244"/>
+<area shape="rect" id="Node000008" href="$classsf_1_1_circle_shape.html" title="Specialized shape representing a circle." alt="" coords="420,5,531,32"/>
+<area shape="poly" id="edge28_Node000007_Node000008" title=" " alt="" coords="312,73,395,41,429,30,431,35,397,47,314,78"/>
+<area shape="rect" id="Node000009" href="$classsf_1_1_convex_shape.html" title="Specialized shape representing a convex polygon." alt="" coords="414,56,537,83"/>
+<area shape="poly" id="edge29_Node000007_Node000009" title=" " alt="" coords="316,86,414,74,414,79,317,91"/>
+<area shape="rect" id="Node000010" href="$classsf_1_1_rectangle_shape.html" title="Specialized shape representing a rectangle." alt="" coords="408,107,544,133"/>
+<area shape="poly" id="edge30_Node000007_Node000010" title=" " alt="" coords="317,98,408,109,407,115,316,104"/>
+<area shape="rect" id="Node000016" href="$classsf_1_1_gl_resource.html" title="Base class for classes that require an OpenGL context." alt="" coords="12,436,122,463"/>
+<area shape="poly" id="edge38_Node000016_Node000015" title=" " alt="" coords="95,424,132,396,175,371,205,359,207,364,178,376,135,401,98,428"/>
+<area shape="rect" id="Node000017" href="$classsf_1_1_context.html" title="Class holding a valid drawing context." alt="" coords="219,537,306,564"/>
+<area shape="poly" id="edge35_Node000016_Node000017" title=" " alt="" coords="98,471,135,498,178,523,220,538,218,543,176,528,132,502,95,475"/>
+<area shape="rect" id="Node000035" href="$classsf_1_1_shader.html" title="Shader class (vertex, geometry and fragment)" alt="" coords="222,487,303,513"/>
+<area shape="poly" id="edge36_Node000016_Node000035" title=" " alt="" coords="137,465,222,487,221,492,135,470"/>
+<area shape="rect" id="Node000043" href="$classsf_1_1_texture.html" title="Image living on the graphics card that can be used for drawing." alt="" coords="221,385,304,412"/>
+<area shape="poly" id="edge37_Node000016_Node000043" title=" " alt="" coords="136,429,220,407,221,412,137,434"/>
+<area shape="rect" id="Node000033" href="$classsf_1_1_window.html" title="Window that serves as a target for OpenGL rendering." alt="" coords="432,588,519,615"/>
+<area shape="poly" id="edge39_Node000016_Node000033" title=" " alt="" coords="137,440,186,440,240,443,296,454,349,472,389,497,423,529,468,586,463,589,419,532,385,501,347,477,295,459,239,449,186,445,137,446"/>
+<area shape="rect" id="Node000032" href="$classsf_1_1_render_window.html" title="Window that can serve as a target for 2D drawing." alt="" coords="603,707,733,733"/>
+<area shape="poly" id="edge40_Node000033_Node000032" title=" " alt="" coords="513,621,646,704,643,709,510,625"/>
+<area shape="rect" id="Node000021" href="$classsf_1_1_input_stream.html" title="Abstract class for custom file input streams." alt="" coords="11,1288,123,1315"/>
+<area shape="rect" id="Node000020" href="$classsf_1_1_file_input_stream.html" title="Implementation of input stream based on a file." alt="" coords="196,1263,328,1289"/>
+<area shape="poly" id="edge41_Node000021_Node000020" title=" " alt="" coords="137,1290,195,1282,196,1287,138,1295"/>
+<area shape="rect" id="Node000022" href="$classsf_1_1_memory_input_stream.html" title="Implementation of input stream based on a memory chunk." alt="" coords="183,1313,342,1340"/>
+<area shape="poly" id="edge42_Node000021_Node000022" title=" " alt="" coords="138,1308,183,1314,182,1319,137,1313"/>
+<area shape="rect" id="Node000018" href="$classsf_1_1_non_copyable.html" title="Utility class that makes any derived class non&#45;copyable." alt="" coords="7,883,127,909"/>
+<area shape="poly" id="edge43_Node000018_Node000017" title=" " alt="" coords="67,867,74,806,91,728,105,686,123,646,146,608,175,574,195,560,218,553,220,558,198,565,178,578,150,611,128,648,110,688,96,729,79,807,72,867"/>
+<area shape="poly" id="edge56_Node000018_Node000035" title=" " alt="" coords="65,867,69,798,84,706,98,657,117,609,142,563,175,523,196,509,220,501,222,506,199,514,178,527,147,566,122,611,103,659,89,707,75,798,71,867"/>
+<area shape="poly" id="edge45_Node000018_Node000020" title=" " alt="" coords="71,925,76,991,91,1078,105,1124,124,1169,148,1212,178,1249,197,1261,194,1266,175,1253,144,1215,119,1172,100,1126,86,1079,71,992,66,925"/>
+<area shape="rect" id="Node000019" href="$classsf_1_1_cursor.html" title="Cursor defines the appearance of a system cursor." alt="" coords="223,1111,302,1137"/>
+<area shape="poly" id="edge44_Node000018_Node000019" title=" " alt="" coords="78,924,92,963,112,1009,141,1056,178,1097,200,1109,223,1116,221,1122,197,1114,175,1101,137,1060,108,1012,87,965,73,925"/>
+<area shape="rect" id="Node000023" href="$classsf_1_1_ftp.html" title="A FTP client." alt="" coords="233,639,292,665"/>
+<area shape="poly" id="edge46_Node000018_Node000023" title=" " alt="" coords="72,867,84,825,105,773,135,721,153,697,175,675,203,660,231,652,233,657,205,665,178,679,157,700,139,724,110,776,89,827,77,869"/>
+<area shape="rect" id="Node000024" href="$classsf_1_1_gl_resource_1_1_transient_context_lock.html" title="RAII helper class to temporarily lock an available context for use." alt="" coords="177,689,348,732"/>
+<area shape="poly" id="edge47_Node000018_Node000024" title=" " alt="" coords="79,867,117,805,144,771,175,742,193,730,196,735,178,746,148,775,121,808,84,870"/>
+<area shape="rect" id="Node000025" href="$classsf_1_1_http.html" title="A HTTP client." alt="" coords="230,756,295,783"/>
+<area shape="poly" id="edge48_Node000018_Node000025" title=" " alt="" coords="87,869,126,829,175,792,202,780,228,773,230,778,204,785,178,797,129,833,91,872"/>
+<area shape="rect" id="Node000026" href="$classsf_1_1_input_sound_file.html" title="Provide read access to sound files." alt="" coords="199,807,326,833"/>
+<area shape="poly" id="edge49_Node000018_Node000026" title=" " alt="" coords="108,873,176,843,209,831,211,836,178,848,110,878"/>
+<area shape="rect" id="Node000027" href="$classsf_1_1_lock.html" title="Automatic wrapper for locking and unlocking mutexes." alt="" coords="228,857,296,884"/>
+<area shape="poly" id="edge50_Node000018_Node000027" title=" " alt="" coords="142,884,227,872,228,878,143,889"/>
+<area shape="rect" id="Node000028" href="$classsf_1_1_mutex.html" title="Blocks concurrent access to shared resources from multiple threads." alt="" coords="224,908,300,935"/>
+<area shape="poly" id="edge51_Node000018_Node000028" title=" " alt="" coords="143,903,224,914,223,919,142,908"/>
+<area shape="rect" id="Node000029" href="$classsf_1_1_output_sound_file.html" title="Provide write access to sound files." alt="" coords="194,959,331,985"/>
+<area shape="poly" id="edge52_Node000018_Node000029" title=" " alt="" coords="110,914,178,944,211,956,209,961,176,949,108,919"/>
+<area shape="rect" id="Node000030" href="$classsf_1_1_render_target.html" title="Base class for all render targets (window, texture, ...)" alt="" coords="203,1060,322,1087"/>
+<area shape="poly" id="edge53_Node000018_Node000030" title=" " alt="" coords="83,922,120,985,147,1018,178,1046,204,1059,202,1064,175,1050,143,1021,116,988,78,924"/>
+<area shape="rect" id="Node000036" href="$classsf_1_1_socket.html" title="Base class for all the socket types." alt="" coords="222,1161,303,1188"/>
+<area shape="poly" id="edge57_Node000018_Node000036" title=" " alt="" coords="75,924,86,973,105,1033,135,1095,155,1123,178,1147,199,1160,222,1168,221,1173,197,1165,175,1151,151,1126,131,1097,100,1035,81,974,70,926"/>
+<area shape="rect" id="Node000040" href="$classsf_1_1_thread.html" title="Utility class to manipulate threads." alt="" coords="222,1009,302,1036"/>
+<area shape="poly" id="edge61_Node000018_Node000040" title=" " alt="" coords="91,920,129,959,178,995,223,1012,221,1017,175,1000,126,963,87,923"/>
+<area shape="rect" id="Node000041" href="$classsf_1_1_thread_local.html" title="Defines variables with thread&#45;local storage." alt="" coords="207,1212,318,1239"/>
+<area shape="poly" id="edge62_Node000018_Node000041" title=" " alt="" coords="73,925,80,982,98,1056,112,1094,129,1132,151,1167,178,1198,192,1208,207,1215,205,1219,189,1212,175,1202,147,1170,125,1135,107,1096,93,1057,75,983,68,925"/>
+<area shape="rect" id="Node000034" href="$classsf_1_1_window_base.html" title="Window that serves as a base for other windows." alt="" coords="204,588,321,615"/>
+<area shape="poly" id="edge64_Node000018_Node000034" title=" " alt="" coords="69,867,79,815,98,750,129,683,150,652,175,625,202,609,205,613,178,629,154,655,133,686,103,752,84,817,74,868"/>
+<area shape="poly" id="edge55_Node000030_Node000032" title=" " alt="" coords="335,1052,347,1046,401,1009,452,966,543,874,613,790,655,732,659,736,617,793,547,878,455,970,404,1013,349,1050,337,1057"/>
+<area shape="rect" id="Node000031" href="$classsf_1_1_render_texture.html" title="Target for off&#45;screen 2D rendering into a texture." alt="" coords="413,1060,538,1087"/>
+<area shape="poly" id="edge54_Node000030_Node000031" title=" " alt="" coords="337,1071,412,1071,412,1076,337,1076"/>
+<area shape="rect" id="Node000037" href="$classsf_1_1_tcp_listener.html" title="Socket that listens to new TCP connections." alt="" coords="422,1111,529,1137"/>
+<area shape="poly" id="edge58_Node000036_Node000037" title=" " alt="" coords="318,1159,421,1134,422,1139,319,1164"/>
+<area shape="rect" id="Node000038" href="$classsf_1_1_tcp_socket.html" title="Specialized socket using the TCP protocol." alt="" coords="424,1161,527,1188"/>
+<area shape="poly" id="edge59_Node000036_Node000038" title=" " alt="" coords="319,1172,424,1172,424,1177,319,1177"/>
+<area shape="rect" id="Node000039" href="$classsf_1_1_udp_socket.html" title="Specialized socket using the UDP protocol." alt="" coords="423,1212,528,1239"/>
+<area shape="poly" id="edge60_Node000036_Node000039" title=" " alt="" coords="319,1185,423,1210,422,1215,317,1190"/>
+<area shape="rect" id="Node000042" href="$classsf_1_1_thread_local_ptr.html" title="Pointer to a thread&#45;local variable." alt="" coords="396,1263,555,1289"/>
+<area shape="poly" id="edge63_Node000041_Node000042" title=" " alt="" coords="334,1239,417,1259,416,1265,332,1245"/>
+<area shape="poly" id="edge65_Node000034_Node000033" title=" " alt="" coords="336,599,432,599,432,604,336,604"/>
+<area shape="rect" id="Node000011" href="$classsf_1_1_transformable.html" title="Decomposed transform defined by a position, a rotation and a scale." alt="" coords="5,132,129,159"/>
+<area shape="poly" id="edge66_Node000011_Node000007" title=" " alt="" coords="135,125,223,102,224,107,137,130"/>
+<area shape="poly" id="edge67_Node000011_Node000012" title=" " alt="" coords="144,143,225,143,225,148,144,148"/>
+<area shape="poly" id="edge68_Node000011_Node000013" title=" " alt="" coords="137,161,230,185,228,190,135,166"/>
+</map>

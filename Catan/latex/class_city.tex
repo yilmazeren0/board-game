@@ -1,0 +1,109 @@
+\doxysection{City Class Reference}
+\hypertarget{class_city}{}\label{class_city}\index{City@{City}}
+
+
+Represents a city, which is an upgraded version of a settlement. Cities produce more resources than settlements.  
+
+
+
+
+{\ttfamily \#include $<$City.\+h$>$}
+
+
+
+Inheritance diagram for City\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_city__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for City\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_city__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_city_a9f5a72a52c181f438e1dc284922793ac}{City}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_building_a7cececda1329a421dcb3b2b2928f6fea}{owner}}, sf\+::\+Color \mbox{\hyperlink{class_building_ae2f3706cec6b74290a4a15132cb229ce}{color}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_city}{City} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_city_af5a837c4be1573a5f601172fc8512980}{add\+Resource}} (\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}} type) override
+\begin{DoxyCompactList}\small\item\em Adds resources to the city during production. Overrides the \doxylink{class_settlement}{Settlement}\textquotesingle{}s behavior to produce additional resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_settlement}{Settlement}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_settlement_aa08dd760d695b730bce6b04afd408020}{Settlement}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_building_a7cececda1329a421dcb3b2b2928f6fea}{owner}}, sf\+::\+Color \mbox{\hyperlink{class_building_ae2f3706cec6b74290a4a15132cb229ce}{color}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_settlement}{Settlement} object for a player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_building}{Building}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_building_a731dd0917c2f13cf1498edbcd3002c12}{Building}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_building_a7cececda1329a421dcb3b2b2928f6fea}{owner}}, sf\+::\+Color \mbox{\hyperlink{class_building_ae2f3706cec6b74290a4a15132cb229ce}{color}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_building}{Building} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_building_a742ba6653ff0f74696915d281cf520a0}{get\+Owner}} () const
+\begin{DoxyCompactList}\small\item\em Gets the owner of the building. \end{DoxyCompactList}\item 
+sf\+::\+Color \mbox{\hyperlink{class_building_a88e4cb6c440fbde426cbf2b1f6297618}{get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Gets the color of the building. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_building}{Building}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries owner}
+\begin{DoxyCompactList}\small\item\em Pointer to the owner of the building. \end{DoxyCompactList}\item 
+sf\+::\+Color {\bfseries color}
+\begin{DoxyCompactList}\small\item\em Color representing the building\textquotesingle{}s owner. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a city, which is an upgraded version of a settlement. Cities produce more resources than settlements. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_city_a9f5a72a52c181f438e1dc284922793ac}\index{City@{City}!City@{City}}
+\index{City@{City}!City@{City}}
+\doxysubsubsection{\texorpdfstring{City()}{City()}}
+{\footnotesize\ttfamily \label{class_city_a9f5a72a52c181f438e1dc284922793ac} 
+City\+::\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{owner}{, }\item[{sf\+::\+Color}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_city}{City} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Pointer to the player who owns the city. \\
+\hline
+{\em color} & The color of the city, representing the owning player. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_city_af5a837c4be1573a5f601172fc8512980}\index{City@{City}!addResource@{addResource}}
+\index{addResource@{addResource}!City@{City}}
+\doxysubsubsection{\texorpdfstring{addResource()}{addResource()}}
+{\footnotesize\ttfamily \label{class_city_af5a837c4be1573a5f601172fc8512980} 
+void City\+::add\+Resource (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_resource_type_8h_a8571efa4409be32e28abf3ea74a0dbb1}{Resource\+Type}}}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds resources to the city during production. Overrides the \doxylink{class_settlement}{Settlement}\textquotesingle{}s behavior to produce additional resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of resource being added. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_settlement_a23b2782e2e560bc72a204c7c14f6e498}{Settlement}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_city_8h}{City.\+h}}\item 
+City.\+cpp\end{DoxyCompactItemize}

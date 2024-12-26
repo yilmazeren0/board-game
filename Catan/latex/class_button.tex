@@ -1,0 +1,233 @@
+\doxysection{Button Class Reference}
+\hypertarget{class_button}{}\label{class_button}\index{Button@{Button}}
+
+
+Represents an interactive button for the game\textquotesingle{}s user interface.  
+
+
+
+
+{\ttfamily \#include $<$Button.\+h$>$}
+
+
+
+Inheritance diagram for Button\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_button__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Button\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_button__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_button_adf6a97b5db7e333f6734d5b323c16197}{Button}} (const std\+::string \&\mbox{\hyperlink{class_button_aadf908b0777f2ae5c28d949fda3384c1}{text}}, const sf\+::\+Font \&font, float x, float y)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_button}{Button} object. \end{DoxyCompactList}\item 
+\Hypertarget{class_button_afb6a5e927ef20e4017939af3524eed69}\label{class_button_afb6a5e927ef20e4017939af3524eed69} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Button} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{class_button}{Button} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_button_adf65892636ea303a84e1391106ea7cb0}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draws the button on the provided window. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_button_a46107577b845d57b68b58401f076efee}{update}} (sf\+::\+Vector2f mouse\+Position)
+\begin{DoxyCompactList}\small\item\em Updates the button\textquotesingle{}s state based on mouse position. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_button_ab26b54e897bdfd0490b7a24b47a50adc}{is\+Hovered}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the button is being hovered over by the mouse. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_button_ab8b6d00ad0dd29a46bed2e1cb40a8a5f}{is\+Clicked}} (sf\+::\+Vector2f mouse\+Position) const
+\begin{DoxyCompactList}\small\item\em Checks if the button is clicked based on mouse position. \end{DoxyCompactList}\item 
+\Hypertarget{class_button_a6f9778be0ec943a6fc69961f983e4c24}\label{class_button_a6f9778be0ec943a6fc69961f983e4c24} 
+virtual void {\bfseries animate} ()
+\begin{DoxyCompactList}\small\item\em Animates the button for hover effects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_button_a22cd88eff298dd2a48cd529dd52ee6da}{set\+Character\+Size}} (unsigned int size)
+\begin{DoxyCompactList}\small\item\em Sets the character size of the button text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_button_a5be4fa9dc092c6b7e857aae734c1a9d0}{set\+String}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Sets the string displayed on the button. \end{DoxyCompactList}\item 
+sf\+::\+Text \& \mbox{\hyperlink{class_button_aba461925dd4989abca1262c2295a9902}{get\+Text}} ()
+\begin{DoxyCompactList}\small\item\em Gets a mutable reference to the button\textquotesingle{}s text. \end{DoxyCompactList}\item 
+const sf\+::\+Text \& \mbox{\hyperlink{class_button_a45f8f024949f8442c18d8cad7b45cf53}{get\+Text}} () const
+\begin{DoxyCompactList}\small\item\em Gets a constant reference to the button\textquotesingle{}s text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_button_aadf908b0777f2ae5c28d949fda3384c1}\label{class_button_aadf908b0777f2ae5c28d949fda3384c1} 
+sf\+::\+Text {\bfseries text}
+\begin{DoxyCompactList}\small\item\em The text displayed on the button. \end{DoxyCompactList}\item 
+\Hypertarget{class_button_a6dcba96cbece035a715f1ec690f26c4b}\label{class_button_a6dcba96cbece035a715f1ec690f26c4b} 
+float {\bfseries original\+Scale} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em The original scale of the button. \end{DoxyCompactList}\item 
+\Hypertarget{class_button_a3bbf6a874eeb9df2972983edcffba74a}\label{class_button_a3bbf6a874eeb9df2972983edcffba74a} 
+float {\bfseries current\+Scale} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em The current scale of the button during animation. \end{DoxyCompactList}\item 
+\Hypertarget{class_button_a8bc7a53418a6c82dddd5808b2868db26}\label{class_button_a8bc7a53418a6c82dddd5808b2868db26} 
+bool {\bfseries is\+Animating} = false
+\begin{DoxyCompactList}\small\item\em Flag indicating if the button is animating. \end{DoxyCompactList}\item 
+\Hypertarget{class_button_ae5ac49ca1095564d2863e2bc5a6a6c60}\label{class_button_ae5ac49ca1095564d2863e2bc5a6a6c60} 
+float {\bfseries animation\+Speed} = 0.\+1f
+\begin{DoxyCompactList}\small\item\em Speed of the button animation. \end{DoxyCompactList}\item 
+\Hypertarget{class_button_a9f23ea5fc17150e91302601186877ef0}\label{class_button_a9f23ea5fc17150e91302601186877ef0} 
+const float {\bfseries max\+Scale} = 1.\+2f
+\begin{DoxyCompactList}\small\item\em Maximum scale during animation. \end{DoxyCompactList}\item 
+\Hypertarget{class_button_a7b7f96f380c7d63a1ba68c4634ace731}\label{class_button_a7b7f96f380c7d63a1ba68c4634ace731} 
+const float {\bfseries min\+Scale} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em Minimum scale during animation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an interactive button for the game\textquotesingle{}s user interface. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_button_adf6a97b5db7e333f6734d5b323c16197}\index{Button@{Button}!Button@{Button}}
+\index{Button@{Button}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{Button()}{Button()}}
+{\footnotesize\ttfamily \label{class_button_adf6a97b5db7e333f6734d5b323c16197} 
+Button\+::\+Button (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const sf\+::\+Font \&}]{font}{, }\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_button}{Button} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The text displayed on the button. \\
+\hline
+{\em font} & The font used for the button text. \\
+\hline
+{\em x} & The x-\/coordinate of the button\textquotesingle{}s position. \\
+\hline
+{\em y} & The y-\/coordinate of the button\textquotesingle{}s position. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_button_adf65892636ea303a84e1391106ea7cb0}\index{Button@{Button}!draw@{draw}}
+\index{draw@{draw}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \label{class_button_adf65892636ea303a84e1391106ea7cb0} 
+void Button\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draws the button on the provided window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Reference to the SFML Render\+Window. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_button_aba461925dd4989abca1262c2295a9902}\index{Button@{Button}!getText@{getText}}
+\index{getText@{getText}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{getText()}{getText()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_button_aba461925dd4989abca1262c2295a9902} 
+sf\+::\+Text \& Button\+::get\+Text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets a mutable reference to the button\textquotesingle{}s text. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the SFML Text object. 
+\end{DoxyReturn}
+\Hypertarget{class_button_a45f8f024949f8442c18d8cad7b45cf53}\index{Button@{Button}!getText@{getText}}
+\index{getText@{getText}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{getText()}{getText()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_button_a45f8f024949f8442c18d8cad7b45cf53} 
+const sf\+::\+Text \& Button\+::get\+Text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets a constant reference to the button\textquotesingle{}s text. 
+
+\begin{DoxyReturn}{Returns}
+Constant reference to the SFML Text object. 
+\end{DoxyReturn}
+\Hypertarget{class_button_ab8b6d00ad0dd29a46bed2e1cb40a8a5f}\index{Button@{Button}!isClicked@{isClicked}}
+\index{isClicked@{isClicked}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{isClicked()}{isClicked()}}
+{\footnotesize\ttfamily \label{class_button_ab8b6d00ad0dd29a46bed2e1cb40a8a5f} 
+bool Button\+::is\+Clicked (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{mouse\+Position}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Checks if the button is clicked based on mouse position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+Position} & The position of the mouse click. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the button is clicked, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_button_ab26b54e897bdfd0490b7a24b47a50adc}\index{Button@{Button}!isHovered@{isHovered}}
+\index{isHovered@{isHovered}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{isHovered()}{isHovered()}}
+{\footnotesize\ttfamily \label{class_button_ab26b54e897bdfd0490b7a24b47a50adc} 
+bool Button\+::is\+Hovered (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Checks if the button is being hovered over by the mouse. 
+
+\begin{DoxyReturn}{Returns}
+True if the mouse is hovering over the button, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_button_a22cd88eff298dd2a48cd529dd52ee6da}\index{Button@{Button}!setCharacterSize@{setCharacterSize}}
+\index{setCharacterSize@{setCharacterSize}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{setCharacterSize()}{setCharacterSize()}}
+{\footnotesize\ttfamily \label{class_button_a22cd88eff298dd2a48cd529dd52ee6da} 
+void Button\+::set\+Character\+Size (\begin{DoxyParamCaption}\item[{unsigned int}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Sets the character size of the button text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The new character size. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_button_a5be4fa9dc092c6b7e857aae734c1a9d0}\index{Button@{Button}!setString@{setString}}
+\index{setString@{setString}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{setString()}{setString()}}
+{\footnotesize\ttfamily \label{class_button_a5be4fa9dc092c6b7e857aae734c1a9d0} 
+void Button\+::set\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str}{}\end{DoxyParamCaption})}
+
+
+
+Sets the string displayed on the button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The new string for the button. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_button_a46107577b845d57b68b58401f076efee}\index{Button@{Button}!update@{update}}
+\index{update@{update}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_button_a46107577b845d57b68b58401f076efee} 
+void Button\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{mouse\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Updates the button\textquotesingle{}s state based on mouse position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+Position} & The current mouse position. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_button_8h}{Button.\+h}}\item 
+Button.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,5 @@
+<map id="BankMenu" name="BankMenu">
+<area shape="rect" id="Node000001" title="Represents the menu for conducting trades with the bank." alt="" coords="8,869,206,1029"/>
+<area shape="rect" id="Node000002" href="$class_menu.html" title=" " alt="" coords="5,5,209,821"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,836,110,869,105,869,105,836"/>
+</map>

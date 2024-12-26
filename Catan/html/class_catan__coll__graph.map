@@ -1,0 +1,3 @@
+<map id="Catan" name="Catan">
+<area shape="rect" id="Node000001" title="Manages the core game logic, including state transitions, player actions, and game components." alt="" coords="5,5,221,965"/>
+</map>

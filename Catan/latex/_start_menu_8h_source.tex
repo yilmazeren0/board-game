@@ -1,0 +1,38 @@
+\doxysection{Start\+Menu.\+h}
+\hypertarget{_start_menu_8h_source}{}\label{_start_menu_8h_source}\mbox{\hyperlink{_start_menu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ StartMenu.h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_menu_8h}{Menu.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_button_8h}{Button.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_catan}{Catan}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_start_menu}{StartMenu}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_menu}{Menu}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_start_menu_ad29a6b279f949dfd03bf5faccccb7682}{StartMenu}}(sf::RenderWindow*\ \mbox{\hyperlink{class_menu_a0889442f08056ce69d0f9ef3489faa73}{window}},\ sf::View*\ \mbox{\hyperlink{class_menu_aa6f68b10971b2158d0b2300b70f2ca2b}{view}},\ \mbox{\hyperlink{class_catan}{Catan}}*\ \mbox{\hyperlink{class_menu_a929e78fe94f4adcd33fe653c940aa847}{game}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_start_menu_ae55a6f54779b588670a334a9a64042df}{draw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_start_menu_a6ad7de817b842ae20e448f3e626cb840}{update}}(sf::Vector2f\ \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mousePosition}})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ Buttons\ for\ various\ menu\ options}}
+\DoxyCodeLine{00052\ \ \ \ \ std::unique\_ptr<Button>\ titleBtn;\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::unique\_ptr<Button>\ startGameBtn;\ }
+\DoxyCodeLine{00054\ \ \ \ \ std::unique\_ptr<Button>\ leftArrowBtn;\ }
+\DoxyCodeLine{00055\ \ \ \ \ std::unique\_ptr<Button>\ rightArrowBtn;\ }
+\DoxyCodeLine{00056\ \ \ \ \ std::unique\_ptr<Button>\ playerCountBtn;\ }
+\DoxyCodeLine{00057\ \ \ \ \ std::unique\_ptr<Button>\ randomizeBoardBtn;\ }
+\DoxyCodeLine{00058\ \ \ \ \ std::unique\_ptr<Button>\ exitBtn;\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ initializeButtons();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ updatePlayerCount();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ updateMousePosition();}
+\DoxyCodeLine{00083\ \};}
+
+\end{DoxyCode}

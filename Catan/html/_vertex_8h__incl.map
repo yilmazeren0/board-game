@@ -1,0 +1,17 @@
+<map id="Vertex.h" name="Vertex.h">
+<area shape="rect" id="Node000001" title="Defines the Vertex class, which represents a vertex (settlement location) on the game board." alt="" coords="130,5,199,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,304,143,331"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,34,120,54,99,81,80,135,71,193,70,246,73,288,68,288,65,246,66,192,75,134,94,79,116,51,142,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="109,80,159,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,34,148,67,143,64,157,31"/>
+<area shape="rect" id="Node000004" href="$_settlement_8h.html" title="Defines the Settlement class, representing a settlement in the game." alt="" coords="149,155,244,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,32,193,139,188,140,165,33"/>
+<area shape="rect" id="Node000007" href="$_city_8h.html" title="Defines the City class, representing an upgraded settlement in the game." alt="" coords="234,80,290,107"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="183,30,235,69,232,73,180,35"/>
+<area shape="rect" id="Node000005" href="$_building_8h.html" title="Defines the Building class, representing a generic building in the game." alt="" coords="156,229,234,256"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="199,182,199,214,193,214,194,182"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="176,259,110,298,107,293,173,254"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="169,304,222,331"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="198,257,198,288,193,288,193,257"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="253,109,220,145,216,141,249,105"/>
+</map>

@@ -1,0 +1,105 @@
+\doxysection{Building Class Reference}
+\hypertarget{class_building}{}\label{class_building}\index{Building@{Building}}
+
+
+Represents a generic building owned by a player in the game.  
+
+
+
+
+{\ttfamily \#include $<$Building.\+h$>$}
+
+
+
+Inheritance diagram for Building\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_building__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Building\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_building__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_building_a731dd0917c2f13cf1498edbcd3002c12}{Building}} (\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_building_a7cececda1329a421dcb3b2b2928f6fea}{owner}}, sf\+::\+Color \mbox{\hyperlink{class_building_ae2f3706cec6b74290a4a15132cb229ce}{color}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_building}{Building} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_building_a742ba6653ff0f74696915d281cf520a0}{get\+Owner}} () const
+\begin{DoxyCompactList}\small\item\em Gets the owner of the building. \end{DoxyCompactList}\item 
+sf\+::\+Color \mbox{\hyperlink{class_building_a88e4cb6c440fbde426cbf2b1f6297618}{get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Gets the color of the building. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_building_a7cececda1329a421dcb3b2b2928f6fea}\label{class_building_a7cececda1329a421dcb3b2b2928f6fea} 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} {\bfseries owner}
+\begin{DoxyCompactList}\small\item\em Pointer to the owner of the building. \end{DoxyCompactList}\item 
+\Hypertarget{class_building_ae2f3706cec6b74290a4a15132cb229ce}\label{class_building_ae2f3706cec6b74290a4a15132cb229ce} 
+sf\+::\+Color {\bfseries color}
+\begin{DoxyCompactList}\small\item\em Color representing the building\textquotesingle{}s owner. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a generic building owned by a player in the game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_building_a731dd0917c2f13cf1498edbcd3002c12}\index{Building@{Building}!Building@{Building}}
+\index{Building@{Building}!Building@{Building}}
+\doxysubsubsection{\texorpdfstring{Building()}{Building()}}
+{\footnotesize\ttfamily \label{class_building_a731dd0917c2f13cf1498edbcd3002c12} 
+Building\+::\+Building (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*}}]{owner}{, }\item[{sf\+::\+Color}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_building}{Building} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Pointer to the \doxylink{class_player}{Player} who owns the building. \\
+\hline
+{\em color} & Color representing the owner of the building. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_building_a88e4cb6c440fbde426cbf2b1f6297618}\index{Building@{Building}!getColor@{getColor}}
+\index{getColor@{getColor}!Building@{Building}}
+\doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
+{\footnotesize\ttfamily \label{class_building_a88e4cb6c440fbde426cbf2b1f6297618} 
+sf\+::\+Color Building\+::get\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the color of the building. 
+
+\begin{DoxyReturn}{Returns}
+The color representing the building\textquotesingle{}s owner. 
+\end{DoxyReturn}
+\Hypertarget{class_building_a742ba6653ff0f74696915d281cf520a0}\index{Building@{Building}!getOwner@{getOwner}}
+\index{getOwner@{getOwner}!Building@{Building}}
+\doxysubsubsection{\texorpdfstring{getOwner()}{getOwner()}}
+{\footnotesize\ttfamily \label{class_building_a742ba6653ff0f74696915d281cf520a0} 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} Building\+::get\+Owner (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the owner of the building. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the \doxylink{class_player}{Player} who owns the building. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_building_8h}{Building.\+h}}\item 
+Building.\+cpp\end{DoxyCompactItemize}

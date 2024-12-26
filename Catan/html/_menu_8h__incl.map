@@ -1,0 +1,7 @@
+<map id="Menu.h" name="Menu.h">
+<area shape="rect" id="Node000001" title="Defines the Menu class, which serves as an abstract base class for creating various menus in the game..." alt="" coords="104,5,169,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,143,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,34,97,70,93,66,124,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="166,80,235,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,31,181,66,178,70,146,34"/>
+</map>

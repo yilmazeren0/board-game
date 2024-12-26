@@ -1,0 +1,112 @@
+\doxysection{Menu\+Button Class Reference}
+\hypertarget{class_menu_button}{}\label{class_menu_button}\index{MenuButton@{MenuButton}}
+
+
+Represents a button in the menu system.  
+
+
+
+
+{\ttfamily \#include $<$Menu\+Button.\+h$>$}
+
+
+
+Inheritance diagram for Menu\+Button\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_menu_button__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Menu\+Button\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_menu_button__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_button_acc6ef7bffbd7c07bb753d54744f3ad44}{Menu\+Button}} (const std\+::string \&\mbox{\hyperlink{class_button_aadf908b0777f2ae5c28d949fda3384c1}{text}}, const sf\+::\+Font \&font, float x, float y)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_menu_button}{Menu\+Button} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_button}{Button}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_button_adf6a97b5db7e333f6734d5b323c16197}{Button}} (const std\+::string \&\mbox{\hyperlink{class_button_aadf908b0777f2ae5c28d949fda3384c1}{text}}, const sf\+::\+Font \&font, float x, float y)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_button}{Button} object. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Button} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{class_button}{Button} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_button_adf65892636ea303a84e1391106ea7cb0}{draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Draws the button on the provided window. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_button_a46107577b845d57b68b58401f076efee}{update}} (sf\+::\+Vector2f mouse\+Position)
+\begin{DoxyCompactList}\small\item\em Updates the button\textquotesingle{}s state based on mouse position. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_button_ab26b54e897bdfd0490b7a24b47a50adc}{is\+Hovered}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the button is being hovered over by the mouse. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_button_ab8b6d00ad0dd29a46bed2e1cb40a8a5f}{is\+Clicked}} (sf\+::\+Vector2f mouse\+Position) const
+\begin{DoxyCompactList}\small\item\em Checks if the button is clicked based on mouse position. \end{DoxyCompactList}\item 
+virtual void {\bfseries animate} ()
+\begin{DoxyCompactList}\small\item\em Animates the button for hover effects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_button_a22cd88eff298dd2a48cd529dd52ee6da}{set\+Character\+Size}} (unsigned int size)
+\begin{DoxyCompactList}\small\item\em Sets the character size of the button text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_button_a5be4fa9dc092c6b7e857aae734c1a9d0}{set\+String}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Sets the string displayed on the button. \end{DoxyCompactList}\item 
+sf\+::\+Text \& \mbox{\hyperlink{class_button_aba461925dd4989abca1262c2295a9902}{get\+Text}} ()
+\begin{DoxyCompactList}\small\item\em Gets a mutable reference to the button\textquotesingle{}s text. \end{DoxyCompactList}\item 
+const sf\+::\+Text \& \mbox{\hyperlink{class_button_a45f8f024949f8442c18d8cad7b45cf53}{get\+Text}} () const
+\begin{DoxyCompactList}\small\item\em Gets a constant reference to the button\textquotesingle{}s text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_button}{Button}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Text {\bfseries text}
+\begin{DoxyCompactList}\small\item\em The text displayed on the button. \end{DoxyCompactList}\item 
+float {\bfseries original\+Scale} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em The original scale of the button. \end{DoxyCompactList}\item 
+float {\bfseries current\+Scale} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em The current scale of the button during animation. \end{DoxyCompactList}\item 
+bool {\bfseries is\+Animating} = false
+\begin{DoxyCompactList}\small\item\em Flag indicating if the button is animating. \end{DoxyCompactList}\item 
+float {\bfseries animation\+Speed} = 0.\+1f
+\begin{DoxyCompactList}\small\item\em Speed of the button animation. \end{DoxyCompactList}\item 
+const float {\bfseries max\+Scale} = 1.\+2f
+\begin{DoxyCompactList}\small\item\em Maximum scale during animation. \end{DoxyCompactList}\item 
+const float {\bfseries min\+Scale} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em Minimum scale during animation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a button in the menu system. 
+
+The {\ttfamily \doxylink{class_menu_button}{Menu\+Button}} class extends the {\ttfamily \doxylink{class_button}{Button}} class to define buttons that are specifically used in the game\textquotesingle{}s menus. It provides constructors to set the button\textquotesingle{}s text, font, and position. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_menu_button_acc6ef7bffbd7c07bb753d54744f3ad44}\index{MenuButton@{MenuButton}!MenuButton@{MenuButton}}
+\index{MenuButton@{MenuButton}!MenuButton@{MenuButton}}
+\doxysubsubsection{\texorpdfstring{MenuButton()}{MenuButton()}}
+{\footnotesize\ttfamily \label{class_menu_button_acc6ef7bffbd7c07bb753d54744f3ad44} 
+Menu\+Button\+::\+Menu\+Button (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const sf\+::\+Font \&}]{font}{, }\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_menu_button}{Menu\+Button} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The text displayed on the button. \\
+\hline
+{\em font} & The font used for the button\textquotesingle{}s text. \\
+\hline
+{\em x} & The X position of the button on the screen. \\
+\hline
+{\em y} & The Y position of the button on the screen. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_menu_button_8h}{Menu\+Button.\+h}}\item 
+Menu\+Button.\+cpp\end{DoxyCompactItemize}

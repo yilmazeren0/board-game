@@ -1,0 +1,163 @@
+\doxysection{Game\+Menu Class Reference}
+\hypertarget{class_game_menu}{}\label{class_game_menu}\index{GameMenu@{GameMenu}}
+
+
+Manages the in-\/game menu and its interactions.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Menu.\+h$>$}
+
+
+
+Inheritance diagram for Game\+Menu\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_game_menu__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Game\+Menu\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_game_menu__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_menu_ad5c7e6fc43afe3af7c1e47f04bfdf056}{Game\+Menu}} (sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_menu_a0889442f08056ce69d0f9ef3489faa73}{window}}, sf\+::\+View \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_menu_aa6f68b10971b2158d0b2300b70f2ca2b}{view}}, \mbox{\hyperlink{class_catan}{Catan}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_menu_a929e78fe94f4adcd33fe653c940aa847}{game}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_game_menu}{Game\+Menu} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_menu_a0dc398ec1596dd048478a9b014317e58}{draw}} () override
+\begin{DoxyCompactList}\small\item\em Draws the current menu state to the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_menu_a253d2cfbb95bb229a35a3f10864891fd}{update}} (sf\+::\+Vector2f \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mouse\+Position}}) override
+\begin{DoxyCompactList}\small\item\em Updates the menu based on the mouse position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_menu}{Menu}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_a107ec0895d989e53e58b65737f13c4fc}{Menu}} (sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_menu_a0889442f08056ce69d0f9ef3489faa73}{window}}, sf\+::\+View \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_menu_aa6f68b10971b2158d0b2300b70f2ca2b}{view}}, \mbox{\hyperlink{class_catan}{Catan}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_menu_a929e78fe94f4adcd33fe653c940aa847}{game}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_menu}{Menu} object. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Menu} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{class_menu}{Menu} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_menu}{Menu}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_menu_ac28e382d472a46bbd233e1bd7f6dddb8}{update\+Mouse\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Updates the mouse position based on the current window. \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_menu_a5b2c99365f4ddd1439f5687a8535b5dd}{get\+Center\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Gets the center position of the current view. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_menu_a2234477e1051301aa595a51cbcd9bc4a}{get\+XPos}} (float multiplier) const
+\begin{DoxyCompactList}\small\item\em Calculates the X position for a menu element. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_menu_a40cc107273dbf7ac19c677ab279f0211}{get\+YPos}} (float multiplier) const
+\begin{DoxyCompactList}\small\item\em Calculates the Y position for a menu element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_menu}{Menu}}}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*} {\bfseries window}
+\begin{DoxyCompactList}\small\item\em Pointer to the SFML Render\+Window for rendering. \end{DoxyCompactList}\item 
+sf\+::\+View \texorpdfstring{$\ast$}{*} {\bfseries view}
+\begin{DoxyCompactList}\small\item\em Pointer to the SFML View for adjusting the camera view. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_catan}{Catan}} \texorpdfstring{$\ast$}{*} {\bfseries game}
+\begin{DoxyCompactList}\small\item\em Pointer to the \doxylink{class_catan}{Catan} game object to access game state. \end{DoxyCompactList}\item 
+sf\+::\+Font {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Font for rendering text on the menu. \end{DoxyCompactList}\item 
+float {\bfseries x\+Part}
+\begin{DoxyCompactList}\small\item\em Horizontal screen partition factor used for positioning elements. \end{DoxyCompactList}\item 
+float {\bfseries y\+Part}
+\begin{DoxyCompactList}\small\item\em Vertical screen partition factor used for positioning elements. \end{DoxyCompactList}\item 
+sf\+::\+Vector2f {\bfseries mouse\+Position}
+\begin{DoxyCompactList}\small\item\em Current mouse position in window coordinates. \end{DoxyCompactList}\item 
+const float {\bfseries BUTTON\+\_\+\+PADDING} = 1.\+5f
+\begin{DoxyCompactList}\small\item\em Spacing between buttons. \end{DoxyCompactList}\item 
+const float {\bfseries TITLE\+\_\+\+SCALE} = 2.\+0f
+\begin{DoxyCompactList}\small\item\em Scale for title text. \end{DoxyCompactList}\item 
+const float {\bfseries BUTTON\+\_\+\+SCALE} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em Scale for regular buttons. \end{DoxyCompactList}\item 
+const unsigned int {\bfseries TITLE\+\_\+\+SIZE} = 55
+\begin{DoxyCompactList}\small\item\em Size of the title text. \end{DoxyCompactList}\item 
+const unsigned int {\bfseries REGULAR\+\_\+\+BUTTON\+\_\+\+SIZE} = 30
+\begin{DoxyCompactList}\small\item\em Size of regular buttons. \end{DoxyCompactList}\item 
+const unsigned int {\bfseries SMALL\+\_\+\+BUTTON\+\_\+\+SIZE} = 25
+\begin{DoxyCompactList}\small\item\em Size of smaller buttons. \end{DoxyCompactList}\item 
+const sf\+::\+Color {\bfseries NORMAL\+\_\+\+COLOR} = sf\+::\+Color\+::\+White
+\begin{DoxyCompactList}\small\item\em Color for normal button state. \end{DoxyCompactList}\item 
+const sf\+::\+Color {\bfseries HOVER\+\_\+\+COLOR} = sf\+::\+Color\+::\+Yellow
+\begin{DoxyCompactList}\small\item\em Color for button hover state. \end{DoxyCompactList}\item 
+const sf\+::\+Color {\bfseries ACTIVE\+\_\+\+COLOR} = sf\+::\+Color\+::\+Green
+\begin{DoxyCompactList}\small\item\em Color for active button state. \end{DoxyCompactList}\item 
+const sf\+::\+Color {\bfseries INACTIVE\+\_\+\+COLOR} = sf\+::\+Color(128, 128, 128)
+\begin{DoxyCompactList}\small\item\em Color for inactive button state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the in-\/game menu and its interactions. 
+
+The \doxylink{class_game_menu}{Game\+Menu} class provides functionality to interact with the game through various menu buttons. It supports actions such as rolling dice, building structures, trading, and progressing to the next turn. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_menu_ad5c7e6fc43afe3af7c1e47f04bfdf056}\index{GameMenu@{GameMenu}!GameMenu@{GameMenu}}
+\index{GameMenu@{GameMenu}!GameMenu@{GameMenu}}
+\doxysubsubsection{\texorpdfstring{GameMenu()}{GameMenu()}}
+{\footnotesize\ttfamily \label{class_game_menu_ad5c7e6fc43afe3af7c1e47f04bfdf056} 
+Game\+Menu\+::\+Game\+Menu (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{sf\+::\+View \texorpdfstring{$\ast$}{*}}]{view}{, }\item[{\mbox{\hyperlink{class_catan}{Catan}} \texorpdfstring{$\ast$}{*}}]{game}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_game_menu}{Game\+Menu} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Pointer to the SFML Render\+Window for rendering the menu. \\
+\hline
+{\em view} & Pointer to the SFML View used for the game. \\
+\hline
+{\em game} & Pointer to the main \doxylink{class_catan}{Catan} game object. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_menu_a0dc398ec1596dd048478a9b014317e58}\index{GameMenu@{GameMenu}!draw@{draw}}
+\index{draw@{draw}!GameMenu@{GameMenu}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \label{class_game_menu_a0dc398ec1596dd048478a9b014317e58} 
+void Game\+Menu\+::draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Draws the current menu state to the screen. 
+
+
+
+Implements \mbox{\hyperlink{class_menu_a6dba1cc22031ab8fbebf9309bea9b9b2}{Menu}}.
+
+\Hypertarget{class_game_menu_a253d2cfbb95bb229a35a3f10864891fd}\index{GameMenu@{GameMenu}!update@{update}}
+\index{update@{update}!GameMenu@{GameMenu}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_game_menu_a253d2cfbb95bb229a35a3f10864891fd} 
+void Game\+Menu\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{mouse\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the menu based on the mouse position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+Position} & The current position of the mouse in the window. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_menu_afeddba3af2dcf97c8358a0f1a61efde0}{Menu}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_game_menu_8h}{Game\+Menu.\+h}}\item 
+Game\+Menu.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,224 @@
+\doxysection{Menu Class Reference}
+\hypertarget{class_menu}{}\label{class_menu}\index{Menu@{Menu}}
+
+
+Inheritance diagram for Menu\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Menu\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_menu__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_menu_1_1_button_positions}{Button\+Positions}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_a107ec0895d989e53e58b65737f13c4fc}{Menu}} (sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_menu_a0889442f08056ce69d0f9ef3489faa73}{window}}, sf\+::\+View \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_menu_aa6f68b10971b2158d0b2300b70f2ca2b}{view}}, \mbox{\hyperlink{class_catan}{Catan}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_menu_a929e78fe94f4adcd33fe653c940aa847}{game}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_menu}{Menu} object. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a8fc4104b08c9a24d1dab18b82a82b7da}\label{class_menu_a8fc4104b08c9a24d1dab18b82a82b7da} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Menu} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for the \doxylink{class_menu}{Menu} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_menu_a6dba1cc22031ab8fbebf9309bea9b9b2}{draw}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function for drawing the menu elements. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_menu_afeddba3af2dcf97c8358a0f1a61efde0}{update}} (sf\+::\+Vector2f \mbox{\hyperlink{class_menu_a7a741d6cd97edcdb20932179f79f842a}{mouse\+Position}})=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function for updating the menu state based on mouse position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_menu_ac28e382d472a46bbd233e1bd7f6dddb8}{update\+Mouse\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Updates the mouse position based on the current window. \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_menu_a5b2c99365f4ddd1439f5687a8535b5dd}{get\+Center\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Gets the center position of the current view. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_menu_a2234477e1051301aa595a51cbcd9bc4a}{get\+XPos}} (float multiplier) const
+\begin{DoxyCompactList}\small\item\em Calculates the X position for a menu element. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_menu_a40cc107273dbf7ac19c677ab279f0211}{get\+YPos}} (float multiplier) const
+\begin{DoxyCompactList}\small\item\em Calculates the Y position for a menu element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_menu_a0889442f08056ce69d0f9ef3489faa73}\label{class_menu_a0889442f08056ce69d0f9ef3489faa73} 
+sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*} {\bfseries window}
+\begin{DoxyCompactList}\small\item\em Pointer to the SFML Render\+Window for rendering. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_aa6f68b10971b2158d0b2300b70f2ca2b}\label{class_menu_aa6f68b10971b2158d0b2300b70f2ca2b} 
+sf\+::\+View \texorpdfstring{$\ast$}{*} {\bfseries view}
+\begin{DoxyCompactList}\small\item\em Pointer to the SFML View for adjusting the camera view. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a929e78fe94f4adcd33fe653c940aa847}\label{class_menu_a929e78fe94f4adcd33fe653c940aa847} 
+\mbox{\hyperlink{class_catan}{Catan}} \texorpdfstring{$\ast$}{*} {\bfseries game}
+\begin{DoxyCompactList}\small\item\em Pointer to the \doxylink{class_catan}{Catan} game object to access game state. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a9446727ebf60c6063218b5d4bcae170a}\label{class_menu_a9446727ebf60c6063218b5d4bcae170a} 
+sf\+::\+Font {\bfseries font}
+\begin{DoxyCompactList}\small\item\em Font for rendering text on the menu. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a716cc4beba3f99303d1d59145f2584bb}\label{class_menu_a716cc4beba3f99303d1d59145f2584bb} 
+float {\bfseries x\+Part}
+\begin{DoxyCompactList}\small\item\em Horizontal screen partition factor used for positioning elements. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_acb2a92add38c2d6b5611ae253809e2bf}\label{class_menu_acb2a92add38c2d6b5611ae253809e2bf} 
+float {\bfseries y\+Part}
+\begin{DoxyCompactList}\small\item\em Vertical screen partition factor used for positioning elements. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a7a741d6cd97edcdb20932179f79f842a}\label{class_menu_a7a741d6cd97edcdb20932179f79f842a} 
+sf\+::\+Vector2f {\bfseries mouse\+Position}
+\begin{DoxyCompactList}\small\item\em Current mouse position in window coordinates. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_aaa25bf7dc8734e8564149ab487cdb020}\label{class_menu_aaa25bf7dc8734e8564149ab487cdb020} 
+const float {\bfseries BUTTON\+\_\+\+PADDING} = 1.\+5f
+\begin{DoxyCompactList}\small\item\em Spacing between buttons. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a5a43de91b4536b926bd1c097720dad96}\label{class_menu_a5a43de91b4536b926bd1c097720dad96} 
+const float {\bfseries TITLE\+\_\+\+SCALE} = 2.\+0f
+\begin{DoxyCompactList}\small\item\em Scale for title text. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a2ea379597fee704f314f478ac7db21bc}\label{class_menu_a2ea379597fee704f314f478ac7db21bc} 
+const float {\bfseries BUTTON\+\_\+\+SCALE} = 1.\+0f
+\begin{DoxyCompactList}\small\item\em Scale for regular buttons. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a64d86abfd43eb004447baf8a140fe8eb}\label{class_menu_a64d86abfd43eb004447baf8a140fe8eb} 
+const unsigned int {\bfseries TITLE\+\_\+\+SIZE} = 55
+\begin{DoxyCompactList}\small\item\em Size of the title text. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a36ff78bbd346c5d19f8365df1f7fbc96}\label{class_menu_a36ff78bbd346c5d19f8365df1f7fbc96} 
+const unsigned int {\bfseries REGULAR\+\_\+\+BUTTON\+\_\+\+SIZE} = 30
+\begin{DoxyCompactList}\small\item\em Size of regular buttons. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_ac57ecc4c486c3d1f2f169251a7501c3a}\label{class_menu_ac57ecc4c486c3d1f2f169251a7501c3a} 
+const unsigned int {\bfseries SMALL\+\_\+\+BUTTON\+\_\+\+SIZE} = 25
+\begin{DoxyCompactList}\small\item\em Size of smaller buttons. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_aee78630ee912bd899cda597ff86b6446}\label{class_menu_aee78630ee912bd899cda597ff86b6446} 
+const sf\+::\+Color {\bfseries NORMAL\+\_\+\+COLOR} = sf\+::\+Color\+::\+White
+\begin{DoxyCompactList}\small\item\em Color for normal button state. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a2f6ca3962d48b1e8c14813d8d8a66880}\label{class_menu_a2f6ca3962d48b1e8c14813d8d8a66880} 
+const sf\+::\+Color {\bfseries HOVER\+\_\+\+COLOR} = sf\+::\+Color\+::\+Yellow
+\begin{DoxyCompactList}\small\item\em Color for button hover state. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_ab81edacf7b348a9c159d49330e022c99}\label{class_menu_ab81edacf7b348a9c159d49330e022c99} 
+const sf\+::\+Color {\bfseries ACTIVE\+\_\+\+COLOR} = sf\+::\+Color\+::\+Green
+\begin{DoxyCompactList}\small\item\em Color for active button state. \end{DoxyCompactList}\item 
+\Hypertarget{class_menu_a7abcb5220ff4128c4dd79babd132b5b4}\label{class_menu_a7abcb5220ff4128c4dd79babd132b5b4} 
+const sf\+::\+Color {\bfseries INACTIVE\+\_\+\+COLOR} = sf\+::\+Color(128, 128, 128)
+\begin{DoxyCompactList}\small\item\em Color for inactive button state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_menu_a107ec0895d989e53e58b65737f13c4fc}\index{Menu@{Menu}!Menu@{Menu}}
+\index{Menu@{Menu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily \label{class_menu_a107ec0895d989e53e58b65737f13c4fc} 
+Menu\+::\+Menu (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{sf\+::\+View \texorpdfstring{$\ast$}{*}}]{view}{, }\item[{\mbox{\hyperlink{class_catan}{Catan}} \texorpdfstring{$\ast$}{*}}]{game}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \doxylink{class_menu}{Menu} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Pointer to the SFML Render\+Window used for rendering. \\
+\hline
+{\em view} & Pointer to the SFML View for positioning the camera. \\
+\hline
+{\em game} & Pointer to the \doxylink{class_catan}{Catan} game object for accessing game state. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_menu_a6dba1cc22031ab8fbebf9309bea9b9b2}\index{Menu@{Menu}!draw@{draw}}
+\index{draw@{draw}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \label{class_menu_a6dba1cc22031ab8fbebf9309bea9b9b2} 
+virtual void Menu\+::draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function for drawing the menu elements. 
+
+This function must be implemented by derived classes to render the specific menu contents. 
+
+Implemented in \mbox{\hyperlink{class_bank_menu_a95dd18321e8fefac9ee9ccaf466ab1fa}{Bank\+Menu}}, \mbox{\hyperlink{class_game_menu_a0dc398ec1596dd048478a9b014317e58}{Game\+Menu}}, \mbox{\hyperlink{class_start_menu_ae55a6f54779b588670a334a9a64042df}{Start\+Menu}}, and \mbox{\hyperlink{class_trade_menu_a34666d8d6d516c1e2e32f3491ea4843d}{Trade\+Menu}}.
+
+\Hypertarget{class_menu_a5b2c99365f4ddd1439f5687a8535b5dd}\index{Menu@{Menu}!getCenterPosition@{getCenterPosition}}
+\index{getCenterPosition@{getCenterPosition}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{getCenterPosition()}{getCenterPosition()}}
+{\footnotesize\ttfamily \label{class_menu_a5b2c99365f4ddd1439f5687a8535b5dd} 
+sf\+::\+Vector2f Menu\+::get\+Center\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Gets the center position of the current view. 
+
+\begin{DoxyReturn}{Returns}
+A vector representing the center position of the view. 
+\end{DoxyReturn}
+\Hypertarget{class_menu_a2234477e1051301aa595a51cbcd9bc4a}\index{Menu@{Menu}!getXPos@{getXPos}}
+\index{getXPos@{getXPos}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{getXPos()}{getXPos()}}
+{\footnotesize\ttfamily \label{class_menu_a2234477e1051301aa595a51cbcd9bc4a} 
+float Menu\+::get\+XPos (\begin{DoxyParamCaption}\item[{float}]{multiplier}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Calculates the X position for a menu element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em multiplier} & Multiplier for adjusting the X position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The calculated X position. 
+\end{DoxyReturn}
+\Hypertarget{class_menu_a40cc107273dbf7ac19c677ab279f0211}\index{Menu@{Menu}!getYPos@{getYPos}}
+\index{getYPos@{getYPos}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{getYPos()}{getYPos()}}
+{\footnotesize\ttfamily \label{class_menu_a40cc107273dbf7ac19c677ab279f0211} 
+float Menu\+::get\+YPos (\begin{DoxyParamCaption}\item[{float}]{multiplier}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Calculates the Y position for a menu element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em multiplier} & Multiplier for adjusting the Y position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The calculated Y position. 
+\end{DoxyReturn}
+\Hypertarget{class_menu_afeddba3af2dcf97c8358a0f1a61efde0}\index{Menu@{Menu}!update@{update}}
+\index{update@{update}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_menu_afeddba3af2dcf97c8358a0f1a61efde0} 
+virtual void Menu\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{mouse\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function for updating the menu state based on mouse position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+Position} & The current mouse position in window coordinates.\\
+\hline
+\end{DoxyParams}
+This function must be implemented by derived classes to handle mouse interactions with the menu. 
+
+Implemented in \mbox{\hyperlink{class_bank_menu_af3ef84b584f2a26340e3a420cdd76dae}{Bank\+Menu}}, \mbox{\hyperlink{class_game_menu_a253d2cfbb95bb229a35a3f10864891fd}{Game\+Menu}}, \mbox{\hyperlink{class_start_menu_a6ad7de817b842ae20e448f3e626cb840}{Start\+Menu}}, and \mbox{\hyperlink{class_trade_menu_abbd18dabbf321d7b64805b7e14b44074}{Trade\+Menu}}.
+
+\Hypertarget{class_menu_ac28e382d472a46bbd233e1bd7f6dddb8}\index{Menu@{Menu}!updateMousePosition@{updateMousePosition}}
+\index{updateMousePosition@{updateMousePosition}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{updateMousePosition()}{updateMousePosition()}}
+{\footnotesize\ttfamily \label{class_menu_ac28e382d472a46bbd233e1bd7f6dddb8} 
+void Menu\+::update\+Mouse\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Updates the mouse position based on the current window. 
+
+This function retrieves the current mouse position in pixel coordinates and maps it to the coordinate system of the view. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_menu_8h}{Menu.\+h}}\end{DoxyCompactItemize}

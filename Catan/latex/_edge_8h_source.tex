@@ -1,0 +1,58 @@
+\doxysection{Edge.\+h}
+\hypertarget{_edge_8h_source}{}\label{_edge_8h_source}\mbox{\hyperlink{_edge_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SFML/Graphics.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vertex_8h}{Vertex.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_road_8h}{Road.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_edge}{Edge}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_edge_a8cc209ff90e3f82fecfb4d4cfe10b6a9}{Edge}}(sf::RenderWindow*\ window,\ \textcolor{keyword}{const}\ std::array<int,\ 2>\&\ vertexIndices,\ \textcolor{keywordtype}{int}\ number);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_edge_a2f37b72f044427961d6730943daf10e0}{\string~Edge}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_edge_a1e27c12a13585c3d69ad7b952bec99fc}{update}}(\textcolor{keyword}{const}\ sf::Vector2f\&\ mousePosition);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_edge_a19c6b8da937b43d87241861c06f00454}{draw}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_edge_a1b4792e54aabcba79296aca0cfe39395}{placeRoad}}(\mbox{\hyperlink{class_road}{Road}}*\ road);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{const}\ std::array<int,\ 2>\&\ \mbox{\hyperlink{class_edge_ae833f4f65ce212a1194001e9389f1756}{getOwnedVertices}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ sf::FloatRect\ \mbox{\hyperlink{class_edge_a8ee217018b0044f61dee7ec6a9211681}{getBox}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_edge_a4505e1e9ea36a59bbe7fb3e741f65db7}{getAvailability}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_edge_a0f3313e75d6484a4efe24a7ba2fbe3b6}{isHightlighted}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_edge_a74b622629ac6dabef62bb4851c955366}{setHighlight}}(\textcolor{keywordtype}{bool}\ highlight);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_edge_ab306a43b3b4681ee54fa6a7ccb352614}{setAvailability}}(\textcolor{keywordtype}{bool}\ availability);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_edge_a0caa4657f7bb3709f62fdc0c021fead1}{isOwnedByPlayer}}(\textcolor{keywordtype}{size\_t}\ playerID)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_edge_a8702eaab8752460e2c9cb7c51c5d478c}{containsVertex}}(\textcolor{keywordtype}{int}\ vertexIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{const}\ std::array<int,\ 2>\&\ \mbox{\hyperlink{class_edge_a1657c58d6d181c3888eb84e9398ad114}{getVertices}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00108\ \ \ \ \ sf::RenderWindow*\ window;\ }
+\DoxyCodeLine{00109\ \ \ \ \ sf::RectangleShape\ edge;\ }
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{class_road}{Road}}*\ road\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00111\ \ \ \ \ sf::Color\ color;\ }
+\DoxyCodeLine{00112\ \ \ \ \ std::array<int,\ 2>\ ownedVertices;\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{bool}\ availability;\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{bool}\ highlighted;\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{static}\ std::array<sf::Vector2f,\ 72>\ centerPoints;\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{static}\ std::array<float,\ 72>\ rotations;\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ center;\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ radius;\ }
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ std::array<int,\ 2>\ vertices;\ }
+\DoxyCodeLine{00122\ \};}
+
+\end{DoxyCode}
