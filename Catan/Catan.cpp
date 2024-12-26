@@ -14,8 +14,9 @@ Catan::Catan() {
 	gameBoard = new Board(window, &textures);
 	startMenu = new StartMenu(window, view, this);
 	gameMenu = new GameMenu(window, view, this);
-	tradeMenu = new TradeMenu(window, view, this); // Add trade menu
+	tradeMenu = new TradeMenu(window, view, this); 
 	dice = new Dice(window, view, &textures, this);
+	bankMenu = new BankMenu(window, view, this);
 
 	window->setFramerateLimit(60);
 	backgroundColor = sf::Color(169, 169, 169);
@@ -42,6 +43,7 @@ Catan::~Catan() {
 	delete gameMenu;
 	delete tradeMenu; // Clean up trade menu
 	delete dice;
+	delete bankMenu;
 }
 
 void Catan::run() {
@@ -110,34 +112,41 @@ void Catan::resizeView()
 }
 
 void Catan::updateGameState() {
-    view->setCenter(250.0f, 0.0f);
-    window->setView(*view);
+	view->setCenter(250.0f, 0.0f);
+	window->setView(*view);
 
-    gameBoard->update(currentPlayer->getID());
-    currentPlayer->update();
+	gameBoard->update(currentPlayer->getID());
+	currentPlayer->update();
 
-    if (gameOver) return;
+	if (gameOver) return;
 
-    if (setupPhase) {
-        handleSetupPhase();
-    }
-    else {
-        handleGamePhase();
-    }
+	if (setupPhase) {
+		handleSetupPhase();
+	}
+	else {
+		handleGamePhase();
+	}
 
-    if (is_menu) {
-        startMenu->update(clickPosition);
-    }
-    else if (isTrading) {
-        tradeMenu->update(clickPosition);  // Update trade menu when active
-        dice->update();
-    }
-    else {
-        gameMenu->update(clickPosition);
-        dice->update();
-    }
+	if (is_menu) {
+		startMenu->update(clickPosition);
+	}
+	else if (isTrading) {
+		tradeMenu->update(clickPosition);
+		dice->update();
+	}
+	else if (isBankTrade) {  // Add this condition
+		bankMenu->update(clickPosition);
+		dice->update();
+	}
+	else {
+		gameMenu->update(clickPosition);
+		dice->update();
+	}
 }
 
+void Catan::setBankTrading(bool trading) {
+	isBankTrade = trading;  // Fix the implementation to actually set the value
+}
 
 void Catan::drawVictoryPoints() {
 	// Create text for each player's victory points
@@ -721,7 +730,10 @@ void Catan::draw() {
 
 		if (!setupPhase) {
 			if (isTrading) {
-				tradeMenu->draw();  // Draw trade menu when active
+				tradeMenu->draw();
+			}
+			else if (isBankTrade) {
+				bankMenu->draw();
 			}
 			else {
 				gameMenu->draw();
@@ -779,6 +791,17 @@ void Catan::acceptTrade() {
 
 void Catan::declineTrade() {
 	isTrading = false;
+}
+
+bool Catan::bankTrade(ResourceType giveResource, ResourceType getResource, int giveAmount) {
+	// Check if player has enough resources
+	if (currentPlayer->getResourceCount(giveResource) >= giveAmount) {
+		// Execute the trade
+		currentPlayer->removeResource(giveResource, giveAmount);
+		currentPlayer->addResource(getResource, 1);
+		return true;
+	}
+	return false;
 }
 
 Player* Catan::getCurrentPlayer() {

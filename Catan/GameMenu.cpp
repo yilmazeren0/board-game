@@ -120,10 +120,13 @@ void GameMenu::handleMainMenu(sf::Vector2f mousePosition) {
             is_buildingMenu = true;
             game->resetClickPosition();
         }
+       
         else if (bankBtn->isClicked(mousePosition)) {
             bankBtn->animate();
+            game->setBankTrading(true);  // Activate bank trading menu
             game->resetClickPosition();
         }
+
         else if (deckBtn->isClicked(mousePosition)) {
             deckBtn->animate();
             game->giveRandomCard();

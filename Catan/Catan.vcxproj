@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BankMenu.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -38,6 +39,7 @@
     <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BankMenu.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Building.h" />
     <ClInclude Include="Button.h" />

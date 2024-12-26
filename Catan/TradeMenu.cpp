@@ -12,7 +12,7 @@ void TradeMenu::initializeButtons() {
     float baseY = view->getCenter().y;
 
     // Back button at top
-    backBtn = std::make_unique<Button>("← Back", font,
+    backBtn = std::make_unique<Button>("<- Back", font,
         baseX, baseY - 12.0f * yPart);
     backBtn->setCharacterSize(20);
 

@@ -10,6 +10,7 @@
 #include "TradeMenu.h"
 #include "Dice.h"
 #include "ResourceType.h"
+#include "BankMenu.h"
 
 class Catan {
 public:
@@ -51,7 +52,7 @@ public:
 
     bool bankTrade(ResourceType giveResource, ResourceType getResource, int giveAmount = 4);
     bool isBankTrading() const { return isBankTrade; }
-    void setBankTrading(bool trading) { isBankTrade = true; }
+    void setBankTrading(bool trading);
 
     // Board management
     void restartBoard();
@@ -71,6 +72,7 @@ private:
     GameMenu* gameMenu;
     TradeMenu* tradeMenu;
     Dice* dice;
+    BankMenu* bankMenu;
 
     // Resource management
     std::unordered_map<std::string, sf::Texture> textures;
