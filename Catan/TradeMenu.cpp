@@ -228,12 +228,26 @@ void TradeMenu::handleResourceSelection(sf::Vector2f mousePosition) {
     }
 
     // Handle Propose Trade Button
-    if (proposeTradeBtn->isClicked(mousePosition) && isValidTrade()) {
-        proposeTradeBtn->animate();
-        offeringResources = false;
-        waitingResponse = true;
-        game->proposeTrade(selectedPlayer, offerResources, requestResources);
-        clicked = true;
+    if (proposeTradeBtn->isClicked(mousePosition)) {
+        if (isValidTrade()) {
+            // Verify player has enough resources
+            bool hasEnoughResources = true;
+            for (const auto& [resource, count] : offerResources) {
+                if (game->getCurrentPlayer()->getResourceCount(resource) < count) {
+                    hasEnoughResources = false;
+                    break;
+                }
+            }
+
+            if (hasEnoughResources) {
+                proposeTradeBtn->animate();
+                offeringResources = false;
+                waitingResponse = true;
+                if (game->proposeTrade(selectedPlayer, offerResources, requestResources)) {
+                    clicked = true;
+                }
+            }
+        }
     }
 
     // Reset click position if any button was clicked
@@ -246,9 +260,22 @@ void TradeMenu::handleResourceSelection(sf::Vector2f mousePosition) {
 
 void TradeMenu::handleTradeResponse(sf::Vector2f mousePosition) {
     if (acceptTradeBtn->isClicked(mousePosition)) {
-        acceptTradeBtn->animate();
-        game->acceptTrade();
-        resetTrade();
+        // Verify target player has enough resources before accepting
+        bool canAcceptTrade = true;
+        Player* targetPlayer = game->getPlayer(selectedPlayer);
+
+        for (const auto& [resource, count] : requestResources) {
+            if (targetPlayer->getResourceCount(resource) < count) {
+                canAcceptTrade = false;
+                break;
+            }
+        }
+
+        if (canAcceptTrade) {
+            acceptTradeBtn->animate();
+            game->acceptTrade();
+            resetTrade();
+        }
     }
     else if (declineTradeBtn->isClicked(mousePosition)) {
         declineTradeBtn->animate();

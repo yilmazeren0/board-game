@@ -37,15 +37,21 @@ public:
 
     // Trade functions
     void initiateTrade(int target);
-    bool proposeTrade(int target, const std::map<ResourceType, int>& offer,
+    bool proposeTrade(int targetPlayer, const std::map<ResourceType, int>& offer,
         const std::map<ResourceType, int>& request);
     void acceptTrade();
     void declineTrade();
     Player* getCurrentPlayer();
-	int getCurrentPlayerIndex() const;
-
+    Player* getPlayer(int playerIndex) { return &players[playerIndex]; }  // Add this
+    int getCurrentPlayerIndex() const;
     void setTrading(bool trading) { isTrading = trading; }
     bool getTrading() const { return isTrading; }
+
+    //bank trade
+
+    bool bankTrade(ResourceType giveResource, ResourceType getResource, int giveAmount = 4);
+    bool isBankTrading() const { return isBankTrade; }
+    void setBankTrading(bool trading) { isBankTrade = true; }
 
     // Board management
     void restartBoard();
@@ -112,7 +118,8 @@ private:
     std::map<ResourceType, int> tradeOffer;
     std::map<ResourceType, int> tradeRequest;
 
-   
+   //banktrade
+	bool isBankTrade = false;
 
     // Special achievements
     Player* longestRoadHolder = nullptr;

@@ -737,59 +737,49 @@ void Catan::initiateTrade(int target) {
 	if (target != currentPlayerIndex) {
 		tradingPlayer = currentPlayerIndex;
 		targetPlayer = target;
-		tradeInProgress = true;
+		isTrading = true;
 	}
 }
-
-bool Catan::proposeTrade(int target,
-	const std::map<ResourceType, int>& offer,
+bool Catan::proposeTrade(int target, const std::map<ResourceType, int>& offer,
 	const std::map<ResourceType, int>& request) {
-
-	// Verify current player has enough resources
-	for (const auto& [resource, amount] : offer) {
-		if (currentPlayer->getResourceCount(resource) < amount) {
-			return false;
-		}
-	}
-
-	// Store trade details
+	tradingPlayer = getCurrentPlayerIndex();
+	targetPlayer = target;
 	tradeOffer = offer;
 	tradeRequest = request;
-	targetPlayer = target;
+	isTrading = true;
 	return true;
 }
 
 void Catan::acceptTrade() {
-	if (!tradeInProgress) return;
+	if (!isTrading) return;
 
-	// Transfer resources
-	for (const auto& [resource, amount] : tradeOffer) {
-		players[tradingPlayer].removeResource(resource, amount);
-		players[targetPlayer].addResource(resource, amount);
+	Player* currentTrader = &players[tradingPlayer];
+	Player* targetTrader = &players[targetPlayer];
+
+	// Verify resources are available
+	for (const auto& [resource, count] : tradeOffer) {
+		if (currentTrader->getResourceCount(resource) < count) {
+			return; // Trade failed - insufficient resources
+		}
 	}
 
-	for (const auto& [resource, amount] : tradeRequest) {
-		players[targetPlayer].removeResource(resource, amount);
-		players[tradingPlayer].addResource(resource, amount);
+	// Execute the trade
+	for (const auto& [resource, count] : tradeOffer) {
+		currentTrader->removeResource(resource, count);
+		targetTrader->addResource(resource, count);
 	}
 
-	// Reset trade state
-	tradeInProgress = false;
-	tradingPlayer = -1;
-	targetPlayer = -1;
-	tradeOffer.clear();
-	tradeRequest.clear();
+	for (const auto& [resource, count] : tradeRequest) {
+		targetTrader->removeResource(resource, count);
+		currentTrader->addResource(resource, count);
+	}
+
+	isTrading = false;
 }
 
 void Catan::declineTrade() {
-	tradeInProgress = false;
-	tradingPlayer = -1;
-	targetPlayer = -1;
-	tradeOffer.clear();
-	tradeRequest.clear();
+	isTrading = false;
 }
-
-
 
 Player* Catan::getCurrentPlayer() {
 	return currentPlayer;
