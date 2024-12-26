@@ -73,6 +73,6 @@ Players can build settlements, trade resources, and strategize to achieve victor
 
 ---
 ## Contributions
-- **Muhammed Enes Ugras**:
-- **Eren Yılmaz**:
-- **Rasin Talha Yılmaz**:
+- **Muhammed Enes Ugras**: Mostly Coding Part
+- **Eren Yılmaz**: Mostly Coding Part
+- **Rasin Talha Yılmaz**: Mostly Documentation and Testing
