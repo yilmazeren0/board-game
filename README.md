@@ -61,4 +61,13 @@ Players can build settlements, trade resources, and strategize to achieve victor
 - Build the project using the Visual Studio build tools.
 - Run the project
 
+---
+
+## Controls
+
+### Main Menu
+-Mouse Click: Navigate between menu options (Start Game, Player Count, Randomize Board, Exit Game).
+
+### Game Menu
+- Mouse Click : Navigate between game options(Roll Dice, Building, Bank, Development Card, Trade, Next Turn).
 
