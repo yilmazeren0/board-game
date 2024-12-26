@@ -1,103 +1,92 @@
-class TradeMenu {
+﻿// TradeMenu.h
+#pragma once
+#include "Menu.h"
+#include "Button.h"
+#include <memory>
+#include <array>
+#include <map>
+#include "ResourceType.h"
+
+class Catan;
+
+class TradeMenu : public Menu {
 public:
-    TradeMenu(sf::RenderWindow* window, sf::Font& font) 
-        : m_window(window), m_font(font) {
-        initializeBackground();
-        initializeButtons();
-    }
-
-    void draw() {
-        if (!m_isVisible) return;
-
-        m_window->draw(m_background);
-        
-        // Draw all UI elements
-        for (const auto& element : m_uiElements) {
-            element->draw(*m_window);
-        }
-    }
-
-    void update(const sf::Vector2f& mousePos) {
-        if (!m_isVisible) return;
-
-        // Update all UI elements
-        for (auto& element : m_uiElements) {
-            element->update(mousePos);
-        }
-    }
-
-    void handleClick(const sf::Vector2f& mousePos) {
-        if (!m_isVisible) return;
-
-        // Handle clicks for all UI elements
-        for (auto& element : m_uiElements) {
-            if (element->handleClick(mousePos)) {
-                // Handle the specific element click
-                handleElementClick(element);
-            }
-        }
-    }
-
-    void toggle() {
-        m_isVisible = !m_isVisible;
-    }
+    TradeMenu(sf::RenderWindow* window, sf::View* view, Catan* game);
+    void draw() override;
+    void update(sf::Vector2f mousePosition) override;
 
 private:
-    void initializeBackground() {
-        float screenWidth = m_window->getSize().x;
-        float screenHeight = m_window->getSize().y;
-        
-        m_background.setSize(sf::Vector2f(screenWidth * 0.8f, screenHeight * 0.8f));
-        m_background.setFillColor(sf::Color(30, 30, 30, 250));
-        m_background.setPosition(
-            screenWidth * 0.1f,
-            screenHeight * 0.1f
-        );
-    }
+    // Menu states
+    bool selectingPlayer = true;
+    bool offeringResources = false;
+    bool waitingResponse = false;
+    int selectedPlayer = -1;
 
-    void initializeButtons() {
-        // Create resource trading buttons
-        for (int i = 0; i < NUM_RESOURCES; i++) {
-            createResourceTradeControls(i);
+    // Resource amounts for trading
+    std::map<ResourceType, int> offerResources{
+        {ResourceType::LUMBER, 0},
+        {ResourceType::BRICK, 0},
+        {ResourceType::WOOL, 0},
+        {ResourceType::GRAIN, 0},
+        {ResourceType::ORE, 0}
+    };
+
+    std::map<ResourceType, int> requestResources{
+        {ResourceType::LUMBER, 0},
+        {ResourceType::BRICK, 0},
+        {ResourceType::WOOL, 0},
+        {ResourceType::GRAIN, 0},
+        {ResourceType::ORE, 0}
+    };
+
+    std::string getResourceName(ResourceType type) const {
+        switch (type) {
+        case ResourceType::LUMBER: return "Lumber";
+        case ResourceType::BRICK: return "Brick";
+        case ResourceType::WOOL: return "Wool";
+        case ResourceType::GRAIN: return "Grain";
+        case ResourceType::ORE: return "Ore";
+        default: return "None";
         }
-
-        // Create accept/cancel buttons
-        createActionButtons();
     }
 
-    void createResourceTradeControls(int resourceIndex) {
-        float xPos = m_background.getPosition().x + 100 + (resourceIndex * 150);
-        float yPos = m_background.getPosition().y + 100;
+    std::unique_ptr<Button> offerHeader;
+    std::unique_ptr<Button> requestHeader;
 
-        // Add resource sprite
-        auto resourceSprite = std::make_unique<ResourceSprite>(
-            ResourceType(resourceIndex), 
-            sf::Vector2f(xPos, yPos), 
-            *m_textures
-        );
-        m_uiElements.push_back(std::move(resourceSprite));
+    // Add text display for resource names
+    std::map<ResourceType, std::unique_ptr<Button>> offerLabels;
+    std::map<ResourceType, std::unique_ptr<Button>> requestLabels;
 
-        // Add +/- buttons for offering
-        auto plusButton = std::make_unique<Button>(
-            sf::Vector2f(xPos + 50, yPos + 50),
-            "+",
-            m_font
-        );
-        m_uiElements.push_back(std::move(plusButton));
 
-        auto minusButton = std::make_unique<Button>(
-            sf::Vector2f(xPos - 20, yPos + 50),
-            "-", 
-            m_font
-        );
-        m_uiElements.push_back(std::move(minusButton));
-    }
 
-private:
-    sf::RenderWindow* m_window;
-    sf::Font& m_font;
-    sf::RectangleShape m_background;
-    std::vector<std::unique_ptr<IUIElement>> m_uiElements;
-    bool m_isVisible{false};
-    static const size_t NUM_RESOURCES = 5;
+    // UI Elements
+    std::unique_ptr<Button> backBtn;
+    std::vector<std::unique_ptr<Button>> playerButtons;
+
+    // Offer resource buttons
+    std::map<ResourceType, std::unique_ptr<Button>> offerPlusButtons;
+    std::map<ResourceType, std::unique_ptr<Button>> offerMinusButtons;
+    std::map<ResourceType, std::unique_ptr<Button>> offerCountText;
+
+    // Request resource buttons
+    std::map<ResourceType, std::unique_ptr<Button>> requestPlusButtons;
+    std::map<ResourceType, std::unique_ptr<Button>> requestMinusButtons;
+    std::map<ResourceType, std::unique_ptr<Button>> requestCountText;
+
+    // Action buttons
+    std::unique_ptr<Button> proposeTradeBtn;
+    std::unique_ptr<Button> acceptTradeBtn;
+    std::unique_ptr<Button> declineTradeBtn;
+
+    // Helper methods
+    void initializeButtons();
+    void drawPlayerSelection();
+    void drawTradeInterface();
+    void drawTradeProposal();
+    void handlePlayerSelection(sf::Vector2f mousePosition);
+    void handleResourceSelection(sf::Vector2f mousePosition);
+    void handleTradeResponse(sf::Vector2f mousePosition);
+    void updateResourceDisplay();
+    void resetTrade();
+    bool isValidTrade() const;
 };

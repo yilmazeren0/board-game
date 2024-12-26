@@ -131,6 +131,7 @@ void GameMenu::handleMainMenu(sf::Vector2f mousePosition) {
         }
         else if (tradeBtn->isClicked(mousePosition)) {
             tradeBtn->animate();
+            game->setTrading(true);  // Activate trade menu
             game->resetClickPosition();
         }
         else if (nextTurnBtn->isClicked(mousePosition)) {

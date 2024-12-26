@@ -34,6 +34,7 @@
     <ClCompile Include="Road.cpp" />
     <ClCompile Include="Settlement.cpp" />
     <ClCompile Include="StartMenu.cpp" />
+    <ClCompile Include="TradeMenu.cpp" />
     <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +55,7 @@
     <ClInclude Include="Settlement.h" />
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="TerrainType.h" />
+    <ClInclude Include="TradeMenu.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
