@@ -1,49 +1,28 @@
+// StartMenu.h
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <memory>
+#include "Menu.h"
+#include "Button.h"
 
 class Catan;
 
-class StartMenu
-{
+class StartMenu : public Menu {
 public:
-
-	StartMenu(sf::RenderWindow* window, sf::View* view, Catan* game);
-
-	void draw();
-	void update(sf::Vector2f mousePosition);
+    StartMenu(sf::RenderWindow* window, sf::View* view, Catan* game);
+    void draw() override;
+    void update(sf::Vector2f mousePosition) override;
 
 private:
-	sf::RenderWindow* window;
-	sf::View* view;
-	Catan* game;
-	sf::Vector2f mousePosition;
-	sf::Text catan;
-	sf::Text startGame;
-	sf::Text leftSymbol;
-	sf::Text rightSymbol;
-	sf::Text playerCount;
-	sf::Text randomizeBoard;
-	sf::Text exit;
-	sf::Font font;
+    std::unique_ptr<Button> titleBtn;
+    std::unique_ptr<Button> startGameBtn;
+    std::unique_ptr<Button> leftArrowBtn;
+    std::unique_ptr<Button> rightArrowBtn;
+    std::unique_ptr<Button> playerCountBtn;
+    std::unique_ptr<Button> randomizeBoardBtn;
+    std::unique_ptr<Button> exitBtn;
 
-	float xPart;
-	float yPart;
-
-private:
-	void catanText();
-	void startGameText();
-	void startGameHighlight();
-	void leftSymbolText();
-	void leftSymbolHighlight();
-	void playerCountText();
-	void rightSymbolText();
-	void rightSymbolHighlight();
-	void randomizeBoardText();
-	void randomizeBoardHighlight();
-	void exitText();
-	void exitHighlight();
-	void updateText();
-
-	void updateMousePosition();
+    void initializeButtons();
+    void updatePlayerCount();
+    void updateMousePosition();
 };
-

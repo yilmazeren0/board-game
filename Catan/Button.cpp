@@ -3,12 +3,12 @@
 Button::Button(const std::string& text, const sf::Font& font, float x, float y) {
     this->text.setFont(font);
     this->text.setString(text);
-    this->text.setCharacterSize(25);
-    this->text.setOrigin(this->text.getLocalBounds().width / 2.0f, this->text.getLocalBounds().height / 2.0f);
+    this->text.setCharacterSize(25);  // Set a default size that's visible
+    this->text.setOrigin(this->text.getGlobalBounds().width / 2.0f,
+    this->text.getGlobalBounds().height / 2.0f);
     this->text.setPosition(x, y);
-    this->text.setFillColor(sf::Color::White);
+    this->text.setFillColor(sf::Color::White);  // Make sure text is visible
 }
-
 void Button::draw(sf::RenderWindow& window) {
     window.draw(text);
 }
@@ -43,4 +43,11 @@ bool Button::isHovered() const {
 
 bool Button::isClicked(sf::Vector2f mousePosition) const {
     return text.getGlobalBounds().contains(mousePosition);
+}
+void Button::setCharacterSize(unsigned int size) {
+    text.setCharacterSize(size);
+}
+
+void Button::setString(const std::string& str) {
+    text.setString(str);
 }

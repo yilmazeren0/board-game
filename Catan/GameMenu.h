@@ -1,52 +1,38 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <memory>
+#include "Menu.h"
 #include "Button.h"
-#include "MenuButton.h"
+#include <memory>
 
 class Catan;
 
-class GameMenu {
+class GameMenu : public Menu {
 public:
     GameMenu(sf::RenderWindow* window, sf::View* view, Catan* game);
-    void draw();
-    void update(sf::Vector2f mousePosition);
+    void draw() override;
+    void update(sf::Vector2f mousePosition) override;
 
 private:
-    
-
-    // Menu Methods
-    void initializeButtons();
-    void handleMainMenu(sf::Vector2f mousePosition);
-    void handleBuildingMenu(sf::Vector2f mousePosition);
-    void updateMousePosition();
-    void updateButtonStates(sf::Vector2f mousePosition);
-
-    // Core pointers
-    sf::RenderWindow* window;
-    sf::View* view;
-    Catan* game;
-
-    // Resources
-    sf::Vector2f mousePosition;
-    sf::Font font;
-    float xPart;
-    float yPart;
-
-    // State flags
+    // Menu state
     bool is_rollDice;
     bool is_buildingMenu;
 
     // Main menu buttons
-    std::unique_ptr<MenuButton> rollDiceBtn;
-    std::unique_ptr<MenuButton> buildingBtn;
-    std::unique_ptr<MenuButton> bankBtn;
-    std::unique_ptr<MenuButton> deckBtn;
-    std::unique_ptr<MenuButton> tradeBtn;
-    std::unique_ptr<MenuButton> nextTurnBtn;
+    std::unique_ptr<Button> rollDiceBtn;
+    std::unique_ptr<Button> buildingBtn;
+    std::unique_ptr<Button> bankBtn;
+    std::unique_ptr<Button> deckBtn;
+    std::unique_ptr<Button> tradeBtn;
+    std::unique_ptr<Button> nextTurnBtn;
 
     // Building menu buttons
-    std::unique_ptr<MenuButton> backBtn;
-    std::unique_ptr<MenuButton> buildingBuyRoadBtn;
-    std::unique_ptr<MenuButton> buildingBuySettlementBtn;
+    std::unique_ptr<Button> backBtn;
+    std::unique_ptr<Button> buildRoadBtn;
+    std::unique_ptr<Button> buildSettlementBtn;
+
+    // Helper methods
+    void initializeButtons();
+    void handleBuildingMenu(sf::Vector2f mousePosition);
+    void handleMainMenu(sf::Vector2f mousePosition);
+    void updateButtonStates(sf::Vector2f mousePosition);
+    void updateMousePosition();
 };
