@@ -16,8 +16,9 @@ void TradeMenu::initializeButtons() {
         baseX, baseY - 12.0f * yPart);
     backBtn->setCharacterSize(20);
 
-    // Initialize player selection buttons
-    for (int i = 0; i < 4; i++) {
+    // Initialize player selection buttons only for actual number of players
+    int playerCount = game->getPlayerCount();  // Get actual number of players
+    for (int i = 0; i < playerCount; i++) {    // Changed from hardcoded 4 to playerCount
         auto btn = std::make_unique<Button>(
             "Trade with Player " + std::to_string(i + 1), font,
             baseX, baseY + (-6.0f + i * 3.0f) * yPart);
@@ -144,13 +145,13 @@ void TradeMenu::drawTradeInterface() {
 
 
 void TradeMenu::drawPlayerSelection() {
-    for (size_t i = 0; i < playerButtons.size(); i++) {
+    int playerCount = game->getPlayerCount();
+    for (size_t i = 0; i < playerCount; i++) {
         if (static_cast<int>(i) != game->getCurrentPlayerIndex()) {
             playerButtons[i]->draw(*window);
         }
     }
 }
-
 
 
 void TradeMenu::drawTradeProposal() {
