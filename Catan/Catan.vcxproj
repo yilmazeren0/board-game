@@ -19,8 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BankMenu.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Building.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Catan.cpp" />
     <ClCompile Include="City.cpp" />
     <ClCompile Include="Dice.cpp" />
@@ -28,27 +30,34 @@
     <ClCompile Include="GameMenu.cpp" />
     <ClCompile Include="Hex.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Road.cpp" />
     <ClCompile Include="Settlement.cpp" />
     <ClCompile Include="StartMenu.cpp" />
+    <ClCompile Include="TradeMenu.cpp" />
     <ClCompile Include="Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BankMenu.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Building.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Catan.h" />
     <ClInclude Include="City.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="GameMenu.h" />
     <ClInclude Include="Hex.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuButton.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ResourceType.h" />
     <ClInclude Include="Road.h" />
     <ClInclude Include="Settlement.h" />
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="TerrainType.h" />
+    <ClInclude Include="TradeMenu.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

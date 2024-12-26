@@ -1,23 +1,31 @@
 #include "Catan.h"
 #include <iostream>
 
-Catan::Catan()
-{
-	window = new sf::RenderWindow(sf::VideoMode{ 1280,720 }, "Catan Game Ceng201 Group 18 Project", sf::Style::Resize | sf::Style::Close);
+Catan::Catan() {
+	// Existing initialization
+	window = new sf::RenderWindow(sf::VideoMode{ 1280,720 }, "Catan Game",
+		sf::Style::Resize | sf::Style::Close);
 	view = new sf::View(sf::Vector2f{ 0.0f,0.0f }, sf::Vector2{ 1280.0f, 720.0f });
+
 	initPlayers();
 	initTextures();
 	initDevelopmentCards();
+
 	gameBoard = new Board(window, &textures);
 	startMenu = new StartMenu(window, view, this);
 	gameMenu = new GameMenu(window, view, this);
+	tradeMenu = new TradeMenu(window, view, this); 
 	dice = new Dice(window, view, &textures, this);
+	bankMenu = new BankMenu(window, view, this);
+
 	window->setFramerateLimit(60);
-	
 	backgroundColor = sf::Color(169, 169, 169);
 
-	font.loadFromFile("font/emmasophia.ttf");
+	if (!font.loadFromFile("font/emmasophia.ttf")) {
+		throw std::runtime_error("Failed to load font");
+	}
 
+	// Game state initialization
 	setupPhase = false;
 	gameBoard->setSetupPhase(false);
 	placingSettlement = false;
@@ -27,14 +35,15 @@ Catan::Catan()
 	placementStart = false;
 	placementDone = false;
 }
-
-Catan::~Catan()
-{
+Catan::~Catan() {
 	delete window;
 	delete view;
 	delete gameBoard;
 	delete startMenu;
+	delete gameMenu;
+	delete tradeMenu; // Clean up trade menu
 	delete dice;
+	delete bankMenu;
 }
 
 void Catan::run() {
@@ -102,19 +111,14 @@ void Catan::resizeView()
 	view->setSize(view_height * aspectRatio, view_height);
 }
 
-void Catan::updateGameState()
-{
+void Catan::updateGameState() {
 	view->setCenter(250.0f, 0.0f);
 	window->setView(*view);
 
 	gameBoard->update(currentPlayer->getID());
 	currentPlayer->update();
 
-	if (gameOver) {
-		// Optionally handle game over state
-		// For example, disable further actions
-		return;
-	}
+	if (gameOver) return;
 
 	if (setupPhase) {
 		handleSetupPhase();
@@ -126,10 +130,22 @@ void Catan::updateGameState()
 	if (is_menu) {
 		startMenu->update(clickPosition);
 	}
+	else if (isTrading) {
+		tradeMenu->update(clickPosition);
+		dice->update();
+	}
+	else if (isBankTrade) {  // Add this condition
+		bankMenu->update(clickPosition);
+		dice->update();
+	}
 	else {
 		gameMenu->update(clickPosition);
 		dice->update();
 	}
+}
+
+void Catan::setBankTrading(bool trading) {
+	isBankTrade = trading;  // Fix the implementation to actually set the value
 }
 
 void Catan::drawVictoryPoints() {
@@ -648,7 +664,7 @@ void Catan::nextTurnSetupPhase()
 
 void Catan::resetClickPosition()
 {
-	clickPosition = { 0.0f, 0.0f };
+	clickPosition = sf::Vector2f(-1, -1);
 }
 
 void Catan::setMenu(bool menu)
@@ -701,8 +717,7 @@ bool Catan::canBuildSettlement() const
 	return currentPlayer->canBuildSettlement();
 }
 
-void Catan::draw()
-{
+void Catan::draw() {
 	gameBoard->draw();
 
 	if (is_menu) {
@@ -711,17 +726,90 @@ void Catan::draw()
 	else {
 		currentPlayer->draw();
 		currentPlayer->drawCardUI();
-		drawVictoryPoints(); 
+		drawVictoryPoints();
+
 		if (!setupPhase) {
-			gameMenu->draw();
+			if (isTrading) {
+				tradeMenu->draw();
+			}
+			else if (isBankTrade) {
+				bankMenu->draw();
+			}
+			else {
+				gameMenu->draw();
+			}
 			dice->draw();
 		}
 	}
 }
 
-void Catan::save()
-{
+//Trade functions
 
+void Catan::initiateTrade(int target) {
+	if (target != currentPlayerIndex) {
+		tradingPlayer = currentPlayerIndex;
+		targetPlayer = target;
+		isTrading = true;
+	}
+}
+bool Catan::proposeTrade(int target, const std::map<ResourceType, int>& offer,
+	const std::map<ResourceType, int>& request) {
+	tradingPlayer = getCurrentPlayerIndex();
+	targetPlayer = target;
+	tradeOffer = offer;
+	tradeRequest = request;
+	isTrading = true;
+	return true;
+}
+
+void Catan::acceptTrade() {
+	if (!isTrading) return;
+
+	Player* currentTrader = &players[tradingPlayer];
+	Player* targetTrader = &players[targetPlayer];
+
+	// Verify resources are available
+	for (const auto& [resource, count] : tradeOffer) {
+		if (currentTrader->getResourceCount(resource) < count) {
+			return; // Trade failed - insufficient resources
+		}
+	}
+
+	// Execute the trade
+	for (const auto& [resource, count] : tradeOffer) {
+		currentTrader->removeResource(resource, count);
+		targetTrader->addResource(resource, count);
+	}
+
+	for (const auto& [resource, count] : tradeRequest) {
+		targetTrader->removeResource(resource, count);
+		currentTrader->addResource(resource, count);
+	}
+
+	isTrading = false;
+}
+
+void Catan::declineTrade() {
+	isTrading = false;
+}
+
+bool Catan::bankTrade(ResourceType giveResource, ResourceType getResource, int giveAmount) {
+	// Check if player has enough resources
+	if (currentPlayer->getResourceCount(giveResource) >= giveAmount) {
+		// Execute the trade
+		currentPlayer->removeResource(giveResource, giveAmount);
+		currentPlayer->addResource(getResource, 1);
+		return true;
+	}
+	return false;
+}
+
+Player* Catan::getCurrentPlayer() {
+	return currentPlayer;
+}
+
+int Catan::getCurrentPlayerIndex() const {
+	return currentPlayerIndex;
 }
 
 const std::array<sf::Color, 4> Catan::colors = { 
