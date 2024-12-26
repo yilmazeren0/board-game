@@ -8,8 +8,8 @@ TradeMenu::TradeMenu(sf::RenderWindow* window, sf::View* view, Catan* game)
 }
 
 void TradeMenu::initializeButtons() {
-    float baseX = view->getCenter().x + 12.0f * xPart;  // Align with game menu
-    float baseY = view->getCenter().y;
+    float baseX = view->getCenter().x + 13.0f * xPart;  // Align with game menu
+    float baseY = view->getCenter().y + 140.0f;
 
     // Back button at top
     backBtn = std::make_unique<Button>("<- Back", font,
@@ -41,8 +41,8 @@ void TradeMenu::initializeButtons() {
     requestHeader = std::make_unique<Button>("You Request", font,
         baseX + 3.0f * xPart, baseY - 8.0f * yPart);
 
-    offerHeader->setCharacterSize(22);
-    requestHeader->setCharacterSize(22);
+    offerHeader->setCharacterSize(18);
+    requestHeader->setCharacterSize(18);
 
     for (const auto& resource : resources) {
         // Resource names/labels
@@ -71,18 +71,18 @@ void TradeMenu::initializeButtons() {
 
         // Set text sizes and colors
         sf::Color labelColor = sf::Color(200, 200, 200);  // Light gray for labels
-        offerLabels[resource]->setCharacterSize(18);
-        requestLabels[resource]->setCharacterSize(18);
+        offerLabels[resource]->setCharacterSize(14);
+        requestLabels[resource]->setCharacterSize(14);
         offerLabels[resource]->getText().setFillColor(labelColor);
         requestLabels[resource]->getText().setFillColor(labelColor);
 
-        offerCountText[resource]->setCharacterSize(20);
-        requestCountText[resource]->setCharacterSize(20);
+        offerCountText[resource]->setCharacterSize(16);
+        requestCountText[resource]->setCharacterSize(16);
 
-        offerPlusButtons[resource]->setCharacterSize(22);
-        offerMinusButtons[resource]->setCharacterSize(22);
-        requestPlusButtons[resource]->setCharacterSize(22);
-        requestMinusButtons[resource]->setCharacterSize(22);
+        offerPlusButtons[resource]->setCharacterSize(18);
+        offerMinusButtons[resource]->setCharacterSize(18);
+        requestPlusButtons[resource]->setCharacterSize(18);
+        requestMinusButtons[resource]->setCharacterSize(18);
 
         resourceY += resourceSpacing;
     }
