@@ -71,3 +71,8 @@ Players can build settlements, trade resources, and strategize to achieve victor
 ### Game Menu
 - Mouse Click : Navigate between game options(Roll Dice, Building, Bank, Development Card, Trade, Next Turn).
 
+---
+## Contributions
+- **Muhammed Enes Ugras**:
+- **Eren Yılmaz**:
+- **Rasin Talha Yılmaz**:
