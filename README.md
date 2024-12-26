@@ -48,7 +48,7 @@ Players can build settlements, trade resources, and strategize to achieve victor
 ## Installation and Usage
 
 ### Prerequisites
-- **Visual Studio 2022 **: Ensure Visual Studio 2022 installed.
+- **Visual Studio 2022**: Ensure Visual Studio 2022 installed.
 - **SFML Library**: Download and install SFML (version 2.6.2).
 - https://www.sfml-dev.org/download/sfml/2.6.2/
 
