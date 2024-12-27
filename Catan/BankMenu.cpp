@@ -7,6 +7,18 @@ BankMenu::BankMenu(sf::RenderWindow* window, sf::View* view, Catan* game)
     initializeButtons();
 }
 
+std::string BankMenu::getResourceName(ResourceType type) const
+{
+    switch (type) {
+    case ResourceType::LUMBER: return "Lumber";
+    case ResourceType::BRICK: return "Brick";
+    case ResourceType::WOOL: return "Wool";
+    case ResourceType::GRAIN: return "Grain";
+    case ResourceType::ORE: return "Ore";
+    default: return "None";
+    }
+}
+
 void BankMenu::initializeButtons() {
     float baseX = view->getCenter().x + 12.0f * xPart;
     float baseY = view->getCenter().y + 8.0f * yPart; 

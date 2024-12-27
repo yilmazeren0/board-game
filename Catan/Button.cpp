@@ -51,3 +51,13 @@ void Button::setCharacterSize(unsigned int size) {
 void Button::setString(const std::string& str) {
     text.setString(str);
 }
+
+sf::Text& Button::getText()
+{
+    return text;
+}
+
+const sf::Text& Button::getText() const
+{
+    return text;
+}

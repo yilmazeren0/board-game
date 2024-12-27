@@ -75,6 +75,21 @@ void Player::setLongestRoad(bool has) {
     hasLongestRoad = has;
 }
 
+void Player::incrementRoadCount()
+{
+    roadCount++;
+}
+
+int Player::getRoadCount() const
+{
+    return roadCount;
+}
+
+void Player::clearNewlyPurchasedCards()
+{
+    newlyPurchasedCards.clear();
+}
+
 
 bool Player::hasResources() const {
     return getTotalResources() > 0;

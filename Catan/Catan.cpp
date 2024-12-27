@@ -804,12 +804,32 @@ bool Catan::bankTrade(ResourceType giveResource, ResourceType getResource, int g
 	return false;
 }
 
+bool Catan::isBankTrading() const
+{
+	return isBankTrade;
+}
+
 Player* Catan::getCurrentPlayer() {
 	return currentPlayer;
 }
 
+Player* Catan::getPlayer(int playerIndex)
+{
+	return &players[playerIndex];
+}
+
 int Catan::getCurrentPlayerIndex() const {
 	return currentPlayerIndex;
+}
+
+void Catan::setTrading(bool trading)
+{
+	isTrading = trading;
+}
+
+bool Catan::getTrading() const
+{
+	return isTrading;
 }
 
 const std::array<sf::Color, 4> Catan::colors = { 

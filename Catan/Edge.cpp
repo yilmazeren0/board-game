@@ -67,6 +67,16 @@ bool Edge::isOwnedByPlayer(size_t playerID) const {
     return road->getOwner()->getID() == playerID;
 }
 
+bool Edge::containsVertex(int vertexIndex) const
+{
+    return vertices[0] == vertexIndex || vertices[1] == vertexIndex;
+}
+
+const std::array<int, 2>& Edge::getVertices() const
+{
+    return vertices;
+}
+
 void Edge::update(const sf::Vector2f& mousePosition)
 {
     if (edge.getGlobalBounds().contains(mousePosition) && highlighted) {

@@ -7,6 +7,18 @@ TradeMenu::TradeMenu(sf::RenderWindow* window, sf::View* view, Catan* game)
     initializeButtons();
 }
 
+std::string TradeMenu::getResourceName(ResourceType type) const
+{
+    switch (type) {
+    case ResourceType::LUMBER: return "Lumber";
+    case ResourceType::BRICK: return "Brick";
+    case ResourceType::WOOL: return "Wool";
+    case ResourceType::GRAIN: return "Grain";
+    case ResourceType::ORE: return "Ore";
+    default: return "None";
+    }
+}
+
 void TradeMenu::initializeButtons() {
     float baseX = view->getCenter().x + 13.0f * xPart;  // Align with game menu
     float baseY = view->getCenter().y + 140.0f;
