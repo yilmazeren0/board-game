@@ -82,12 +82,12 @@ void Board::draw()
 bool Board::placeRobber(sf::Vector2f clickPosition) {
 	for (auto& hex : hexes) {
 		if (hex.getBox().contains(clickPosition)) {
-			// Don't allow placing on the same hex where robber currently is
+			// Don't allow placing on the same hex
 			if (&hex == currentRobberHex) {
 				return false;
 			}
 
-			// Remove robber from current hex if it exists
+			// Remove robber from current hex
 			if (currentRobberHex) {
 				currentRobberHex->removeRobber();
 			}
@@ -100,6 +100,7 @@ bool Board::placeRobber(sf::Vector2f clickPosition) {
 	}
 	return false;
 }
+
 
 bool Board::placeRoad(Player* player, sf::Vector2f clickPosition)
 {

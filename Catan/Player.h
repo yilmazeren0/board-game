@@ -350,6 +350,8 @@ public:
      */
     bool isCardPlayable(Card card) const;
 
+    void incrementVictoryPoints() { victoryPoints++; }
+
 private:
     /**
      * @brief Initializes the player's resources.
@@ -381,4 +383,6 @@ private:
      * @brief Updates the player's text elements.
      */
     void updateText();
+
+
 };
