@@ -400,6 +400,17 @@ void Catan::rollDice() {
 		// Set the current state to handle robber placement
 		currentPlayer->setMustMoveRobber(true);
 
+		//warning for place robber
+		sf::Text warningText;
+		warningText.setFont(font);
+		warningText.setString("7 Rolled! Place the Robber");
+		warningText.setCharacterSize(30);
+		warningText.setFillColor(sf::Color::Red);
+		warningText.setPosition(view->getCenter().x, view->getCenter().y - 200);
+		window->draw(warningText);
+		window->display();
+		sf::sleep(sf::seconds(2));
+
 		// Handle resource discarding for players with more than 7 cards
 		for (auto& player : players) {
 			int totalResources = player.getTotalResources();
@@ -408,6 +419,7 @@ void Catan::rollDice() {
 				player.discardResources(discard);
 			}
 		}
+		return; // fix automatic robber placement
 	}
 	else {
 		// Normal resource production
@@ -511,23 +523,19 @@ void Catan::handleSetupPhase()
 void Catan::handleGamePhase() {
 	if (placingRobber) {
 		if (gameBoard->placeRobber(clickPosition)) {
-			// Get the hex where robber was placed
 			Hex* robberHex = gameBoard->getRobberHex();
 			if (robberHex) {
-				// Get all players who have settlements/cities adjacent to this hex
 				std::vector<Player*> victims = gameBoard->getPlayersAtHex(robberHex);
 
-				// Remove current player from potential victims
+				// Remove current player from victims
 				victims.erase(std::remove_if(victims.begin(), victims.end(),
 					[this](Player* p) { return p->getID() == currentPlayer->getID(); }),
 					victims.end());
 
-				// If there are victims, steal from one at random
+				// Handle stealing
 				if (!victims.empty()) {
 					int victimIndex = rand() % victims.size();
 					Player* victim = victims[victimIndex];
-
-					// Steal a random resource
 					if (victim->hasResources()) {
 						ResourceType stolenResource = victim->getRandomResource();
 						victim->removeResource(stolenResource, 1);
@@ -539,6 +547,8 @@ void Catan::handleGamePhase() {
 			// Reset robber placement state
 			placingRobber = false;
 			currentPlayer->setMustMoveRobber(false);
+			// Reset click position after placement
+			resetClickPosition();
 		}
 	}
 	if (placingFreeRoad && freeRoadsRemaining > 0) {
@@ -631,7 +641,11 @@ bool Catan::placeRoad(sf::Vector2f clickPosition) {
 
 bool Catan::placeSettlement(sf::Vector2f clickPosition)
 {
-	return gameBoard->placeSettlement(&(players[currentPlayerIndex]), clickPosition);
+	if (gameBoard->placeSettlement(&(players[currentPlayerIndex]), clickPosition)) {
+		currentPlayer->incrementVictoryPoints();
+		return true;
+	}
+	return false;
 }
 
 void Catan::initSetupOrder()
