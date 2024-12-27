@@ -4,8 +4,8 @@ Group Members:
 MUHAMMED ENES UĞRAŞ  
 RASİN TALHA YILMAZ  
 EREN YILMAZ  
-SÜHAN SARI  
-MUHAMMET EMİR ZAYIFOĞLU  
+SÜHAN SARI  //Missing
+MUHAMMET EMİR ZAYIFOĞLU  //Missing
 
 This repository will be used for CENG201-Object Oriented Programming project
 nstallation and Usage
@@ -46,6 +46,8 @@ Players can build settlements, trade resources, and strategize to achieve victor
 ---
 
 ## Installation and Usage
+For Windows, you can install as a .zip file and extract it. Then run Catan.exe. Doesnt require anything.
+For contribution follow below parts.
 
 ### Prerequisites
 - **Visual Studio 2022**: Ensure Visual Studio 2022 installed.
@@ -75,4 +77,4 @@ Players can build settlements, trade resources, and strategize to achieve victor
 ## Contributions
 - **Muhammed Enes Ugras**: Mostly Coding Part
 - **Eren Yılmaz**: Mostly Coding Part
-- **Rasin Talha Yılmaz**: Mostly Documentation and Testing
+- **Rasin Talha Yılmaz**: Just Documentation -Doxygen
