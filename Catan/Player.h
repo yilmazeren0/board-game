@@ -9,6 +9,18 @@
 #include "Settlement.h"
 #include "City.h"
 
+enum class Card {
+    None,
+    Knight,
+    YearOfPlenty,
+    RoadBuilding,
+    Monopoly,
+    VictoryPoint,
+	LongestRoad,
+	LargestArmy
+};
+
+
 /**
  * @file Player.h
  * @brief Defines the Player class, which represents a player in the game.
