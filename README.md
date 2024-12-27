@@ -19,9 +19,7 @@ Players can build settlements, trade resources, and strategize to achieve victor
 
 ---
 
-## Catan Game Rules
-
-- **[Core Gameplay Mechanics](https://www.catan.com/sites/default/files/2021-06/catan_base_rules_2020_200707.pdf)**: 
+**[Catan Game Rules](https://www.catan.com/sites/default/files/2021-06/catan_base_rules_2020_200707.pdf)**: 
 
 
 ## Features
