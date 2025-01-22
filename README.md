@@ -76,7 +76,4 @@ For contribution follow below parts.
 - Mouse Click : Navigate between game options(Roll Dice, Building, Bank, Development Card, Trade, Next Turn).
 
 ---
-## Contributions
-- **Muhammed Enes Ugras**: Mostly Coding Part
-- **Eren Yılmaz**: Mostly Coding Part
-- **Rasin Talha Yılmaz**: Just Documentation -Doxygen
+
