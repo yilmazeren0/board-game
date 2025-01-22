@@ -13,6 +13,14 @@ Players can build settlements, trade resources, and strategize to achieve victor
 
 ---
 
+## Gameplay
+
+![image](https://github.com/user-attachments/assets/b666260e-1692-446f-8e01-05be6fbd3317)
+![image](https://github.com/user-attachments/assets/7100a2e0-7454-4ed4-9ca1-577f86334eb0)
+![image](https://github.com/user-attachments/assets/d98414b4-7418-496a-beb5-14ada68e03ef)
+
+---
+
 ## Features
 
 - **Core Gameplay Mechanics**: 
