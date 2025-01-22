@@ -1,15 +1,3 @@
-OOP_GROUP18  
-
-Group Members:  
-MUHAMMED ENES UĞRAŞ  
-RASİN TALHA YILMAZ  
-EREN YILMAZ  
-SÜHAN SARI  //Missing
-MUHAMMET EMİR ZAYIFOĞLU  //Missing
-
-This repository will be used for CENG201-Object Oriented Programming project
-nstallation and Usage
-
 # Settlers of Catan - Video Game Implementation
 ## Project Video
 https://www.youtube.com/watch?v=5gU-hPcPsbI
